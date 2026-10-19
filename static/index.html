@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TenderOS V3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+        @keyframes progress { 0% { width: 0%; } 100% { width: 100%; } }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen" x-data="tenderApp()" x-cloak>
+    <div class="container mx-auto px-4 py-8 max-w-5xl">
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl font-bold text-blue-900">TenderOS V3</h1>
+            <p class="text-gray-600">Automated Proposal & Checklist Engine</p>
+        </header>
+
+        <!-- Step 1: Upload -->
+        <div x-show="step === 'upload'" class="bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">1. Upload Tender PDFs</h2>
+            <div class="border-2 border-dashed border-gray-300 rounded-lg p-12 text-center hover:border-blue-500 transition-colors"
+                 @dragover.prevent="dragover = true"
+                 @dragleave.prevent="dragover = false"
+                 @drop.prevent="handleDrop($event)"
+                 :class="{'border-blue-500 bg-blue-50': dragover}">
+                <p class="text-lg mb-2">Drag & Drop your PDF files here</p>
+                <p class="text-gray-500 mb-4">or</p>
+                <label class="cursor-pointer bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
+                    Browse Files
+                    <input type="file" multiple accept=".pdf" class="hidden" @change="handleFileSelect($event)">
+                </label>
+            </div>
+            <div x-show="files.length > 0" class="mt-6">
+                <h3 class="font-semibold mb-2">Selected Files:</h3>
+                <ul class="list-disc pl-5 text-gray-700">
+                    <template x-for="file in files" :key="file.name">
+                        <li x-text="file.name"></li>
+                    </template>
+                </ul>
+                <button @click="uploadFiles" class="mt-4 bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
+                    Upload & Process
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 2: Processing -->
+        <div x-show="step === 'processing'" class="bg-white p-8 rounded-lg shadow-md text-center">
+            <h2 class="text-2xl font-semibold mb-4">Processing Tender...</h2>
+            <div class="animate-pulse text-blue-600 text-lg">
+                <p>Extracting text & OCR...</p>
+                <p class="mt-2">Analyzing clauses...</p>
+                <p class="mt-2">Generating checklist & keywords...</p>
+            </div>
+            <div class="mt-6 w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-blue-600 h-2.5 rounded-full animate-[progress_3s_ease-in-out_infinite]" style="width: 100%"></div>
+            </div>
+        </div>
+
+        <!-- Step 3: Results -->
+        <div x-show="step === 'results'" class="bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">3. Analysis Results</h2>
+            <div class="flex border-b mb-4">
+                <button @click="activeTab = 'checklist'" :class="{'border-b-2 border-blue-600 text-blue-600 font-semibold': activeTab === 'checklist'}" class="px-4 py-2">Checklist</button>
+                <button @click="activeTab = 'keywords'" :class="{'border-b-2 border-blue-600 text-blue-600 font-semibold': activeTab === 'keywords'}" class="px-4 py-2">Keywords</button>
+            </div>
+            
+            <div x-show="activeTab === 'checklist'">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="p-2 border">Document</th>
+                            <th class="p-2 border">Ref</th>
+                            <th class="p-2 border">Mandatory</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template x-for="item in data.doc_checklist" :key="item.name">
+                            <tr>
+                                <td class="p-2 border" x-text="item.name"></td>
+                                <td class="p-2 border" x-text="item.clause_reference"></td>
+                                <td class="p-2 border" x-text="item.mandatory ? 'YES' : 'NO'"></td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+
+            <div x-show="activeTab === 'keywords'">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="p-2 border">Keyword</th>
+                            <th class="p-2 border">Section</th>
+                            <th class="p-2 border">Context</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template x-for="item in data.proposal_keywords" :key="item.keyword">
+                            <tr>
+                                <td class="p-2 border" x-text="item.keyword"></td>
+                                <td class="p-2 border" x-text="item.section"></td>
+                                <td class="p-2 border text-sm" x-text="item.context"></td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-6 flex gap-4">
+                <a :href="`/api/v3/tenders/${tenderId}/download/excel`" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">Download Excel</a>
+                <button @click="step = 'form'" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Proceed to Client Form</button>
+            </div>
+        </div>
+
+        <!-- Step 4: Client Form -->
+        <div x-show="step === 'form'" class="bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">4. Client Intake Form</h2>
+            <form @submit.prevent="submitClientForm" class="space-y-4">
+                <template x-for="field in data.client_form_schema" :key="field.field_id">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700" x-text="field.label"></label>
+                        <p class="text-xs text-gray-500 mb-1" x-text="field.description"></p>
+                        <input 
+                            :type="field.input_type === 'number' ? 'number' : 'text'" 
+                            x-model="formData[field.field_id]"
+                            :required="field.required"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2 border"
+                        >
+                    </div>
+                </template>
+                <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Generate Proposal</button>
+            </form>
+        </div>
+
+        <!-- Step 5: Proposal -->
+        <div x-show="step === 'proposal'" class="bg-white p-8 rounded-lg shadow-md text-center">
+            <h2 class="text-2xl font-semibold mb-4 text-green-700">5. Proposal Ready!</h2>
+            <p class="mb-6 text-gray-600">Your tender proposal has been successfully synthesized.</p>
+            <a :href="`/api/v3/tenders/${tenderId}/download/proposal`" class="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700 text-lg">Download Proposal (.docx)</a>
+            <button @click="resetApp" class="block mx-auto mt-4 text-blue-600 hover:underline">Process Another Tender</button>
+        </div>
+    </div>
+
+    <script>
+        function tenderApp() {
+            return {
+                step: 'upload',
+                dragover: false,
+                files: [],
+                tenderId: null,
+                data: { doc_checklist: [], proposal_keywords: [], client_form_schema: [] },
+                activeTab: 'checklist',
+                formData: {},
+                
+                handleDrop(e) {
+                    this.dragover = false;
+                    this.files = [...e.dataTransfer.files].filter(f => f.type === 'application/pdf');
+                },
+                handleFileSelect(e) {
+                    this.files = [...e.target.files];
+                },
+                async uploadFiles() {
+                    if (this.files.length === 0) return;
+                    this.step = 'processing';
+                    
+                    const formData = new FormData();
+                    this.files.forEach(f => formData.append('files', f));
+                    
+                    try {
+                        const res = await fetch('/api/v3/tenders/upload', { method: 'POST', body: formData });
+                        const result = await res.json();
+                        this.tenderId = result.tender_id;
+                        
+                        await fetch(`/api/v3/tenders/${this.tenderId}/process`, { method: 'POST' });
+                        
+                        const dataRes = await fetch(`/api/v3/tenders/${this.tenderId}/data`);
+                        this.data = await dataRes.json();
+                        
+                        this.step = 'results';
+                    } catch (err) {
+                        alert('Error processing files: ' + err.message);
+                        this.step = 'upload';
+                    }
+                },
+                async submitClientForm() {
+                    try {
+                        await fetch(`/api/v3/tenders/${this.tenderId}/submit-form`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(this.formData)
+                        });
+                        this.step = 'proposal';
+                    } catch (err) {
+                        alert('Error generating proposal: ' + err.message);
+                    }
+                },
+                resetApp() {
+                    this.step = 'upload';
+                    this.files = [];
+                    this.tenderId = null;
+                    this.data = { doc_checklist: [], proposal_keywords: [], client_form_schema: [] };
+                    this.formData = {};
+                }
+            }
+        }
+    </script>
+</body>
+</html>
