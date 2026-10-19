@@ -1,0 +1,2143 @@
+{
+  "source_sha256": "1e6991dc261baf5bac6e9469f469f830a5fbda675aa689497abaa634ed757c13",
+  "access": "SQLite URI mode=ro, query_only=ON",
+  "tables": {
+    "audit_events": {
+      "rows": 36,
+      "columns": [
+        {
+          "cid": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 1
+        },
+        {
+          "cid": 1,
+          "name": "event_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 2,
+          "name": "case_id",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 3,
+          "name": "event_type",
+          "type": "VARCHAR(120)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 4,
+          "name": "event_message",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 5,
+          "name": "event_payload_json",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 6,
+          "name": "created_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "seq": 0,
+          "name": "ix_audit_events_event_id",
+          "unique": 1,
+          "origin": "c",
+          "partial": 0
+        },
+        {
+          "seq": 1,
+          "name": "ix_audit_events_case_id",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        }
+      ],
+      "sql": "CREATE TABLE audit_events (\n\tid INTEGER NOT NULL, \n\tevent_id VARCHAR(80) NOT NULL, \n\tcase_id VARCHAR(80), \n\tevent_type VARCHAR(120), \n\tevent_message TEXT, \n\tevent_payload_json TEXT, \n\tcreated_at DATETIME NOT NULL, \n\tPRIMARY KEY (id)\n)",
+      "orphan_case_links": 0
+    },
+    "bid_recommendations": {
+      "rows": 1,
+      "columns": [
+        {
+          "cid": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 1
+        },
+        {
+          "cid": 1,
+          "name": "case_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 2,
+          "name": "total_score",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 3,
+          "name": "max_score",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 4,
+          "name": "percentage",
+          "type": "FLOAT",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 5,
+          "name": "recommendation",
+          "type": "VARCHAR(120)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 6,
+          "name": "rationale",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 7,
+          "name": "created_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 8,
+          "name": "updated_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "seq": 0,
+          "name": "ix_bid_recommendations_case_id",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        }
+      ],
+      "sql": "CREATE TABLE bid_recommendations (\n\tid INTEGER NOT NULL, \n\tcase_id VARCHAR(80) NOT NULL, \n\ttotal_score INTEGER NOT NULL, \n\tmax_score INTEGER NOT NULL, \n\tpercentage FLOAT NOT NULL, \n\trecommendation VARCHAR(120) NOT NULL, \n\trationale TEXT, \n\tcreated_at DATETIME NOT NULL, \n\tupdated_at DATETIME NOT NULL, \n\tPRIMARY KEY (id)\n)",
+      "orphan_case_links": 0
+    },
+    "bid_scorecard": {
+      "rows": 10,
+      "columns": [
+        {
+          "cid": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 1
+        },
+        {
+          "cid": 1,
+          "name": "case_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 2,
+          "name": "category",
+          "type": "VARCHAR(120)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 3,
+          "name": "score",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 4,
+          "name": "max_score",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 5,
+          "name": "rationale",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 6,
+          "name": "evidence_or_gap_reference",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 7,
+          "name": "created_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 8,
+          "name": "updated_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "seq": 0,
+          "name": "ix_bid_scorecard_case_id",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        }
+      ],
+      "sql": "CREATE TABLE bid_scorecard (\n\tid INTEGER NOT NULL, \n\tcase_id VARCHAR(80) NOT NULL, \n\tcategory VARCHAR(120) NOT NULL, \n\tscore INTEGER NOT NULL, \n\tmax_score INTEGER NOT NULL, \n\trationale TEXT, \n\tevidence_or_gap_reference TEXT, \n\tcreated_at DATETIME NOT NULL, \n\tupdated_at DATETIME NOT NULL, \n\tPRIMARY KEY (id)\n)",
+      "orphan_case_links": 0
+    },
+    "cases": {
+      "rows": 1,
+      "columns": [
+        {
+          "cid": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 1
+        },
+        {
+          "cid": 1,
+          "name": "case_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 2,
+          "name": "client_name",
+          "type": "VARCHAR(255)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 3,
+          "name": "organization",
+          "type": "VARCHAR(255)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 4,
+          "name": "contact_person",
+          "type": "VARCHAR(255)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 5,
+          "name": "email",
+          "type": "VARCHAR(255)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 6,
+          "name": "whatsapp",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 7,
+          "name": "tender_title",
+          "type": "VARCHAR(500)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 8,
+          "name": "donor_client",
+          "type": "VARCHAR(255)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 9,
+          "name": "country",
+          "type": "VARCHAR(120)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 10,
+          "name": "sector",
+          "type": "VARCHAR(120)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 11,
+          "name": "submission_deadline",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 12,
+          "name": "submission_type",
+          "type": "VARCHAR(120)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 13,
+          "name": "bidding_role",
+          "type": "VARCHAR(120)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 14,
+          "name": "diagnostic_type",
+          "type": "VARCHAR(120)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 15,
+          "name": "status",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 16,
+          "name": "payment_status",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 17,
+          "name": "readiness_label",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 18,
+          "name": "created_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 19,
+          "name": "updated_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "seq": 0,
+          "name": "ix_cases_case_id",
+          "unique": 1,
+          "origin": "c",
+          "partial": 0
+        }
+      ],
+      "sql": "CREATE TABLE cases (\n\tid INTEGER NOT NULL, \n\tcase_id VARCHAR(80) NOT NULL, \n\tclient_name VARCHAR(255), \n\torganization VARCHAR(255), \n\tcontact_person VARCHAR(255), \n\temail VARCHAR(255), \n\twhatsapp VARCHAR(80), \n\ttender_title VARCHAR(500), \n\tdonor_client VARCHAR(255), \n\tcountry VARCHAR(120), \n\tsector VARCHAR(120), \n\tsubmission_deadline VARCHAR(80), \n\tsubmission_type VARCHAR(120), \n\tbidding_role VARCHAR(120), \n\tdiagnostic_type VARCHAR(120), \n\tstatus VARCHAR(80) NOT NULL, \n\tpayment_status VARCHAR(80), \n\treadiness_label VARCHAR(80) NOT NULL, \n\tcreated_at DATETIME NOT NULL, \n\tupdated_at DATETIME NOT NULL, \n\tPRIMARY KEY (id)\n)"
+    },
+    "clarification_questions": {
+      "rows": 1,
+      "columns": [
+        {
+          "cid": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 1
+        },
+        {
+          "cid": 1,
+          "name": "question_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 2,
+          "name": "case_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 3,
+          "name": "related_requirement_id",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 4,
+          "name": "question",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 5,
+          "name": "why_it_matters",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 6,
+          "name": "priority",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 7,
+          "name": "status",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 8,
+          "name": "created_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "seq": 0,
+          "name": "ix_clarification_questions_question_id",
+          "unique": 1,
+          "origin": "c",
+          "partial": 0
+        },
+        {
+          "seq": 1,
+          "name": "ix_clarification_questions_case_id",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        }
+      ],
+      "sql": "CREATE TABLE clarification_questions (\n\tid INTEGER NOT NULL, \n\tquestion_id VARCHAR(80) NOT NULL, \n\tcase_id VARCHAR(80) NOT NULL, \n\trelated_requirement_id VARCHAR(80), \n\tquestion TEXT, \n\twhy_it_matters TEXT, \n\tpriority VARCHAR(80), \n\tstatus VARCHAR(80), \n\tcreated_at DATETIME NOT NULL, \n\tPRIMARY KEY (id)\n)",
+      "orphan_case_links": 0
+    },
+    "compliance_ledger": {
+      "rows": 52,
+      "columns": [
+        {
+          "cid": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 1
+        },
+        {
+          "cid": 1,
+          "name": "compliance_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 2,
+          "name": "requirement_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 3,
+          "name": "case_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 4,
+          "name": "evidence_needed",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 5,
+          "name": "available_evidence",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 6,
+          "name": "gap",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 7,
+          "name": "proposal_location",
+          "type": "VARCHAR(255)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 8,
+          "name": "responsible_person",
+          "type": "VARCHAR(255)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 9,
+          "name": "status",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 10,
+          "name": "risk_level",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 11,
+          "name": "action_required",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 12,
+          "name": "deadline",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 13,
+          "name": "final_check",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 14,
+          "name": "notes",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 15,
+          "name": "created_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 16,
+          "name": "updated_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "seq": 0,
+          "name": "ix_compliance_ledger_compliance_id",
+          "unique": 1,
+          "origin": "c",
+          "partial": 0
+        },
+        {
+          "seq": 1,
+          "name": "ix_compliance_ledger_case_id",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        },
+        {
+          "seq": 2,
+          "name": "ix_compliance_ledger_requirement_id",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        }
+      ],
+      "sql": "CREATE TABLE compliance_ledger (\n\tid INTEGER NOT NULL, \n\tcompliance_id VARCHAR(80) NOT NULL, \n\trequirement_id VARCHAR(80) NOT NULL, \n\tcase_id VARCHAR(80) NOT NULL, \n\tevidence_needed TEXT, \n\tavailable_evidence TEXT, \n\tgap TEXT, \n\tproposal_location VARCHAR(255), \n\tresponsible_person VARCHAR(255), \n\tstatus VARCHAR(80) NOT NULL, \n\trisk_level VARCHAR(80), \n\taction_required TEXT, \n\tdeadline VARCHAR(80), \n\tfinal_check VARCHAR(80), \n\tnotes TEXT, \n\tcreated_at DATETIME NOT NULL, \n\tupdated_at DATETIME NOT NULL, \n\tPRIMARY KEY (id)\n)",
+      "orphan_case_links": 0
+    },
+    "cv_matches": {
+      "rows": 2,
+      "columns": [
+        {
+          "cid": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 1
+        },
+        {
+          "cid": 1,
+          "name": "expert_match_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 2,
+          "name": "case_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 3,
+          "name": "requirement_id",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 4,
+          "name": "expert_role",
+          "type": "VARCHAR(255)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 5,
+          "name": "candidate_name",
+          "type": "VARCHAR(255)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 6,
+          "name": "required_qualification",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 7,
+          "name": "required_years",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 8,
+          "name": "required_specific_experience",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 9,
+          "name": "required_country_region_experience",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 10,
+          "name": "required_donor_experience",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 11,
+          "name": "required_language_tools",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 12,
+          "name": "cv_evidence",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 13,
+          "name": "match_score_1_to_5",
+          "type": "INTEGER",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 14,
+          "name": "gap",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 15,
+          "name": "rewrite_needed",
+          "type": "BOOLEAN",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 16,
+          "name": "suggested_cv_language",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 17,
+          "name": "replace_candidate",
+          "type": "BOOLEAN",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 18,
+          "name": "risk_level",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 19,
+          "name": "notes",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "seq": 0,
+          "name": "ix_cv_matches_case_id",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        },
+        {
+          "seq": 1,
+          "name": "ix_cv_matches_expert_match_id",
+          "unique": 1,
+          "origin": "c",
+          "partial": 0
+        },
+        {
+          "seq": 2,
+          "name": "ix_cv_matches_requirement_id",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        }
+      ],
+      "sql": "CREATE TABLE cv_matches (\n\tid INTEGER NOT NULL, \n\texpert_match_id VARCHAR(80) NOT NULL, \n\tcase_id VARCHAR(80) NOT NULL, \n\trequirement_id VARCHAR(80), \n\texpert_role VARCHAR(255), \n\tcandidate_name VARCHAR(255), \n\trequired_qualification TEXT, \n\trequired_years VARCHAR(80), \n\trequired_specific_experience TEXT, \n\trequired_country_region_experience TEXT, \n\trequired_donor_experience TEXT, \n\trequired_language_tools TEXT, \n\tcv_evidence TEXT, \n\tmatch_score_1_to_5 INTEGER, \n\tgap TEXT, \n\trewrite_needed BOOLEAN NOT NULL, \n\tsuggested_cv_language TEXT, \n\treplace_candidate BOOLEAN NOT NULL, \n\trisk_level VARCHAR(80), \n\tnotes TEXT, \n\tPRIMARY KEY (id)\n)",
+      "orphan_case_links": 0
+    },
+    "egp_checklist_items": {
+      "rows": 19,
+      "columns": [
+        {
+          "cid": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 1
+        },
+        {
+          "cid": 1,
+          "name": "checklist_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 2,
+          "name": "case_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 3,
+          "name": "item_key",
+          "type": "VARCHAR(120)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 4,
+          "name": "stage",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 5,
+          "name": "item_title",
+          "type": "VARCHAR(500)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 6,
+          "name": "guidance",
+          "type": "TEXT",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 7,
+          "name": "status",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 8,
+          "name": "evidence_notes",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 9,
+          "name": "updated_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "seq": 0,
+          "name": "ix_egp_checklist_items_case_id",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        },
+        {
+          "seq": 1,
+          "name": "ix_egp_checklist_items_checklist_id",
+          "unique": 1,
+          "origin": "c",
+          "partial": 0
+        },
+        {
+          "seq": 2,
+          "name": "sqlite_autoindex_egp_checklist_items_1",
+          "unique": 1,
+          "origin": "u",
+          "partial": 0
+        }
+      ],
+      "sql": "CREATE TABLE egp_checklist_items (\n\tid INTEGER NOT NULL, \n\tchecklist_id VARCHAR(80) NOT NULL, \n\tcase_id VARCHAR(80) NOT NULL, \n\titem_key VARCHAR(120) NOT NULL, \n\tstage VARCHAR(80) NOT NULL, \n\titem_title VARCHAR(500) NOT NULL, \n\tguidance TEXT NOT NULL, \n\tstatus VARCHAR(80) NOT NULL, \n\tevidence_notes TEXT, \n\tupdated_at DATETIME NOT NULL, \n\tPRIMARY KEY (id), \n\tCONSTRAINT uq_egp_check_case_item UNIQUE (case_id, item_key)\n)",
+      "orphan_case_links": 0
+    },
+    "gap_items": {
+      "rows": 11,
+      "columns": [
+        {
+          "cid": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 1
+        },
+        {
+          "cid": 1,
+          "name": "gap_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 2,
+          "name": "case_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 3,
+          "name": "related_requirement_id",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 4,
+          "name": "related_compliance_id",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 5,
+          "name": "related_cv_match_id",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 6,
+          "name": "gap_type",
+          "type": "VARCHAR(120)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 7,
+          "name": "gap_description",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 8,
+          "name": "required_action",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 9,
+          "name": "owner",
+          "type": "VARCHAR(255)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 10,
+          "name": "due_date",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 11,
+          "name": "status",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 12,
+          "name": "created_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 13,
+          "name": "updated_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "seq": 0,
+          "name": "ix_gap_items_case_id",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        },
+        {
+          "seq": 1,
+          "name": "ix_gap_items_gap_id",
+          "unique": 1,
+          "origin": "c",
+          "partial": 0
+        }
+      ],
+      "sql": "CREATE TABLE gap_items (\n\tid INTEGER NOT NULL, \n\tgap_id VARCHAR(80) NOT NULL, \n\tcase_id VARCHAR(80) NOT NULL, \n\trelated_requirement_id VARCHAR(80), \n\trelated_compliance_id VARCHAR(80), \n\trelated_cv_match_id VARCHAR(80), \n\tgap_type VARCHAR(120), \n\tgap_description TEXT, \n\trequired_action TEXT, \n\towner VARCHAR(255), \n\tdue_date VARCHAR(80), \n\tstatus VARCHAR(80), \n\tcreated_at DATETIME NOT NULL, \n\tupdated_at DATETIME NOT NULL, \n\tPRIMARY KEY (id)\n)",
+      "orphan_case_links": 0
+    },
+    "ip_capture": {
+      "rows": 1,
+      "columns": [
+        {
+          "cid": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 1
+        },
+        {
+          "cid": 1,
+          "name": "ip_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 2,
+          "name": "case_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 3,
+          "name": "donor",
+          "type": "VARCHAR(255)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 4,
+          "name": "sector",
+          "type": "VARCHAR(120)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 5,
+          "name": "country",
+          "type": "VARCHAR(120)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 6,
+          "name": "pattern_type",
+          "type": "VARCHAR(120)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 7,
+          "name": "pattern_title",
+          "type": "VARCHAR(255)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 8,
+          "name": "pattern_description",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 9,
+          "name": "reusable_asset",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 10,
+          "name": "anonymized",
+          "type": "BOOLEAN",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 11,
+          "name": "confidence_level",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 12,
+          "name": "notes",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 13,
+          "name": "created_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "seq": 0,
+          "name": "ix_ip_capture_ip_id",
+          "unique": 1,
+          "origin": "c",
+          "partial": 0
+        },
+        {
+          "seq": 1,
+          "name": "ix_ip_capture_case_id",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        }
+      ],
+      "sql": "CREATE TABLE ip_capture (\n\tid INTEGER NOT NULL, \n\tip_id VARCHAR(80) NOT NULL, \n\tcase_id VARCHAR(80) NOT NULL, \n\tdonor VARCHAR(255), \n\tsector VARCHAR(120), \n\tcountry VARCHAR(120), \n\tpattern_type VARCHAR(120), \n\tpattern_title VARCHAR(255), \n\tpattern_description TEXT, \n\treusable_asset TEXT, \n\tanonymized BOOLEAN NOT NULL, \n\tconfidence_level VARCHAR(80), \n\tnotes TEXT, \n\tcreated_at DATETIME NOT NULL, \n\tPRIMARY KEY (id)\n)",
+      "orphan_case_links": 0
+    },
+    "methodology_outline": {
+      "rows": 2,
+      "columns": [
+        {
+          "cid": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 1
+        },
+        {
+          "cid": 1,
+          "name": "case_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 2,
+          "name": "module_order",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 3,
+          "name": "module_title",
+          "type": "VARCHAR(255)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 4,
+          "name": "module_description",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 5,
+          "name": "linked_requirements",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 6,
+          "name": "evidence_needed",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 7,
+          "name": "notes",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 8,
+          "name": "data_collection_conditions",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 9,
+          "name": "analysis_approach",
+          "type": "VARCHAR(120)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "seq": 0,
+          "name": "ix_methodology_outline_case_id",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        }
+      ],
+      "sql": "CREATE TABLE methodology_outline (\n\tid INTEGER NOT NULL, \n\tcase_id VARCHAR(80) NOT NULL, \n\tmodule_order INTEGER NOT NULL, \n\tmodule_title VARCHAR(255), \n\tmodule_description TEXT, \n\tlinked_requirements TEXT, \n\tevidence_needed TEXT, \n\tnotes TEXT, data_collection_conditions TEXT, analysis_approach VARCHAR(120), \n\tPRIMARY KEY (id)\n)",
+      "orphan_case_links": 0
+    },
+    "normalized_requirements": {
+      "rows": 52,
+      "columns": [
+        {
+          "cid": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 1
+        },
+        {
+          "cid": 1,
+          "name": "requirement_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 2,
+          "name": "case_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 3,
+          "name": "source_id",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 4,
+          "name": "tor_section_page",
+          "type": "VARCHAR(255)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 5,
+          "name": "requirement_category",
+          "type": "VARCHAR(120)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 6,
+          "name": "requirement_text",
+          "type": "TEXT",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 7,
+          "name": "atomic_requirement_text",
+          "type": "TEXT",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 8,
+          "name": "mandatory",
+          "type": "BOOLEAN",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 9,
+          "name": "interpretation",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 10,
+          "name": "evidence_needed",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 11,
+          "name": "proposal_section_affected",
+          "type": "VARCHAR(255)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 12,
+          "name": "expert_role_affected",
+          "type": "VARCHAR(255)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 13,
+          "name": "deliverable_affected",
+          "type": "VARCHAR(255)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 14,
+          "name": "evaluation_weight",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 15,
+          "name": "form_annex_required",
+          "type": "VARCHAR(120)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 16,
+          "name": "clarification_needed",
+          "type": "BOOLEAN",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 17,
+          "name": "risk_level",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 18,
+          "name": "match_key",
+          "type": "VARCHAR(120)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 19,
+          "name": "canonical_anchor",
+          "type": "VARCHAR(255)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 20,
+          "name": "needs_review",
+          "type": "BOOLEAN",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 21,
+          "name": "notes",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 22,
+          "name": "created_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 23,
+          "name": "updated_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "seq": 0,
+          "name": "ix_normalized_requirements_requirement_id",
+          "unique": 1,
+          "origin": "c",
+          "partial": 0
+        },
+        {
+          "seq": 1,
+          "name": "ix_normalized_requirements_match_key",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        },
+        {
+          "seq": 2,
+          "name": "ix_normalized_requirements_case_id",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        },
+        {
+          "seq": 3,
+          "name": "ix_normalized_requirements_canonical_anchor",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        },
+        {
+          "seq": 4,
+          "name": "ix_normalized_requirements_source_id",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        }
+      ],
+      "sql": "CREATE TABLE normalized_requirements (\n\tid INTEGER NOT NULL, \n\trequirement_id VARCHAR(80) NOT NULL, \n\tcase_id VARCHAR(80) NOT NULL, \n\tsource_id VARCHAR(80), \n\ttor_section_page VARCHAR(255), \n\trequirement_category VARCHAR(120), \n\trequirement_text TEXT NOT NULL, \n\tatomic_requirement_text TEXT NOT NULL, \n\tmandatory BOOLEAN NOT NULL, \n\tinterpretation TEXT, \n\tevidence_needed TEXT, \n\tproposal_section_affected VARCHAR(255), \n\texpert_role_affected VARCHAR(255), \n\tdeliverable_affected VARCHAR(255), \n\tevaluation_weight VARCHAR(80), \n\tform_annex_required VARCHAR(120), \n\tclarification_needed BOOLEAN NOT NULL, \n\trisk_level VARCHAR(80), \n\tmatch_key VARCHAR(120) NOT NULL, \n\tcanonical_anchor VARCHAR(255) NOT NULL, \n\tneeds_review BOOLEAN NOT NULL, \n\tnotes TEXT, \n\tcreated_at DATETIME NOT NULL, \n\tupdated_at DATETIME NOT NULL, \n\tPRIMARY KEY (id)\n)",
+      "orphan_case_links": 0
+    },
+    "output_packages": {
+      "rows": 1,
+      "columns": [
+        {
+          "cid": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 1
+        },
+        {
+          "cid": 1,
+          "name": "output_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 2,
+          "name": "case_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 3,
+          "name": "output_type",
+          "type": "VARCHAR(120)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 4,
+          "name": "file_path",
+          "type": "VARCHAR(1000)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 5,
+          "name": "readiness_label",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 6,
+          "name": "verification_status",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 7,
+          "name": "created_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "seq": 0,
+          "name": "ix_output_packages_case_id",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        },
+        {
+          "seq": 1,
+          "name": "ix_output_packages_output_id",
+          "unique": 1,
+          "origin": "c",
+          "partial": 0
+        }
+      ],
+      "sql": "CREATE TABLE output_packages (\n\tid INTEGER NOT NULL, \n\toutput_id VARCHAR(80) NOT NULL, \n\tcase_id VARCHAR(80) NOT NULL, \n\toutput_type VARCHAR(120) NOT NULL, \n\tfile_path VARCHAR(1000) NOT NULL, \n\treadiness_label VARCHAR(80) NOT NULL, \n\tverification_status VARCHAR(80), \n\tcreated_at DATETIME NOT NULL, \n\tPRIMARY KEY (id)\n)",
+      "orphan_case_links": 0
+    },
+    "proposal_skeleton": {
+      "rows": 3,
+      "columns": [
+        {
+          "cid": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 1
+        },
+        {
+          "cid": 1,
+          "name": "case_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 2,
+          "name": "section_order",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 3,
+          "name": "section_title",
+          "type": "VARCHAR(255)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 4,
+          "name": "purpose",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 5,
+          "name": "required_inputs",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 6,
+          "name": "linked_requirements",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 7,
+          "name": "notes",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "seq": 0,
+          "name": "ix_proposal_skeleton_case_id",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        }
+      ],
+      "sql": "CREATE TABLE proposal_skeleton (\n\tid INTEGER NOT NULL, \n\tcase_id VARCHAR(80) NOT NULL, \n\tsection_order INTEGER NOT NULL, \n\tsection_title VARCHAR(255), \n\tpurpose TEXT, \n\trequired_inputs TEXT, \n\tlinked_requirements TEXT, \n\tnotes TEXT, \n\tPRIMARY KEY (id)\n)",
+      "orphan_case_links": 0
+    },
+    "risk_register": {
+      "rows": 6,
+      "columns": [
+        {
+          "cid": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 1
+        },
+        {
+          "cid": 1,
+          "name": "risk_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 2,
+          "name": "case_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 3,
+          "name": "risk_category",
+          "type": "VARCHAR(120)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 4,
+          "name": "risk_description",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 5,
+          "name": "source_requirement_id",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 6,
+          "name": "severity",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 7,
+          "name": "likelihood",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 8,
+          "name": "mitigation",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 9,
+          "name": "owner",
+          "type": "VARCHAR(255)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 10,
+          "name": "due_date",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 11,
+          "name": "status",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 12,
+          "name": "created_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 13,
+          "name": "updated_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "seq": 0,
+          "name": "ix_risk_register_case_id",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        },
+        {
+          "seq": 1,
+          "name": "ix_risk_register_risk_id",
+          "unique": 1,
+          "origin": "c",
+          "partial": 0
+        }
+      ],
+      "sql": "CREATE TABLE risk_register (\n\tid INTEGER NOT NULL, \n\trisk_id VARCHAR(80) NOT NULL, \n\tcase_id VARCHAR(80) NOT NULL, \n\trisk_category VARCHAR(120), \n\trisk_description TEXT, \n\tsource_requirement_id VARCHAR(80), \n\tseverity VARCHAR(80), \n\tlikelihood VARCHAR(80), \n\tmitigation TEXT, \n\towner VARCHAR(255), \n\tdue_date VARCHAR(80), \n\tstatus VARCHAR(80), \n\tcreated_at DATETIME NOT NULL, \n\tupdated_at DATETIME NOT NULL, \n\tPRIMARY KEY (id)\n)",
+      "orphan_case_links": 0
+    },
+    "sources": {
+      "rows": 5,
+      "columns": [
+        {
+          "cid": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 1
+        },
+        {
+          "cid": 1,
+          "name": "source_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 2,
+          "name": "case_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 3,
+          "name": "filename",
+          "type": "VARCHAR(500)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 4,
+          "name": "file_type",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 5,
+          "name": "source_category",
+          "type": "VARCHAR(120)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 6,
+          "name": "file_path",
+          "type": "VARCHAR(1000)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 7,
+          "name": "text_extract_path",
+          "type": "VARCHAR(1000)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 8,
+          "name": "extraction_status",
+          "type": "VARCHAR(80)",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 9,
+          "name": "notes",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 10,
+          "name": "uploaded_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "seq": 0,
+          "name": "ix_sources_case_id",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        },
+        {
+          "seq": 1,
+          "name": "ix_sources_source_id",
+          "unique": 1,
+          "origin": "c",
+          "partial": 0
+        }
+      ],
+      "sql": "CREATE TABLE sources (\n\tid INTEGER NOT NULL, \n\tsource_id VARCHAR(80) NOT NULL, \n\tcase_id VARCHAR(80) NOT NULL, \n\tfilename VARCHAR(500), \n\tfile_type VARCHAR(80), \n\tsource_category VARCHAR(120), \n\tfile_path VARCHAR(1000), \n\ttext_extract_path VARCHAR(1000), \n\textraction_status VARCHAR(80), \n\tnotes TEXT, \n\tuploaded_at DATETIME NOT NULL, \n\tPRIMARY KEY (id)\n)",
+      "orphan_case_links": 0
+    },
+    "verification_results": {
+      "rows": 0,
+      "columns": [
+        {
+          "cid": 0,
+          "name": "id",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 1
+        },
+        {
+          "cid": 1,
+          "name": "verification_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 2,
+          "name": "case_id",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 3,
+          "name": "rule_code",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 4,
+          "name": "rule_name",
+          "type": "VARCHAR(255)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 5,
+          "name": "status",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 6,
+          "name": "severity",
+          "type": "VARCHAR(80)",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 7,
+          "name": "message",
+          "type": "TEXT",
+          "notnull": 0,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 8,
+          "name": "blocker",
+          "type": "BOOLEAN",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 9,
+          "name": "created_at",
+          "type": "DATETIME",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "seq": 0,
+          "name": "ix_verification_results_case_id",
+          "unique": 0,
+          "origin": "c",
+          "partial": 0
+        },
+        {
+          "seq": 1,
+          "name": "ix_verification_results_verification_id",
+          "unique": 1,
+          "origin": "c",
+          "partial": 0
+        }
+      ],
+      "sql": "CREATE TABLE verification_results (\n\tid INTEGER NOT NULL, \n\tverification_id VARCHAR(80) NOT NULL, \n\tcase_id VARCHAR(80) NOT NULL, \n\trule_code VARCHAR(80) NOT NULL, \n\trule_name VARCHAR(255) NOT NULL, \n\tstatus VARCHAR(80) NOT NULL, \n\tseverity VARCHAR(80) NOT NULL, \n\tmessage TEXT, \n\tblocker BOOLEAN NOT NULL, \n\tcreated_at DATETIME NOT NULL, \n\tPRIMARY KEY (id)\n)",
+      "orphan_case_links": 0
+    }
+  },
+  "integrity_check": "ok",
+  "journal_mode": "delete",
+  "user_version": 0,
+  "compliance_requirement_mismatch": 0,
+  "missing_source_artifacts": {
+    "file_path": 0,
+    "text_extract_path": 0
+  },
+  "missing_output_artifacts": 0,
+  "backup_verified": true,
+  "source_hash_unchanged": true
+}

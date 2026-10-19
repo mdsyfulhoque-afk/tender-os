@@ -1,0 +1,602 @@
+{
+  "tests": [
+    {
+      "label": "verification_audit",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\tenderproof_os\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "pytest",
+        "tests",
+        "-q",
+        "--tb=short",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\release_012_safety\\evidence\\verification_audit.xml"
+      ],
+      "passed": 84,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        {
+          "name": "test_total_score_calculation_works",
+          "file": "tests.test_bid_score",
+          "result": "passed"
+        },
+        {
+          "name": "test_recommendation_thresholds_work",
+          "file": "tests.test_bid_score",
+          "result": "passed"
+        },
+        {
+          "name": "test_methodology_fields_are_added_without_erasing_existing_data",
+          "file": "tests.test_db_migration",
+          "result": "passed"
+        },
+        {
+          "name": "test_two_demo_runs_do_not_duplicate_records",
+          "file": "tests.test_demo_idempotency",
+          "result": "passed"
+        },
+        {
+          "name": "test_logical_clarification_and_risk_generation_are_idempotent",
+          "file": "tests.test_demo_idempotency",
+          "result": "passed"
+        },
+        {
+          "name": "test_egp_checklist_seeding_is_idempotent",
+          "file": "tests.test_egp_readiness",
+          "result": "passed"
+        },
+        {
+          "name": "test_checklist_updates_persist_and_surface_in_workflow",
+          "file": "tests.test_egp_readiness",
+          "result": "passed"
+        },
+        {
+          "name": "test_workbook_is_created",
+          "file": "tests.test_excel_export",
+          "result": "passed"
+        },
+        {
+          "name": "test_all_required_sheets_exist",
+          "file": "tests.test_excel_export",
+          "result": "passed"
+        },
+        {
+          "name": "test_mandatory_requirement_without_evidence_creates_gapitem",
+          "file": "tests.test_gap_creation",
+          "result": "passed"
+        },
+        {
+          "name": "test_pending_input_row_creates_gapitem",
+          "file": "tests.test_gap_creation",
+          "result": "passed"
+        },
+        {
+          "name": "test_same_input_creates_same_match_key",
+          "file": "tests.test_match_key",
+          "result": "passed"
+        },
+        {
+          "name": "test_different_requirement_creates_different_match_key",
+          "file": "tests.test_match_key",
+          "result": "passed"
+        },
+        {
+          "name": "test_whitespace_changes_do_not_change_match_key",
+          "file": "tests.test_match_key",
+          "result": "passed"
+        },
+        {
+          "name": "test_unresolved_mandatory_never_pursue[Gap]",
+          "file": "tests.test_release_011",
+          "result": "passed"
+        },
+        {
+          "name": "test_unresolved_mandatory_never_pursue[Pending Input]",
+          "file": "tests.test_release_011",
+          "result": "passed"
+        },
+        {
+          "name": "test_unreviewed_requirement_blocks_positive_rec",
+          "file": "tests.test_release_011",
+          "result": "passed"
+        },
+        {
+          "name": "test_valid_record_can_receive_positive_score",
+          "file": "tests.test_release_011",
+          "result": "passed"
+        },
+        {
+          "name": "test_mandatory_gap_blocks_verification",
+          "file": "tests.test_release_011",
+          "result": "passed"
+        },
+        {
+          "name": "test_unreviewed_requirement_blocks_verification",
+          "file": "tests.test_release_011",
+          "result": "passed"
+        },
+        {
+          "name": "test_new_source_invalidates_readiness",
+          "file": "tests.test_release_011",
+          "result": "passed"
+        },
+        {
+          "name": "test_migration_preserves_all_existing_columns_and_values",
+          "file": "tests.test_release_012_migration",
+          "result": "passed"
+        },
+        {
+          "name": "test_failed_migration_rolls_back_ddl_and_data",
+          "file": "tests.test_release_012_migration",
+          "result": "passed"
+        },
+        {
+          "name": "test_check_is_read_only_for_database",
+          "file": "tests.test_release_012_migration",
+          "result": "passed"
+        },
+        {
+          "name": "test_default_launcher_invocation_still_runs",
+          "file": "tests.test_release_012_migration",
+          "result": "passed"
+        },
+        {
+          "name": "test_mandatory_unresolved_blocks_positive_recommendation[Gap]",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_mandatory_unresolved_blocks_positive_recommendation[Pending Input]",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_mandatory_unresolved_blocks_positive_recommendation[Partially Met]",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_mandatory_unresolved_blocks_positive_recommendation[Not Applicable]",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_unreviewed_requirement_blocks_readiness",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_placeholder_evidence_blocks_readiness",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_invalid_evidence_blocks_readiness[License expired on 2020-01-01]",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_invalid_evidence_blocks_readiness[License belongs to another legal entity, not this bidder]",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_incomplete_source_extraction_blocks_readiness[failed]",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_incomplete_source_extraction_blocks_readiness[empty]",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_incomplete_source_extraction_blocks_readiness[partial]",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_new_source_invalidates_readiness",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_unreviewed_amendment_cannot_reclear_old_assessment",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_compliance_change_invalidates_readiness",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_requirement_change_invalidates_readiness",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_pending_egp_checklist_blocks_readiness",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_warning_requires_preliminary_label",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_failed_verification_not_counted_as_complete_workflow",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_human_approval_required_before_client_ready",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_stale_report_is_draft_after_evidence_removed",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_excel_does_not_execute_untrusted_formula_text",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_case_update_cannot_self_assign_release_clearance",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_control_synthetic_verified_row_can_be_scored",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_control_unknown_case_is_blocked",
+          "file": "tests.test_release_012_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_positive_review_approve_report_and_workbook_workflow",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_approval_requires_current_verification_and_named_human",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_approval_and_verification_history_survive_amendment",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_evidence_mutations_prevent_approved_exports[file_removed]",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_evidence_mutations_prevent_approved_exports[file_changed]",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_evidence_mutations_prevent_approved_exports[expired]",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_evidence_mutations_prevent_approved_exports[wrong_entity]",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_evidence_mutations_prevent_approved_exports[text_changed]",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_new_report_never_overwrites_historical_artifact",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_requirement_original_quotation_is_preserved",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_revoked_approval_cannot_release_new_artifact",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_evidence_review_rejects_wrong_entity_and_expired_records",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_source_bytes_changed_after_review_require_new_version",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_snapshot_and_archived_evidence_preserve_original_review",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_natural_evidence_expiry_prevents_release_without_input_edit",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_workbook_before_report_is_downloadable_draft",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_approval_snapshot_survives_separate_sessions",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_human_approval_ui_requires_confirmation_and_can_approve",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_text_source_failures_are_explicit[   -empty]",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_text_source_failures_are_explicit[valid prefix\\xff\\xff-failed]",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_manual_source_preserves_verbatim_original_bytes",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_modified_report_is_not_previewed_or_downloaded_as_approved",
+          "file": "tests.test_release_012_workflow",
+          "result": "passed"
+        },
+        {
+          "name": "test_markdown_report_is_created",
+          "file": "tests.test_report_generation",
+          "result": "passed"
+        },
+        {
+          "name": "test_docx_report_is_created",
+          "file": "tests.test_report_generation",
+          "result": "passed"
+        },
+        {
+          "name": "test_readiness_label_appears",
+          "file": "tests.test_report_generation",
+          "result": "passed"
+        },
+        {
+          "name": "test_prohibited_phrases_do_not_appear",
+          "file": "tests.test_report_generation",
+          "result": "passed"
+        },
+        {
+          "name": "test_report_includes_methodology_conditions_and_analysis_approach",
+          "file": "tests.test_report_generation",
+          "result": "passed"
+        },
+        {
+          "name": "test_report_includes_egp_readiness_when_activated",
+          "file": "tests.test_report_generation",
+          "result": "passed"
+        },
+        {
+          "name": "test_scanned_pdf_ocr_processes_beyond_legacy_40_page_cap",
+          "file": "tests.test_source_ocr",
+          "result": "passed"
+        },
+        {
+          "name": "test_missing_tor_source_fails",
+          "file": "tests.test_verification",
+          "result": "passed"
+        },
+        {
+          "name": "test_missing_requirements_fails",
+          "file": "tests.test_verification",
+          "result": "passed"
+        },
+        {
+          "name": "test_missing_bid_recommendation_blocks_client_ready",
+          "file": "tests.test_verification",
+          "result": "passed"
+        },
+        {
+          "name": "test_report_with_prohibited_language_fails_safe_001",
+          "file": "tests.test_verification",
+          "result": "passed"
+        },
+        {
+          "name": "test_workflow_optimizer_starts_with_source_intake",
+          "file": "tests.test_workflow_optimizer",
+          "result": "passed"
+        },
+        {
+          "name": "test_workflow_optimizer_detects_existing_source",
+          "file": "tests.test_workflow_optimizer",
+          "result": "passed"
+        }
+      ]
+    },
+    {
+      "label": "independent_safety",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\tenderproof_os\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "pytest",
+        "C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\release_011A_audit_2026-10-15\\test_safety_contract.py",
+        "-q",
+        "--tb=short",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\release_012_safety\\evidence\\independent_safety.xml"
+      ],
+      "passed": 24,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        {
+          "name": "test_mandatory_unresolved_blocks_positive_recommendation[Gap]",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_mandatory_unresolved_blocks_positive_recommendation[Pending Input]",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_mandatory_unresolved_blocks_positive_recommendation[Partially Met]",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_mandatory_unresolved_blocks_positive_recommendation[Not Applicable]",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_unreviewed_requirement_blocks_readiness",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_placeholder_evidence_blocks_readiness",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_invalid_evidence_blocks_readiness[License expired on 2020-01-01]",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_invalid_evidence_blocks_readiness[License belongs to another legal entity, not this bidder]",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_incomplete_source_extraction_blocks_readiness[failed]",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_incomplete_source_extraction_blocks_readiness[empty]",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_incomplete_source_extraction_blocks_readiness[partial]",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_new_source_invalidates_readiness",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_unreviewed_amendment_cannot_reclear_old_assessment",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_compliance_change_invalidates_readiness",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_requirement_change_invalidates_readiness",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_pending_egp_checklist_blocks_readiness",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_warning_requires_preliminary_label",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_failed_verification_not_counted_as_complete_workflow",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_human_approval_required_before_client_ready",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_stale_report_is_draft_after_evidence_removed",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_excel_does_not_execute_untrusted_formula_text",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_case_update_cannot_self_assign_release_clearance",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_control_synthetic_verified_row_can_be_scored",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        },
+        {
+          "name": "test_control_unknown_case_is_blocked",
+          "file": "release_011A_audit_2026-10-15.test_safety_contract",
+          "result": "passed"
+        }
+      ]
+    }
+  ],
+  "recovery_passed": true,
+  "original_preserved_and_tests_unchanged": true,
+  "application_page_smoke": {
+    "passed": 16,
+    "total": 16
+  },
+  "changed_files": 31,
+  "merge_authorization": "PENDING_USER_APPROVAL",
+  "scope": "Isolated Release 012 candidate; no e-GP feature expansion or live release.",
+  "engineering_gates_passed": true
+}

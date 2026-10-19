@@ -1,0 +1,108 @@
+{
+  "report_id": "GPTX-TENDLY-FORENSIC-2026-10-19",
+  "provenance_note": "These are user-uploaded screenshots of product guides, not original Tendly source files.",
+  "screenshot_count": 14,
+  "screenshots": {
+    "UG-01": {
+      "filename": "tendly.eu_en_user-guide_ai-chat.png",
+      "page_title": "Chat assistant",
+      "evidence_scope": "chat UX; tool menu; document attachments; rendering statuses; pinned-tender question workflow",
+      "evidence_kind": "user_provided_public_guide_screenshot",
+      "sha256": "e360a339dfb0e7b4eba6c08d7eb434e3ff6b683fc0203021fde23d8bd2912c76"
+    },
+    "UG-02": {
+      "filename": "tendly.eu_en_user-guide_ai-matching.png",
+      "page_title": "Running AI matching",
+      "evidence_scope": "profile CPV+keyword candidate selection; 60-point baseline; score up to 100; no LLM reads tender documents at scoring; runs up to 500",
+      "evidence_kind": "user_provided_public_guide_screenshot",
+      "sha256": "ca8bc6150049316cceb5c095347f51756931bda7c3d89b3c5ab6f4e688cb95c4"
+    },
+    "UG-03": {
+      "filename": "tendly.eu_en_user-guide_alerts.png",
+      "page_title": "Saved alerts",
+      "evidence_scope": "named keyword/CPV/country/value filters; Daily/Weekly/Real-time notifications; account-based delivery",
+      "evidence_kind": "user_provided_public_guide_screenshot",
+      "sha256": "82bfde2b35354bf00bc575e1bbb894f9e2da96cea1c00726f370c5a3a6083b60"
+    },
+    "UG-04": {
+      "filename": "tendly.eu_en_user-guide_buyer-analytics.png",
+      "page_title": "Researching a buyer",
+      "evidence_scope": "buyer tender/award statistics; supplier and trend analytics; published data constraints",
+      "evidence_kind": "user_provided_public_guide_screenshot",
+      "sha256": "7ccaca06a760e11f27523bb5173df22f7234805948c5166bcc6bf265cc81b7db"
+    },
+    "UG-05": {
+      "filename": "tendly.eu_en_user-guide_calendar.png",
+      "page_title": "Deadline calendar",
+      "evidence_scope": "pipeline-linked due dates; submission vs estimated questions deadlines; month/week/list/year views",
+      "evidence_kind": "user_provided_public_guide_screenshot",
+      "sha256": "7e40d3b566e4826fd0eca00f196b9fef29ab7a49c4f49e14e1289d83e1c41ed0"
+    },
+    "UG-06": {
+      "filename": "tendly.eu_en_user-guide_categories.png",
+      "page_title": "Browsing by category",
+      "evidence_scope": "46 industries, 13 groups; CPV-based industry buckets; country and time-left filters",
+      "evidence_kind": "user_provided_public_guide_screenshot",
+      "sha256": "2cab70ea7c31310a07c14efc89655fe432fb5cd041ca1af83821c947c9ebe378"
+    },
+    "UG-07": {
+      "filename": "tendly.eu_en_user-guide_company-insights.png",
+      "page_title": "Researching a company",
+      "evidence_scope": "public award-based company profile; sector and geographic analytics; 20-result limit and cache",
+      "evidence_kind": "user_provided_public_guide_screenshot",
+      "sha256": "03e17837fc466dcd553e84a517762a0ae4aab39da1b9e68230f7822b19192d3c"
+    },
+    "UG-08": {
+      "filename": "tendly.eu_en_user-guide_document-generation.png",
+      "page_title": "Drafting bid documents",
+      "evidence_scope": "document workspace; tender attachments; reusable profile; DOCX/XLSX/CSV generated drafts; no PDF export",
+      "evidence_kind": "user_provided_public_guide_screenshot",
+      "sha256": "143288a6bc9c2303dbbebcf8fc70436d411c717e55d4bc1e0b874331788f0f02"
+    },
+    "UG-09": {
+      "filename": "tendly.eu_en_user-guide_document-review.png",
+      "page_title": "Reviewing your bid",
+      "evidence_scope": "proposed edits Accept/Reject/View; compliance matrix; human signoff",
+      "evidence_kind": "user_provided_public_guide_screenshot",
+      "sha256": "b5d5510155271d3d7cb3918c5fdba7e7b265b52f7f4482266d44530b772a6150"
+    },
+    "UG-10": {
+      "filename": "tendly.eu_en_user-guide_explorer.png",
+      "page_title": "Searching with Explorer",
+      "evidence_scope": "keyword inclusion/exclusion; CPV selector; organization; country/value/deadline/type filters; 24-result batches",
+      "evidence_kind": "user_provided_public_guide_screenshot",
+      "sha256": "37d5aac92750783127a29b8952561865371dbeb1ff7d5a5edc41f30fb9a3cc61"
+    },
+    "UG-11": {
+      "filename": "tendly.eu_en_user-guide_match-results.png",
+      "page_title": "Understanding your matches",
+      "evidence_scope": "four score bands; per-card reason templates; triage Yes/Maybe/No; pipeline link",
+      "evidence_kind": "user_provided_public_guide_screenshot",
+      "sha256": "e143d4dbe74ae2298283ba4bcc8ea44717eff76c587b6cf8b1620ae934519125"
+    },
+    "UG-12": {
+      "filename": "tendly.eu_en_user-guide_pipeline.png",
+      "page_title": "Your pipeline",
+      "evidence_scope": "Saved, Qualifying, Drafting, Review, Submitted, Results; comments; assignees; team tasks",
+      "evidence_kind": "user_provided_public_guide_screenshot",
+      "sha256": "b69ce5d33459db6478afe242e7e7fb9791728ae6760d6454502ce1a4ef647bf7"
+    },
+    "UG-13": {
+      "filename": "tendly.eu_en_user-guide_tender-detail.png",
+      "page_title": "Reading a tender",
+      "evidence_scope": "Overview, Documents and Notes, tender-specific Ask AI; source links and file analysis",
+      "evidence_kind": "user_provided_public_guide_screenshot",
+      "sha256": "55616e9f0cd243489dfe53c4a7f21fc3695d99a14fedacec7f83f1bfe6874706"
+    },
+    "UG-14": {
+      "filename": "tendly.eu_en_user-guide_tender-experts.png",
+      "page_title": "Getting expert help",
+      "evidence_scope": "human expert service; NDA and documents; workspace permissions; expert bid review",
+      "evidence_kind": "user_provided_public_guide_screenshot",
+      "sha256": "d866d01b30d95673b8775589b74da9511e0024fa49e16eeb32e09000f1eeac98"
+    }
+  },
+  "classification": "public_guide_visual_evidence",
+  "chat_probe_evidence": "supplied in conversation rather than embedded as files; do not imply verbatim transcript export",
+  "architecture_yaml": "GPTX_Tendly_Functional_Architecture.yaml"
+}

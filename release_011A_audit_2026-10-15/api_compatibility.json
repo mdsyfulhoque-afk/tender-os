@@ -1,0 +1,48 @@
+[
+  {
+    "path": "tenderproof/services/bid_score_service.py",
+    "public_signatures_equal": true,
+    "current": {
+      "ensure_scorecard_categories": "session: Session, case_id: str",
+      "calculate_score": "rows: list[BidScorecard]",
+      "recommendation_for_percentage": "percentage: float, missing_inputs: bool=False",
+      "save_scores_and_recommendation": "session: Session, case_id: str, scores: dict[str, dict]",
+      "latest_recommendation": "session: Session, case_id: str"
+    },
+    "candidate": {
+      "ensure_scorecard_categories": "session: Session, case_id: str",
+      "calculate_score": "rows: list[BidScorecard]",
+      "recommendation_for_percentage": "percentage: float, missing_inputs: bool=False",
+      "save_scores_and_recommendation": "session: Session, case_id: str, scores: dict[str, dict]",
+      "latest_recommendation": "session: Session, case_id: str"
+    }
+  },
+  {
+    "path": "tenderproof/services/source_service.py",
+    "public_signatures_equal": true,
+    "current": {
+      "register_manual_text": "session: Session, case_id: str, text: str, filename: str='manual_tor.txt'",
+      "save_uploaded_file": "session: Session, case_id: str, uploaded_file, source_category: str='ToR', progress_callback=None",
+      "extract_text": "file_path: Path, progress_callback=None",
+      "get_source_text": "source: Source",
+      "list_sources": "session: Session, case_id: str"
+    },
+    "candidate": {
+      "register_manual_text": "session: Session, case_id: str, text: str, filename: str='manual_tor.txt'",
+      "save_uploaded_file": "session: Session, case_id: str, uploaded_file, source_category: str='ToR', progress_callback=None",
+      "extract_text": "file_path: Path, progress_callback=None",
+      "get_source_text": "source: Source",
+      "list_sources": "session: Session, case_id: str"
+    }
+  },
+  {
+    "path": "tenderproof/services/verification_service.py",
+    "public_signatures_equal": true,
+    "current": {
+      "run_verification": "session: Session, case_id: str"
+    },
+    "candidate": {
+      "run_verification": "session: Session, case_id: str"
+    }
+  }
+]

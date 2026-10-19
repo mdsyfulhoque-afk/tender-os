@@ -1,0 +1,35 @@
+{
+  "restored_file": "C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\release_012_controlled_2026-10-15\\tenderproof_os\\tests\\test_release_011.py",
+  "reference_sha256": "886027e6f63f2f8e68b1bce330acdb3687ca47e9a4b955c4d253f20ce3bdbd7e",
+  "restored_sha256": "886027e6f63f2f8e68b1bce330acdb3687ca47e9a4b955c4d253f20ce3bdbd7e",
+  "CRLF_sequences": 123,
+  "all_candidate_files_including_dependencies_checked": 15087,
+  "restoration_changed_only": [
+    "tests/test_release_011.py"
+  ],
+  "protected_24_sha256": "e95747e2ba52edc138e333e9a3cc3e2c41a7cb043d454e8e2eeefde00186c00a",
+  "all_24_byte_identical": true,
+  "old_test_modules_unchanged": {
+    "tests/test_bid_score.py": true,
+    "tests/test_db_migration.py": true,
+    "tests/test_demo_idempotency.py": true,
+    "tests/test_egp_readiness.py": true,
+    "tests/test_excel_export.py": true,
+    "tests/test_gap_creation.py": true,
+    "tests/test_match_key.py": true,
+    "tests/test_report_generation.py": true,
+    "tests/test_source_ocr.py": true,
+    "tests/test_verification.py": true,
+    "tests/test_workflow_optimizer.py": true
+  },
+  "verified_recovery_snapshot_unchanged": true,
+  "operational_preservation": {
+    "checked": 340,
+    "unchanged": true,
+    "discrepancies": [],
+    "unexpected_files": [],
+    "source_archive_unchanged": true
+  },
+  "restoration_exit_code": 0,
+  "merge": "pending_approval"
+}

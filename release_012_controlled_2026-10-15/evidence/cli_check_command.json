@@ -1,0 +1,12 @@
+{
+  "label": "cli_check",
+  "command": [
+    "C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\release_012_controlled_2026-10-15\\tenderproof_os\\.venv\\Scripts\\python.exe",
+    "-B",
+    "run_app.py",
+    "--check"
+  ],
+  "cwd": "C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\release_012_controlled_2026-10-15\\tenderproof_os",
+  "exit_code": 0,
+  "log": "evidence/cli_check.log"
+}

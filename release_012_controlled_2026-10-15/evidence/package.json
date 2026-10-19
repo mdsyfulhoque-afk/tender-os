@@ -1,0 +1,8 @@
+{
+  "changed_or_added_files": 34,
+  "code_package_sha256": "9481247e366c3fe759542547cc71e62616e0e7ba4f99ead95ad4888b757938dd",
+  "patch_sha256": "266266d08ed56a30199a0aced9cb6af59f076003ac4aef0c8a45fac4b52131f6",
+  "contains_client_storage_or_database": false,
+  "merge": "pending_approval",
+  "deployment": "not_authorized"
+}

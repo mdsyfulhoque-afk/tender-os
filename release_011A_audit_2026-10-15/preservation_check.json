@@ -1,0 +1,13 @@
+{
+  "unchanged": true,
+  "project_files_checked": 340,
+  "changed_paths": [],
+  "archive_hash_unchanged": true,
+  "runtime_and_cache_exclusions": [
+    ".git",
+    ".pytest_cache",
+    ".venv",
+    "__pycache__",
+    "tmp"
+  ]
+}

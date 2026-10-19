@@ -1,0 +1,7 @@
+{
+  "credential_pattern_hits": [],
+  "scope": "Application source/config/docs, excluding persistent user data and runtime dependencies",
+  "limitations": "Pattern scan is not a secret-discovery guarantee, package vulnerability audit or penetration test.",
+  "listener_binding_in_config": "localhost",
+  "tenant_authorization": "No user/tenant model or authenticated application API; single local operator trust boundary."
+}

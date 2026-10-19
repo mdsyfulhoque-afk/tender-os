@@ -1,0 +1,52 @@
+{
+  "T00": {
+    "status": "complete",
+    "locked": false,
+    "human_gate": "pending"
+  },
+  "T01": {
+    "status": "complete",
+    "locked": false,
+    "human_gate": "pending"
+  },
+  "T02": {
+    "status": "complete",
+    "locked": false,
+    "human_gate": "pending"
+  },
+  "T03": {
+    "status": "complete",
+    "locked": false,
+    "human_gate": "pending"
+  },
+  "T04": {
+    "status": "complete",
+    "locked": false,
+    "human_gate": "pending"
+  },
+  "T05": {
+    "status": "complete",
+    "locked": false,
+    "human_gate": "pending"
+  },
+  "T06": {
+    "status": "blocked",
+    "locked": false,
+    "human_gate": "pending"
+  },
+  "T07": {
+    "status": "blocked",
+    "locked": false,
+    "human_gate": "pending"
+  },
+  "T08": {
+    "status": "blocked",
+    "locked": false,
+    "human_gate": "pending"
+  },
+  "T09": {
+    "status": "in_progress",
+    "locked": false,
+    "human_gate": "pending"
+  }
+}

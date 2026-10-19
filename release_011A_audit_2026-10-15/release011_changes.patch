@@ -1,0 +1,165 @@
+--- current/tenderproof/services/bid_score_service.py
++++ release011/tenderproof/services/bid_score_service.py
+@@ -1,7 +1,7 @@
+ from sqlalchemy.orm import Session
+ 
+ from ..constants import REQUIRED_BID_CATEGORIES
+-from ..models import BidRecommendation, BidScorecard
++from ..models import (BidRecommendation, BidScorecard, NormalizedRequirement, ComplianceLedger)
+ from .audit_service import log_event
+ 
+ 
+@@ -53,6 +53,45 @@
+     total, max_score, percentage = calculate_score(rows)
+     missing_inputs = any((row.score or 0) <= 0 for row in rows)
+     rec_text = recommendation_for_percentage(percentage, missing_inputs)
++
++    requirements = session.query(NormalizedRequirement).filter_by(
++        case_id=case_id, mandatory=True
++    ).all()
++
++    compliance = session.query(ComplianceLedger).filter_by(
++        case_id=case_id
++    ).all()
++
++    by_requirement = {}
++    for item in compliance:
++        by_requirement.setdefault(item.requirement_id, []).append(item)
++
++    unresolved = not requirements
++    failed = False
++
++    for requirement in requirements:
++        rows_for_requirement = by_requirement.get(
++            requirement.requirement_id, []
++        )
++
++        if requirement.needs_review or len(rows_for_requirement) != 1:
++            unresolved = True
++            continue
++
++        row = rows_for_requirement[0]
++
++        if row.status == "Gap":
++            failed = True
++        elif (
++            row.status != "Met"
++            or not (row.available_evidence or "").strip()
++        ):
++            unresolved = True
++
++    if failed:
++        rec_text = "Reject / No-bid"
++    elif unresolved:
++        rec_text = "Pending input"
+     rec = session.query(BidRecommendation).filter(BidRecommendation.case_id == case_id).order_by(BidRecommendation.id.desc()).first()
+     if not rec:
+         rec = BidRecommendation(case_id=case_id)
+--- current/tenderproof/services/source_service.py
++++ release011/tenderproof/services/source_service.py
+@@ -6,10 +6,34 @@
+ from sqlalchemy.orm import Session
+ 
+ from ..config import EXTRACTED_TEXT_DIR, UPLOADS_DIR, ensure_directories
+-from ..models import Source
++from ..models import Source, Case, OutputPackage, VerificationResult
+ from .audit_service import log_event
+ from .tor_normalizer import create_gap_for_failed_extraction, normalize_text
+ 
++
++
++def _invalidate_readiness(session: Session, case_id: str) -> None:
++    case = session.query(Case).filter_by(case_id=case_id).first()
++    if case is None:
++        raise ValueError(f"Unknown case: {case_id}")
++
++    case.readiness_label = "DRAFT_ONLY"
++    case.status = "draft"
++
++    for output in session.query(OutputPackage).filter_by(
++        case_id=case_id
++    ).all():
++        output.readiness_label = "DRAFT_ONLY"
++        output.verification_status = "stale"
++
++    session.query(VerificationResult).filter_by(
++        case_id=case_id
++    ).delete(synchronize_session=False)
++
++    log_event(
++        session, case_id, "verification.invalidated",
++        "New source registered; prior readiness requires re-verification."
++    )
+ 
+ def register_manual_text(session: Session, case_id: str, text: str, filename: str = "manual_tor.txt") -> Source:
+     ensure_directories()
+@@ -29,6 +53,7 @@
+     )
+     session.add(source)
+     session.flush()
++    _invalidate_readiness(session, case_id)
+     log_event(session, case_id, "source.manual_text", f"Registered manual ToR text as {source_id}")
+     return source
+ 
+@@ -55,6 +80,7 @@
+     )
+     session.add(source)
+     session.flush()
++    _invalidate_readiness(session, case_id)
+     if status != "extracted":
+         create_gap_for_failed_extraction(session, case_id, source_id, notes)
+     log_event(session, case_id, "source.uploaded", f"Uploaded source {uploaded_file.name}", {"source_id": source_id})
+--- current/tenderproof/services/verification_service.py
++++ release011/tenderproof/services/verification_service.py
+@@ -34,6 +34,51 @@
+     sources = session.query(Source).filter(Source.case_id == case_id).all()
+     reqs = session.query(NormalizedRequirement).filter(NormalizedRequirement.case_id == case_id).all()
+     comp = session.query(ComplianceLedger).filter(ComplianceLedger.case_id == case_id).all()
++    mandatory = [r for r in reqs if r.mandatory]
++    by_requirement = {}
++    for item in comp:
++        by_requirement.setdefault(item.requirement_id, []).append(item)
++
++    mandatory_ok = bool(mandatory)
++    unresolved_reasons = []
++
++    for requirement in mandatory:
++        rows = by_requirement.get(requirement.requirement_id, [])
++
++        if requirement.needs_review:
++            mandatory_ok = False
++            unresolved_reasons.append(
++                f"{requirement.requirement_id}: human review pending"
++            )
++
++        if len(rows) != 1:
++            mandatory_ok = False
++            unresolved_reasons.append(
++                f"{requirement.requirement_id}: compliance row missing/duplicate"
++            )
++            continue
++
++        row = rows[0]
++        if row.status != "Met" or not (row.available_evidence or "").strip():
++            mandatory_ok = False
++            unresolved_reasons.append(
++                f"{requirement.requirement_id}: mandatory evidence unresolved"
++            )
++
++    _add(
++        results,
++        "ELIG-001",
++        "Mandatory eligibility resolved",
++        mandatory_ok,
++        "blocker",
++        (
++            "Mandatory evidence and review checks passed."
++            if mandatory_ok
++            else "Mandatory eligibility blocked: "
++                 + "; ".join(unresolved_reasons or ["no mandatory requirements verified"])
++        ),
++    )
++
+     gaps = session.query(GapItem).filter(GapItem.case_id == case_id).all()
+     cvs = session.query(CVMatch).filter(CVMatch.case_id == case_id).all()
+     risks = session.query(RiskRegister).filter(RiskRegister.case_id == case_id).all()

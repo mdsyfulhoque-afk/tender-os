@@ -1,0 +1,8709 @@
+MACHINE-GENERATED OCR. Verify every item against the scanned source and current BPPA/e-GP publications.
+Source: FULL BOOK_E-GP TENDER.pdf; scan pages: 144. Each scan image may contain facing book pages.
+
+
+## Scan page 1
+2.2.2.G
+1.2.2.7
+Auto Alexrt and User Dashboard nbox..
+…29
+e-GP
+2.2.2.9
+可9………………
+……んGb
+1.2.2.8
+Registration Charges...
+2.2.2.6
+同……
+可
+1.2.2.9
+Tender Submission .....
+..2
+1212：
+2.2.2.る
+G ...
+..290
+1.2.2.10
+Payment process ..
+..290
+S.2.2.20
+....
+…295
+8   2  2
+1.2.2.11
+Virus ant Integrity of Documens..
+…292
+S.2.2.2S
+…292
+1.2.2.12
+Disaster Recovery Management...
+.290
+1.2.2.13
+External Web References .
+…290
+ひ.ん.ん.DO
+6R....
+2.2.2.28
+1.2.2.14
+Operation, Maintenance and Managemet..
+，98
+1.2.2.15
+Governing Law.
+298
+D.2.2.De
+可
+298
+www.eprocure.gov.bd
+1.2.2.16
+Changes in e-GP System and Terms and
+低何 一C同可何  (CPTU) 可
+Conditions of U.e.
+.298
+Appendix 5: Disclaimer and Privacy Poliy.9
+Tenderer Registration'
+Appendix 5: 不 0
+TendererRegistration
+GTTEOU
+24
+e-GP Glossary of Terms ..
+:
+G09
+22
+References ()- Updated 2025-2026..
+（同风，向，
+e-GP  -vi
+• 交夜可估可可(网)
+
+## Scan page 2
+2
+e-GP G
+: Annual Renewal
+e-GP G 3
+网可可啊
+e-GP ，
+• 何(TIN)可
+•何(NID)
+R9
+叶8：一夜可可
+Documents
+啊，一可何同可何
+·
+:
+DSC 网
+8,000-,000
+0,000可可
+• TIN
+2ok
+•NID
+OS
+•()
+B
+• CPTU Helpdesk: 8
+d
+• G e-GP T C
+叶 9:例区
+可： helpdesk@eprocur e.gov.bd
+交(DSC)
+BCC (Bangladesh Computer
+Council) DRA (Digital Registration Authority)
+2S
+
+## Scan page 3
+8
+e-GP G
+e-GP
+e
+12   ②
+2. 河C
+8 点
+0.
+2 100 1 1021 业   D 2
+，
+• Work Completion Certificate
+• Copy of Contract Agreement
+• Client Recommendation Letter
+：
+8. 可可价低
+•可
+可可(CA可可)
+• 何 因(DSC)可可
+• Tax Return Certificate
+ls ak  e klls
+•
+2. e-GP 度可度可不可1
+可可，
+2. Dashboard 'Current Tenders' Tender Notices'
+/CG R T
+0.何，
+. (Financial Offer)
+8. BOQ Terms of Reference (TOR)
+1211s ②   1  1
+3.   PDF
+.  Letter of Application
+
+## Scan page 4
+G
+e-GP G
+e-GP
+9
+. e-GP Portals Tender Submission'
+0.
+8. Digital Signature
+2
+• BOQ
+GP)
+TOR
+•PDF
+可可可可（：BOQ.pdf,
+可何
+Experience-Certificate.pdf)
+Responsive Check:
+e-GP 可
+Lowest Evaluated Cost:
+. Login to e-GP Portal: https://www.eprocure.gov.bd
+2. Dashboard C Tender ID
+0. 'Submit Tender
+8. Document Upload:    (PDF)
+0
+- Technical Documents
+- Financial Proposal
+因
+- BOQ  Specification
+- Authorization Letter ()
+22 2
+.Digital Signature:
+两啊
+
+## Scan page 5
+b
+e-GP
+e-GP G
+a
+9. Submit & Confirmation:Submit’
+啊可，可
+2
+s
+可
+可可可向可可
+12 2   02    902 2
+Digital Signature可
+L
+可8
+O
+()
+Notification of Award (NOA)
+，，
+R
+NOA可响
+NOA (Notification of Award) ?
+NOA   可可C
+Tender Submission-可
+L     2
+151024k1026
+189
+ON
+D. NOA
+121
+•例 C何 NOA
+BOQ Financial
+
+## Scan page 6
+so
+e-GP
+e-GP
+3. Accept/Reject NOA
+NOA Accep
+B  AON
+Accept
+Accep , NOA
+RT RG 9
+. Performance Security () :
+2←
+-0%
+9Work Order
+8. Agreement Signing ():
+NOA Accep 可
+SiteVisit, Team Deployment
+Material Procurement
+可，
+NOA     ,
+2
+1023 102   21)  - 902 21
+. Draft Contract Review:
+2. Required Attachments:
+- BOQ, Specification, Payment Terms, Liquidated
+Damages
+. Authorized Person:
+1 0   5
+，
+8. e-GP  Upload:
+，何，可可，
+
+## Scan page 7
+e-GP G
+e-GP
+• Procuring Entity- Site Mobilization Report
+. Work Order
+Work Order
+GPS Location   可 可
+，，
+•Gant Chart
+2. Site Visit 可
+可何何
+Access road，，可可可可度
+. Project Implementation Plan (PIP)
+Site Supervisor  Consultant
+可国国
+Lab Test Concrete
+Weekly  Monthly target 何
+Strength Test)
+Variation Order
+Site Engineer 同
+Skilled  Unskilled Worker
+阿低，，
+Mixer Machine,
+Excavator, Dump Truck Daily Labor Logbook
+2     L②    i
+Procuring Entity,
+BOQ Material List
+Cement, Rod, Sand, Aggregate
+可
+，
+Supplier-Delivery
+3
+PPE (Personal Protective Equipment)
+可，
+Safety Orientation Meeting
+(Monthly Progress Report - MPR)，
+Procuring Entity, Consultant
+
+## Scan page 8
+58
+e-GP
+e-GP
+de
+(MPR)
+•
+MPR  可  ，
+可俯何：
+•可可
+B k
+Concrete Casting Checklist
+22i
+• Steel Reinforcement Checklist
+Excavation Checklist
+MPR
+Safety Gear Checklist
+. Reporting Period:
+Electrical Fittings Checklist
+. Physical Progress (%):
+.Financial Progress:
+8. Executed Work Summary:
+Procuring Entity:
+. Site Photos:
+•Consultant:
+.Problem &Solution:
+Accounts /Finance Team:
+9. Next Month's Plan:
+Site Team:
+•MPR
+Site EngineerSupervisor
+BOQ Photographic
+•e-GP
+Evidence
+Consultant
+2/
+MPR
+12
+可低：
+C9
+
+## Scan page 9
+SG
+e-GP
+e-GP G  E
+59
+，，唯何
+可9
+R 9 2
+/
+s  22
+8. 一向C可
+•
+,
+2 2 12
+，啊可
+可
+C. 2
+• G G 8   D G
+.
+. C C  C39
+可可
+(Payment Order)
+业
+2. RC
+可(MPR)
+BoQ
+Bill of Quantities
+低度不可()
+Interim Payment
+Certificate (IPC))
+可((可)
+
+## Scan page 10
+e-GP
+e-GP
+A
+Varrier Variation Order (VO)
+26 2  2
+②
+②可可
+可可
+• R
+业  2  0 业
+2      ②
+② 5 2 8②122
+Variation Order (VO)   Variation Order
+Variation Order ，
+Variation Order (VO)?
+Variation Order   ,
+一
+C9G IT
+VO
+kcieks 2s
+697G 9161
+Variation Order ?
+职团
+可
+可，
+10251
+9
+
+## Scan page 11
+2o
+e-GP
+e-GP
+25
+Variation Order
+：，
+02 021   112 01 21
+•   R
+VO
+2. 2R 2
+VO
+可(，，)
+Variation Order 可
+102119
+0.
+VO C R
+afoRre VO
+π.
+0
+8
+•R  R G 9
+VO
+C
+IT
+102
+8. Variation Order
+CATT9C T
+9て
+↓9k liktk
+可
+Variation Order
+e. VO
+G. R e CACE VO GOSTE
+l ges   u OΛ•
+Variation Order
+•VO可可
+VO
+VO
+Variation Order
+VO
+可变可可交
+VO
+：，
+D25 1.328 0
+
+## Scan page 12
+22
+e-GP
+e-GP
+20
+可る
+3.同：，可度
+1 1s 2
+2.
+(e-GP) 一
+0.
+:  R
+2  L 5
+8.
+e.
+1105211 22140
+，  ，eGP
+,
+- (e-Tendering)
+-(e-Notification)
+(d)
+-啊(e-Submission)
+2
+-C(e-Payment)
+(  2
+ww.eprocure.gov.bd
+(e-Certificate & Reporting)
+(Worka):,
+o Public Procurement Regulations (PPR)
+(Goods):
+(Services):可
+O  Public Procurement Act (PPA)
+G CPTU 3
+P3 G FA ?
+同(Contractors)
+(Joint Ventures)
+
+## Scan page 13
+28
+e-GP
+e-GP
+2e
+可SO
+0
+何，
+•R
+2282221
+G
+Eligible Enity!,
+，同   (JV)   R
+2      2
+2221 8102 020211 0211   5 02201
+• e-GP
+2   2 2
+L   (NI)
+12,
+，
+5.
+，可可可可，
+2.
+：可何
+LTM OM
+0.
+同：，
+8.
+：，
+DS Token/DS Token     ，
+，
+DS Token
+g  1
+3 G31
+(expiry)
+何可
+
+## Scan page 14
+e-GP
+e-GP
+29
+向，
+RFQ, LTM OTM同可何：
+RFQ (Request for Quotation):
+同啊啊何可(renewal)
+1422
+B      i
+•LTM (Limited Tendering Method): ,
+e 2
+可
+OTM (Open Tendering Method):  ,
+G
+C同何 C 度
+，可，
+② i    02 L ② 0
+DS
+1  比
+2. Tender Notice
+:2 3②25
+•
+, ,
+RSS可
+Eligibility Criteria:
+Laaa
+3. CG C  R
+，可
+Department-wise Tender Hunting:
+可可可2-同
+业
+？”可，
+0. 市何
+:e-GP  可可可：www.eprocure.gov.bd
+
+## Scan page 15
+e-GP
+e-GP
+叶2:，：
+:ak
+c
+•
+叶O：可：
+•   C,,
+•，，低交
+，，
+，
+•： C,
+Lelleo  Re
+8:
+RFQ, LTM OTM ?
+- RFQ, LTM OTM  可，
+,  R
+8. RSS交可响
+可可，
+RSS :
+2 2
+/2
+. RFQ (Request for Quotation)
+交可何：
+阿8：，可，
+：，
+可可可
+1  1619
+107 3   20 2102 2101 :1
+可同啊：
+RSS
+2. LTM (Limited Tender Method)
+：可价，
+
+## Scan page 16
+0
+e-GP
+e-GP
+OS
+：，
+R
+RFQ, LTM OTM-可，啊
+2 2
+. OTM (Open Tender Method)
+②
+:
+1 10216 ②211
+：，BOQ
+RFQ 同
+8.
+可啊  RFQ (Request for Quotation)可可
+阿可-RFQ
+②       O
+• 可-LTM
+G, LTM OM-
+•可-OTM
+RFQ 可同
+C. 可
+• TGRFQ-G  RGG
+LTM
+,Ds Token
+: OM-  A
+1052116 225
+.   4 ST
+Quotation  (Step-by-Step)
+RFQ阿可可，可何可
+1. Tender Notice : ,
+, Eligibility Criteria
+LTM OTM-  可;
+2. Work Estimation:
+3. Price Quotation Draft
+
+## Scan page 17
+e-GP
+e-GP
+4. Documentation , Work
+Order Board Order
+M-
+5. DS Token 可何：向  可可
+Overpricing & Underpricing
+•Overpricing:
+8：可，
+52116 20 1029  2022116  11121
+Underpricing:可
+可度 LTM-，面
+RFQ CC区可国
+RFQ
+OTM-Technical Responsiveness
+•可何
+OTM
+• DS Token
+k  ela
+• BOQ
+LTM OTM-  RFQ
+:   可
+2
+RI
+：
+,,
+G8
+LTM OTM
+211 2   2
+O
+LTM (Limited Tender Method)  OTM (Open Tender Method)
+BoQ: Auto-fill  Manual Fill
+LTM OM ,
+BoQ (Bill of Quantities)  LTM & OTM-,
+ATR OREROG 9
+I-  d    i
+LTM-Lottery Psychology
+n
+LTM
+2  02
+cross-check system guideline
+
+## Scan page 18
+80
+e-GP G
+e-GP G
+DO
+BoQ (Bill of Quantities) : LTM & OTM-
+2. G国S PC GC95
+:
+3.
+e-GP 度可度可不
+2116 2
+2.
+啊'Downioad Tender Documents'
+•Manual fill:可，可何可两啊
+Bid Documents
+2116  10102
+0.
+1 10 (2 ) 28
+8.
+2.  RR
+. BoQ (Bill of Quantities)
+Common BOQ Error Analysis
+1. Quantity mismatch: Auto-fill manual fi1-
+2. Unit mismatch:同，   国
+3. Total calculation error:
+可啊可可
+4. Specification mismatch:
+. ToR (Terms of Reference
+BOQ LTM&OM
+：可，可
+国
+CG
+1
+，LM& OM-
+o
+可度可，何，BOQ同可何
+. Specification
+•:
+D
+，R
+R P
+0
+ISO, ASTM R
+0
+L
+. Experience Certificate
+2
+•,
+●不要因同四不/何度
+1 D09110211020
+
+## Scan page 19
+e-GP
+e-GP
+09
+Work Order Completion Certificate-consistency
+mismatch Non-Responsive
+Lükcitks
+RCATDO R0G 9
+G   Rt
+8. Work Order Accept/Reject Logic
+WO-，可
+度
+BoQ可可
+8
+WO- supporting document可
+丽
+•
+Specification
+GR
+司
+12116 ②
+. Scan Quality, File Naming & Size
+Rasolution:200-300DPI,legible,
+B
+L ②  Lee
+• File Format: PDF, JPG  PNG
+Responsive BoQ, ToR, Specification
+File Naming: 可，，
+at Experience Certificate
+o
+: ABCD Raperience 12345.
+G
+File Size:  可 2MB-6MB-
+. Tender Security Calculation Example
+可
+可可：,00,000可
+-G②国，度同何
+• Security requirement: 2%
+5,00,000×2%=10,000
+(e-GP) Master Chapter)
+SecurityBG/Pay Order-
+L
+何，，
+，可响，何
+21)  50  12  1  02
+
+## Scan page 20
+ob
+e-GP
+e-GP
+os
+(1)
+.   (Official Flow )
+亦不可可
+(Authorization Letter)
+可3.6x，13x，14x，29%
+or：响
+方 (Official):
+•-可可可
+• BDT e,000
+G USD 300
+: e-GP C
+(11 g1216)
+可可
+https://www.eprocure.gov.bd
+: Tenderer Registration 可
+9:
+Tanderer Registration
+Submit
+2. (DS Token)
+(Sole Proprietor/Partnership/Limited)
+•可(，)
+2
+网可可因-可
+•
+8: User ID  Password
+• Paperless submission
+•同 User ID 同
+•
+DS Token
+DS Token T
+: 2
+. Token Driver & Software
+2. USB Token
+NII
+. Software 何 Token
+•VAT Registration/BIN ()
+8. GP  PIN
+
+## Scan page 21
+80
+e-GP
+e-GP
+85
+上则业
+Lkcleks
+业让上R
+Token detect 可
+Driver
+L0g115
+a•
+PIN Error
+PIN
+Rejet/Correct PIN
+C.
+Signature fail
+Internet/Taken
+Re-plug
+Internet
+check
+Tender download Deadline note
+Document review
+0.R
+Pricing
+Final submission
+一盾何四种式Active
+DS Token Valid
+Trade License & Tax Updated
+Tender Manager
+Technical Expert
+Finance Team
+Legal Advisor
+. 何
+Dashboard Current Tenders
+Upload Sequence Mistake
+• Agency/Category
+• BOQ & ToR   R
+Technical  Financial
+8.  (Pricing Strategy)
+Annexure
+File naming
+System defined sequence
+Last-Minute Risk
+BoQ  同
+Server overload
+R
+Internet failure
+Token error
+师1021110 =
+Best Practice:
+=
+Deadline 8-8可
+
+## Scan page 22
+82
+e-GP G
+e-GP
+80
+DS Token Failure Recovery
+• Expiry check
+• Alternative PC/Browser
+可9
+• Helpdesk
+Successful Submission Checklist
+✓□ BOQ cross-check
+✓  File size & naming
+√ □ DS Token verify
+同G
+✓  Preview page check
+✓ Acknowledgement save
+(Responsive)(Non-Responsive)
+Tender Evaluation Committee(TEC)
+9.()
+TEC-,,Responsive  Non-Responsive
+• Responsive Check
+, clarification
+• Lowest Evaluated Cost
+可
+•Technical Compliance
+Tender Evaluation Committee (TEC)
+2222益
+1024
+TEC-何可：
+XBOQ
+同可度
+X DS Token
+BOQconsistency
+,
+Digital Signature (DS Token)
+ResponsiveNon-Responsive
+，，，
+02 902 123    902k 0
+objection grievance
+Responsive, Competitive
+,NOA
+. Preliminary Examination ( )
+RT C9CTE TRETOT1
+Digital Signature
+Responsive 可
+
+## Scan page 23
+88
+e-GP G
+e-GP
+8e
+DS Token
+frt a afofe afet
+. Technical Evaluation ()
+Non-Responsive啊可
+Clarification
+lakak B laaa s•
+TEC ambiguity  8 ,
+clarification
+业
+. Financial Evaluation (
+•TEC-3图
+•BoQ
+supporting document
+Arithmetical error
+• Lowest Evaluated Responsive Tenderer (LERT)
+Silence可
+TEC- clarification request-可
+•
+. Post Qualification Verification
+Silence，
+1 40 2
+site visit field inspection
+Responsive
+Common Disqualifications ( )
+•
+Responsive  Non-Responsive
+Responsive
+• BOQ mismatch
+•羽
+•
+②a Blaok
+• BoQ 何 93
+•
+• e-GP  Tender Status Evaluated Awarded'
+•Notification of Award (NOA)
+可可 不 c-GP C
+Non-Responsive
+k 0
+• BOQ mismatch
+
+## Scan page 24
+86
+e-GP
+e-GP G
+89
+Appeal Objection
+(REROSO)
+8:(Submit)
+CPTU-
+,
+•响唯
+，TEC
+Non-Responsive
+•
+2. 723 52
+AS
+•
+20
+g k
+k
+2. 可
+可可
+可面啊何(PDF，JPG，DOC)
+02 21 2 1   19
+一
+可8，
+. Lowest Evaluated Substantially Responsive Bidder (LESRB)
+r2:e-GP 可可度可
+l dd  dr
+'Submit Bid'Upload Tender
+LESRB :
+Lowest Evaluated Substantially Responsive Bidder (LESRB)
+n
+Responsive'
+,
+
+## Scan page 25
+48
+e-GP
+e-GP
+8s
+Es ②a
+•Po    f
+上
+•NOA
+②业
+LESRB
+. Notification of Award (NOA)
+. Performance Guarantee (PG)
+•-0%1
+VOT L Dd
+•PG，
+：
+BR②  52
+-
+可可
+●PG amount validity
+•/
+• Work schedule, milestones, penalty clause
+ON
+Document notarization  stamp duty 可
+Work Order delay official correspondence
+•TEC-
+e-GP  NOA
+•-可 e-GP  NOA
+L 20
+NOA
+R
+.NOA：e-GP 可
+LOA (Letter of Award) ?
+LOA
+2.
+可：可
+0.国：可面啊1
+731
+
+## Scan page 26
+to
+e-GP G
+-GP
+es
+LOA
+，可
+Contract Signing ()
+2   L
+7
+1  2s ②   O
+可可可
+LOA Contract Signing-
+a    VOT
+LOA
+Contract Signing
+21
+0f可度向
+m1
+a
+NOALOA咖啊可
+NOA (Notification of Award):   ,
+业过业
+LOA
+同NOAselection同，
+1s21
+可
+LOA (Letter of Acceptance): NOA-LOA
+LOAPerformance Guarantee
+2 VOT
+：
+因：
+531
+，，，LESRB，
+可(Work Order):可
+NOA, Performance Guarantee
+0219
+0216 2 10221 210 152
+1211 ②e  L01
+
+## Scan page 27
+2
+e-GP G
+e-GP
+2
+Refund Process ()
+一，向位可何
+t
+可
+2.
+可可，，
+可  可
+1
+2. 6 2
+Treasury
+3. #-C92确
+0.后度一质度
+可度
+. Challan Payment
+e-GP  Challan Treasury
+T G
+8.25
+Treasury 9
+d
+e. 何不可
+② 1081s L0k 2252
+. Treasury Payment
+Treasuy
+Treasury Receipt  Challan
+. Bank Integration
+e-GP可动可
+(Bkash, Nagad. Rocket, Debit/Credit Card)
+0.响C
+可
+Online Invoice Submission
+1 2
+2.   (Security Deposit)
+b  s
+Work Order number,
+24
+RR
+•  A
+PDF  upload  naming
+
+## Scan page 28
+88
+e-GP G
+e-GP G
+ee
+Measurement Book (MB) Verification
+Measurement Book
+MB
+Tender Evaluation Committe
+TECauthority verification discrepancy
+)
+可
+TEC-
+R
+Delayed Payment Reality
+, TEC (Tender Evaluation Committee) ?
+TEC ，啊
+Verification delay, Budget release,
+:110214 110110221
+可 Cash Flow impact
+Follow-up Etiquetts
+,  -GP
+follow-up
+TEC可
+aggressive impolite behaviour
+2. 度
+Payment delay justification ，
+1
+2. C同可何
+一，
+ToR, Specification 可度
+Proper Invoice submission, MB verification  professional follow-up
+0. 3
+etique delayed payment
+02
+8.
+•A R
+
+## Scan page 29
+2
+e-GP
+e-GP
+e9
+e. 可叶 何同
+. Security Issue
+Tender Secunty/Bank Guarantee Pay Order- expiry
+mismatch
+. Responsive vs Non-Responsive Bid
+Required format
+Security requirement
+Responsive Bid
+e,
+P
+面，，
+8. Human Error  System Error
+Human Error:  可,Scan quality upload
+Non-Responsive
+EraIT,
+sequence
+System Error: Server downtime, platform glitch
+向听  可，
+：可，BOQ cross-check ，last-
+Non-Responsive Bid :
+可国可唯
+，
+2
+，，可，
+1  1
+. Technical Mismatch
+. Work Order
+: BoQ mismatch, Annexure  , DS Token
+Work OrderWork
+validation
+double-check  checklis
+. Financial Inconsistency
+2. Site Visit
+Overpricing underpricing,
+可可何何
+•Taxes, VAT 可可
+Access road，，可可度
+：，
+. Project Implementation Plan (PIP)
+Weekly  Monthly target
+
+## Scan page 30
+eb
+e-GP
+e-GP
+ed
+Site Engineer
+Skilled Unskilled Worker
+L
+Mixer Machine,
+Excavator, Dump Truck
+Daily Labor Logbook
+()
+TEC
+BoQ  Material List
+，double-check it preventive
+Cement, Rod, Sand, Aggregate
+measures
+研(Storage)可同
+Supplier-Delivery
+PPE (Personal Protective Equipment)
+e-GP  Grievance & Appeal
+，
+Safety Orientation Meeting
+(2023)
+0 1  20
+• Procuring Entity- Site Mobilization Report
+，(Res Ponsive) 可可可
+Initial Progress Photo
+202PPA/PPR  ，
+GPS Location 可可
+Grievance Redress
+System (GRS)  Appeal Authority |
+GantChart
+Logbook-
+同图唯响
+. Grievance Redress System (GRS)?
+Site Supervisor Consultant
+GRS  职 可 可可可
+Lab Test(:Concrete Strength
+,
+Test)
+2
+Variation Order
+
+## Scan page 31
+如o
+e-GP G
+e-GP
+GRS-可
+Logical Complaint
+• BOQ mismatch, DS Token oversight, evaluation inconsistency
+2O  Logical Complaint
+RTATOO
+R0 GRS 2
+Technical Evaluation
+.(2025 Workflow)
+Financial Evaluation
+or s:
+Responsive/Non-responsive
+•e-GP 可可
+Tender Result Publication
+Security  Eligibility verification
+Grievance/Appeal
+. (When Grievance is Justified)
+何可
+Technical  Financial Evaluation- documented mismatch
+58218  12112
+n
+BOQ Supporting Document可
+•Tender Security 8
+Supporting docurnent (PDF)
+Non-responsive
+:
+Submission deadline  system handling-- unfair treatment
+S
+Q可
+s2a
+8. 度
+•R   E
+•
+Emotional vs Logical Complaint
+Re-evaluation
+Emotional Complaint
+•TEC 可可
+corrective action
+●Evaluation
+110112102101
+• Re-assessment
+H
+
+## Scan page 32
+e-GP
+e-GP G A
+3
+. Appeal Authority ( )
+b. R
+GRI-可可，Appeal Authority-
+Appeal Authority
+r a
+2116
+•
+•GRS
+2可，，
+Appeal Authonty-
+G,
+. Timeframe (2O  )
+ecliteic
+Tender Resull 9-0
+GRS
+/
+2G9
+8. Expected Outcome Reality ()
+G
+Valid Complaint
+●Evaluation
+2kL0
+Invalid Complaint
+3. CG因/PC何
+Le lsl2ala•
+•Tender
+,
+1s11210 1s12
+
+## Scan page 33
+89
+e-GP
+C-GP
+be
+ef:
+2.
+•PT G
+Experience Certificate Sample:
+可可9
+121s1120 02   10111
+k lg
+，，，client可
+Work Order & completion report- consistency
+可动：
+Acceptable Work Order Format:
+Official letterhead
+BoQ
+: contract number, scope of work, start & end date,
+signature & soal
+Digital copy scan PDF format
+BOQ Fill Demo:
+• Step-by-step
+item, unit, quantity, rate, total
+calculation
+让 1 2 2  222
+• Auto-ill & manual fill
+Common error
+Template  cross-check
+可可可：
+• G   R
+Security Calculation Walkthrough:
+Tender security  BG calculation
+• Formula: Total work value required percentage Security
+amount
+•Validity, bank format  submission process stepwise
+• TRET afGT G
+•-G
+•
+s
+reference
+R可可
+
+## Scan page 34
+比
+C-GP G
+e-GP
+69
+:
+何
+e(Structure)
+何配因何因()()可
+3.
+(Notice Inviting Tender NIT):
+（：()（）
+2.
+(Instructions to Biddars-ITB):
+0.
+(Technical Specification):
+()(可
+可((B0Q)-可可 可
+8,
+可可 (Bill of Quantities BoQ):
+e.
+(GCC&SCC):
+可可
+1
+业业国
+(可图)
+C
+[57]
+： 2
+2
+[1e11]
+35]
+C1
+1 (BR c)  e
+():
+C同(2)
+(2)-
+可
+业
+152Φ
+ci 1518212
+• (VAT)   (TIN)
+/R
+||5
+g k
+(EMD)
+05
+(
+520212
+(2T2T]: 00 ft)
+C-
+可同可，：
+：，e-GP
+200 9
+(Electronic Government Procurement)
+R
+(:PG1, PG2PW2)
+
+## Scan page 35
+49
+e-GP
+e-GP
+2. PW2 C可可 (C 同/可)
+(1 k Loee/as) e  Id
+[有国可，：2市何t)
+[2f]
+(PW2-Bill of Quantities)
+啊可(PG1)
+可：(可，：)
+可响：1
+D.  :
+可何(BoQ):
+2k)
+C
+kekglle 2
+……()
+6)
+(STt)
+(TIN)可：.
+…(可例不3)
+(Item of
+works)
+2. (Price Schedule) :
+0
+C3T1C
+too
+10点
+(G|T3t)
+(5|P131)
+02
+P
+200
+0
+[2|20；
+200
+k
+8
+[9193]
+00
+国低2
+0
+[2T2]
+oe
+]
+6何：
+②      ]
+.C
+0. 5可RC
+()
+……|
+可：……
+C可可…
+
+## Scan page 36
+90
+e-GP
+e-GP G
+95
+.(Financial Offer/Letter of Commitment)
+PG1PG2:
+PW2:
+()
+[可
+S. G()
+[ ]
+2 02 1  2
+) /  )
+R
+18101112
+可
+(Minimum
+Specs)
+(Bidder's
+……可可可
+Specs)
+01
+Skck28
+Intel Core 15,
+(Processor)
+12th Gen
+/，(：9 )
+equivalent
+Le
+02
+(RAM)
+BGB
+DDR4
+3200MHz
+03
+213219c
+512GB
+NVMe
+(Storage)
+SSD
+()
+00
+ftst (Display)
+14Ó Full HD
+(1920x1080)
+05
+(Full
+：…
+Replacement)
+C可：…
+-:PG2 (9)
+：...
+
+## Scan page 37
+92
+C-GP
+C-GP G
+90
+，可何
+西币
+R
+21)
+Ca
+B
+(Description
+of Items)
+)
+05
+C|2Te]:
+C73
+()
+证 ②
+)
+02
+(22:
+/
+(s1e15t) 10110118
+0
+(2]2:
+fo
+(可图)
+山 业业
+CTG
+C
+阿何到啊
+05
+[91-2]
+：
+2. 可
+02
+[919-2]
+C
+B
+()
+：……
+可：：可何交可可
+， (/0)
+②  2 2   2
+可响因(可)
+： Tender Sacunty
+(-)
+/
+Onine-，
+可-2:PW2( 可)
+12②25k2262
+(可可可可)
+(E) 9
+(可)(Bill of Quantities)
+……kB02Φ
+
+## Scan page 38
+98
+e-GP   E
+e-GP
+qe
+(/()
+可可
+：可啊可可
+, Compliance, Audit & Blacklisting
+：
+T可
+,，  R
+GO
+，compilance，
+132c15lck01
+0
+(PG/PW  )( 可，可，
+,audit blacklisting
+)可
+R
+可
+3.
+G,
+可何因同
+2.
+() () ) ()
+12()
+0. 何 同可何 面
+eligibility criteria
+：何可
+•BoQ  ToR  可
+：可可：1
+8. 可币俯因可
+：()]
+0
+.：e-GP 可
+. 区C国
+• Expired malfunctioning DS Token
+
+## Scan page 39
+96
+C-GP
+e-GP
+99
+.
+Blacklisting Risk & Case Logic
+•e-GP 何 可
+non-compliance
+clarification, corrigendum  amendment
+• Fake  misleading document submission
+(Failure Analysis)
+evaluation report
+Blacklisted e-GP tender-
+●disqualification
+Appeal st:
+e-GP leaming module & mock tender
+valid, verifiedobjection grievance
+appeal
+CPTU Compliance  Audit
+Safe Practice Checklist (Must-Follow)
+CPTU Compliance Breach
+official&verified source
+Tender rules & required document
+Tender submission- double-check
+•CPTU instruction & tender guideline
+Invalid  expired Trade License
+• Proper record keeping & audit trail
+Expired DS Token
+Late submission I file format
+Incomplete  mismatched BOQ
+Effect:
+Warning, financial penaltyblacklisting
+2   2
+9
+Fake Document Detection
+tender calendar & internal
+deadline
+CPTU& TEC authenticity
+C
+Tender condition
+Experience certificate mismatch
+costing & risk margin
+Forged signature seal
+Token
+0
+Manipulated financial statement
+C2TT912st
+e-GP
+original source  verify & cross-check
+Safe Practice:
+belejle  1sll2
+submit
+ülcitk
+可
+grievance
+
+## Scan page 40
+96
+e-GP G
+C-GP G
+99
+0.
+•   c
+Tender condition, BoQ risk factor
+可可司
+8.
+l
+CPTU guidaline,
+compliance audit-safe practice
+. R
+，
+C ,   C
+. T可R
+可
+可28
+e  L
+, CashflowRisk Management
+35
+8 R
+何可，
+Cashflow disruption
+k slon
+同 Cashflow&Risk Management-
+Task  deadline
+啊可
+② 1s|1211s|2
+2.
+Cashflow & Risk Management:
+R 1103  2 2 2 2 00 1150L00
+Security Lock-in Impact
+internal deadine
+Tender Security Bank Guarantee lock-in
+2. C5
+:Cashflow-
+e-GP , corrigendum update
+可可
+
+## Scan page 41
+bo
+e-GP
+e-GP
+SA
+可 capital reserve
+•Payment schedule  cash forecasting
+Capital Planning for Small Contractor
+alle a  le Llk    i e B
+:11  11
+2 k 1025 102  22l0 2
+• Labor
+, Cashflow  Risk
+• Materials
+Transport
+Overhead
+Best Practice:
+o-e% contingency fund
+• Dally, weekly & monthly cashflow tracking
+Proper accounting system
+- Variation Order (VO)& Contract
+Vendor Credit Handling
+Amendment-可
+Supplier  vendor-credit terms negotiate
+•Upfront payment
+Multiple vendorsupply risk
+，可，何，
+Survival Strategy (  )
+Delayed payment unexpected cost-working capital
+-Variation Order (VO)Contract Amendment
+reserve
+可，可，响可
+2 short-term loan
+，可
+Priority-based resource allocation
+tander budgeting
+Variation Order (VO)
+Variation Order   ,
+s a  i2
+② ②    2
+,VO
+VO
+，可
+11ills 点 5
+
+## Scan page 42
+b
+C-GP
+e-GP G
+叶8:/
+OA0
+r e:同
+②②
+VO & Contract Amendment
+：RC9C
+VO
+可(，，)
+B
+VO Contract Amendment-()
+• T
+•VO:
+9
+Contract Amendment:
+CPTU
+VO, Contract Amendment
+, ,,
+2
+(Best Practices)
+VOAmendment
+响(，，唯可响)不
+:
+Procuring Entity Consultant
+
+## Scan page 43
+89
+e-GP G
+e-GP
+DA
+e-GP C
+Variation Order Contract Amendment
+NoA (Notice of Award)  Work Order
+可
+r 2:可
+一，可
+(  D)
+• Work Completion/Progress Report
+• Measurement Sheet
+• Delivery Challan
+• Lab Test Report (2 )
+•Variation Order (VO)
+因，可
+2 12
+e-GP  ，
+: e-GP C
+e-GP 可可  Payment/B
+•
+可，可
+e-GP C
+•Head/Item wise coding
+:
+8：度可可
+•Procuring Entity可
+面：可可
+•可
+
+## Scan page 44
+2
+e-GP
+e-GP G A
+64
+o e:
+2 d
+ülcteks
+可可可可可
+28
+gal g  d  g
+度向研
+-
+Lelli
+②62126)
+可
+点
+2221611
+向可可
+B1业0
+• e - 何
+可
+可可可可
+gggc 8
+220
+2
+：Measurement, BoQ&VO
+：e-GP可可可可
+
+## Scan page 45
+AA
+e-GP G
+e-GP
+b
+MPR-可
+四29
+Reporting Period
+(MR),
+Physical Progress (%)
+FinancialProgress
+ExecutedWork Summary
+Site Photographs
+Problem & Mitigation
+，
+Next Month's Work Plan
+(Monthly Progres Repor - MPR),
+MPR
+Sites Engineer & Supervisor-
+，可Procuring Entity&
+Consultant-可
+• BoQ
+可MPR，，
+Geotagged
+Consultant-
+可夜可何而可
+(MPR)
+PDF    e-GP
+1102111
+可R可
+•R
+：
+Procuring Entity &Consultant-
+2 a
+B2 k
+2
+2  ②2
+• Concrete Casting Checklist
+• Steel Reinforcement Checklist
+
+## Scan page 46
+do
+e-GP
+e-GP
+ds
+Excavation Checklist
+Safety Gear Checklist
+Electrical & Mechanical Checklist
+Gantt Chart & WBS
+Milestone
+2. 可
+2. 国C可
+0. 话可向可
+8. Supervisor &Consultant-
+交一可可
+Procuring Entity
+Consultant
+，可度同
+Accounts/Finance Team
+Site & Technical Team
+市何
+交可向向网可亿
+g92le ik  L0
+• e-GP CAR  T
+2
+VOR
+，可
+2. 可
+可，同，可日
+5②2 2s2
+0.和动树币
+2
+•
+
+## Scan page 47
+e-GP
+e-GP
+do
+WI
+（位：
+(hypothetical but Bangladesh-context based)
+RFQ  LTM-
+RF
+LTMOM
+何：
+decision logic,8
+•BOQ auto-fill  error
+Competitive but safe pricing
+R-
+Decision Logic:
+• LTM-& price, responsiveness
+SME，可
+• Lottery chance  multiple eligible tender targeting
+何：
+• RFQ 动
+•可同
+LTM eligibility &compliance
+realistic quotation
+-0：OTM同可何
+Decision Logic:
+• Overpricing
+可，可
+•Underpricing  minimum sustainable margin
+checklist
+• Strong technical document preparation
+• Experience mapping with eligibilty criteria
+RFQ experience certificate  future eligibility
+• BoQ manual anual fit with double verification
+C 3:
+Decision Logic:
+RFQconfidence builder learning platform
+Lowest price , technically responsive 可
+• Clarification stage-al prompt & logical response
+
+## Scan page 48
+d8
+C-GP G
+e-GP G
+de
+2可2可]：
+Technically responsive bidder  OTM
+k  d lo :s
+C：
+OTM    documentation quality & compliance
+discipline
+%
+(Decision Logic Breakdown)
+2:同(RFQ)
+• RFQ   fo
+102119
+• LTM-Eligibility discipline & volume strategy
+• 啊
+• OTM Technical strength & professionalism
+•可
+可，
+d
+g  Ll a
+(Registration Tender Win Work Execution Payment Receive)
+可可：
+• ：可SME何可
+RFQ
+(：
+2可，
+B       dD
+叶:(Quotation)
+:e-GP 何
+0219
+Overpricing
+•Underpricing
+e
+minimum sustainable margin
+s
+a
+可，TIN，VAT，向
+n
+
+## Scan page 49
+e-GP
+-GP
+d9
+Financially responsive
+C：
+C：
+可可，
+可可，可同
+：何何
+8：响
+D可
+102159
+•   G
+Measurement, BoQ I Work Order
+Deadine28
+•  e-GP
+RFQ
+和：
+2
+C：
+2
+可可
+DTCTO
+Measurement mismatch
+• C9
+Allk ② lelx
+l  l
+llks ② lelx
+•Measurement Sheet
+•可
+:lodz1lode
+可：
+
+## Scan page 50
+e-GP
+e-GP G
+一：
+(reserved)
+k
+49
+E      B0
+33
+RFQ
+可
+可
+C91
+SME2R
+•  T
+1 1s2 10 1
+SME  reserved market share
+SME 可,
+103
+Special Quota
+要SME可可
+-   SME (Smal and Medium
+Enterprises)
+Reserved tender lot-competitive pressure
+CPTU，可
+compliance
+
+## Scan page 51
+doo
+e-GP
+e-GP
+JOS
+021 21101
+reputation
+target
+Resource Planning Cashflow
+competitive market-
+,
+何1
+，SME
+国
+何可可
+21
+Myth:SME可可要
+Reality: ，
+可O
+G R  9
+50
+Myth:  G
+Reality ,
+2      d
+1 16   B0
+,
+day-wise action plan,
+,buffer time confidence build-up
+o  Day-wise Action Plan
+Phase 1: Foundation & Learning (Day 1-30)
+SME可
+Day 1-7
+i2sjle
+e-GP , DS Tokan, Trade Licemse, TIN, VAT
+• CPTU guideline & basic tender rules
+(Sustainability Strategy)
+e-GP interface explore
+
+## Scan page 52
+SO2
+e-GP
+e-GP
+soo
+Day 8-15
+Day 71-80
+Tender notice, BoQ, ToR
+Improved strategy
+Previous tender result analyse
+Vendor credit, cashflow plan refine
+• Mock BoQ fill practice
+Day 81-90
+Day 16-30
+• Confident independent bidding
+D   s c
+• Mock tender submission simulation
+• Neat 6 months tender pipeline
+Common rejection reason
+：
+Learning vs Bidding Balance
+Phase 2: Guided Practice & Low-Risk Bidding (Day 31-60)
+Learning
+Bidding
+Day 31-40
+Day 1-30
+70%
+30%
+SME/Reserved quota  identify
+Day 31-60 50%
+50%
+50%
+• Small value Tender shortlist
+• Vendor, bank & support team align
+Day 61-00
+30%
+70%
+Day 41-50
+1-low-risk tender-
+• Price calculation & security planning
+• Internal review & cross-check
+Mistake Buffer Time Strategy
+Day 51-60
+Deadline-8-8  submission
+• Early submission practice
+File upload, DS Token, BOQ error
+•Submission confirmation & tracking
+System glitch internet isue
+Result publish  evaluation note
+Rule: Last-minute submission High risk
+Confidence Build-up Techniques
+Phase 3: Confidence Build & Optimization (Day 61-90)
+Mock tander practice
+Day 61-70
+Early small success  motivation
+• Failed/Successful bid
+•Weak area identify  (technical, price, document)
+•Rajection learning point
+Step-by-step progress track
+Confidenc
+
+## Scan page 53
+308
+e-GP
+e-GP
+doe
+s
+运外因
+0可
+action,
+12图业
+可可可
+GOS
+R/Ge-GPT
+216    1022 12
+Responsiveness  Limitations
+RAT T
+1 152116 ②25
+2
+②2
+G,
+12
+e-GP  (Responsiveness)
+2 2le   22l
+R R 7
+• e-
+G间
+•R
+1 105 图 2
+152 k②
+glgcillle glie  lee Lli2a
+•
+9
+不交可
+,
+k     2
+可 R(AR)  同(VR)
+10
+
+## Scan page 54
+e-GP
+e-GP
+J09
+2 V
+-GP    ,
+A
+GR
+，，交动
+26  IVk
+e-GP 2.0, 可
+AI  ,
+可因(-GP)
+②5   E
+-GP 20.  (A)
+2g1
+,
+②
+12522
+同
+22
+啊市e-GP 2.0-
+l2
+
+## Scan page 55
+dob
+e-GP
+e-GP G A
+Sod
+2     L 2
+k           d
+91
+可可因1
+② 是 ②  B B
+•
+GIETO
+•
+122k
+(PPA 2025 & PPR 2025 )
+一(e-GP) 国可可
+•可
+Public Procurement Act (PPA) 2025  Public
+•可可
+Procurement Rules (PPR) 25-2026
+e-GP (Electronic Government
+，可何
+Procurement) ，
+，可同，
+G    :
+•SME
+•可可可
+-GP - R
+Public Procurement Act (PPA) 2025-
+B   l
+5业
+PPA 2025-何可啊
+何可
+
+## Scan page 56
+S0
+e-GP
+e-GP G
+R
+•Audit trail
+G R
+e-GP 可， system log
+(Faimess, Equal Treatment)
+R
+e-GP -可同
+Grievance 3 Appeal
+PPA-PPR-e-GP
+，可可
+•,
+PPA 2025 PPR 2026-
+(PPA 2025)
+e-Document, e-Signature)
+Digital Signature, DSC OTP-
+Transparency breach
+Manual influence  offline
+Public Procurement Rules (PPR) 2026-
+PPR 2025 PPA 2025step-by-step
+Grievance Appeal
+Audit investigation
+•RFQ. LTM.OTM
+可
+(Eligibility), Responsivenes& Compliance
+Technical Evaluation Committee (TEC) & Approval
+PPR2026-
+，Pre-tendering
+(Practical Notes)
+(Timeline-based procurement discipline)
+SME，可区信同
+PPR 2026-可
+Auto-rejection logic ( mismatch )
+Emotional complaint,Logical & Evidence-based
+•BoQ & Security error- zero tolerance
+grievance
+
+## Scan page 57
+e-GP G
+e-GP
+运外因
+PPA 2025 PPR 2026 ，
+,    P  D
+•
+2
+RRRR，R
+R RG
+可08
+C？
+业
+可，可可
+21 Tender-四？
+啊可，同
+(I)
+2  2 902
+业业
+A
+低(OTM)(LTM)，可(),
+价(DPMISSS)，时啊啊(OSTEM)
+可 Tenders On Time
+(SI)
+可
+21
+
+## Scan page 58
+558
+e-GP O
+e-GP G
+sse
+，(B00)，
+201 ？
+EMD5
+201高？
+Tender in Finance: Definition, How It Works, and Example
+1129 1021 10281
+可啊可
+2  1
+R CRG   A G RE
+2
+110212
+222122B
+291？
+G
+235
+Calculation of Tender or Quotation-Overheads, Cost....
+G
+可：
+R   F , R 2
+1  2国间
+一点185
+1
+(2)
+让 a lll  al   L
+可  ，
+,
+(N)   ()
+www.nbr.gov.bd
+
+## Scan page 59
+SSG
+e-GP
+e-GP
+559
+201？
+291 3？
+8，，何，，，
+21RFQ-？
+(RFQ)
+RE
+)
+2O1 CG ？
+，同，可同，
+,
+R  R G    G
+001GR可？
+281何响？
+R
+何可
+，，
+，R  ，
+，，
+(20) ITT() 叶？
+What is the Differences Between RFI, RFQ, RFP, and RFT-Tero TAM
+ITT maaning and how it works-Tender Consultants
+RFI可，RFQ同可同确
+(R)
+, RF
+1 21  0 9 2lk
+IF     R
+②
+22
+8.8
+可，
+s
+12 10210211
+，3
+
+## Scan page 60
+ASS
+e-GP G
+e-GP G
+0?
+00i
+②222000
+d
+1
+e-GP 可度可？
+可技可技因一可度可
+GO  :
+，
+01
+-108
+81
+，
+203同：
+8）1何可？
+2 g216) 1b
+可可，可
+可可
+e-GP (Electronic Government Procurement)
+可可可可可
+可可
+2.   ,000  ( )
+()
+GP
+()0
+1(2) 00
+80何？
+091EGP-可面?
+How To EGP Registration? E-Tendering Process in Bangladesh..
+,
+因同积可
+( )  000 B
+200  5 ()2.
+G可2000可可(定可因)可
+S00 ()
+
+## Scan page 61
+e-GP G  E
+e-GP
+88: E-procurement ?
+co  CC C  ?
+一，可同
+可
+Tanders On Time
+：
+Why e-procurement is essential for modern businesses?
+21
+一，可同，
+8 ?
+- 2
+2 1  2
+12②
+8E-procurement-？
+What is e-procurement and how does it work?
+R
+152
+268
+一     G
+1 112102 2
+,   G
+，，R
+1201A8
+1 业  2
+G，G
+2  ②
+NoA (Notification of Award)
+ARET
+l    () 1
+可可可
+201响响啊？
+，
+1246 24 1021109110211
+
+## Scan page 62
+e-GP G
+e-GP
+S20
+18 1 C何？
+网fer
+(W)  (O) ②
+(2)1交一向何可要？
+(RFQ) (DPM/SSS)，叶
+(OSTEM)，因度可不面(TSTM)
+2点105 运上5
+，
+201 倍可低可要？
+，可(B0)，
+EMD
+11029 10210 11020041011
+Tender in Finance: Definition, How It Works, and Example
+G
+,  8, ,
+可可
+2
+B
+R,   R
+,
+G   ?
+3
+？
+Calculation of Tander or Quotation-Overheads, Cost
+
+## Scan page 63
+228
+e-GP
+e-GP
+9011TT(面)-四何？
+R
+ITT 'meaning and how it works-Tender Consultants
+128
+，()
+()
+1B l
+可可，唯，
+()
+()
+www.nbr.gov.bd
+?
+响，，啊，，
+9. 1 PPC3?
+可
+"  k l
+可
+比1 何何？
+901 RFQ-何？
+(RFO) 可
+9139 2？
+，，
+98 1 啊科？
+CG ?
+2
+,
+R  CGR A  G F
+，，，
+RT CGRRCGR  CG
+R
+5 2
+， R
+3
+
+## Scan page 64
+e-GP
+C-GP G
+229
+9心可可，可，可可有可？
+b1是一同可可
+What is the Differences Between RFI, RFQ, RFP, and RFT-Tero TAM
+( )
+循，网响
+200  ()2.
+() 0 00
+2 22  d
+200)
+RF
+8.8，
+，
+121096
+b01何？
+101021 102免1501
+让0000
+$1000
+200 592  9
+681egp 可可？
+G e:
+可可可
+可，同
+1 203  f
+，可
+91亿1
+可可，可
+e-GP (Electronic Govemment Procurement)
+可
+
+## Scan page 65
+ASS
+e-GP G
+-GP
+691向一？
+PPR 2025 o FAQ
+26，2020
+22A
+How To EGP Registration? E-Tendering Process In Bangladesh...
+可203
+2.    ,000  ( )
+向能可可可？
+200 ()2.
+212x0
+上 ()  000
+200()
+8
+b| E-procurement ?
+e-GP e-Government Procurement
+一同，同同
+Physical Service  可
+Why e-procurement is essential for modem businessss
+20
+Sustainable Public Procurement (SPP)
+9Sustainable Public Procurement (SPP)
+E procurement-?
+What is e-procurement and how does it work?
+S. Planet-R
+2. Profit-研
+. People-
+2
+-
+2  Bk 5 L02sle lik
+
+## Scan page 66
+300
+e-GP G  E
+e-GP G
+SOS
+PPR 2025 ，
+G可？
+C 35?
+可可？
+22120
+20
+2
+?
+业
+lel
+2020
+何可可向何可？
+22
+28
+G  ?
+2PPR 2025
+91 PPR 2025 ， 可
+,
+G  ?
+
+## Scan page 67
+JO2
+e-GP
+C-GP G
+300
+290
+PPR2025
+Q35?
+0
+可唯可不可？
+2
+PPR2025-？
+12   2
+0PR 2025-
+PPR 2025，可
+O可可
+可
+80PR2025
+2 PPR 2025，可
+R  ?
+8
+PPR2025-
+82
+R R
+8
+80
+因何？
+2 B8
+
+## Scan page 68
+805
+e-GP G
+e-GP
+doe
+88
+D
+e-GP Guidelines
+%08
+可，可？
+1il0110.1 10
+()
+啊
+-2000,0000,22,0,282,2028/-208,で
+可可，200(2)可同，
+Bangladesh e-Government Procurement Guidelines (revised) 2025
+89可，可
+2193同可 T一
+52110s1210
+1211  s12 2
+1. BACKGROUND
+8
+1.1 Introduction.
+1.1.1 This document provides guidelines to be followed for the
+(Executing Agency) HOPE PE
+electronic Government Procurement (e-GP) System of Bangladesh as
+8
+provisioned under the Section 65 of the Public Procurement Act, 2006
+(PPA 2006) and Rule 128 of Public Procurement Rules, 2025 (PPR
+,  A?
+2025), for the use of the e-GP system. The Guidelines has elaborated
+some directives on e-GP related technical, administrative and
+operational issues based on the experience and lessons learned during
+implementation of e-GP System since June 2011. The revised
+Guidelines is consistent with the prevailing Information and
+Communication Technology Act, 2006 (ICT Act 2006), Right to
+12209
+Information Act, 2009 (R21 2009) and international best practices on e-
+achieve greater transparency and accountability in government
+procurement processes.
+
+## Scan page 69
+SOG
+e-GP
+e-GP G
+509
+1.1.2 The objective of the e-GP is to enhance efficiency and ensure
+transparency in public procurement through the implementation of a
+comprehensive e-GP solution to be used by any or all government
+organizations in the country.
+. (BACKGROUND)
+1.1.3 The e-GP system is a single web portal through which procuring
+entities perform various public procurement processes, i.e. creating and
+publishing Annual Procurement Plans, Invitation for Tenders (IFT),
+. (Introduction)
+Request for Expressions of Interest (REOI). Tender documents,
+22
+Request for Proposals (RFP), Request for Quotations (RFQ),
+submission, opening, evaluation, awarding of contracts against
+Tender/Application/Proposal, publishing Contract Award Notices,
+002
+Contract Management, Payments, generating different types of Key
+，C-GP
+Procurement Performance Indicator Reports and other procurement
+related information etc. as guided by the PPA 2006 and PPR 2025. The
+因c-GP，
+e-GP system is hosted in the National Data Center of Bangladesh
+Computer Council (BCC) and the Mirror site is hosted at Bangladesh
+-GP
+Public Procurement Authority (BPPA). The e-GP web portal is
+accessible for the use of procuring entities through web access for all
+procuring entities of the government of Bangladesh.
+,2,
+1.1.4 All stakeholders including citizens, tenderers/ applicants/
+，200
+suppliers/contractors/consultants, procuring entities, payment service
+and auditors will get access to the e-GP system and information.
+providers, development partners, media, e-GP system administrators
+Specified in the Terms and Conditions of Use and Disclaimer and
+afo efoo e
+Privacy Policy.
+3.. C-GP-可
+guidance only; no attempt is made to provide a guide to PPA 2006 and
+1.1.5 These Guidelines provide e-GP general technical operational
+-G
+PPR 2025, ICT Act 2006, R21 2009 Act itself, or to the associated
+Code of Practice, which are alreadz available elsewhere. However, the
+2.3.0e-GP   （，
+aspects of those Acts relevant to the e-GP System that are most likely
+to affect general users have been discussed.
+1.1.6 These Guidelines represent the government's view of the
+application of the e-GP system for carrying out public procurement
+,,, , ,
+activities online. However, the public entities shall remain responsible
+，，//
+for making their own judgments in individual cases.
+1.1.7 The e-GP System and its guiding principles are not intended
+P
+to be static, and shall be revised as necessary in the light of
+experience being gathered during the system run.
+2006 PPR 2025可
+
+## Scan page 70
+AOS
+e-GP G
+e-GP
+d
+运2    ②
+3.2.“国e-
+l 242  2 d-
+Government Procurement - e-GP)  () 2oe” (e-GP
+Guidelines (Revised) 2025)|
+a
+3.S.8一可，/国
+可可e-GP啊可可可可
+国//，3国，
+2， ，，e-GP
+-GP
+1.3 Definitions
+The key terms as used in the Guidelines shall have the following
+3.S. -GP-
+meanings provided as follows unless otherwise noted-
+；  PPA 2006, PPR 2025, ICT Act 2006, RTI 2009
+"Act" means The Public Procurement Act, 2006 (Act no. 24 of
+2006) along with the subsequent amendments;
+可  同，
+(2)
+"Advertisement" means an advertisement published under
+2
+Section 40 of the Act in newspapers, websites or any other mass
+d
+media for the purposes of wide publicity;
+12B 2
+(3)
+"Applicant" means a Person who seeks to become enlisted under
+the Limited Tendering Method under Section 32(1) (a) of the
+1690 361
+Act to he pre-qualified in response to an Invitation for Pre-
+Qualification under Part-2 of Chapter Six of the Act, or to be
+short-listed in response to a request for Expression of Interest
+under Section 54 of the Act;
+0 2   2   2
+(4)
+"Approving Authority" means the authority which, in
+accordance with the Delegation of Financial Power, approves the
+award of contract for the Procurement of Goods, Works or
+2.2.9 C-GP ；
+Services;
+(5)
+"Approval Procedures" means the approval procedures of a
+21
+Tender or a Proposal as detailed in Rule 36 of PPR 2025;
+(6)
+"Auditors" means the Comptroller and Auditor General of
+1.2 Short title and commencement
+Bangladesh and its representative(s), or any external, internal
+and information technology auditors recognized by national and
+1.2.1 These Guidelines shall be called e-Government Procurement (e-
+international professional bodies or Government of Bangladesh
+GP) Guidelines (Revised) 2025.
+and assigned for the purpose of audit;
+1.2.2 The Guidelines shall be effective immediately after the approval
+(7)
+"BPPA" means the "Bangladesh Public Procurement Authority
+of the competent authority and shall be applicable for e-CiP System in
+(BPPA)" established under Section 4 of the Bangladesh Public
+any form of implementation-pilot, roll-out or open for all.
+Procurement Authority Act, 2023 (Act No. 32 of 2023);
+(8)
+"CAPTCHA" (Completely Automated Public Turing test to tell
+Computers and Humans Apart) is a spam prevention system,
+
+## Scan page 71
+280
+e-GP
+e-GP
+585
+displayed as random words letters in distorted fashion that
+identity of the sender of a message or the signer of a document,
+cannot be deciphered by software or automated electronic
+and possibly to ensure that the original content of the message or
+systems, but only by human, to ensure that a human is making
+document that has been sent is unchanged;
+an online transaction rather than a computer;
+(20) "Electronic" means any electrical, digital, magnetic, optical,
+(9)
+"Centralized Registration System" means the single place for all
+electromagnetic, internet, wireless or other form of technology
+e-GP users to register and provide credential documents for
+that entails capabilities similar to these technologies;
+verification for authenticity for conducting different activities by
+utilizing tools provided by the e-GP system;
+electronic form attached to or logically associated with an
+electronic record, in the form of electronic symbol or a process
+(10)
+"Certification Authority (CA)" means a trusted organization (or
+attached to or logically associated with documents, and
+server) that maintains and issues digital certificates;
+executed, adopted or agreed upon by a person with the intent to
+(11)
+"Consultant" means a Person under contract with a Procuring
+sign the documents;
+Entity for providing intellectual and professional services;
+(22) "Evaluation Committee" means a Tender or a Proposal Evaluation
+(12) "Contractor" means a Person under contract with a Procuring
+Committee constituted under Section 7 of the PPA-2006, and
+Entity for the execution of any Works;
+number of members as provisioned in these Guidelines;
+(13) "Contract Price" is the price stated in the Notification of Award
+(23) "Evaluation Report" means the report prepared after the evaluation
+of Tenders, Quotations, Expressions of Interest or Proposals:
+and thereafter as adjusted in accordance with the provisions of
+(24) "e-Advertisement" means advertisement through e-GP portal;
+the Contract;
+(25) "e-Contract Management System" means the processes involved
+(14) "Dashboard" means an interactive user interface that organizes and
+between the issuance of a work order and completion of the
+presents information and links to the different relevant functions
+work handled electronically with the tools available e-GP
+ino  c  s s t    s   and
+System;
+transact;
+(26) "e-GP" means procurement by a Procuring Entity using the
+(15) "Days" means calendar days unless otherwise specified as working
+Electronic Government Procurement (e-GP) System developed,
+days;
+hosted and operated by the Government of Bangladesh through
+BPPA, Ministry of Planning under the e-GP Guidelines:
+(16) "Date & Time" means Bangladesh Standard Time (BST) applied
+across e-GP System provided through BSTI time server. In case
+(27) "e-Lodgment" means submitting tender/proposal through the e-GP
+of failure to communicate with BSTI time server, the time of
+Data Center hosted by BPPA in its premise at Dhaka,
+the tenderer/applicant with the particular procurement process as
+system to participate in a procurement process, and legally binds
+Bangladesh will prevail;
+authentic participant;
+(17) "Delegation of Financial Powers" means the instructions with
+(28) "e-Payment System" means electronic payment methods available,
+regard to the delegation of financial authority, issued from time
+to time, relating to the conduct of public procurement or sub-
+and the processing of transactions and their application within e-
+GP users and payment service providers of the e-GP system;
+delegation of financial powers under such delegation;
+(29) "e-Publishing" means publish documents by utilizing the e-GP
+(18) "Development Partner" means any multi-lateral, bi-lateral or
+system;
+government or any agency by agreement with the government
+(30) "e-Reverse Auction" means an online real-time procurement
+ente e eee n   on s  o the
+technique utilized by the procuring entity to select the successful
+Government of Bangladesh for financing the Government;
+submission, which involves presentation by tenderers of
+(19) "Digital Signature" means an electronic signature used through
+asymmetric cryptography that can be used to authenticate the
+successively lowered offers during a scheduled period of time
+and the automatic evaluation of tenders. e-Reverse Auctions can
+
+## Scan page 72
+J82
+e-GP G A E
+e-GP
+580
+be used as a standalone procurement method as well as at the
+(39) "Performance Security" means security provided by a
+call-off stage of framework agreement when multiple number of
+supplier/contractor/consultant/ solely for the protection of the
+tenders are the party of the framework agreement with the
+procuring entity receiving the goods, works, and services,
+tenderers for the competitive price;
+conditioned upon the faithful performance of the contract in
+(31) "Form" means a form, also include format, prepared in e-GP
+accordance with the conditions of the contract;
+System with necessary modifications in compliance with the
+(40)
+"Person" means and includes an individual, body of individuals,
+forms and formats appended to PPR-2025, and to the standard
+sole proprietorship, partnership, company, association or
+Documents issued there under and also means those forms
+copete  oet t ot t ot omnt
+converted into digital form;
+proceedings;
+(32) "Goods" means raw materials, products and equipment and objects
+(41)
+"Physical Service" means-
+in solid, liquid or gaseous form, electricity, off-the-shelf
+a) materials and ingredients required to facilitate supply of
+computer software and other ICT related or similar software, and
+goods or execution of works, or operation and
+related Services provided that the value of such Services does
+maintenance of facilities or plants or surveys or
+not exceed that of the Goods themselves;
+exploratory drilling; or
+(33) "Guidelines" means Bangladesh e-Government Procurement (e-
+b)
+security services, catering services, geological services or
+GP) Guidelines;
+third-party services under stand-alone service contract; or
+(34) "Head of the Procuring Entity (HOPE)" means the Secretary of a
+c)
+selection of pre-shipment inspection (PSI) agent, clearing
+Ministry or a Division, the Head of a Government Department or
+& forwarding agent, transportation of goods, hiring
+Directorate; or the Divisional Commissioner, Deputy
+transport, selection of transport contractor for
+Commissioner. District Judges, or the Chief Executive, by
+transportation of goods or insurance risk; or
+whatever designation it may be called, of a local Government
+d) any service specified under this Act or specified by
+agency, an autonomous or semi-autonomous body or a
+government gazette notification procured by the procuring
+corporation, or a corporate body established under the
+entity through outsourcing.
+Companies Act;
+(42) "Procurement" means the purchasing or hiring of goods, or
+(35) "Intellectual and Professional Services" means Services performed
+acquisition of goods through purchasing and hiring, and for the
+by consultants with outputs of advisory, design, supervision or
+execution of works, and/or performance of Services by any
+transfer of knowledge, or consulting service, design and
+contractual means;
+development of computer software and other ICT related or
+similar software, or other intellectual services published in the
+(43) "Procuring Entity" means an entity having administrative and
+financial powers to undertake Procurement of Goods, Works or
+government gazette time to time;
+Services using public funds;
+(36) "Invitation for Tenders (IFT)" means all documents, including
+those either attached or incorporated by reference, used for
+other competent person lawfully appointed by the Procuring
+soliciting tenders;
+Entity and notified to the Contractor, who is responsible for
+(37)
+"Opening Committee" means a Tender Opening Committee
+supervising the execution of the Works and administering the
+(TOC) or a Proposal Opening Committee (POC) constituted
+Contract:
+under Section 6 of the PPA-2006, and number as provisioned in
+(45) "Public Funds" means any funds allocated to a Procuring Entity
+these Guidelines;
+under a Government budget, or loan, grants and credits placed at
+(38) "Open Contracting Data Standard (OCDS)" enables disclosure of
+the disposal of a Procuring Entity through the Government by
+data and documents at all stages of the contracting process by
+the development partners or foreign states or organizations, and
+defining a common data model;
+
+## Scan page 73
+J88
+C-GP
+e-GP
+S8e
+own fund of government, semi-government, autonomous body
+(60) "Tenderer" means a person that submits a tender in response to
+and statutory organizations created under a law;
+an invitation for tenders:
+(46) "Public Procurement" means Procurement using public funds;
+(61) "Tender Security" means an acceptable form of security, either in
+(47) "Quotation" means the price offer received e-GP System from
+the form of bank guarantee, or pay order or bank draft;
+Tenderers for the supply of readily available standardized
+Goods, Works or physical Services subject to the financial limits
+the document provided by a Procuring Entity to Tenderer or
+as prescribed by the Rules;
+Consultant as a basis for preparation of its Tender or Proposal
+(48)
+"Related Services" means services relating to the execution of
+through the e-GP System;
+contracts for the supply of goods;
+(49)
+"Request for Proposals (RFP)" means all documents, including
+the process of passing information, documents, and tasks from
+those either attached or incorporated by reference, utilized for
+one employee or machine within a business to another;
+soliciting proposals;
+(64)
+"Works" means all Works associated with the construction,
+(50)
+"Responsive" means qualified for consideration on the basis of
+reconstruction, site preparation, demolition, repair, maintenance
+evae e a eds ea ece as ceted concer
+or renovation of railways, roads, highways or a building, an
+Document or in the Request for Proposal Document;
+infrastructure or structure or an installation or any construction
+(51)
+"Rules" means Public Procurement Rules, 2025;
+work relating to excavation, installation of equipment and
+(52)
+"Services" means related services, physical services, or
+materials, decoration, as well as physical Services ancillary to
+intellectual and professional services;
+Works, if the value of those Services does not exceed that of the
+(53)
+"Short-List" means a list of applicants deemed suitable to be
+Works themselves;
+invited to submit proposals for intellectuals and professional
+services following the evaluation of Expression of Interest:
+.(Definitions)
+(54) "Scheduled Bank" means a bank for the time being included in the
+Iist  s  b s-s     r
+Article 37 of Bangladesh Bank order 1972;
+(55)
+"Signature" means a distinctive mark or characteristic indicating
+(2)
+A      ()
+identity;
+Procurement Act, 2006) [可28,200],
+(56)
+"Sub-consultant" means any person or entity to whom/which the
+Consultants subcontract any part of the contracted Services;
+(2)
+“啊”啊，可80，
+(57)
+"Sub-contractor" is a person or corporate body who has a
+Contract with the Contractor to carry out a part of the work in
+the Contract, which includes work on the Site;
+2可
+(58)
+"Supplier" means a Person under contract with a Procuring
+(0)
+“可”，可(2)()
+Entity for the supply of Goods and related Services under the
+Contract;
+(59)
+"Tender or Proposal" depending on the context, means a tender
+of goods, works or services to a procuring entity in response to
+or a proposal submitted by a tenderer or a consultant for delivery
+,   8
+an invitation for tender or a request for proposal; and for the
+(8)
+“不”可不，可
+purpose of the act, tender also includes quotation;
+
+## Scan page 74
+S8G
+e-GP
+e-GP
+589
+(D)
+(e)
+“20
+R R
+a  ()
+()
+“同”
+(),  (
+；BSI，
+BPPA
+同，同可
+(6)
+(9)
+(Sb)
+“不”可便，，不可
+(A)
+"CAPTCHA (Completely Automated Public Turing test to tell
+20 ()
+Computers and Humans Apart)”
+0
+(20) “向”  ， ，
+l
+，，
+(8)
+(2)“(Electronic Government Procurement
+，-GP
+e-GP)  -  ，
+，-GP
+②  l
+(20)
+“”，
+(>2)
+“国”可可可，同向四西可图要因
+152  2
+2()
+业业业业
+(22)“”可，向向四职要因
+1021
+(28)“可同”可可可，，，
+(20),
+(>8)
+“”，
+0102业50(0)
+2
+211  40012   2
+
+## Scan page 75
+485
+e-GP
+-GP
+985
+()
+e-GP ，，
+-  (6)
+(d)
+，，要，可，
+，何研
+(0)“可可可国”可四不不，向
+(8)
+②  ()
+，
+(85) “ (”
+() ，，
+(qt)
+,GP
+(st)
+，，
+(0) “e-Tender Submission (ETS)” ,
+，
+CPTRT; GR
+(03)
+()
+可，配
+(02)
+“”  ,
+(8)
+，可可 R可可
+/
+()
+② a
+(80)“”，
+可，
+(80)
+业业0②业(88)
+②业(0)
+R
+e   l
+
+## Scan page 76
+deo
+e-GP
+e-GP
+ses
+(9)“一可何”可可，同向
+L(08)
+2    0 0
+(b)“”可可，
+，可，可可可
+(85)
+()“” ，
+，
+(89)
+B
+可
+“”“”
+(8b)
+(0) “”  ，
+(83)
+“可何”可可不可，可面向可，
+(2)“”同，，
+R
+2
+(eo)
+“”，
+(22)“可”可可，可
+(es)
+,  R
+Procurement Rules, 2025 - PPR 2025)
+(e2)
+()
+T
+(
+(8)“可”可不可可，可向响，啊何可，
+(80)
+(2)()
+2. SCOPE
+ANDAPPLICATIONOFTHE
+GOVERNING PRINCIPLES
+(ee)
+2.1 Scope and Application
+1520
+2.1.1 The e-GP system shall be used by the procuring entities and other
+-(0)
+public entities spending public fund for the purposes of applying the
+procurement process using these Guidelines in case of procuring goods,
+works and Services using e-GP System.
+
+## Scan page 77
+e-GP
+e-GP G
+deo
+2.1.2 The scope of this system is to maintain complete and up-to-date
+lk      d
+Public Procurement activities of all public agencies as well as provide
+tender opportunities to all potential Tenderers/Applicants/Consultants
+d
+from Bangladesh and abroad.
+encompasses the total procurement lifecycle and record all procurement
+2.1.3 The e-GP System is a web-based system which largely
+activities and information. All public procurement activities undertaken
+12216 122
+by the government is expected to be channeled through the e-GP
+carrying out public procurement by government organizations shall be
+infrastructure and implemented in a phased manner. Efficiency in
+enhanced through automation and process reengineering. The system
+d
+shall enable the government to maintain a clear picture and
+221
+comprehend of its procurement activities on a real-time basis. Parallel
+manual file processing should not be carried out in case of
+procurements carried out through e-GP System. All transactions and
+processes available in the system should be done only through the e-GP
+2.2.8 e-GP
+system.
+2.1.4 The e-GP system shall be based on a workflow based
+collaborative government procurement platform. All the
+stakeholders/actors of the procurement process will have appropriate
+access points and will have access to working dashboards with
+authorized access to relevant functions in the e-GP System.
+2.. 向 e-GP   ，低,
+2.1.5 The Guidelines cover all aspects of the e-GP system including
+management, operation, maintenance and enhancement of the system.
+2.2 Major Modules in Bangladesh e-GP System
+Soe and
+2.2.1 e-Government Procurement (e-GP) system in Bangladesh shall
+consist of several modules that are interlinked sub-systems, such as:
+Application of the Governing Principles)
+1.
+Centralized Registration System (Contractors/ Applicants/
+2.) 2
+Consultants, Procuring Entities and other actors of e-GP);
+d
+2.
+Workflow management System;
+，，，
+3.
+e-Tendering (e-Publishing/e-Advertisement, e-Lodgment, e-
+Evaluation, e-Contract award) System;
+4.
+5.
+e-Payment System;
+e-Contract Management System (e-CMS);
+ls
+6.
+e-Audit;
+7.
+Tenderer Database:
+//
+8.
+Procurement Management Information System (PROMIS);
+9.
+System and Security Administration:
+
+## Scan page 78
+de8
+e-GP
+e-GP
+dee
+10. Handling Errors and Exceptions;
+Ordinary Citizen/Public for procurement related general information
+11. Application Usability & Help.
+2.
+Tenderers/Applicants/Suppliers/Contractors/Consultants
+2.2.2 More modules, sub-systems and features (i.e. e-Catalogue/e-
+3.
+Procuring Agencies/Entities
+Purchase, e-Reverse Auction, integration to supply chain and others)
+4.
+Payment Service Providers (Scheduled banks and other payment
+may be added, removed or updated as demanded by the prevailing
+service providers)
+Acts, Rules, government instructions and demands from the
+5.
+Development Partners
+procurement community.
+6.
+e-GP System Administrators (BPPA and PE administrators) and
+Auditors
+2.2 可 e-GP
+7.
+Operation & Maintenance partners
+2.2.  e-Government Procurement (e-GP)
+8.
+Evaluation Committees.
+，
+2.0 e-GP GG/ MR
+3.同/可/，
+G
+2.0. -GP P RG A / A
+2.R可
+0.
+.
+可何，e-，e2
+8.交一可可可1
+2.
+////
+(. 交-C9可变1
+0.
+5.
+交一可可1
+8.
+G
+9.
+e.
+d.
+G.
+e-GP  BPPA PE
+20.
+. G
+9.
+2.2.2  可可，， 同同   职
+b. 可可
+一可同一，一何何项因可一，
+2.4 Composition of the Guidelines
+可可
+2.4.1 The e-GP Guidelines include this document and four following
+Appendices that constitute as the integral part of the Guidelines:
+2.3 Categories of e-GP Stakeholders/Actors
+2.3.1 The e-GP system shall support the following user categories for
+Appendix 1: Use of Payment Systems
+stakeholders/actors initially, and provides them the secured access to
+Appendix 2: Business Process Re-engineering (BPR) of PPR 2025
+related functionalities of the e-GP system through dashboards:
+under e-Government Procurement (e-GP) system
+
+## Scan page 79
+e-GP
+e-GP
+de9
+Appendix 3: Changes in Schedule -II, PPR 2025 for e-GP system
+Appendix 4: Terms and Conditions of use
+0.d e-GP C9可
+Appendix 5: Disclaimer and Privacy Policy.
+0..
+2.8同可
+0..，，
+d    2
+2.8.C-GP  可
+)  dD
+，
+www.eprocure.gov.bd)
+2
+:e-Government Procurement (e-GP) PPR
+Public Procurement Act, 2006
+2025-3同可
+Public Procurement Rules, 2025
+BPPA,，，，，
+： e-GP   PPR 2025- -Ⅱ -
+8:
+3.1.2. Access to e-GP System features
+3.1.2.1 All the e-GP System users must accept the terms and conditions
+of using the e-GP system on the registration page before submitting
+3. e-GP SYSTEM FEATURES
+registration information. BPPA shall have the right to modify clauses
+of the terms and conditions without prior notice.
+3.1 e-GP Portal
+3.1.2.2 To access the e-GP System securely, users should use
+appropriate web browsers and their associated security settings.
+3.1.1. Access to Public Procurement Information
+However, because of the rapid development of new browsers and new
+3.1.1.1 Citizens, registered and non-registered users of the e-GP System
+security measures come up frequently, users need to update or install
+shall access to public records and information to the fullest extent
+new components and configuration settings as and when these come
+through the e-GP Portal (i.e. www.eprocure.gov.bd owned by BPPA)
+into effect.
+of e-GP System consistent with laws, acts, rules and government
+3.1.2.3 The user must provide/use appropriate form of authentic
+instructions applicable in Bangladesh. Applicable laws and regulations
+signature (e-Signature or Digital Signature, and any other state-of-the-
+include the Public Procurement Act 2006 and the Public Procurement
+art authentication technology, tools, device, functions and procedures,
+Rules 2025 along with subsequent amendments, and also address
+whichever accepted by the e-GP System) for the authentication of the
+BPPA, procuring entities; Tenderers, Applicants, Contractors,
+digital documents, which may be post-verified with due diligence to
+Consultants and Suppliers have duties and statutory obligations to
+confirm the authenticity. If the e-Signature found not be authentic,
+protect the interests and rights of the concerned stakeholders.
+necessary action shall be taken according to the law of land. Users are
+responsible for maintaining the confidentiality of their password and
+are fully responsible for all activities that occur using their account
+(email ID and password as their eSignature). Use of any form of
+
+## Scan page 80
+ADS
+e-GP
+C-GP
+ded
+signature should comply with the requirements of the prevailing ICT
+...8 (e-Signature ev Digital Signature
+Act of Bangladesh.
+authentication options) ， ,
+3.1.2.4 The efforts required for acquiring, maintaining security,
+management, and all applicable cost for acquiring signatures (e-
+Signature or Digital Signature or any other authentication options)
+2      9
+along with required devices/tools for its use are the responsibility of the
+，可
+respective users. BPPA will not bear any responsibility of misuse, loss,
+stealing of those signatures and authentication devices/tools of the
+3.1.3. Disclaimer and Privacy policy
+users.
+3.1.3.1 BPPA reserves the right, in its sole discretion, to correct any
+er n  n sn -   nd   sn n sake
+changes to the e-GP System and to the materials, products, programs,
+services or prices described in the e-GP portal at any time without prior
+notice.
+3.1.3.2 In no event shall BPPA and/or third parties be liable for any
+damages including, but not limited to, direct or indirect or
+0.S.2. e-GP PC
+consequential damages or any damages including, but not limited to,
+errors or omissions, delays or incomplete transactions, planed or
+L 2
+unplanned e-GP Portal downtime or inaccessibility of the e-GP Portal,
+insufficient time to submit tender, lost user identities, session outages
+1
+or accidental page closures, indirect or consequential damages or any
+交可
+damages whatsoever arising from use, loss of user data, whether in
+action of transaction, negligence or other action, arising out of or in
+-Signature, Digital Signature,
+connection with the use of the e-GP System.
+d
+3.1.3.3 The information and other materials included on the e-GP portal
+a o at   a  s ppaA
+does not warrant the accuracy or completeness of the information and
+materials or the reliability of any statement or other information
+9
+displayed or distributed by the procuring entities through the e-GP
+System.
+-Signatre
+3.1.3.4 BPPA does not warrant that the functions contained in the e-GP
+System shall be uninterrupted or error free or that those defeets shall be
+corrected or that this e-GP System or the server that makes it available
+, e-Signature)
+shall be free of viruses or bugs. BPPA does not warrant full
+0   aB L  21
+functionality, accuracy or reliability of any material. BPPA may
+terminate, change, suspend or discontinue any aspect of the e-GP
+System, including the availability of any features of the system, at any
+⑤
+time without notice or liability.
+3.1.3.5 BPPA shall not share or sell the personal or Business
+identifiable information with any other persons or organizations
+
+## Scan page 81
+e-GP
+e-GP
+SUS
+without the prior consent of the owner, unless required by the e-GP
+,      -GP
+System to carry out its defined functions or required by the law of land.
+3.1.3.6 Use of the e-GP System shall only be used for lawful purposes
+that do not infringe the rights of or restrict or inhibit the use of the
+system by any third party. Such restriction or inhibition includes, but is
+not limited to, conduct which is intended to mislead, or is defamatory,
+d
+or which may harass, cause distress or inconvenience to any person and
+the transmission of obscene or offensive content or interruption of the
+2
+normal flow of content within the e-GP System.
+0..0.8 BPPA  可 C-GP
+3.1.3.7 The e-GP System shall use the Bangladesh Standard Time
+(BST) provided through BSTI time server, whenever available, as the
+reference time for all time-bound activities of procurement processes.
+In case of failure to communicate with BSTI time server, the time of
+BPPA   ,
+Data Center of BPPA shall prevail.
+3.1.3.8 The e-GP System Administrator may notify users by displaying
+notices, alerts and statements about the scheduled maintenance and
+possible interruption of the e-GP System.
+，，
+3.1.3.9 The e-GP System may send e-GP System related promotional
+information to its users.
+0..0. BPPA
+3.1.3.10 The e-GP System will keep all price sensitive confidential
+information of its users in encrypted form in database, which shall not
+可，听可e-GP同循可
+be accessible to any user without proper authority and access
+permissions.
+d
+0.2.073 C99
+2  1l1
+..O. BPPA   -GP
+R
+，，，，
+.. BPPA ,
+k       d b
+，，
+2
+，
+BS BPA
+
+## Scan page 82
+e-GP
+e-GP
+System like PDF, Word, Excel, JPG, GIF, PNG) and provide
+information required in those documents online to establish their
+596
+identity, qualification and related experiences as required in PPR 2025
+along with subsequent amendments. This information shall be stored in
+private and secured space provided to the user by the e-GP System.
+3.2.1.6 Users may be charged and/or waived specified amount of
+noneng in n og n en ng on
+0..0.20 C-GP
+transactions, subscription and periodic renewal, additional storage
+space, facilities to use specific features/modules/value added services
+of the e-GP System and different services from the operation,
+可可
+maintenance and management entity. BPPA shall have the rights to set
+reasonable charges or waiver to promote the use of the e-GP System
+and sustainability of the system in the long run.
+3.2 Centralized Registration
+3.2.1.7 Users must comply with the terms & conditions, privacy policy,
+and disclaimer. Users need to read the terms and conditions, privacy
+3.2.1 Common Registration Guidelines
+pdoi  A   g   Aton
+3.2.1.1 All users (stakeholders/actors) must be registered in the e-GP
+application process.
+System under an appropriate user category of procurement process in
+3.2.1.8 Users may fill-in the non-mandatory information provided in
+order to have appropriate access points and to get working dashboards
+the registration form at the time of registration or any time later after
+with authorized functions in e-GP System.
+primary registration.
+3.2.1.2 Registration shall be done through the online registration page
+3.2.1.9 The e-GP System may use any additional reliable and secured
+of the c-GP System followed by due diligent post verification if BPPA
+human verification methods or security codes, (e.g. CAPTCHA, etc.) to
+considers it finds it necessary. The intended user must provide all
+protect from unsolicited spamming and automated registrations.
+required information. digital documents, and accept the terms and
+conditions of e-GP System use and should be aware of the disclaimer
+3.2.1.10 Membership for using the e-GP System shall be completed,
+and privacy policy of the e-GP System. If any misinformation is
+when the user responds to the e-mail link sent to the respective e-mail
+identified or any document submitted found false, and the user does not
+of successful registrants as notified by the system after post
+correct that information, the user account shall be cancelled or
+verification.
+suspended and appropriate action shall be taken according to the law of
+3.2.1.11 The concept of single sign-on shall apply and the same
+the land.
+credentials provided at registration can be used for all procurement
+3.2.1.3 Any registration may be cancelled at any time due to violation
+activities until its validity expires. Users may require to sign-in again to
+of any of the clauses of Terms and Conditions of e-GP System.
+enter confidential and sensitive information such as bid submission,
+3.2.1.4 Users should choose a unique User ID (Email ID) and
+corresponding Password, acceptable to the System, to gain subsequent
+payment information etc. The users shall be automatically logged out
+by the system if the user remains idle for specific period of time.
+access to the e-GP System. In addition, for registration and renewal
+3.2.1.12 Users should properly logout from the e-GP System after
+process it might require to provide a unique identification number for
+using the system.
+each firm.
+3.2.1.13 The users may update their profile details with authenticated
+3.2.1.5 Users should upload mandatory documents in electronic form
+information anytime through the dashboard in secured environment.
+(scanned documents in the form of popular formats supported by e-GP
+User ID and username cannot be changed.
+
+## Scan page 83
+e-GP
+e-GP
+sue
+3.2.1.14 Users may cancel their registration provided that they have no
+obligations pending to any party while using e-GP System.
+何可，可
+3.2.1.15 Users requiring changing Login ID shall provide original
+credentials to BPPA for verification. Login ID can be changed only in
+critical situations.
+0.2.S.0 P  e-GP P  P
+3.2.1.16 Tenderer Database facilitates tenderers to build tenderer
+21 02 102
+portfolio including its business registration information, list of alreadz
+completed assignments, current assignments, financial status, tenderer's
+equipment, and many other information. Tenderers should submit a
+work completion certificate from the employer for each of the
+，
+experience listed to ensure the authentication of the work done.
+Uncertified assignments shall be verified and validated by the PEs at
+the time of evaluation or due diligence, and be flagged as "Attested."
+0.2..    (e-GP
+This information, once entered into the system, can be accessed at the
+：PDF,Word, Excel,JPG,
+time of tender preparation by selecting items from the list relevant to
+GIF, PNG)
+the specific tender significantly reducing the time for preparing the
+,    ,PPR
+tenders. Tenderer database is linked with the e-CMS module and will
+preserve experience certificates, payment certificates and other
+information of tenderers. Tenderers will enter their previous experience
+certificates and payment certificates through their dashboard in the e-
+0.2.S.
+GP system after successful validation by the concerned procuring entity
+(PE). The system will notifz the concerned PE and Head of Procuring
+Entity (HOPE) through an auto-generated email to mitigate the risk of
+唯因币可，可 可叶要，同
+delay in the validation process by Procuring Entity over a pre-set time.
+，，
+BPPA C-GP
+0.P
+0.2.2同同
+0.2.3.   ( /)  e-GP
+0.2..9  向，
+d  2  a
+0..S.   2
+BPA
+0211  1102122 B102a11
+0.2.S. e-GP   R
+-GP
+，e-GP  -
+(A)
+
+## Scan page 84
+e-GP
+e-GP G
+E
+HOPE，
+f
+可更
+0.2.. ，
+3.2.2 Tenderer/Applicant/Consultant Registration
+可
+3.2.2.1 Tenderers, Applicants and Consultants may register as a single
+entity or in Joint Venture (JV) or association with sub-Contractors or
+sub-Consultants in compliance with the Public Procurement Rules 2025
+交可证 向区同可成
+along with subsequent amendments, and applicable procurement
+可
+Guidelines, filling in an application form provided by the System for
+registration before using the e-GP System.
+3.2.2.2 Tenderers/Applicants/Consultants registered into the e-GP
+System will have access to the procurement opportunities of public
+agencies, participate in the tendering/proposal submission processes,
+track contract awards and manage the contract and deliverables etc.
+3.2.2.3 Tenderers, Applicants or Consultants must register as a single
+entity with a unique User ID (Email ID) including unique identification
+0.2..8,，
+number and corresponding password, acceptable to the System, to gain
+2    d
+subsequent access to the e-GP System. This unique identification may
+be used later on to register as a Joint Venture partner.
+3.2.2.4 The e-GP System is integrated with the National Identity (NID)
+0.2..
+database of the Government. This will enable the e-GP database to
+BPPA可国可 可可可
+connect with the NID database for identity verification of tenderers and
+D1
+all other users.
+0.2.S.       ,
+3.2.2.5 During the e-GP registration and subsequent renewal process,
+the system will capture the information whether the enterprise is
+，，可，
+women-owned or not. This will be applicable for all types of tenderers
+and consultants (e.g., proprietorship, partnership, private limited
+company, public limited company etc.).
+3.2.2.6 In case of partnership/company registration, if the total
+P
+percentage of share owned by the women members is more than 50%
+among the partners/company directors, that entity will be considered a
+可同，
+women-owned enterprise.
+5 SB
+3.2.2.7 During each registration renewal process, the system will also
+1k 0 k B0 yk  B
+capture the updated information regarding the enterprise, including its
+ownership information to reflect any change of ownership and other
+e-G
+changes.
+，
+
+## Scan page 85
+A0S
+e-GP G
+e-GP
+3.2.2.8 During registration and renewal process, business entities shall
+0.2.2.6
+be required to certify that the information provided by them is up to
+R
+date and shall be held liable for any misrepresentation of facts.
+0.2.O//
+3.2.3
+Procuring Agency (PA)/Procuring Entity (PE)
+0.2.2.,
+Registration
+3.2.3.1 PA/PEs should seek approval from the BPPA to create a
+20
+Procuring Agency account with authentic PA/PE identity information.
+u   g  B  d
+3.2.3.2 PA/PEs should register in the e-GP System to access different
+11021510213
+facilities and activities of procurement processes, annual procurement
+0.2.2.2 e-GP   //
+planning, procurement document preparation, evaluation, contract
+，
+award, contract management, internal procurement process workflow
+management, tracking payments, deliverables, etc., through the
+available features and modules of the e-GP System.
+3.2.3.3 PA/PEs should provide entity details, and other required
+0.2.2.0，
+information in order to complete the Registration Form, but the BPPA
+，R可唯，
+reserves the right to make any changes in fields of the Registration
+Form, if required.
+，
+3.2.3.4 The e-GP System will generate a unique application number
+and the Procuring Agency should refer to the unique number while
+seeking assistance from BPPA.
+3.2.3.5 A secured Dashboard provides PA/PEs with the capacity to
+C-GP  R
+create as many internal users as required for the procurement process of
+the procuring entity. Procuring entity reserves the right to define the
+number of users for the procurement process to use e-GP System.
+0.2.2. e-GP
+3.2.3.6 HOPE shall have access to the list of users created by
+可可
+organization or PE Admin under the PA/PE. HOPE of PA/PE ensures
+that the passwords owned by the users in the PA/PE are appropriately
+同，同)
+transferred to the Administrator at the time of transfer, leave, lien or
+quitting job in the PA/PE. The Administrator will disable the account
+0.2.2. 同， 可
+of the person under such circumstances.
+%0
+3.2.3.7 Procuring Agency and Procuring Entity Users shall use only the
+official email ID issued by the government for the registration in the e-
+GP System.
+0.2.2.92 232
+5，
+/
+0.2.0. PA/PE- BPPA-   ,
+PA/PE 区
+216
+
+## Scan page 86
+590
+e-GP
+e-GP
+S95
+0.2.0. PA/PE-e-GP   ,
+3.2.4.3 Secured Dashboard provides banks to create as many internal
+，，可
+users as required for using the e-GP System. Scheduled bank reserves
+，     --GP
+the right to define the number of users for the banking process to use e-
+GP System.
+2128
+0.2.0. PA/PE
+..8 (Scheduled Bank-SB)
+, BPPA
+/8
+d 8
+()
+B      -d
+0.2.8.
+BPPA-
+...    PA/PE  ,
+B  d
+122d62
+可e-GP
+OH
+3.2.5 Development Partner (DP) Registration
+HOPE
+3.2.5.1 Prior approval from the BPPA is required to create any such
+Development partners' account (i.e. The World Bank, ADB, JICA,
+DFID, etc.).
+3   t     t  oadd
+their Procurement Guidelines, review the progress of development
+0.2.0.9     e-GP
+partner funded projects and others.
+同可可可
+3.2.5.3 Secured Dashboard provides DPs to create as many internal
+可
+users as required for using e-GP System.
+..(Development Partner -DP)
+3.2.4 Scheduled Bank (SB) Registration
+3.2.4.1 Financial Institutions/Banks authorized by the Bangladesh Bank
+0.2.C. （：，ADB，ICA.
+are allowed to register for collecting fees for selling of procurement
+DFID) BPPA-
+documents and other applicable fees, providing Bank Guarantees,
+tracking, and processing payments or both (Refer to Appendix 1).
+0.2..     (Procurement
+3.2.4.2 Scheduled Banks should seek approval from the BPPA to create
+Guidelines)  ,
+any such service provider account.
+9
+
+## Scan page 87
+292
+e-GP
+e-GP G
+290
+0.2.C.      -GP
+3.2.7 e-GP System Administrators and Auditors
+Registration
+3.2.7.1 Prior permission from the BPPA is required to register any such
+e-GP System Administrators and Auditors. BPPA shall define the e-GP
+3.2.6 Opening & Evaluation Committee and Approval
+System Administrators and Auditors qualifications.
+Authorities Registration
+3.2.7.2 e-GP System administrators get access to the e-GP System tools
+3.2.6.1 Procuring Entity or authorized user is allowed to form
+for e-GP Portal configuration, user management, creating and updating
+committees (Refer to Appendix 2) with the approval of an appropriate
+the standard procurement template library, data import and export,
+authority through the e-GP System workflow.
+report generations from PROMIS, updating of content in the e-GP
+3.2.6.2 Committee(s) get access to the e-GP System only for specified
+and restricted times for specific procurements defined by the procuring
+System, and managing unregistered Procuring entities and other users.
+agencies/entities for submitting evaluation results and reports and
+should fully comply with the requirements of the Public Procurement
+0.2.9 e-GP 可 同同(e-GP System
+Rules 2025 along with subsequent amendments and e-GP Guidelines.
+3.2.6.3 e-GP Administrator/Organization Administrator/ Procuring
+Administrators and Auditors Registration)
+Entity Administrator will register the required Approving Authorities
+0.2.9.   e-GP   同
+as provisioned in the PPR-2025 and e-GP Guidelines. Creation of
+workflow for selecting Approving Authority is the responsibility of
+Procuring Entity.
+0.2.
+0.2.9.2 e-GP   e-GP  ，
+(Opening & Evaluation Committee and
+，可，
+Approval Authorities Registration)
+, PROMIS   , e-GP
+,
+(workflow) (
+e-GP
+2)可5
+0.2../向   /可
+3.2.8 e-GP System Operation, Maintenance &
+e-GP
+Management (OM&M) Entity Registration
+3.2.8.1 Prior permission from the BPPA is required for any such e-GP
+B
+System OM&M registration.
+3.2.8.2 Prior permission from the BPPA is required for e-GP OM&M
+users get access to the e-GP System tools for e-GP Portal configuration,
+0.2.. -GP / /
+workflow set up for Procuring entities, data entry, call center facility,
+PPR-2025 e-GP
+user registration, management, verification of credential, and access to
+同(workflow)
+other features delegated by BPPA.
+
+## Scan page 88
+598
+e-GP G
+e-GP G
+d9e
+3.2.8.3 Prior permission from the BPPA is required for access for
+3.3.2 The procuring entities must create Annual Procurement Plan
+creating and updating the standard procurement template library, data
+(APP) in the e-GP System and the plan should be revised before
+import and export, report generations from PROMIS, update and
+procurement if any changes are required following the PPA and PPR.
+moderation of contents in e-GP System, managing unregistered
+The system shall facilitate the monitoring and tracking of actual
+Procuring entities and other users.
+procurement against Annual Procurement Plans and send alerts to the
+0.2.b e-GP  ，   可
+HOPE when issues arise or any deviation from the procurement plan
+found.
+(OM&M)
+(Annual Procurement Plan
+21 31
+APP) 可
+0.2.b.2 e-GP OM&M  e-GP  ，
+0.0.  /
+不因可质啊，可低，可因有价，
+(   ), BA    -GP
+可向，响，，BPPA可
+,  PA 2006 PR-2025
+BA-
+-GP System-
+21C311GT
+/
+0.2..，
+，PROMIS  ，e-GP
+,APP   e-GP System
+BPPA-
+21731G
+..  e-GP System- Annual Procurement
+3.3 Annual Procurement Plan (APP) Preparation and
+12     (d)
+Publication
+3.3.1 Procuring agencies/entities should prepare their annual
+procurement plan (Refer to Appendix 3) in the format prepared by the
+BPPA through the e-GP dashboard as required by the PPA 2006 and
+HOPE- (alert)
+PPR-2025 along with the subsequent amendments in Act and Rules.
+The APP must be prepared and published in the e-GP System to carry
+3.4 Electronic Tender Document Preparation (ETDP)
+out any procurement activities by procuring agencies/entities through e-
+GP System. The e-GP System will guide the agencies/procuring entities
+3.4.1 Dynamic Forms Library
+with online support tools and forms for providing draft, update of APP
+3.4.1.1 Dynamic Forms for preparing standard electronic tender
+and publishing facilities. The e-GP System provides facility to
+documents and for other activities of the procurement process shall be
+procuring agencies and entities to revise and update the Annual
+Procurement Plan through appropriate approval from the authority.
+prepared and updated only by the BPPA or the entity authorized by the
+BPPA. Procuring entities may change and update only the specific
+sections of the template and its contents. For example, Instruction to
+
+## Scan page 89
+e-GP
+Tenderer and General Condition of Contract clauses can be modified
+only through Tender Data Sheet and Special/Particular Conditions of
+Contract respectively, adding rows for additional items, or removing
+forms have been completed correctly and sufficiently for which Tender/
+3.4.2.3 Tenderers/Applicants/Consultants should ensure that all the
+-GP
+599
+unrelated forms or other items as appropriate in compliance with PPA
+Application/Proposal is being prepared.
+and PPR.
+3.4.2.4 Tenderers/Applicants/Consultants should ensure that all
+3.4.1.2 Procuring entities get access to all the available standard
+questions and matters raised in the Tender document have been
+procurement document templates for preparing Invitation to Tender,
+addressed.
+Proposal and documents for procurement of goods, works and services.
+3.4.2.5 Tenderers/Applicants/Consultants should adequately address all
+3.4.1.3 Procurement Agencies/procuring entities may get online help to
+selection criteria, making sure to demonstrate ability to meet the
+select the appropriate online tender document, or template for preparing
+requirements stipulated in the Tender/ Application/Proposal documents.
+the tender document, for the intended procurement.
+3.4.2.6 Tenderers/Applicants/Consultants should keep track of any
+3.4.1.4 e-GP portal should provide library of online e-Standard Tender
+amendments issued during the tender period and ensure that these are
+Documents (e-STDs).
+included in the tender/Application/proposal response.
+3.4.1.5 BPPA will update e-STD as and when require.
+3.4.2.7 Tenderers/Applicants/Consultants must submit their tender
+response before the closing time. Late tenders/applications/ proposals,
+3.4.1.6 Procuring Entities shall provide guidance and safeguards, assure
+even if a few seconds late, are ineligible for consideration. The e-GP
+the validity of the online forms so that the system can guide users to
+System shall automatically reject such late tenders/Proposals.
+find the correct form and prevent them from filling incorrect forms.
+Agencies also shall provide clear instructions.
+3.4.2.8 All sort of documents kept in the tenderer's/Applicant's/
+3.4.1.7 PE shall make sure the tender documents are complete and
+tenderer/Applicant/Consultant in e-GP System) will remain unless the
+correct before publishing finally on the e-GP portal.
+allocated size exceeds.
+3.4.1.8 PE shall enter the Official Cost Estimate (OCE) and upload the
+scanned copy of the approved Official Cost Estimate before inviting the
+0.8交何(ETDP)
+Tender.
+.8.(Dynamic Forms Library)
+② 2k 198
+3.4.2 Tender/Application/Proposal Preparation
+2
+3.4.2.1 The Tenderers/Applicants/Consultants must prepare their
+B BPA
+Tenders/proposals online, and documents required to be uploaded
+within the time specified in the Invitation for Tenders/Proposals after
+, Instruction to
+signing of the same with the e-Signature or Digital Signature,
+whichever applicable, by their authorized representative.
+Tenderer  General Condition of Contract
+Tender Data Sheet I Special/Particular Conditions of Contract-
+3.4.2.2 Tenderers/Applicants/Consultants should allocate sufficient
+time to read the document thoroughly to understand what is being
+asked for and preparing and submitting the Tender/ Application/
+Proposal online. Submission must be completed before the deadline of
+PPR-
+submisston time.
+.8..要Invitation to Tender, Proposal ,
+
+## Scan page 90
+A65
+e-GP
+c-GP
+2      /
+o
+.8.. Tenderers/Applicants/Consultants
+g   L
+.8..8 e-GP  e-Standard Tender Documents (e-
+.8..Tenderers/Applicants/Consultants
+Tender/Application/Proposal
+.8.. BPPA   e-STD
+.8..9 Tenderers/Applicants/Consultants  Tender f
+0.8..     ,
+tender/application/proposal,
+k 2
+R  -GP System
+Tender/Proposals
+0.8..9 PE -GP
+.8..b Tenderer's/Applicant's/Consultant's briefcase-G (e-GP
+System-G Tenderer/Applicant/Consultant-
+.8.. PE Tender  Official Cost Estimate (OCE)
+(
+Official Cost Estimate-
+1D2Φ 2110216115
+3.5 e-Tendering
+0.8.2//
+3.5.1 e-Advertisement
+.8.. Tenderers/Applicants/Consultants  Tender/Proposals
+E'  ttn naung Png  ng  un on
+,Invitation for Tenders/Proposals-
+Tenders/Proposals using the online template available from their
+secured Dashboard.The detaileddescriptionof the
+e-Signature  Digital
+tender documents/RFPs for e-Tendering shall be made available on the
+Goods/Works/Services, time-schedule, conditions etc. including the
+procurement opportunities section of the e-GP System and shall be
+.8.. Tenderers/Applicants/Consultants-
+available to all interested users to search and read the e-advertisement.
+3.5.1.2 The Invitation for Tender/Application/Proposal shall be
+Tender/Application/Proposal
+published in the e-GP Portal by proper authority from the procuring
+entity.
+3.5.1.3 Notice shall be published in newspaper following the format
+.8.Tenderers/Applicants/Consultants
+given in Appendix 2: Business Process Reengineering (BPR)-12.
+Tender/Application/Proposal
+3.5.1.4 The date of IFT/REOI/Pre-Qualification notice published in the
+e-GP System shall be treated as the start date of the preparation time for
+tender, EOI and application submission.
+.8..8 Tenderers/Applicants/ConsultantsTender
+3.5.1.5 In case of Request for Quotation Method, the PE shall give
+submission of the quotations.
+
+## Scan page 91
+sbo
+e-GP
+-GP
+.-(e-Tendering)
+Tenders for the specific procurement. Before final submission, the
+) ent)
+Tenderer/Applicant/ Consultant may upload documents, fill-in required
+online forms, modifz and verify the documents, and complete other
+activities part by part. But attempt to submit incomplete tender will not
+22 2  1 3/0 2  182
+be allowed by the e-GP System. It is the sole responsibility of the
+//，，
+Tenderers/Applicants to make sure that the Tenders/Proposals are
+/RFP
+successfully submitted with adequate time before the deadline of
+submission to avoid any kind of last-minute technical and
+administrative challenges either at the e-GP System side, or at the
+2
+TendererÔs/Applicant's side; i.e. third-party services like banks,
+0.C.. G//  R
+internet service providers and others.
+e-GP C
+3.5.2.4 System will provide acknowledgement of successful
+... Appendix 2: Busines
+Tender/Application/Proposal submission.
+Process Reengineering (BPR)-12-
+3.5.2.5 Any financial offer/quote/values entered by the
+...8 e-GP   IFT/REOI/Pre-Qualification
+Tenderers/Applicants/Consultants shall contain more than three (3)
+O
+digit after decimal point. If the values entered contain more than three
+(3) digits after decimal point, the e-GP System shall automatically
+0...低 (PE)28 可
+truncate after first three (3) digits without rounding. If the entered value
+contains less than three (3) digits after decimal point, the e-GP System
+shall automatically pad zeros to make three digits after decimal point.
+Ahye  G t a ot atr
+3.5.2 Online Entry/Uploading Tender Document
+decimal point, shall be stored and used for processing, calculation and
+3.5.2.1 Tenderers/Applicants/Consultants must submit their
+Tenders/proposals with documentation online, to be uploaded by the
+comparison in the e-GP System only up to three (3) digits after decimal
+time specified in the Invitation for Tenders/Proposals after signing of
+point applying the same rule as above.
+the same with the e-Signature or Digital Signature, whichever is
+applicable, by their authorized representative.
+3.5.2.2 The Tender/Application/ Proposal of only those Tenderers/
+Applicants/Consultants, who have submitted their Tender/ Application/
+0.C.2. CG/  G
+Proposal within the stipulated time, as per the tender time schedule,
+will be accepted by the e-GP System. The System will not allow
+e-Signature  Digital Signature (
+submitting any document for the particular procurement after Tender/
+3.5.2.3 The Tenderers/Applicants/Consultants are responsible to plan
+Application/ Proposal submission deadline.
+...    (tender time schedule )
+their time sufficient to complete the documents for upload, third party
+2 5  d //
+transactions like Tender security preparation and submission through
+banks, verify completeness of tender, and final submission of the
+
+## Scan page 92
+e-GP
+e-GP
+sbo
+0.0.2. G//
+0.C.0.2
+//
+RFP/
+,
+Appendix2
+,
+Business Process Reengineering (BPR) f
+dD 2  l 2 2 k 12
+3.5.4 Tender/Application/Proposal Amendment
+/
+Procurement Agencies may amend the tender documents at any time
+3.5.4.1To the extent permissible under the procurement rules the
+prior to the deadline for receipt of tenders.
+()
+3.5.4.2 Procuring entities shall issue an addendum and publish in the
+0.C.2.8 //
+related section of the e-GP System and also send via an automated
+electronic means (i.c. email, SMS) and make available online in the e-
+GP System for the information of the public and the prospective
+0.C.. G   R/
+Tenderers/Applicants/Consultants who have receivedthe
+(0)
+tender/Application document or RFP.
+，e-GP
+(  1)
+0.C.8 G//R
+，(0)
+0.0.8.
+5
+B l
+e-GP
+1 2 lilek
+) 业2
+3.5.3 Pre-Tender/Application/Proposal Meeting
+)
+3.5.3.1 e-GP system carries out online Pre-Tender/ Application/
+Proposal meetings on the date, time and venue, if required, as stipulated
+in the tender notice/documents.
+3.5.5 e-Lodgment
+3.5.3.2 Responses/clarifications of the queries relating to the Tender or
+3.5.5.1 A tender/application/proposal lodged electronically is deemed
+RFP document should be posted by Tenderers/Applicants/Consultants
+for all purposes to be the true and legal version, duly authorized and
+online before or during pre-Tender/ Application/ Proposal meeting.
+duly executed by the Tenderer/ Applicant/Consultant and intended to
+Details of the pre-tender meetings are given in the Business Process
+have binding legal effect. e-Signatures/ Digital Signatures or any other
+Reengineering (BPR) document (Refer to Appendix 2).
+authentication devices, tools or procedures are necessary due to the
+O.C.O
+2-CG//R
+(Pre-Tender/
+Tenderer/ Applicant/ Consultant may be verified with due diligence
+security system for identity and authentication purposes. Identity of the
+Application/Proposal Meeting)
+process. A separate Authorization Letter is not necessary to be prepared
+0.C.0.   -GP  G
+and submitted to authorize a person to submit tender. User authorized
+,   -/
+by the tenderer in the e-GP system to submit tender and having user
+credentials to access to e-GP System on behalf of the Tenderer/
+
+## Scan page 93
+8A5
+-GP
+e-GP G
+dbe
+Applicant/ Consultant is by default treated as an authorized person to
+3.5.5.5.4 Faults in the TendererÖs/ApplicantÖs/ConsultantÖs computer
+submit tender or proposal.
+system are not the responsibility of the Procuring Entities or the BPPA
+3.5.5.2 Tender/Application/Proposal submitted via the e-GP System
+and no extension to the closing time may be allowed because of the
+must be received in full prior to the closing time. Tenderers/Applicants
+auee   e uo uet es e ue day
+system faults of this kind.
+prior to the deadline to avoid any last-minute difficulty of submifssion
+3.5.5.5.5 None of the users of e-GP system including Procuring Entity
+because of any unlikely technical glitches or unforeseen circumstances.
+users and e-GP Administrators will know the name of the Tenderers/
+3.5.5.3 If the electronic records entered online and files containing the
+Applicants/Consultants who purchased the Tender/RFP documents and
+Tender/Application/Proposal are corrupt, contain a virus, or are
+lodged the Tender/Application/ Proposal until the documents are
+unreadable for any reason, the tender will not be considered. It is
+strictly the responsibility of the tenderer/applicant/Consultant to ensure
+opened on the designated date and time of opening. Authorized PE user
+the integrity, completeness and authenticity of the Tender /Proposal.
+may only know whether any tender documents sold or not.
+3.5.5.4 Prior to submitting a tender/application/proposal electronically,
+the Tenderer/ Applicant/Consultant must ensure that all electronic
+0.C.C-G
+records and files making up the Tender/Application/Proposal are
+0.C.C.    G//
+completely viruses free using anti-virus/ anti-malware tools, though the
+e-GP system server will also check the uploaded files to ensure that the
+files are completely virus free and may give alert to the user if any
+2  2   /
+virus is found. Virus infected files, if detected, shall be automatically
+deleted by the virus scanner installed in the e-GP system servers.
+-Signature/Digital Signature
+Tenderers/ Applicants/ Consultants will be responsible for the
+outcomes and consequences caused by such deletion of files at different
+stages of tendering process.
+3.5.5.5 Tenderers/Applicants/Consultants acknowledge and accept, in
+uthorization Letter
+respect of electronically transmitted tenders/proposals, that:
+GP      ser credentials
+3.5.5.5.1 Uploading large electronic files may take time and as such
+2 20
+sufficient time must be allowed to fully transmit all files prior to the
+国
+closing time for submission. Files should be divided into smaller parts
+0.C.C.2 e-GP    G//
+for easy uploading.
+3.5.5.5.2 Procuring entities or the BPPA shall not be liable or
+responsible for the loss, damage, destruction or corruption of any
+Tender/ Application/ Proposal, however caused.
+0.C.C.
+3.5.5.5.3 Procuring Entities, until the Tender/ Application/ Proposal
+Evaluation, may not discover corrupted or unreadable files submitted
+via the e-GP System.
+0...8  /
+GP
+
+## Scan page 94
+2AS
+e-GP
+e-GP
+5b9
+3.6 e-Evaluation
+022②10218)
+3.6.1 Formation of Evaluation Committees
+3.6.1.1 The Procuring Entities, before publishing the Invitation for
+1022 /302 20000
+Tender/Pre-Qualification/REOI, will form an Evaluation Committee
+(EC). Formation of EC is described in Appendix 2: BPR 4.
+2 i  2  202
+3.6.1.2 Procuring Entities should ensure that the so formed Committees
+have sufficient knowledge and are conversant with the available tools
+offered by the e-GP system, i.e. the way to enter, view, update scoring
+B/业
+criteria and weightings, automated analysis of Tenders/Proposals, audit
+，可，可可向可可可可
+trails and reporting etc.
+.C... e-GP   可可可可
+3.6.1.3 Evaluation committee members shall start evaluation
+3.6.1.4 Members of the evaluation committee members also may
+immediately after opening the Tenders/Proposals.
+8
+receive the auto-notification (via email or SMS as configured in
+preference for auto-notification) from the e-GP System as soon as the
+0.C.C..  可  e-GP
+user is created.
+( e-GP ) 可
+GG    PE R G  G
+0.5.可可
+3.5.6 Tender/Application/Proposal Opening
+(Evaluation Committee-EC)EC
+3.5.6.1A separate Tender Opening Committee (TOC)/ Proposal
+Appendix 2: BPR 4-
+automatically open the the deadline of Tenders/Applications/
+Opening Committee (POC) shall not be formed. e-GP System shall
+0...
+EOIs/Proposals after Tender/ Application/EOI/ Proposal submission
+GP
+deadline as configured and published in the e-GP System. The System
+shall automatically generate Tender/Proposal Opening Report
+(TOR/POR) after opening the Tenders/ Applications/ EOls/Proposals.
+可
+/
+0.C. CGG/GT/R C
+0...8    c-GP    R
+0...     (TOC)
+) 2 22)   102 02
+国(POC) 可 可e-GP 可
+//O
+/  Tender/Proposal Opening Report
+TOR/POR)
+3.6.2 Use of e-GP system by evaluators
+3.6.2.1 Access to the Dashboard for the Evaluation Committee shall be
+available only after the specified date/time as configured by the
+
+## Scan page 95
+AAS
+e-GP
+e-GP
+Procuring Entities. At the outset, the Committee members should fill
+out and sign the declaration on Conflict of Interest, confidentiality and
+fae  vs n v  v n vo oint
+certification after the evaluation online provided by the system as per
+PPR-2025 requirements. Members of the evaluation committee shall
+2
+recuse from the role of Member of Evaluation Committee by declaring
+the conflict of interest just after the first access to the Tender/Proposal;
+R
+when it will be observed that the close business or family relationship
+with any of the participating Tenderer/ Applicant may pose the conflict
+0.0.2.  G//
+of interest. The member of the evaluation committee will then be
+recused from the evaluation committee upon confirmation of the
+0... -GP
+conflict of interest by the Approver of the committee.
+3.6.2.2 Evaluators should follow the evaluation process and criteria
+mentioned in the Tender/ Application/ Proposal documents.
+d/
+3.6.2.3 e-GP system will automatically generate working sheets to
+assist the evaluators. Evaluators should review the auto-generated
+0..2.8 e-GP   CG//
+reports, update and complete the entire required evaluation matrix
+based on the stipulated criteria and sought facts in the Tender/RFP
+documents to complete the evaluation.
+G/
+3.6.2.4e-GP System shall not allow the Evaluators to alter any data
+provided by the Tenderers/Applicants/Consultants and agreed final
+0..2. TEC/PEC ，，
+report by the committee that may determine the winner Tenders/
+Applications/ Proposals after submission of the final data to the e-GP
+l02  d  B2 B1
+system.
+3.6.2.5TEC/PEC members may conduct the negotiation online or
+offline, if negotiation is applicable to specific procurement type as per
+0..2.    2
+PPR-2025 along with the subsequent amendments, and upload the
+2
+negotiated report to e-GP System.
+22
+3.6.2.6 If any modification required, evaluators may seek permission
+matrix. The system will record any such alterations.
+from the proper authority to update the value in the evaluation record
+3.7 Approval, Notification of Award (NOA) and
+Contract Signing
+0..2 e-GPTR
+3.7.1 Approval of the Evaluation Report will be routed in e-GP system
+0.G.  G
+through the workflow to appropriate Approving Authority as stipulated
+in PPR-2025 along with subsequent amendments.
+/
+3.7.2 Procuring entity will issue NOA to successful evaluated
+ak
+tenderer/applicant/
+consultantonline2(ie-via
+tenderer/applicant/consultant dashboard, email, SMS as configured in
+preference settings).
+3.7.3 The successful Tenderer must accept the receipt of the NOA
+,PPR-2025-
+through their e-GP dashboard within the number of days mentioned in
+
+## Scan page 96
+e-GP
+e-GP
+the NOA and carry out the necessary formalities as indicated in the
+knowledge, skills, and abilities to effectively carry out the
+NOA and the tender documents. The issuance date of NOA in e-GP
+responsibilities by using the Dashboard provided in the e-GP system.
+System will be treated as the receiving date of NOA. Performance
+After completion of the contract, PE or Project Manager will issue
+security has to be furnished in number of days as mentioned in NOA.
+contract completion certificate online.
+compliance with the PPR 2025.
+3.7.4 e-GP system may provide the facility to sign the contract online
+between the Procuring Entity and the awarded Tenderer/Applicant/
+Consultant, but may also choose to sign the contract offline in
+3.8.1.2 E-GP System provides the standard forms and entry spaces to
+record the different activities and events of the Contract execution
+under e-Contract Management System. Procuring entities should keep
+updated contract with the project schedules, deliverables, Service Level
+3.7.5 The e-GP system will publish the Contract award information on
+Agreements if any, specifications, amendments and other information
+c-GP Portal as and when Contract is signed and system is updated by
+in the e-GP system.
+the Procuring entity.
+3.8.1.3 Procuring Entity (PE) or a person nominated by PE must
+0.9，(NOA)
+measure time and cost against the budget and contract specifications.
+The projected time required to complete the contract will also be
+0.9.    e-GP
+assessed to detect deviations from the plan through the e-GP system
+，PPR-2025
+dashboard. The performance of the work must be checked to ensure
+that the targets are being met and accordingly update the data in the e-
+GP system to reflect the actual status of the contract.
+//
+3.8.1.4 The designated official(s) should upload inspection reports,
+G NOA ( / E,
+photographs and other documents that may be appropriate in relevance
+to the contract.
+0.9.0
+NOA
+d
+0.6.同
+-VONs
+0.6..
+d26 2
+0.9.8 e-GP      /
+,
+/
+PPR-2025
+PITCST
+... e-GP  e-Contract Management System-
+RR
+e-GP
+(SLA)，，
+3.8 e-Contract Management
+1
+3.8.1 Contract Progress Monitoring and Control
+0...   (PE)
+3.8.1.1 The Procuring Entities may nominate an individual as Project
+Manager for managing contracts, who shall have the required
+
+## Scan page 97
+e-GP
+e-GP
+-GP
+3.8.3.2The designated officials should check contract status; contracted
+l
+parties, contract period, goods, works and services covered and contract
+points to make any decision during contract agreement administration.
+0...8，
+3.8.3.31f any contract needs to be amended the e-GP System brings up
+the auto alerts for required actions. The designated official must record
+appropriate reason before any such extensions.
+3.8.2 Certification and payment processing
+3.8.2.1 The e-GP System provides the standard forms for issuing
+0.6.0.e-GP
+certificates etc. The designated officer(s) responsible for evaluating
+different types of certifications such as acceptance certificates, quality
+可
+performance of the contract must carefully review the contractor's
+0.6.0..，,
+requests submitted online for payments to verify the accuracy of all
+//
+charges and work performed, as e-GP system does not have automated
+tools to verify the physical performance in the field.
+... -GP
+performance of services and works in accordance with the contract
+3.8.2.2 The designated officer(s) must verifY receipt of goods and
+prior to authorizing payment of invoices online.
+12102 1021
+3.8.2.3 Contract management will be fully based on the workflow
+process configured for the specific procuring entity.
+3.9 General
+3.9.1 Workflow Configuration and Management
+3.9.1.1 Authority Register
+d
+3.9.1.1.1 The e-GP System is based on the procurement process
+workflow, which is based on the Delegation of Financial Power
+G
+(DoFP). The e-GP system workflow verifies the Authority Register
+D  02 102
+stored in the system for each procuring entity to carry out the
+procurement transactions in compliance with the DoFP and process
+defined in the PPR 2025.
+0.6.2.     2
+3.9.1.1.2 e-GP System should provide a data entry form available for
+the procuring entities to capture detailed personal information, and
+0.6.20
+department/section information, role and responsibility information, e-
+R
+Signature/digital signature (whichever is applicable), detailed contact
+information and the authorization level of the user to make part of the
+procurement workflow process.
+3.8.3 Contract agreement administration
+3.9.1.1.3 Procuring Entity must determine the different authorization
+3.8.3.1 The e-GP System also provides a tracking mechanism for all
+levels for each user to perform certain activities.
+contract agreements.
+
+## Scan page 98
+e-GP
+-GP
+sae
+0..可
+1 12  laccks
+0.3.2.2同
+0.... e-GP
+d
+0...2.0 ,
+，DoFP PPR 2025-
+ulkaks
+3.9.2 Common Instrument Numbering
+，（2)，
+3.9.2.1 Instrument Numbering Process
+3.9.2.1.1 Procuring Entity should ensure that each contract or any other
+agreement is uniquely numbered in order to facilitate MIS on spend
+analysis, Contractor/Supplier/Consultant's performance or/and any
+other such analysis. The e-GP system also provides its internal number
+1 2国
+for each transactions and items.
+3.9.1.2 Workflow Mapping
+3.9.2.2 Records and References
+3.9.1.2.1 The Procuring Entity should create workflow from its
+3.9.2.2.1 The Procuring Entity should accept the system guided format
+Dashboard for centralized, distributed and/or hybrid kinds of
+to create any reference, record or modification of an existing record or
+droceet hoee t sroet honeet hoeeoent
+reference number.
+transaction cycles to accomplish any procurement activity involving all
+required resources and transparent roles/authorities.
+0..可
+3.9.1.2.2 The Procuring Entity should create its own workflow
+0..R.可
+mapping to provide flow for each procurement process indicating
+0..2..   A
+specific department, designation/role, rights and permissions to perform
+②
+and automate necessary tasks.
+//
+3.9.1.2.3 The Procuring Entity may have rights to change the workflow
+d  (S)
+mapping during the procurement process, as and when required with
+B u B aa   Bg
+the permission from the appropriate authority in PE.
+0.D.D. P
+C.D.R.R PE B P
+0..D.R    G  G, RO
+,  R /
+
+## Scan page 99
+e-GP
+e-GP
+0.3.0.0 何T同 5 G
+3.9.3 Personalization/Customization/Configuration
+3.9.3.1 e-GP system Configuration
+3.9.3.1.1 The Procuring Entity should configure the e-GP System to fit
+with the existing procurement practice as per PPA-2006 and PPR-2025
+(  )   2
+along with subsequent amendment and the Business Process
+Q3CQ
+Reengineering (BPR) of this guideline.
+3.9.3.2 Agency Specific Workflow Configuration
+0.3.0.8
+3.9.3. 2.1 The Procuring Entity should configure the workflow on the e-
+GP System to fit with their procurement workflow.
+(， R    ),
+，
+3.9.3.3 Major Actors Specific Dashboard and User
+2  C3 31
+Interface
+3.9.3.3.1 The Procuring Entity should ensure that an actor-specific User
+3.9.4 Storage of records and documents
+Interface and Dashboard have been created to perform activities as per
+3.9.4.1 Storage Formats
+the user's permission, and facilitated by necessary tools including fonts
+& pdf writer to complete activities.
+3.9.4.1.1 The e-GP System has the ability to store records (name data)
+in either or both of the two languages (Bangla and English), where
+applicable in e-GP System.
+3.9.3.4 Auto Alerts
+3.9.3.4.1 c-GP System shall provide the auto alerting systems (via
+3.9.4.2 Archival requirements
+email, RSS feed or SMS) for the users (opted for preference to receive
+3.9.4.2.1 The Procuring Entity will keep the archive of the contract
+such alters) to get the required message alert on specific events in the
+documents.
+procurement process.
+3.9.4.3 Confidentiality of records in e-GP system
+0..//
+3.9.4.3.1 Any record, labeled as confidential or sensitive by the system,
+0.3.0. e-GP
+shall not be published or shared with any third party without written
+permission from the owner.
+2006PPR-2025（)
+3.9.4.3.2 e-GP system must have adequate measures to ensure that no
+(BPR)
+users, including those with highest level of authorization (i.c. e-GP
+System Administrator), are able to view / retrieve sensitive information.
+0.3.0.同可
+Any such access must be recorded in audit trail record log for possible
+subsequent review.
+...
+e-GP
+
+## Scan page 100
+ASS
+e-GP
+e-GP
+Jad
+18
+-
+0..8.
+0..8.. -GP    ( )
+3.9.6 Security and Dispute Resolution
+02业
+3.9.6.1 Audit Logs
+0..8.G
+activities related to "write" events and access to sensitive data through
+3.9.6.1.1 The e-GP System should guarantee that all user and system
+8
+the e-GP System are captured in the audit trail for future auditing
+0..8.0 e-GP  P
+purposes.
+3.9.6.1.2 Only authorized auditors with specific permission may access
+the audit logs in presence of BPPA authorized representative.
+2     2
+3.9.6.1.3 e-GP System should not allow access to modifz the Audit
+trails.
+0..8.0. -GP
+3.9.6.1.4 All the activities of each and every user from login to logout
+( e-GP System Administrator)
+for any sessions shall be recorded along with the identity of the user,
+date and time.
+3.9.6.1.5 The information recorded in Audit trail database shall serve as
+sufficient evidence of action of any user in e-GP System.
+3.9.5
+Procurement
+Management Information
+0..R
+System
+3.9.5.1 Monitoring and evaluation of procurement process
+3.9.5.1.1 The Procuring Entity shall provide necessary procurement-
+2   e
+related information to the system to generate various reports to be used
+可可可
+for compliance monitoring with procurement Acts and rules, and
+0....       BPPA-
+procurement performance evaluation purposes.
+3.9.5.1.2 The Procuring Entity's performance will be evaluated based
+on the defined Key Performance Indicators (KPIs) to fulfill the
+0....0 C-GP
+requirement of PPR-2025.
+0....8  可可
+，
+0.D.
+0..G.. T  GG G  e-GP P
+2
+
+## Scan page 101
+200
+e-GP
+-GP
+3.9.6.2 Data Encryption
+0.... ,
+L   2  d
+3.9.6.2.1 The e-GP System keeps all private information of its users in
+encrypted form in database and shall not be accessible to any user
+(SSL) 可何可
+without sufficient authority and access permissions.
+...2.8 BPPA  e-GP
+3.9.6.2.2 The e-GP System keeps all draft and final procurement
+218 21 1012 1
+documents submitted to e-GP System in encrypted form and shall not
+22
+be accessible to any user without sufficient authority and access
+permissions.
+3.9.6.2.3 All data transmitted through the computing device (i.c.
+9
+Computers, Mobiles, and any other devices which can be used to do
+transactions with e-GP System) of authorized users to e-GP System,
+and from e-GP System to users' web browser shall be encrypted
+through Secured Socket Layer (SSL) encryption.
+3.9.6.3 Dispute Resolution
+3.9.6.2.4 BPPA shall keep its c-GP Data center and its data protected
+3.9.6.3.1 Dispute resolution in case of information theft, misuse,
+through external access using highly secured firewalls, intrusion
+hacking. spamming, disclosure, misrepresentation etc. will be handled
+detection technologies, etc.
+through the provisions made in prevailing procurement Acts and Rules,
+3.9.6.2.5 The methods and algorithm of data encryption used in e-GP
+Right to Information Act, ICT Act and Cyber Security Act and other
+relevant applicable laws.
+System shall be approved by BPPA, and may be revealed if the
+disclosure is required and requested to reveal for the resolution of any
+0.3.G.0 RR同
+disputes.
+3.9.6.2.6 BPPA shall follow the e-GP Information Security Policy to
+0...0. , ,,,,
+manage information security for e-GP System.
+0.3..2  可何
+d
+3.9.7 Subscriber Services
+3.9.7.1 Subscription Administration
+3.9.7.1.1 BPPA reserves the right to Setup, Configure and Administer
+e  a  k Lk ae g d
+the subscription of registered e-GP System users.
+3.9.7.1.2 BPPA may charge fees from its users for the use of e-GP
+system and its different services by taking approval from the competent
+可可
+authority.
+
+## Scan page 102
+202
+e-GP
+-GP
+200
+3.9.7.2 Charges/Fees
+3.10 Operation, Maintenance and Management Services
+3.9.7.2.1 BPPA may charge fees for user registration, verification of
+3.10.1 Operation, Maintenance and Management
+credentials, renewal of validity, training, providing procurement
+Arrangements
+information, and other approved services for fees.
+3.9.7.2.2 BPPA may charge fees to third-party website or application
+3.10.1.1 The BPPA, Implementation Monitoring and Evaluation
+for specialized service of providing public information available in the
+e-GP System through web services or any other appropriate content
+services of e-GP system, data center, hosting of the e-GP system and
+Division (IMED) reserves the right to operate, maintain and manage
+delivery services.
+other related services at any third-party premises or cloud environment
+3.9.7.2.3 BPPA may introduce new fees for different procurement
+for agreed period through adopting appropriate business model.
+events, and review any fees structure for the e-GP system users, and
+subscribers.
+3.10.2 Service Standards
+3.10.2.1 The BPPA shall monitor, supervise and recommend the
+0..9 R
+expected service standard provide by the outsourced firm/company to
+the stakeholders and e-GP system users.
+0..9.何2
+0..9.. BPPA 同 e-GP
+3.10.3 Services Limitations
+3.10.3.1 The BPPA shall determine the access level to e-GP System
+and data center, quality of services, indicators for performance
+monitoring, and service limitations to the outsourced partners through a
+Service Level Agreement (SLA) for the sustainability of e-GP System
+in Bangladesh.
+9
+3.10.4 e-GP Management Committee
+3.10.4.1 A core committee chaired by the Chief Executive Officer
+0..9.2. BPPA  ， ， ，
+management staff and advisors of the BPPA for making e-GP related
+(CEO) of BPPA shall be formed comprising of core technical and
+operational, technical and critical ad hoc decisions on special/
+emergency cases of unavailability of e-GP system to the users.
+Emergency situations include, but not limited to, retendering because of
+technical issues on e-GP System, data and file retrieval issues,
+canceling tenders, maintenance and enhancements of the system, and
+12
+other issues. All such issues arisen in the e-GP System, and because of
+the e-GP system shall be managed by the decision of this committee.
+0..9..BPA
+e-GP
+0.D0G，
+9
+0.D0.，
+.o.. BPPA, Implementation Monitoring and Evaluation Division
+
+## Scan page 103
+208
+e-GP
+e-GP
+200
+3e  n n e ar   bic
+B2
+procurement and promote transparency by regularly publishing
+procurement data in line with the Open Contracting Data Standard
+(OCDS).
+0.20.2
+B
+framework agreements for an agreed list of common use items.
+3.11.4 e-GP System may facilitate the e-Catalog and catalog-based
+22
+purchases based on direct purchase and quotation methods.
+3.11.5 e-GP System may facilitate the development of Tenderer's
+comprehensive profile, and also contractor performance appraisal
+0.20.0
+functionalities.
+3.11.6 e-GP System may facilitate the interface and interoperability
+-GP P
+with the key government electronic systems like finance, tax, business
+，向
+registration and others.
+3.11.7 e-GP system may facilitate the payment to contractors
+(A)g
+interfacing Automated Clearing House (ACH) banking network and
+other payment systems.
+0.20.8 e-GP 可变可不同
+3.11.8 e-GP System may incorporate the disrupting technologies to
+manage the aspects of good governance as well as making the system
+可，BPPA啊
+G
+3.11.10 e-GP System may incorporate the disrupting technologies to
+more secured and trustworthy through digital intelligence.
+3.11.9 e-GP System may facilitate e-Reverse Auction.
+manage the aspects of good governance as well as making the system
+a g dD -
+more secured and trustworthy through digital intelligence.
+, , -G
+ikey ark ala b Bac d  k 2kk aa ac
+. BPPA ,
+G,
+3.11 Future Extensions
+,   F
+3.11.1 The BPPA reserves the right to bring any changes to the system,
+service and or management structure at any time at any condition based
+on the experience to comply with any changes in Acts, Rules and other
+可何
+directives or to make the system adaptable with new administrative
+0.. -GP
+arrangements, compatible with new technology, user friendly and
+Open Contracting Data Standard (OCDS)
+useful to the intended users.
+2116 21221112
+
+## Scan page 104
+206
+e-GP
+e-GP
+209
+2  d
+22
+Appendix 1: Use of Payment Systems
+a.
+Payment arrangements
+521
+i.
+BPPA reserves the right to take the payment service of Banks,
+0.. e-GP
+payment service providers, mobile networks, and other reliable and
+authorized online service providers through Memorandum of
+Understandings (MOU) with SLA or Agreements for the e-GP
+Online Payment Network.
+(可，，同)
+ii.
+Consultants are given proper Guidelines on billing and payment
+Procuring Entities should ensure that Tenderers/ Applicants/
+(interoperability)
+options and they are to choose from the options of payment
+911
+recommended by the BPPA.
+..9 e-GP  Automated Clearing House (ACH)
+iii.
+The e-GP System has offered option to use the service of
+scheduled banks. Scheduled banks and other payment service
+providers get secured access to the e-GP System with their own
+dedicated and secured Dashboard, from where, the banks can
+carry out the financial transactions related to public procurement
+collecting fees and charges, providing guarantees, tracking the
+guarantees, making payment transactions etc. Scheduled Banks
+521622
+Tenderers/Applicants/Consultants for their services as per their
+may
+charge
+an
+amount
+from
+the
+rules. The BPPA shall not be responsible for the transactions
+made by banks with the Tenderers/ Applicants/Consultants.
+0.S.20 e-GP
+iv.
+Procuring Entities should ensure that the payment options are
+opened through Schedule Banks or any other popular and
+accessible payment network recommended by the BPPA. The
+BPPA will integrate the online payment system as and when it
+becomes available in Bangladesh.
+3.12 Translation and Publication of Documents
+V.
+Procuring Entities may make necessary arrangements with
+3.12.1 No person shall without the prior approval of Government, be
+authorized banks or payment service providers to disburse the
+permitted to publish or translate this guideline issued under the PPA
+contract amounts to Tenderers/Applicants/ contractors/ Consultants
+2006 and PPR 2025.
+or any such party when the sum is due.
+0.22同
+vi.
+The BPPA shall open and operate Master Bank Accounts in the
+banks for centrally collecting and managing the fees for
+0.2.PPA 2006 PPR 2025
+可
+documents, guarantees, securities and charges applicable in e-
+GP system, etc.
+
+## Scan page 105
+20b
+e-GP
+e-GP G
+20d
+vii.
+Procuring entities are responsible for updating e-GP system and
+notifzing BPPA about the forfeiture of Guarantees and Securities
+of the Tenderers/Applicants, and request issuing bank for
+releasing and crediting the Central account with the forfeited
+(Appendix 1: Use of Payment Systems)
+amount opened by BPPA.
+viii.
+In case of international tenderers/ applicants/ consultants,
+payments should be made to the Master Bank Account opened
+a.
+by BPPA through Bank Wire transfer or any other method
+i.
+BPPA ，，可
+clearly mentioning the purpose of payment.
+ix.
+International Tenderers/Applicants/Consultants must communicate
+Jo
+with the Banks of e-GP Online Payment Network for updating
+(
+their payment details in e-GP System. Any charges incurred for
+9
+payment transfer, communication or any currency conversion
+should be paid by the Tenderers/Applicants/ Consultants
+ii. //
+themselves.
+X.
+In case of Bank Guarantee, securities issues by International
+A
+banks must be endorsed by the local scheduled bank in
+Bangladesh and the bank must be member of e-GP Online
+d!!
+Payment Network in Bangladesh.
+xi.
+International payments can be directed/credited to Master Bank
+② d a
+Account opened by BPPA as and when international payment
+gateway is integrated with the e-GP System.
+，
+2 2 2 2  0
+，，
+0       l
+//
+BA//
+iv.
+12 1300 2g<2 9126) 0
+02
+CG///
+
+## Scan page 106
+250
+e-GP
+-GP
+255
+vi.
+BPPA 何，， e-GP
+vendor's payment web site, where the receiver makes payment
+arrangements.
+vii.   GP    /
+b.
+BPA
+i. BPPA
+viii.  // ,  BPA
+e   g
+/terroris (AML/CFT)
+ix.  //-GP
+2-
+e-GP 例，
+//
+x.
+2 2
+(pso)  l
+g2 d
+xi.
+d
+2/
+b.
+Integration with International payment system
+i.
+The BPPA may integrate any third-party International Payment
+System that meets the required standard and security requirement
+and approved by the Bangladesh Bank to provide such service to
+be integrated with the e-GP System;
+Payment System Operator and Payment Service Provider must meet the
+requirements of all relevant laws, compliance with Anti-Money
+Laundering/Counter Financing of Terrorism (AML/CFT) procedures,
+as well as regulations and guidelines prescribed for them by
+Bangladesh Bank.
+The third-party payment System should enable a receiver of an
+electronic copy of the document to navigate the link to a third-party
+
+## Scan page 107
+222
+e-GP
+e-GP
+250
+(a) reference number
+tender opening time.
+Appendix 2 : Business Process Re-engineering (BPR) of PPR 2025
+of a procurement
+relating to the issuance
+Document fees is
+defined by BPPA in
+under e-Government Procurement (e-GP) system
+(b) name and mailing
+related document;
+e-GP system and will
+be paid through e-GP
+N.
+1.
+Rule/
+Sub-
+Rule
+4.1
+Text in PPR 2025
+Documents needed for
+Pre-Qualifications,
+Trenoss as rpsals
+shall be prepared by the
+the BPPA listed in
+following the Standard
+Documents issued by
+Procuring
+Entity
+BPR for e-GP
+The Procuring Entity
+will prepare the
+needed
+qualifications, tenders
+tender
+following
+available in online
+and
+for pre-
+documents
+the STD
+proposals
+by the
+Entity.
+(c) telephone and
+facsimile numbers and
+electronic
+address, if applicable;
+considered
+address;
+information
+(d)
+Any
+necessary
+Procuring
+that is
+other
+mail
+Identity
+network using e-GP
+Tenderer/Applicant/C
+member
+using
+payment options as
+and when integrated
+with
+System.
+payment module, and
+in an online manner
+cards and other online
+the
+debit/credit
+of the
+Bank
+e-GP
+Schedule I.
+Online
+library.
+Standard
+Documents
+forms templates will
+be maintained in e-
+and
+GP
+corresponding
+Portal
+library of
+Tender
+(STD)
+for
+3) The Procuring
+such
+have
+number and include
+Entity shall record all
+Persons
+Tender
+have been issued and
+records shall
+areference
+to whom
+Documents
+providers
+recommended
+payment
+onsultant
+recorded
+system as soon as
+they make payments
+through Bank or other
+in e-GP
+will be
+service
+by
+preparing the Tender
+full contact details,
+BPPA for the Tender
+2.
+6.94
+Maintaining Records
+Relating to issue of
+Procurement Related
+Documents
+The Procuring Entity
+following information
+when issuing the Pre-
+Documents namely-to
+shall
+Qualification,
+Tender
+a Person,
+record
+Io
+RFP
+the
+or
+Documents will also
+Documents.
+be available in e-GP
+Portal in widely
+accepted PDF or MS
+Word formats as the
+Procuring
+(PE) will know only
+reference
+users.
+documents were sold
+or not, but will not
+get to know the
+if
+Tenderer's/Applicant'
+identity. Identity of
+s/Consultant's
+be revealed until the
+Applicants
+/Consultants will not
+the
+the
+for the
+Tenderers/
+Entities
+tender
+3.
+7
+while the Approving
+Committee comprising
+Procuring Entity or an
+officer authorized by
+form a Tender or
+such as ID or personal
+details,
+address, telephone and
+facsimile numbers and
+electronic
+address, if applicable.
+The Head of the
+him or her or the
+Authority is below the
+level of HOPE, as the
+case may be, shall
+Proposal
+specified in Schedule
+Approving Authority,
+of
+members
+Opening
+mailing
+mail
+as
+A
+submission.
+Opening Committee
+Opening Committee
+(POC) shall not be
+shall
+the deadline
+Tender/Application/E
+OI/Proposal
+submission deadline
+(TOC)
+formed. e-GP System
+open
+/EOIs/Proposals after
+Tenders/Applications
+separate
+automatically
+Proposal
+Tender
+of
+the
+
+## Scan page 108
+258
+e-GP
+e-GP G
+pse
+II.
+as configured and
+5.
+16.1
+(1) Preparation of a
+Annual
+Procurement
+published in the e-GP
+System. The System
+16.8
+shall be mandatory for
+Procurement
+Plan
+mandatory in case of
+Plan
+(APP)
+is
+shallautomatically
+all Procuring entities
+all
+online
+generate
+Tender/
+(8) In the case of
+procurement
+Report (TOR/POR)
+Proposal
+ahe ahng onine
+Tenders/Applications
+/EOls/ Proposals.
+Opening
+Procurement
+updated
+Procurement Plan for
+Development Project
+preparation of total
+Annual
+Plan,
+All revisions in APP
+appropriate authority.
+packages.
+packages will need
+approvals
+from
+4.
+8
+Proposal
+Tender
+Committee
+Evaluation
+(TEC) or
+Evaluation
+Tender
+Committee
+(TEC)/Proposal
+Evaluation
+Program and Annual
+Procurement Plan for
+Revenue or Budgets
+All approvals will
+have to go through
+the workflow process.
+Committee
+(PEC)
+Evaluation
+the formats prescribed
+shall
+be
+formed
+Committee
+(PEC)
+in Part A, Part B, Part
+comprising
+of
+shall be formed in the
+C, Part D, and Part E
+members, as specified
+following manner:
+as applicable
+of
+the invitation for
+in Schedule II, prior to
+·If the
+authority is HOPE or
+approving
+Schedule V shall be
+followed.
+Application, Tender or
+below
+thereof,
+6.
+18.1
+(b) arrange a pre-
+Pre-tender or pre-
+Proposal has been
+issued, but certainly
+formed with three (3)
+TEC/PEC shall be
+Ten Tmncetng mene
+which
+potential
+proposal meeting will
+be held online for a
+must be formed before
+thedeadline
+for
+members, out of
+which at least one (1)
+Tenderers may meet
+with the Procuring
+specified period of
+time as stipulated in
+Applications. Tenders
+submission
+of
+member shall be from
+another PE,
+to ask questions and
+Entity's representatives
+the notice or Tender/
+Application/ Proposal
+or Proposals.
+If the
+authority is above
+approving
+seck clarifications for
+Works or complex
+Name
+documents.
+of
+HOPE, the TEC/PEC
+supply
+Contracts,
+Tenderers/Applicants
+shall be formed with
+particularly
+those
+/Consultants
+who
+five (5) members, out
+requiring refurbishing
+participated in Pre-
+of which at least one
+for existing Works or
+Tender/
+(1) member shall be
+equipment;
+Application/Proposal
+external (i.e. from
+c) Provide minutes of
+meeting will not be
+agency/ministry/divis
+outside
+concerned
+of
+the
+the meeting, if one is
+convened under Sub-
+rule 18 (b), in a timely
+Applicants/
+Tenderers/
+shared with other
+In all of the above cases,
+ion/any other agency
+member of the
+under the concerned
+ministry/division).
+at least one (1)
+from the concerned
+procuring entity.
+TEC/PEC shall be
+meeting.
+manner as specified in
+prospective Tenderers
+who have purchased
+the Tender Documents
+and to even those who
+did not attend the
+Schedule II, to all
+procuring entities.
+Name
+will not be shared
+with
+consultants by the e-
+GP
+Tenderers/Applicants
+have posted queries
+/Consultants
+System
+Procuring
+aad
+who
+of
+
+## Scan page 109
+C-GP
+C-GP
+259
+or correction of errors
+(d) Circulate any
+additional information
+of an Addendum as
+in
+Documents
+Tenderers in the form
+specified in Rule 95.
+the
+to all
+Tender
+Questions can be
+posted till last date
+No question should
+Entity.
+adndg dg ang pne
+be allowed to be
+posted, once pre-
+Tender Application/
+Proposal meeting.
+8.
+27.1
+102.10
+Evaluation. Report.
+(1) A
+Security
+furnished
+Performance
+shall
+bythe
+be
+Performance
+securities will be
+required.
+from.
+authentication is not
+issuing and uploading
+the tender securities,
+additional verification
+issued by the bank on
+PE
+tender meeting is
+successful Tenderer in
+the request of the
+concluded.
+the amount specified
+successful Tenderer
+Queries
+must
+be
+in the TDS following
+applying the bank
+posted
+Online
+via e-GP
+channel
+in Schedule II.
+the threshold specified
+rules. But the Bank
+shall update
+the
+7.
+22.1
+24.1
+motive, a Procuring
+the submission
+a condition
+22.(1) To discourage
+Tenders
+Entity may include in
+the Tender Documents
+Tenders must a be
+with
+that
+of
+Fax/Post/Email will
+In e-GP System,
+through
+not be entertained.
+Tender Security will
+be prepared by bank
+using the template
+provided in the e-GP
+system upon request
+Queries
+by the Tenderer. The
+tender
+posted via
+dashboard.
+security
+theContract,
+(10) Before signing
+Security submitted by
+issuing the bank draft
+or irrevocable bank
+Procuring Entity may
+verify the authenticity
+of the Performance
+a Tenderer by sending
+a written request to the
+branch of the bank
+guarantee.
+Upon
+transaction
+credited in the PEÖs
+System.
+guarantee will be
+designated by the
+information in e-GP
+from the PE, the
+Performance
+bank account or any
+other
+government.
+instruction
+account
+accompanied by a
+security in form of, at
+instrument shall be
+retained by the bank.
+Verification of the
+Tenderer's option, a
+or bank guarantee
+bank draft, pay order,
+information
+The bank will update
+the
+Transaction
+and
+by PE is not required,
+Authenticity
+Performance Security
+of
+using the standard
+format attached to the
+issued by scheduled
+verified by the Tender
+of Tender security
+submitted
+in writing from the
+Tender
+bank of Bangladesh.
+24.(1) The authenticity
+Tenderer
+Evaluation Committee
+security, prior to the
+Bankissuing
+finalization of the
+documents,
+shall be
+by
+the
+a
+As banks will be
+upload the scanned
+instrument in the e-
+Security is required to
+instruct the bank &
+Bank in turn will
+government.
+copy
+GP system.
+be forfeited, PE will
+or any other account
+the PE's bank account
+designated by the
+credit the amount in
+case
+of
+Tender
+the
+9.
+36.3.a.1
+(i)
+the
+having completed the
+accordance with the
+recommendation for
+not the Tenders or
+Act and these Rules,
+Committee
+evaluation
+submit the Evaluation
+Report,
+award of Contract, but
+Proposals, in a sealed
+and
+Evaluation
+the
+shall,
+in
+In e-GP
+as the same will be
+issued by authorized
+technical evaluation
+report will be sent
+workflow of the PE,
+and hence no physical
+Banks.
+procurement
+through
+following
+correspondence
+required.
+system,
+systenm
+the
+is
+
+## Scan page 110
+e-GP
+e-GP G
+2SS
+envelope directly
+to
+within Bangladesh
+A new
+optimized
+the Head of the
+(1)the
+Procuring
+form will be used in
+Procuring Entity or the
+Entities shall send
+e-GP
+System for
+Project
+Director,
+Invitations
+for
+creating
+a tender
+Project Manager, or
+Procurements
+where
+notice.
+the authorized officer
+potential
+The PE will publish
+for approval, as the
+contract values are
+Abridged Format of
+10
+38.4.(a)
+4) The main elements
+case may be;
+administration
+approval of the work
+plan;
+of
+management
+include -
+(a)
+review
+contract
+may
+and
+and
+The work plan must
+done at the time of
+signing, and during
+be submitted with the
+tender submission in
+the e-GP System.
+of work plan can be
+negotiation, contract
+Review and approval
+estimated to exceed
+the amounts specified
+in Schedule III,
+to or as decide by the
+Government from time
+time, for publication in
+the BPPAÖs website.
+procurement
+published in e-GP
+newspaper with text
+suggested here: The
+tender notice
+[insert title of the
+procurement),
+Tender
+No.[xxxxxx]
+Tender Notice in the
+e-GP
+ID
+of
+is
+te
+contract
+website. This is an
+execution.
+online Tender, where
+11
+38.4(e)
+(e) Organization and
+management
+documentation related
+preparation of periodic
+to
+reports
+implementation
+implementation, and
+Contract.
+on
+contract
+the
+of
+of
+Report format will be
+used to track progress
+The periodic reports
+will be prepared by
+Standard
+of contract.
+Contractors/Consulta
+the
+contract management
+nts
+using
+Progress
+e-GP
+only e-Tenders will
+registration on e-GP
+offline/hard copies
+be accepted in e-GP
+Portal
+will be accepted. To
+submit
+system
+(www.eprocure.gov.b
+d) is mandatory. For
+and
+e-Tender,
+no
+tools and will submit
+more details contact
+to PE.
+e-GP Help desk'.
+Project
+Director
+The e-GP system may
+(PD)/
+Manager
+send the procurement
+Procuring Entity will
+information via SMS,
+accept progress report
+Dashboard Alerts &
+in totality on partially
+email Alerts based on
+as they deem fit.
+the preferences set by
+12
+90.2
+one Bangla language
+and one (1) English
+(a) Invitations shall be
+advertised in, at least
+national
+language
+newspaper,
+which shall have a
+wide daily circulation
+both of
+newspaper
+national
+Procurement related
+published in the e-GP
+portal. The official
+notices
+Tendering will be
+www.eprocure.gov.b
+website address of the
+e-GP
+:p
+portal
+or
+e-
+is
+the users in the e-GP
+system.
+The forms given in
+into digital forms in
+integrated with the
+subsequent
+Schedule X of PPR-
+e-GP System
+2025 are converted
+and
+
+## Scan page 111
+e-GP
+e-GP
+225
+procurement
+will be the date and
+processes.
+time of the Tender
+It is suggested to
+notice
+/REOI
+make the payments
+published in the e-GP
+for the documents to
+System.
+beade e edine
+av i vt 1
+minute problems. But
+the bank one day
+for document selling
+13
+95
+Entity may, on its own
+(1) At any time prior
+to the deadline for the
+submission
+Tenders, a Procuring
+of
+published in e-GP
+system under the
+Amendments (if any)
+to the Tender RFP
+documents will be
+feel the time is
+the
+sufficient to prepare
+tender, submit all
+Tenderer/Applicant/
+required documents,
+completed, required
+is readily available
+Consultant
+details, third party
+payments
+Internet connectivity
+inputs
+for completing all
+can
+should
+done,
+be
+initiative
+response to an inquiry
+result of a Pre-Tender
+meeting, modifz the
+(1) shall become an
+by  o e a  a
+issuing an addendum.
+(2) The addendum
+issued under Sub Rule
+integral part of the
+Tender Document and
+shall have a date and
+Tender Documents by
+in
+corresponding
+will be an integral
+part
+internally keep track
+the Procuring Entity.
+Tender/ Proposal, and
+Tender/Proposal.
+The e-GP System will
+of the issuance of
+amendment issued by
+of
+the
+submission, and make
+relatedto
+sure tender can be
+online
+activities
+tender
+Wen  wave
+an issue number and
+must be circulated by
+fax, mail or e-mail, to
+Before the due date &
+submitted before the
+tender.
+last date & time of
+time specified in
+purchased the Tender
+Documents within the
+Schedule II., to enable
+time, tenderer can
+Tenderers to take
+submit the Tender
+Commencementof
+security
+Bank.
+counting of the dates
+Tender/Application/P
+should make sure the
+Tender security is
+readz & submitted to
+e-GP Portal before
+Tender submission.
+for
+Tenderer
+through
+the
+14
+96
+(8) Locked Tender
+Tenders are in large
+envelopes that are
+may be
+assigned officer of the
+boxes or cabinets may
+be used or when the
+volumes
+large or thick, they
+appropriate action.
+received
+Procuring Entity.
+directly
+or
+an
+in
+The
+Tenderers/Applicants
+will be submitted
+Tenders/Proposals
+online in e-tender box
+and e-GP system will
+store sensitive data
+and information in
+encrypted format.
+submit
+/Consult ants
+will
+the
+roposal submission
+received and opened in
+(11) Tenders shall be
+The tenders/proposal
+Tender/Proposal.
+
+## Scan page 112
+222
+e-GP
+e-GP
+220
+one location, but in
+must be signed by the
+conditions, etc.
+exceptional
+cases,
+tenderer using e-
+Multiple
+droppings
+Procuring Entity may
+Signature or digital
+concept
+is
+nout
+dropping"
+allow
+in which
+"multiple
+prescribed by BPPA.
+signature
+as
+e-GP system.
+applicable in case of
+case the following
+Tenderer/Applicant/C
+15
+97
+(1) The Procuring
+Tender
+opening
+guidelines shall apply:
+onsultant can upload
+Entity shall convene
+process will be done
+documents to their
+the meeting for the
+bythe
+Decrypt
+secured and private
+Tender opening; and
+Tender functionality
+web space in e-GP
+Tenders
+shall be
+as tenders are stored
+referred as Common
+opened at the time and
+intime stamped
+Document Library,
+place specified in the
+electronic tender box
+which
+will
+be
+IFT in presence of the
+with encryption.
+accessible
+Tenderers/Applicants
+to
+authorized
+Tenderers or his or her
+A separate Tender
+Opening Committee
+/ Consultants from
+representatives.
+(TOC)/
+Proposal
+their dashboard. Once
+(2) The place where
+Opening Committee
+uploaded,
+those
+the Tenders shall be
+(POC) shall not be
+documents can be
+used in
+tenders/proposals as
+various
+reserved in advance
+opened should be
+suitably equipped and
+open the Tenders/
+formed. e-GP System
+shall
+automatically
+Consultants feel that
+authenticity of the
+on website will be
+it is, or uploading
+new documents if
+sana n mhat
+Tenderers/applicants/
+thevalidity
+Tender/
+document available
+documents expired.
+final version.
+Signing
+documents
+Signature or digital
+considered as full &
+(by e-
+Proposal
+and
+the
+Opening Committee
+Opening. Committee
+shall ensure that-
+for the purpose of the
+Tender opening.
+(3)
+(TOC) constituted in
+accordance
+the submission of
+Rule10 shall open, all
+Tenders received on or
+before the deadline for
+Tenders, in public and
+in only one place.
+(4)
+The
+The
+Tender
+Tender
+with
+as configured and
+shallautomatically
+thedeadline
+opening the Tenders/
+Tender/Application/E
+submission deadline
+published in the e-GP
+System. The System
+generate
+Tender/Proposal
+(TOR/POR)
+Applications/EOIs/Pr
+Applications
+/EOls/Proposals after
+OI/
+Opening
+Proposal
+Report
+after
+of
+the
+Applicants/Consultan
+Tenderers/
+stated in Sub Rule
+(a) Except in case
+oposals.
+ts will sign the tender
+documents to state
+that they have read
+the tender documents
+be
+immediately after the
+deadline
+96(11), Tenders shall
+for the
+opened
+in detail, and have
+submission of Tenders
+understood the scope
+of work, terms &
+hour after expiry of
+but no later than one
+
+## Scan page 113
+228
+e-GP G
+-GP
+22e
+the
+deadline;
+submission
+(iii) the Tender price;
+(b) Tender Opening
+(iv) discounts, if any; -
+prepared
+Sheet
+(TOS)
+containing
+ad
+(v) Tender security, if
+relating to Tenders or
+the
+information
+information. relating
+required
+and
+Proposals announced
+to its amount; and
+at the opening in
+(g) The checklist with
+accordance with Sub
+steps for Tender
+Rule (4)(f);
+opening in Part D of
+(c) Persons not
+Schedule IV shall be
+associated with the
+followed.
+Tender are not allowed
+5)Tender
+to attend the opening
+of Tenders;
+modifications
+discounts, which are
+Io
+(d) the Tender opening
+not read out at the
+is not delayed on the
+Tender opening or
+plea of absence of
+recorded on the TOS,
+Tenderers or his or her
+shall not be considered
+representatives, as the
+in the evaluation of the
+presence Tenderers or
+concerned Tenders.
+of their authorised
+(6) No Tender shall be
+representatives
+is
+rejected at Tender
+optional;
+opening, but late
+(e) the Tenderersô
+Tenders or Tenders
+representatives shall
+withdrawn shall be
+be duly authorised by
+returned directly to the
+the Tenderer;
+Tenderers unopened.
+(f) the following
+(7) Upon completion
+information
+stated
+of the Tender opening,
+therein is read out
+al os mr oe
+from the Tenders after
+TOC
+and
+the
+Tender opening which
+Tenderers or their
+shall be recorded on a
+representatives
+who
+Tender Opening Sheet
+attended the Tender
+duly verified by the
+opening shall sign the
+members
+ofthe
+TOS, copies of which
+Tender
+Opening
+shall be issued to the
+Committee-
+Head of a Procuring
+(i) name and address
+Entity or an officer
+of the Tenderer:
+authorised by him or
+(ii)
+substitution
+modifications, if any;
+withdrawal,
+or
+her and to all members
+authorized Consultants
+employed in the
+of the TOC and any
+
+## Scan page 114
+22G
+-GP
+-GP
+229
+project and to the
+(8) The
+Secretary of the TOC
+Tenderers.
+Member-
+a Procuring Entity
+Notification of Award
+award
+Approving Authority,
+shall
+issue
+by
+the
+the
+Debarred
+verified in e-GP
+System before issuing
+Tenderer/Applicant/
+Consultant will be
+Wl t e tde
+(NOA)
+to
+the
+NOA.
+procedure as per Sub-
+successful Tenderer.
+Tenderer/Applicant/C
+Rule (4) is carried out
+and will sign to certify
+Documents have been
+sente e e ng
+that
+Entity
+the
+immediately
+Tender
+u pereds poied
+accepted in writing by
+(3) The Notification of
+Tenderer within the
+Award
+the
+shall be
+successful
+the NOA online using
+e-Signature or digital
+signature (whichever
+is applicable)
+onsultant will accept
+16
+17
+98.12
+102
+after
+opening.
+9) Upon completion of
+kep e e aeke
+the Tender opening all
+Tenders and all related
+documents shall be
+wilh hy oh y ohe
+custody
+Procuring Entity along
+Ts   sey
+all concerned.
+quantified in the BOQ
+12)
+for which no rates or
+deemed covered by the
+amounts of other rates
+and prices in the
+prices
+Contract and it shall
+not be a reason to
+gutced
+change the Tender
+price.
+(1) Prior to the expiry
+of the Tender validity
+the approval of the
+period and within one
+(1) week of receipt of
+the
+The
+have been
+of
+shall
+Tender
+item
+the
+be
+NOA will be issued
+expected in e-GP
+system so far the
+are correctly entered,
+figures and operators
+and e-GP system does
+all the calculations
+of figures into words.
+errors
+including conversion
+Tenderer/Consultant
+allow
+Tenders.
+will have to quote "0"
+item to leave blank.
+online and the same
+(Zero) against the
+will be signed (by e-
+Signature or digital
+signature).
+Arithmetic
+System will not
+are
+hat-ld
+not
+18
+19
+122.2
+102(11)
+Schedule II.
+Contract within. the
+Performance Security
+be genuine.
+set a date for the
+authorised officer of
+period specified in
+l hl st he
+been accepted and shall
+11)
+the Procuring Entity
+and of the successful
+Tenderer shall sign the
+Schedule II if the
+submittedbythe
+Tenderer is found to
+(2)
+successful Consultant
+that its Proposal has
+The Procuring
+The
+1duly
+carried out online and
+within the period
+mentioned in NOA.
+be digitally signed by
+GP Portal.
+Performance security
+on behalf of the
+will be recorded in
+Security has to be
+furnished and the
+Contract to be signed
+both parties & details
+of contract award will
+be available in the e-
+verify
+genuineness of the
+as the information of
+updated in e-GP
+registered Member
+Banks at the time of
+in PPR-2025 can be
+negotiation records
+the e-GP system.
+Performance security
+the
+system directly by the
+issuance
+Tenderer.
+Negotiation provides
+Contract may
+No need
+Performance
+security
+to
+the
+of
+is
+
+## Scan page 115
+222
+e-GP G
+-GP
+commencement
+Contract negotiations so
+of
+2：一C(e-GP)可
+that the Contract can
+202-3T何(BPR)
+com t  eore
+the prescribed Proposal
+20
+127.5.
+d
+validity date expires.
+The Head of the
+Procuring Entity shall,
+having considered the
+recommendation of
+the Committee under
+Sub Rule (5) (c), make
+decision is taken to
+deb ne  tomed
+Person or firm, the
+an
+decision
+and if a
+appropriate
+In case of debarment,
+the HOPE approves
+andupdate
+debarment list in the
+the debarment and the
+HOPE will publish
+e-GP Portal. The
+published also in the
+BPPA
+through web services.
+debarment list may be
+website
+the
+1.
+4.1
+BPPA
+213113
+可可RRC
+可同
+SITPCRTGT,
+STD
+Procuring Entity shall.
+G
+286
+issue a letter debarring
+the concerned Person
+or firm and that letter
+RETRG
+shall be addressed to
+28
+the concerned Person
+the list of debarred
+wih  cy  otde
+BPPA for inclusion in
+(STD) 度
+persons or firms and
+可可e-
+published on
+the
+Lgl d
+BPPA website.
+f
+R例 e-GP
+C91 S
+PDF 可
+MS Word
+2.
+6.94
+k
+1osc
+STD
+2，
+
+## Scan page 116
+200
+e-GP
+e-GP
+205
+2,
+不何，可可 RFP
+不交可
+AR
+213113
+fa  lilk
+可
+，
+3.
+7
+BBk
+(a)
+B②2里
+(POC)
+(TOC)/2R3可
+可可
+(b)
+TRPCRIICS
+含可可；
+SRPCS
+(STD)
+可可可e-
+GP
+122
+502F1<91821
+2
+不可，
+不 HOPE-3
+2G,
+响可可可可e-GP
+可/EOI/R可
+(c)
+(d)
+而向可
+RCTOO
+213113
+可
+PDF可
+MS Word f
+e-GP
+4.
+8
+Schedule
+II-同 不
+，
+203
+32003
+/IO/2
+(TOR/POR)
+可
+(TEC)
+(TEC)/2RR
+图
+(PEC)
+200 LK
+而(PEC) 可
+，
+孩，
+同
+Schedule
+II-
+不 HOPE
+B
+929
+，
+TEC/PEC (0)
+，可
+lelkcule Lol
+Loels
+2R3
+可何
+π
+GEG  (2)
+回T,
+可//R
+不啊
+HOPE-
+可
+RI,
+
+## Scan page 117
+202
+e-GP
+e-GP
+200
+TEC/PEC
+(e)
+2(2157,
+，
+(2)
+6.
+18.1
+(b)
+Pre-tender  pre-
+all) s
+proposal
+meeting
+/il./l22
+，
+，
+可
+51/
+业
+Application/Proposal
+Tender/
+22 2(32126
+业
+Pre-Tender/
+leek
+A,
+Application/Proposal
+TEC/PEC-4
+meeting-
+uk (5) 5
+区921~16510151128
+Tenderers/Applicant
+夜因
+s/Consultants-
+5.
+16.1
+16.8
+(1)
+业
+(8)  西
+币
+280
+Schedule V-
+Looks
+workflow
+Plan
+APP
+Annual Procurement
+可 命度
+231
+(APP)
+Mkeack
+1a
+9;
+(c) Sub-rule 18(b)
+1021s图
+，
+Schedule
+1021  2
+I-
+Bak
+look
+可可
+，
+e-GP System
+Tenderer/Applicant/
+Consultant-
+可可
+P
+Tenderer/Applicant/
+Consultant-
+Queries （
+可可
+Application/Proposal
+Tender/
+Bk
+pre-
+Part A, Part B,
+meeting
+Part C, Part D
+可，
+Part E-
+Pre-tender meeting
+，
+
+## Scan page 118
+208
+-GP
+e-GP
+20e
+(d) Rule 95
+可
+Addendum-
+Queries  e-
+GP Online channel-
+laak
+PE-
+P
+日
+Dashboard-
+可 可
+Fax/Post/Email
+2业业
+同
+2
+度
+可1
+8.
+27.1
+102.10
+(1) Performance
+Security 顶
+Performance
+Security
+7.
+22.1
+22.(1)  (
+e-GP
+System-,
+24.1
+La
+TDS-
+2213 业
+215208
+2116
+四
+GC
+Tenderer-
+可
+e-GP
+(threshold)
+Schedule II-
+T   e-
+GP
+PE-
+System-
+同
+可，
+k
+C91-GTGE, R
+e-GP
+System-
+R
+(10)
+Performance
+eck -uos
+业
+PC
+PE- R
+Performance
+Performance
+Guarantee
+Security-
+s
+度，
+可，恒
+不
+24.(1)
+可，可可 PE
+②业业业上业
+R R 可
+PE-GR
+9.
+36.3.a.1(i)
+，可可
+231
+-5
+23，R29
+可可
+可
+RR9
+可，
+网 workflow
+R
+9
+
+## Scan page 119
+206
+-GP
+151021418
+lalEs
+5 8 ,
+e-GP
+209
+,
+101i2 () 1
+23
+业
+ef  3
+91
+12.
+90.2
+(a)  可
+e-Tendering-
+C
+2
+可
+e-GP
+同，，
+10.
+38.4.(a)
+4)
+e-GP
+System-
+www.eprocure.gov.
+bd;
+41 e-GP C9
+可可
+(a) 低可因
+-152116 22
+DC
+(1)
+I
+,
+可e-GP
+11.
+38.4(e)
+(e)
+sste
+BPPA-
+两啊
+可何
+PE  何
+可
+RC
+因/
+②22 16180
+，可可不
+No.[xxxxxx], e-GP
+R, c-
+GP Tender ID
+111521
+e-GP  可可
+ste5
+222
+可PE-
+e-Tender
+可同可
+2(PD)/
+可/
+1015/120102118
+
+## Scan page 120
+A0
+e-GP
+e-GP G
+e-Tender
+d
+国6 212 k
+(www.eprocure.gov.
+不可，
+elek
+bd)
+,
+26
+交可
+e-GP
+,
+可
+,
+同
+交动风
+可 e-GP
+SMS,
+可可
+leccke
+，
+RPREPE
+TT
+s211a Bk  a
+PPR-2025-
+②
+-X-
+e-GP
+Tender
+Security
+1020c2k
+动何
+Le
+9
+国
+Tender
+Security
+R
+e-GP C9
+Le2
+R
+恒//R
+R
+All2
+可 e-
+/REOI
+2R3
+②  x2
+3Tot/
+21) lileks
+13.
+95
+(1) 何 可
+啊RFP可
+A0
+
+## Scan page 121
+280
+e-GP
+-GP
+285
+2C3,
+( )
+e-GP
+Bk
+Procuring
+·3o/c3/9
+Procuring
+Entity
+Entity
+邮
+PTC
+Tender/Proposal
+Tender/Proposal-
+(11)两啊何
+9C
+RCG
+9何/图
+何C
+Signature  f
+Tender/Proposal
+e-
+Documents
+52l1s  eall2k
+058.1002
+Tender
+可R
+2 el)
+(,
+，BPPA
+(2) 叶同(1)
+22
+Procuring Entit
+l
+"152116
+Procuring
+muoe upn
+CTRITCT
+Entity
+3/国/9
+8
+可向所低
+3
+Addendum
+啊
+RT:
+Library
+Common Document
+, e-GP
+RGIC
+GRR G
+9，
+Schedule II
+1 2102161
+两啊
+GPOT
+/R
+Fax, Mail 4
+E-mail
+3/国/9
+,
+1015 12s aella
+可9
+9
+14.
+96
+(8)  Tender
+面/ e-Tender
+Box-
+G
+50
+lolles
+GP
+PT2ICG
+Encrypted
+Document
+Tender/Proposal
+P1
+2a
+(e-
+
+## Scan page 122
+282
+e-GP G
+e-GP
+280
+Signature f
+1 2240 1028 1012
+(1902s
+(4)
+Tender
+E//2
+可C/
+Opening
+Committee
+1/8
+Tender
+Document
+ROROO 9095.
+可俯，何
+(a) Sub
+96(11)-q
+2业
+Rule
+(TOR/POR)
+1021a
+Multiple droppings
+d
+Lel
+cliteke
+15.
+97
+(1)
+Entity
+liltk
+G efoAR
+IFT-
+C2
+ak
+Procuring
+可
+lella
+lell
+Decrypt
+stamped
+tender
+202
+electronic
+Tender
+box-
+可
+time-
+可俯可可，
+(b) Sub Rule (4)(f)
+(2) 风可不啊
+，
+布 (TOC)
+2
+(POC) 可
+Le811218
+②(SOI)
+(c) 9
+Tender
+Opening Sheet
+可e-GP
+(3)
+Committee
+Tender
+Rule
+Opening
+(TOC)
+10
+G/P/EO
+R
+(d)
+lilak
+22
+CG/
+可，
+11021a4
+何/EOI/
+
+## Scan page 123
+288
+C-GP G
+e-GP G
+280
+多可币；
+l1e lilks lella))
+向 TOS-
+lals
+(e)
+Ba|usy
+5521
+可同，
+JTRIC
+(f) 個 C
+可
+啊
+啊
+(6)
+Tender
+2 10210 iltke
+Opening Sheet-
+止上5
+4t
+20RRTO
+Bunk -O
+kelle au (I)
+(7) 两何
+CC
+TOC-47
+(ii)
+2日 cuks Locole
+π
+不可，；
+(iii)
+，可同何
+TOS-
+(iv) f
+Head of Procuring
+(可而听币)；日不
+Entity
+(v)
+G ,
+,
+TOC
+"lalslcule
+k
+;
+(g) Schedule IV-
+Part D-
+(8)
+TOC-
+CRITT
+Secretary
+Member-
+何可叶一同
+(t)
+(5)
+πt
+
+## Scan page 124
+286
+e-GP G
+e-GP G
+289
+Debarment 度
+Procuring Entity-
+Notification
+of
+国
+(9) 啊(何
+可23可
+可
+啊啊
+Notification
+1ui Llodks (ε)
+Schedule
+同所低
+Award (NOA)
+Blelek
+Ⅱ-
+of
+3G/C/
+52
+Signature  Digital
+Signature
+NOA
+TRR
+Procuring Entity-
+Award
+同啊
+RGCG
+18.
+102(11)
+22) 图
+TOS-3
+可
+Bau Lek 上
+NOA-
+16.
+98.12
+12)
+BOQ-
+e-GP
+System-
+eeke
+业业
+业
+2ela
+CPICT
+可
+bl k 2 g
+2
+2  e-GP
+可
+s 12e
+可
+1
+可何-Ⅱ同
+C91COT
+②R 可可可
+可可
+10035
+可度可可
+度
+，RTRO
+“。”
+2 ()
+e-GP
+17.
+102
+(1)
+NOA 研R
+e-Signature
+Digital Signature
+可可
+可可
+O
+GP
+System-
+19.
+122.2
+(2) 可图 不
+PPR-2025
+(2)
+Procuring
+Entity
+可/
+10221101010
+laillescels
+
+## Scan page 125
+286
+e-GP
+e-GP
+28d
+15
+91
+R
+g
+e-GP
+rogok
+Appendix 3: Changes in Schedule -II,
+PPR 2025 for e-GP system
+，可
+zs
+Rule No.
+Process
+as
+per
+Process in e-GP
+R3
+In PPR-
+2025
+PPR-2025
+Values, etc
+Times,
+System
+可
+1
+7
+Tender or Proposal
+Opening
+Constitution
+of
+Described in Para
+3.5.
+20.
+127.5.d
+50.210231
+Committee
+HOPE
+f
+1(one) member from
+()(0)
+GPIC
+the TEC or PEC and
+HOPE e-GP C
+members from the
+concerned.
+2(two)
+other
+2互价
+Procuring Entity and
+可
+other agencies as
+B2 20 gl
+below -
+2
+BPPA
+(b) Member;
+Secretary.
+(a) Chairperson;
+(c)
+Member-
+业
+2
+&(8)
+8(1),(2)
+• Minimum five (5)
+Tender or Proposal
+Evaluation
+Committee
+Evaluation Committee
+Committee
+Tender
+(TEC)/Proposal
+Evaluation
+2业国业
+and normally
+exceed seven (7)
+nout
+in the
+(PEC) shall be formed
+following
+，
+BPPA
+members
+• Two (2) of whom
+at least shall be from
+outside the Ministry
+authority is HOPE or
+• If the approving
+below
+manner:
+thereof,
+or Division
+agencies under it,
+or
+TEC/PEC shall be
+formed with three (3)
+At last five (5)
+members, out of which
+members. including
+at least one (1)
+G
+BPPA
+214
+two(2)
+members shall attend
+the Evaluation and
+sign the Evaluation
+outside
+• If the approving
+member shall be from
+another PE.
+authority is above
+Report
+HOPE, the TEC/PEC
+shall be formed with
+
+## Scan page 126
+200
+-GP
+e-GP
+Tender or Proposal
+five (5) members, out
+NationalFlag carriers
+Evaluation
+of which at least one
+through DPM.
+Committee for low
+• Minimum three (3)
+one (1) member may
+be selected from
+another agency or
+another
+value Procurement
+members of whom
+Entity
+Procuring
+agency/ministry
+ministry/division).
+agency under
+(1) member shall be
+outside
+concerned
+/division/any
+concerned
+external
+(i.e.
+of
+other
+from
+the
+the
+Services:
+• For Tk. 30 (Thirty)
+million in case of
+OTM and LTM
+• For Tk. 1.0 (One)
+million in case of
+DPM and RFOM
+Works:
+members shall attend
+• At last three (3)
+In all of the above
+cases, at least one (1)
+million
+• For Tk. 5.0 (Five)
+through
+the Evaluation. and
+member
+of
+the
+Least-Cost Selection
+sign the Evaluation
+Report
+from the concerned
+TEC/PEC shall be
+• For Tk. 1.0 (One)
+(LCS) Method
+Value of Contracts
+procuring entity.
+million
+through
+• For Tk. 2.5 (Two
+and Half) million in
+Tendering Method
+Tendering Method
+when number of
+members may be
+reduced:
+Goods:
+(OTM) and Limited
+the
+Committee
+case
+of
+Evaluation
+Open
+will get honorarium
+for maximum three
+Committee (TSC) will
+get honorarium
+meetings.
+As per the
+2025, Tender/Proposal
+Evaluation Committee
+meetings
+Technical
+mentioned in PPR
+maximum
+Sub-
+rate
+and
+two
+for
+3
+16(11)
+million and above
+million and above
+and related Services
+• For Tk. 5 (five)
+method
+Posting
+Procurement Plan
+on BPPA website
+• For Tk 10 (ten)
+for Works, Goods
+Single
+Selection
+Source.
+(SSS)
+irrespective
+Entities using e-GP
+system must prepare
+procurement
+Posting Procurement
+Plan
+website
+and publish
+All
+on
+Procuring
+BPPA's
+annual
+plan
+of
+(LTM)
+physical
+procurement
+• For Tk. 0.5 (Half)
+Services; and
+categories
+and
+million in the case
+• For Tk. 5 (five)
+methods. Procurement
+Procurement Method
+Direct
+jo
+million and above
+for intellectual and
+Plans and
+published
+in
+notices
+e-GP
+(DPM) and Request
+professional Services
+System
+is
+not
+or
+Quotation
+necessary
+to
+be
+Method (RFQM)
+separately published in
+• For Tk. 2.0 (Two)
+BPPA Website.
+RFQM for missions
+million
+through
+4
+28(3)
+the
+Time for return of
+remaining
+the
+Time for return of
+remaining
+million
+• For Tk. 5.0 (Five)
+abroad
+for
+Retention money or
+Guarantee
+amount
+the
+Bank
+of
+amount of Retention
+money or the Bank
+Guarantee
+
+## Scan page 127
+-GP
+e-GP
+220
+Completion.
+eight (28) days after
+the issue
+Certificate
+Defect Liabilities
+Within twenty-
+of the
+of
+of
+request to be made to
+Banks through e-GP
+Dashboard
+• Within Seven (7)
+days after the issue of
+Completion of Defect
+Liabilities.
+Financial Partners i.e.
+Return
+9
+66(5)
+submission
+Two-stage
+Tendering
+• Forty-two
+days from the date of
+Time
+Technical Proposal
+in the Ist stage of
+(42)
+or
+of
+tendering, Twenty-one
+Time for submission
+Proposal in the 1st
+stage of Two-stage
+Tendering
+• For the National
+(l ys s  (de
+of
+Technical
+5
+32
+• Maximum two (2)
+working days
+Custodz of received
+Tenders,
+Applications
+Time Limit for Safe
+Proposals
+and
+Tenders,
+Evaluation Committee
+will immediately start
+evaluation after the
+Time Limit for Safe
+Custodz of received
+Applications
+Proposals
+and
+10
+68(3)
+The
+Preparation for the
+publication
+advertisement in the
+News-paper
+Time
+Minimum
+r0r
+of
+tendering, Forty-two
+advertisement in the e-
+GP System.
+The Minimum Time
+for Preparation for
+the 2nd stage in Two-
+International
+(42) days from the
+date of publication of
+6
+37(1)
+website
+· Tk 10 (ten) million
+Posting of Contract
+Awards in BPPA's
+Posting of Contract
+Tender/Proposal.
+Awards in BPPA's
+website
+All the
+opening
+of
+contracts
+the
+days.
+2nd stage in Two-
+stage Tendering
+• Twenty-one (21)
+• For the National
+stage Tendering
+Tendering Fourteen
+(14) days and for the
+International Twenty-
+One (21) days from
+and above for Goods
+awarded using e-GP
+the date of publication
+and related Services
+as ork and
+published
+system
+will
+in e-GP
+be
+of advertisement in the
+e-GP System.
+physical Services
+Portal
+BPPA.
+operated by
+11
+90(2)(i)
+Posting
+Procurement
+of
+Posting
+Procurement related
+of
+related notices
+in
+notices in BPPA's
+7
+126(3)
+· Tk. 5 (five) million
+All the contracts
+BPPA's Website
+Website
+and above
+for
+awarded
+using e-GP
+• When the official
+• All the procurement
+professional Service
+intellectual
+and
+system
+published
+will
+in
+e-GP
+be
+estimated cost of
+Procurement is Tk.
+should be published in
+using e-GP System
+Portal
+operated by
+10 (ten) million and
+e-GP Portal operated
+8
+37(1&2)
+Time for posting
+BPPA
+Time
+for posting
+above for Goods and
+related Services and
+by BPPA
+Contract Awards in
+Contract Awards in
+Works and physical
+BPPA's website
+BPPA's website
+Services
+• Within seven (7) of
+·Immediately after the
+• When the official
+issuance of the NOA
+signing of contract
+estimated cost of
+for not less than a
+agreement
+Procurement is Tk. 5
+month
+(five) million and
+above for intellectual
+
+## Scan page 128
+208
+e-GP G
+e-GP
+zee
+and
+professional
+Services
+Advertisement
+shall be sent to the
+BPPA and
+，PPR2025
+newspapers
+PPR-
+PPR-2025
+e-GP
+simultaneously,
+2025
+E
+12
+96(11)(a)
+Multiple dropping
+of Tenders for
+Goods and related
+and related Services
+Multiple dropping of
+Tenders for Goods
+可啊
+Services and Works
+and Works
+and
+1
+7
+0.C.
+and
+Physical
+Physical Services
+同可
+Services
+• When the official
+estimated cost of the
+• Multiple droppings
+applicable in case of e-
+concept
+is
+nout
+TEC  PEC
+cuks e (业)
+Procurement is Tk. 3
+GP System.
+(three) million and
+above
+2(夜)
+to the primary place
+• Must be delivered
+within
+three
+(业)
+hours
+of
+e
+(对) 可；;
+deadline.
+or
+submission.
+gjk-kcuks (ls)
+13
+130(e)
+Delivery of Annual
+Delivery of Annual
+2
+8(1),
+23
+Report by BPPA
+Report by BPPA to
+(2)
+28
+(TEC)/ 可 布
+• Within seven (7)
+months from
+the Government to
+beginning of the
+the
+can be generated
+the Government
+procurement reports
+• e-GP System based
+(8)
+(e)
+(PEC)
+HOPE  R
+可
+current Fiscal Year
+anytime from the e-GP
+(9)
+效可，TEC/PEC f(0)
+System.
+可(2)
+2
+(2) 丽
+PE (Procuring Entity)
+253，
+可可啊
+T
+HOPE-
+TEC/PEC
+(e)
+据，
+201131C
+
+## Scan page 129
+206
+C-GP G
+e-GP G
+209
+(e)
+fkcuks
+2//
+同 al)
+OTM
+可可 2.0
+LTM
+(
+i5)
+（2)丽
+()(
+kculs
+TEC/PEC-
+()
+DPM
+RFQM
+PPR 2025-网 可
+(国代) 3
+R，/
+可啊可啊
+()
+可可可
+RFQM
+fo
+向可何同(TSC)
+可2.0（)
+(0)
+"kcuk
+北转(2)
+师(2)酮
+fleuks
+2022
+DPM
+9
+e.o
+(sis)
+20
+Works ():
+OTMLTM
+(0)
+flcuis
+司 0 (fari)
+DPMRFQ
+动3.0(四)
+Services (t):
+LCS
+Goods ():
+可可可 c.0
+
+## Scan page 130
+pet
+e-GP
+-GP
+2ed
+(sit5)
+5
+32
+，
+2
+SSS
+110
+3.0
+()
+55（2）
+3
+16(11)
+BPPA
+BPPA
+6
+37(1)
+BPPA
+BPPA
+俯可种对
+业
+(Procurement
+e-GP
+llcks Llals
+e-GP
+Plan)
+2 BPPA
+可面，啊
+币可一唯可
+206 dD
+laks
+30
+20
+(1m)
+同 e-GP
+R
+BPPA
+7
+126(3)
+国点
+e-GP
+L
+BPPA e-
+(5)
+e (sll)
+GP 9
+国BE
+8
+37(1&
+2)
+1022
+BPPA R
+BPPA
+(1)
+O
+4
+28(3)
+k i g
+9
+66(5)
+同一叶8
+(9) 因
+2
+同
+ag
+啊响(9)
+币同可例
+叶同可何
+Bek
+gll Els
+yhoks
+lieke
+(2b)
+B1024
+C-GP G
+(23
+(82)
+(22)  四
+(82)1
+fe-GP
+
+## Scan page 131
+2如0
+e-GP G
+-GP
+1
+Multiple
+10
+68(3)
+Dropping
+(22)
+(5(28) f 四
+Multiple
+(山)
+MultipleDropping
+可
+• e-GP
+(国(22)
+5521
+()
+e-GP F
+可1
+11
+90(2)
+BPPA
+BPPA
+014ellee
+(i)
+RRe
+10218 1021
+8种
+lek 8Llalks
+e-GP 成
+Leopks ayllacks
+(②)
+P RG
+业
+BPPA
+e-GP C9o
+22
+可区
+13
+130(e)
+BPPA
+20 (π)
+e-GP P fefer
+2 22
+e-GP
+(9)
+Ble2l1e
+不
+可 (5)
+开BPPA
+12
+96(1)
+啊，，
+啊，，可
+(a)
+
+## Scan page 132
+2U2
+e-GP G
+e-GP
+1.2 User account will be created only when the following
+Terms and Conditions of e-GP System User Agreement is
+Appendix4: Terms and Conditions of e-GP
+read and accepted.
+System User Agreement
+1.1.1 National e-Government Procurement (e-GP) portal (i.c.
+2.22
+www.eprocure.gov.bd) of the Government of Bangladesh is developed,
+2
+owned and operated by Bangladesh Public Procurement Authority
+(BPPA), IMED, Ministry of Planning for carrying out the procurement
+activities of the public agencies (procuring agencies and procuring
+1.2.1 TERMS AND CONDITIONS OF E-GP SYSTEM
+entities) of the Government of Bangladesh.
+USER AGREEMENT
+For accessing and using this e-GP user services, user shall be deemed
+to have accepted to be legally bound by these Terms and Conditions of
+低8：向同
+Use and comply with all of the Terms and Conditions given below, and
+..National e-Government Procurement (e-GP)
+the guidelines as stipulated in e-Government Procurement Guidelines:
+(
+agencies procuring entities)
+IMED-Bangladesh Public Procurement
+e-Government Procurement
+Authority (BPPA) ，
+Guidelines-
+1.1.2 BPPA also runs a training server (www.training.eprocure.gov.bd) to
+allow the users to try and learn by themselves all the functionalities of e-GP
+system through an online mock-up of real transactional e-GP System. Users
+1.2.2
+Tenderer Registration Request, Email verification,
+may try all activities, which is available in real transaction system. None of
+the activities done in training servers will be taken as real transactions.
+and Credential documents verification
+3.S.2 BPPA  mock-
+ひ.ん.ん
+，可 ，
+1
+(www.training.cprocure.gov.bd)
+1.2.2.1 Email verification
+Potential tenderer's email will be used as the user name for accessing e-
+GP System. Upon submission of basic user identity information by
+the National e-Government Procurement (e-GP) portal at
+42  102 L042100  D
+www.cprocure.gov.bd or simply www.eprocure.gov.bd.
+1.1.3 For carrying out the real procurement transactions, users must use
+home page of e-GP Portal, the user will receive an email from
+registration@eprocure.gov.bd with a link to click, unique security key,
+clicking on the "Tenderer/Consultant Registration" button from the
+payment process. When the user clicks the link provided in his/her
+and other instruction related to credential documents verification, and
+www.eprocure.gov.bdwww.eprocure.gov.bd
+email, an email verification page with a form will open. The user will
+National e-Government Procurement (e-GP)
+require to enter the email, password and the received security key, and
+click the 'Submit' button. If the user correctly enters the information,
+this process will complete the email verification process successfully.
+
+## Scan page 133
+2U8
+e-GP
+e-GP
+While user account will be successfully created, and it will display
+2.2.2.
+another form for entering user's specific information, upload digitally
+scanned mandatory credential documents as required by the system and
+those must be easily readable.
+//
+2.2.2.>3可
+2
+(9 “Tenderer/
+2   (60) 2
+, registration@eprocure.gov.bd
+可，，
+MED- BA
+1.2.2.3 Maintaining Confidentiality
+，
+Users are held accountable for preserving the secrecy of their password
+Submit
+and bear complete responsibility for all actions performed using their
+user account (email ID and password). e-GP system does not store user
+2
+passwords, but it stores the generated irreversible hash value of the
+password as e-Signature. User must notify administrator of the PE or
+other corresponding organization administrator of any unauthorized use
+啊（）
+of user password or any other suspected security breaches. Users must
+ensure that they appropriately log-out every time from their unattended
+computers or from the computers users are using in public places.
+1.2.2.2 Credential Documents Verification
+Bps g      g    uchh
+Once the credential documents uploaded in the e-GP system have been
+compromise of user account and password.
+verified by BPPA, Tenderers/Applicants/Consultants will receive a
+confirmation email notification regarding their registration. Upon
+password. But it does not allow to change the login email ID and the
+The e-GP System allows modifying, updating the user details including
+receiving this confirmation, they will immediately gain full access to a
+name of the company provided during the registration process. For
+secured personal dashboard for user-specific functions within the e-GP
+changing the registered ID, the users must submit their original
+system, becoming an e-GP System User. The verification process is
+documents to the BPPA to prove their authenticity.
+expected to be completed within a maximum of seven (07) days.
+Procuring entities, Development partners, and Payment network
+partners (Banks and others) will be registered through official
+communication with BPPA, IMED, Ministry of Planning and the terms
+可(可可)
+and conditions of the use of the e-GP System shall be automatically
+apply when they start using the system.
+可，
+
+## Scan page 134
+2U
+e-GP
+C-GP G  E
+269
+hash e-Signature
+,
+PE
+，
+BPA, MED,
+0
+国可 BPPA
+22211024212
+1.2.2.5 Applicable Time
+BPPA  可
+The e-GP System shall use the Bangladesh Standard Time (BST)
+applied across e-GP System provided through BSTI time server, if
+procurement processes. In case of failure to communicate with BSTI
+available, as the reference time for all time-bound activities of
+time server, the time of Data Center hosted by BPPA, IMED in its
+premise at Dhaka, Bangladesh will prevail.
+BPPA同可何响可何
+1.2.2.4 Internet Browser and Users' Computer Compatibility
+2.2.2.2G23
+To access the e-GP System securely, users should use appropriate web
+B L -   一点
+browsers and their associated security settings. However, because of
+Bangladesh Standard Time (BST)
+the rapid development of new browsers and new security measures
+,  BST time server
+come up frequently, users need to update or install new components
+and configuration settings as and when these come into effect.
+Users are responsible to comply with the hardware, software
+BSTI tme server ,,
+requirements of the computer systems, and also uninterruptible Internet
+BPPA, IMED Data Center-
+connectivity with sufficient bandwidth required to operate, upload and
+download documents in e-GP System. BPPA, IMED, Ministry of
+Planning is not responsible for non-compliance for the above by user.
+1.2.2.6 Proprietary Rights
+The system shall work correctly only in specific browser and their
+This e-GP Portal is developed and maintained by the BPPA, IMED,
+versions tested by the BPPA.
+Ministry of Planning of the Government of Bangladesh.
+The materials located on this e-GP web portal including the
+2..2.8可
+information and software programs (source code) are copyrighted to
+BPPA, IMED, Ministry of Planning, the Government of Bangladesh,
+and operating system, tools, and other software and contents used for
+the operation of e-GP Portal are licensed to or controlled by BPPA,
+,
+IMED, Ministry of Planning, the Government of Bangladesh.
+2.2.2.可
+，，
+
+## Scan page 135
+e-GP
+e-GP
+Users may be charged and/or waived specified amount of money for
+() , ,
+different categories of use including Registration, Subscription and
+periodic renewal, additional storage space, transactions, facilities to use
+，，，
+specific features/modules of the e-GP System and different services
+from the operation, maintenance and management entity. BPPA shall
+因向，可，面，
+have the rights to set reasonable charges or waiver to promote the use
+可
+of the e-GP System and sustainability of the system in long run.
+BPPA will publish a public notice if any changes on the charges,
+waiver etc.
+1.2.2.7 Auto Alert and User Dashboard Inbox
+All the formal communications with the users of the e-GP system shall
+be carried out through the e-GP System. The e-GP System may send
+2.2.2.6同
+automated alerts through email or mobile SMS only at specific events.
+//
+Users should fully rely on the information posted in the e-GP portal and
+e-GP user specific Dashboard inbox. If the user does not receive auto
+alerts because of some third-party component or system failure, system
+可可
+delay or for any other reason, BPPA or PE shall not be obliged and
+responsible for the situation arisen and the users must rely on their e-
+同可
+GP User Dashboard for such alerts/notifications and communications.
+，
+périodic ，，，
+同 /可    低，
+啊，
+向可一因可
+152116 2   R 2 2
+，可
+用可唯，可可可C
+1.2.2.9 Tender Submission
+The Tenderers/Applicants/Consultants are responsible to plan their time
+sufficient to complete the documents upload, third party transactions
+like Tender security preparation and submission through banks, verify
+completeness of tender, and final submission of tenders documents for
+1.2.2.8 Registration Charges
+the specific tenders. Before final submission, the tenderer/
+Tenderers/Applicants/Consultants will be charged with fee decided
+Applicant/Consultant may upload documents, fill-in required online
+time to time by the Government for the User registration, and annually
+forms, modify and verify the documents, and complete other activities
+it should be renewed. Renewal charge will also be determined by the
+pt t t t t t  t t   oblr
+government in each year for the renewal of user's account. Users must
+allowed by the e-GP System.
+make sure the amount is deposited to BPPA's designated Account.
+
+## Scan page 136
+290
+C-GP G A E
+e-GP
+295
+International Tenderers/Applicants/Consultants must communicate
+with the Banks of e-GP Online Payment Network for updating their
+//
+payment details in e-GP System. Any charges incurred for payment
+,
+transfer, communication or any currency conversion should be paid by
+，
+the Tenderers/ Applicants/ Consultants themselves.
+2   1
+In case of Bank Guarantee, securities issues by International banks
+//
+must be endorsed by the local scheduled bank in Bangladesh and the
+bdnk mat tl mt   t  srt
+Bangladesh.
+International payments can be directed/ credited to Master Bank
+38可可
+Account opened by BPPA as and when international payment gateway
+is integrated with the e-GP System.
+1.2.2.10 Payment process
+Until the e-Payment infrastructure is available in Bangladesh, the e-GP
+3.2.2.20 T
+System uses the method to use the service of scheduled banks.
+Scheduled banks and other payment service providers get secured
+access to the e-GP System with their own dedicated and secured
+Dashboard, from where, the banks can carry out the financial
+transactions related to public procurement collecting fees and charges,
+,
+providing guarantees, tracking the guarantees, making payment
+transactions, and other service fees, etc.
+，，可，可
+Tenderers/ Applicants/Consultants should pay to Bank the required
+amount of money for the specific purpose of transaction with e-GP
+System. Bank will collect the charges and fees from Tenderers
+国//同
+crediting the account opened by BPPA for specific service/transaction
+in e-GP system, and Bank will immediately update the payment
+，/
+information in the e-GP system through the provided Bank user access.
+可
+When Bank Guarantees and securities (tender security, Performance
+Security, etc.) are issued by the Bank, the same should be immediately
+update in the e-GP System.
+When Procuring Entities or BPPA instructs the bank for releasing the
+Guarantees or Securities, and deposit in specific Procuring Entity or
+BPPA accounts, the Bank will carry out the transactions, and update the
+transaction information in the e-GP System.
+The BPPA shall not be responsible for the transactions made by banks
+同可
+using bank rules with the e-GP system users.
+，
+In case of international tenderers/applicants/consultants, payments
+1 22 g92161
+should be made to the Master Bank Account opened by BPPA through
+Bank Wire transfer or any other method clearly mentioning the purpose
+of payment.
+
+## Scan page 137
+292
+e-GP
+C-GP G
+290
+//
+G/ ,
+//()，
+//
+/
+//
+可可，可，
+21
+交可1
+可，可可同
+可可可可
+1.2.2.12 Disaster Recovery Management
+In case of failure of e-GP Data Center and Mirror Data Center users
+2 g2 2 B 2
+may experience data loss of maximum 1 (One) hour. In that case users
+may require to re-enter the data that was lost during disaster period.
+/C
+2.2..
+1.2.2.11 Virus and Integrity of Documents
+(）可
+If the electronic records entered online and files containing the Tender/
+Application/Proposal are corrupt, contain a virus, or are unreadable for
+any reason, the tender will not be considered. It is strictly the
+responsibility of the Tenderer/Applicant/Consultant (national or
+1.2.2.13 External Web References
+international) to ensure the integrity, completeness and authenticity of
+BPPA does not take any responsibility of its availability and
+the Tender /Proposal, and also should comply with the applicable laws
+authenticity of the external third-party web references, links referred in
+of Bangladesh. Virus infected files, if detected, shall be automatically
+the e-GP Portal, as BPPA does not have any control over those
+deleted by the virus scanner installed in the e-GP system servers.
+websites.
+Tenderers/ Applicants/ Consultants will be responsible for the
+outcomes and consequences caused by such deletion of files at different
+stages of tendering process. It is the obligation of all users including
+Tenderers/ Applicants/Consultants to download and verify their
+uploaded documents whether the documents are readable and free from
+virus, malware, worms etc.
+2.2.2.SSGRARRGO
+1.2.2.14 Operation, Maintenance and Management
+/10 5 0 5 02 2
+The BPPA reserves the right to outsource operation, maintenance and
+management services of e-GP Data center, e-GP system and other
+/R，，
+related services to any third party. The users of e-GP system are to be
+，
+obliging such any agreement with any outsourced firm/company.
+
+## Scan page 138
+298
+e-GP
+-GP
+290
+S.2.2.S8，G可
+向因，交一可
+因，，
+- 1291
+可
+2/
+Appendix 5: Disclaimer and Privacy Policy
+1.2.2.15 Governing Law
+www.eprocure.gov.bd) of the Government of Bangladesh is developed,
+National e-Government Procurement (e-GP)
+portal (i.c.
+This Terms and Conditions of Use Agreement of e-GP Portal shall all
+owned and operated by Bangladesh Public Procurement Authority
+be governed by the laws of Bangladesh applicable to agreements made
+(BPPA), IMED, Ministry of Planning for carrying out the procurement
+and to be performed in Bangladesh.
+activities of the public agencies (procuring agencies and procuring
+Government of Bangladesh and BPPA reserve the right to initiate any
+entities) of the Government of Bangladesh.
+legal action against those users violating any of the above-mentioned
+terms & conditions of E-GP System User agreement.
+Appendix 5:-同
+可  C (e-GP) C
+ww.eprocure.gov.bd)
+(BPPA)，可，，
+2
+(
+可可
+BPPA also runs a training server (www.training.cprocure.gov.bd) to
+可
+allow the users to try and learn by themselves all the functionalities of
+e-GP system through an online mock-up of real transactional e-GP
+1.2.2.16 Changes in e-GP System and Terms and
+Ss   s i      sal
+Conditions of Use
+transaction system. None of the activities done in training servers will
+be taken as real transactions.
+BPPA reserves the right to modify, add, delete and/or change the
+BPPA shall have the right to modify clauses of the terms and
+conditions without prior notice.
+For carrying out the real procurement transactions, users must use the
+National e-Government Procurement (e-GP)
+portal at
+functions, User Interface, contents, and other items in e-GP Portal at
+ww   e.d.
+any time without any prior notice. User is responsible to use the
+BPPA  (ww.training.cprocure.gov.bd)
+updated e-GP portal functions and terms and conditions of use.
+22  2 8
+2  2
+R
+
+## Scan page 139
+296
+e-GP
+e-GP
+299
+可一可可可，可可可可，
+(e-GP)  www.eprocure.gov.bd
+，
+www.eprocure.gov.bd
+,     ,
+For all the users of e-GP System, the following "Disclaimer and
+，，，
+Privacy Policy" shall be applied:
+② -②   一点
+可可
+4.
+The information and other materials included on the e-GP portal
+and system may contain inaccuracies and typographical errors.
+Disclaimer and Privacy Policy
+BPPA does not warrant the accuracy or completeness of the
+information and materials or the reliability of any statement or
+1.
+e-GP System does not capture information of individuals'
+other information displayed or distributed by the procuring
+browsing data if the user does not try to login the system.
+entities through the e-GP System.
+S.
+8.
+2
+2.
+BPPA reserves the right, in its sole discretion, to correct any
+errors or omissions in any part of the e-GP System and to make
+changes to the e-GP System and to the materials, products,
+programs, services or prices described in the e-GP portal at any
+time without prior notice.
+5.
+BPPA does not warrant that the functions contained in the e-GP
+2.
+system shall be uninterrupted or error free or that those defects
+shall be corrected or that this e-GP System or the server that
+一可，，
+makes it available shall be free of viruses or bugs. BPPA does not
+warrant full functionality, accuracy or reliability of any material.
+BPPA may terminate, change, suspend or discontinue any aspect
+of the e-GP System, including the availability of any features of
+3.
+In no event shall BPPA and/or third parties be liable for any
+the system, at any time without notice or liability.
+damages including, but not limited to, direct or indirect or
+consequential damages or any damages including, but not limited
+e.
+BPPA可向可何
+to, errors or omissions, delays or incomplete transactions, planed
+or unplanned e-GP Portal downtime or inaccessibility of the e-GP
+可
+Portal, insufficient time to submit tender, lost user identities,
+session outages or accidental page closures, indirect or
+BPPA，
+consequential damages or any damages whatsoever arising from
+点  02
+use, loss of user data, whether in action of transaction, negligence
+or other action, arising out of or in connection with the use of the
+俯可，可
+e-GP System.
+0.
+BPPA
+6.
+BPPA shall not share or sell the personal or Business identifiable
+information with any other persons or organizations without the
+
+## Scan page 140
+296
+e-GP G
+e-GP G
+298
+prior consent of the owner, unless required by the e-GP System to
+22l  BA
+carry out its defined functions or required by the law of land.
+G.
+BPPA
+9.
+The e-GP System Administrator may notify users by displaying
+业业业业
+notices, alerts and statements about the scheduled maintenance
+2
+and possible interruption of the e-GP System.
+2
+d.
+Use of the e-GP System shall only be used for lawful purposes
+that do not infringe the rights of or restrict or inhibit the use of the
+system by any third party. Such restriction or inhibition includes,
+but is not limited to, conduct which is intended to mislead, or is
+Iy sod ya yn - e Stm ysn - ma nan
+defamatory, or which may harass, cause distress or inconvenience
+information to its users.
+to any person and the transmission of obscene or offensive
+20.
+content or interruption of the normal flow of content within the e-
+GP System.
+9.
+11. The e-GP System keeps all private information of its users in
+encrypted form in database and shall not be accessible to any user
+without sufficient authority and access permissions.
+2.
+，，，
+12. To safeguard personaldata, all electronic storage and
+8.
+The e-GP System shall use the Bangladesh Standard Time (BST)
+transmission of personal data is secured with appropriate security
+applied across e-GP System provided through BSTI time server,
+technologies.
+if available, for reference as the reference time for all time-bound
+activities of procurement processes. In case of failure to
+22.
+communicate with BSTI time server, the time of Data Center
+hosted by BPPA, IMED in its premise at Dhaka, Bangladesh will
+prevail.
+13. BPPA does not take any responsibility of its availability and
+authenticity of the external third-party web references, links
+b.
+一可(BST)可，
+referred in the e-GP Portal, as BPPPA does not have any control
+BSTI(（啊)，可
+over those websites.
+
+## Scan page 141
+e-GP
+e-GP
+20.
+一限，
+14. e-GP portal uses cookies to save some of the information during
+可 职
+transaction, and which may remain in the computer. User must
+GR
+enable to 'accept' the cookies to carry out the transactions. Failure
+to set the cookies, e-GP system may not work.
+②  2 ② ② 5
+28. 向9何可顶更
+，
+可可可BPPA可可
+15. e-GP System records IP address of user's computer and also all
+the activities performed from login to logout from the e-GP
+可O
+System for audit and non-repudiation purposes. So, the users are
+responsible for maintaining the confidentiality of their password
+e-GP Glossary of Terms
+and are fully responsible for all activities that occur using user
+A
+account (email ID and password). e-GP system does not store
+user passwords, but it will store only the generated irreversible
+hash value of the password as e-Signature. User must notify the
+PE administrator or relevant organization administrator of any
+unauthorized use of password or any other suspected security
+breaches. Users must also ensure that they appropriately log-out
+every time from their unattended computers or from the
+B
+computers users are using in public places. BPPA is not liable for
+②  -P
+any loss or damage arising from such compromise of user account
+and password.
+2.一可可度可
+BG (Bank Guarantee) - Performance Guarantee
+可，向可
+BOQ (Bill of Quantities),
+tender R因同1
+Blacklisting-repeated non-compliance
+(
+-e-GP tander
+
+## Scan page 142
+22
+e-GP G
+e-GP
+2
+C
+R
+CPTU (Central Procurement Technical Unit)--
+RFQ (Request for Quotation)-
+Compliance - ,
+Risk Management
+S
+Security Deposit/Tender Security-
+D
+DS Token /Digital Signature Token-
+SubstantialyResponsive-
+Document Verification
+SME (Small and Medium Enterprise)- ,
+CGG R R C I
+G
+e   m
+T
+Tender Evaluation Committee (TEC)-
+L
+Tender Notice -
+LESRB (Lowest Evaluated Substantially Responsive Bidder)-
+ToR (Terms of Reference)-
+LOA (Letter of Acceptance) - NOA-
+0
+G a
+-   n
+2  52116
+N
+LTM (Limited Tendering Method)-
+NOA (Notification of Award)-
+可
+P
+V
+Pe  e   -(  d
+Voter Sovereignty (contextual),
+3101
+
+## Scan page 143
+268
+e-GP
+G09
+References ()- Updated 2025-2026
+1 211 2 1s12)
+，，可e
+GP) ，
+②  2 ② 22  2()
+Central Procurement Technical Unit (CPTU)
+Website:ps://www.cu.m.b
+1021
+e-GP User Manual, Circular, Tender Guideline. System
+Update Notice (Updated till 2025-2026)
+SME，
+Public Procurement Act (PPA) 2006
+122
+Download: https://www.cptu.gov.bd/ppact-2006
+Public Procurement Rules (PPR) 2025
+20-028   Circular & Office Ordar
+Download: https://www.cpłu.gov.bd/ppr-2025
+e-GP System Portal, Bangladesh
+Website: https://www.eprocure.gov.bd
+
+## Scan page 144
+200
+e-GP
+e-GP G
+269
+RFQ LTM, OTM, -Contract, e-Billing, e-Payment workflow
+(Live system obeervation 2026)
+National ICT Policy 2018 (Relevance till 2026)
+A
+System error, submission fallure & vendor experience ff
+0-o Digital Public Service Integration
+Bangladesh Government Gazette (2025-2026)
+何，研，间面
+Interviews, Field Experience & Success Stories (2023-2026)
+e-GP, SME quota, 可   compliance
+RFQ, LTM& OTM
+Online professional forum, workshop discussion
+Asian Development Bank (ADB)
+Website: https://www.adb.org
+e-GP , capacity building procurement reform
+：
+(Updated 2025)1
+RO-O
+, (chat GPT & Gemeri ai)
+Public procurement transparency & efficiency
+Circular & CPTU Notice
+World Bank-e-Government Procurement Case Studies
+Lirik:
+https://www.worldbank.org/en/topic/governance/brief/e-
+government-procurement
+202-202 procurement best
+practice
+Procurement Training Modules
+Institutions:
+o
+CPTU Training Wing
+o
+BRAC Institute of Governance and Development
+(BIGD)
+New contractor onboarding, ethical procurement & audit
+preparedness (Updated content 2026)

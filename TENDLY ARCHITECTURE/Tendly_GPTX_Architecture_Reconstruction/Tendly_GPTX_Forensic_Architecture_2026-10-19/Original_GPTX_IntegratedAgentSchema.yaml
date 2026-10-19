@@ -1,0 +1,17 @@
+CitationValidatorAgent:
+  fallback_chain:
+  - CrossRef
+  - PubMed
+  - MetadataFallbackHandler
+  strict_mode: true
+ExportAgent:
+  deferred_flag: true
+  hooks:
+  - export_hook
+SectionGeneratorAgent:
+  fallback_on_failure:
+  - SafeSectionGenerator
+  - MetaGenerator
+  methods:
+  - load_user_custom_instructions
+  - literatureMap

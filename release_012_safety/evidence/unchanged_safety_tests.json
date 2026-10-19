@@ -1,0 +1,4 @@
+{
+  "tests/test_release_012_safety_contract.py": true,
+  "tests/test_release_011.py": true
+}

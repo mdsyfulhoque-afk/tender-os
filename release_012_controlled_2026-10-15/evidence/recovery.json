@@ -1,0 +1,39 @@
+{
+  "original_tables": 17,
+  "migrated_tables": 21,
+  "all_old_values_preserved": {
+    "audit_events": true,
+    "bid_recommendations": true,
+    "bid_scorecard": true,
+    "cases": true,
+    "clarification_questions": true,
+    "compliance_ledger": true,
+    "cv_matches": true,
+    "egp_checklist_items": true,
+    "gap_items": true,
+    "ip_capture": true,
+    "methodology_outline": true,
+    "normalized_requirements": true,
+    "output_packages": true,
+    "proposal_skeleton": true,
+    "risk_register": true,
+    "sources": true,
+    "verification_results": true
+  },
+  "integrity": "ok",
+  "foreign_key_violations": [],
+  "second_initialization_byte_identical": true,
+  "migration_journal": [
+    [
+      "012_controlled_1",
+      "cada539b0c6d44f2ff3bd6aab93f52f09215d977e9677d4d0283feab4d762fdb",
+      "C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\release_012_controlled_2026-10-15\\evidence\\recovery\\backups\\migrated_pre_012_f709eb229d.db"
+    ]
+  ],
+  "restore_tables_match": true,
+  "restore_schema_match": true,
+  "restore_values_match": true,
+  "restore_integrity": "ok",
+  "recovery_path": "evidence\\recovery",
+  "technical_observation_passed": true
+}

@@ -1,0 +1,27 @@
+{
+  "frozen": {
+    "tests/test_release_012_safety_contract.py": {
+      "reference_sha256": "e95747e2ba52edc138e333e9a3cc3e2c41a7cb043d454e8e2eeefde00186c00a",
+      "candidate_sha256": "e95747e2ba52edc138e333e9a3cc3e2c41a7cb043d454e8e2eeefde00186c00a",
+      "identical": true
+    },
+    "tests/test_release_011.py": {
+      "reference_sha256": "886027e6f63f2f8e68b1bce330acdb3687ca47e9a4b955c4d253f20ce3bdbd7e",
+      "candidate_sha256": "dd7cb078f4287ca061e4aa7b1ebb10b7bdf30045e0ca3e19c171889c9a264b6c",
+      "identical": false
+    }
+  },
+  "old_test_files_unchanged": {
+    "tests/test_bid_score.py": true,
+    "tests/test_db_migration.py": true,
+    "tests/test_demo_idempotency.py": true,
+    "tests/test_egp_readiness.py": true,
+    "tests/test_excel_export.py": true,
+    "tests/test_gap_creation.py": true,
+    "tests/test_match_key.py": true,
+    "tests/test_report_generation.py": true,
+    "tests/test_source_ocr.py": true,
+    "tests/test_verification.py": true,
+    "tests/test_workflow_optimizer.py": true
+  }
+}

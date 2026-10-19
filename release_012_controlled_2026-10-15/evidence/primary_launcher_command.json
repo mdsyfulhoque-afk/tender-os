@@ -1,0 +1,13 @@
+{
+  "label": "primary_launcher",
+  "command": [
+    "powershell.exe",
+    "-NoProfile",
+    "-NonInteractive",
+    "-Command",
+    "& '.\\deploy&run.bat'\nexit $LASTEXITCODE"
+  ],
+  "cwd": "C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\release_012_controlled_2026-10-15\\tenderproof_os",
+  "exit_code": 0,
+  "log": "evidence/primary_launcher.log"
+}

@@ -1,0 +1,12 @@
+{
+  "label": "page_smoke",
+  "command": [
+    "C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\release_012_controlled_2026-10-15\\tenderproof_os\\.venv\\Scripts\\python.exe",
+    "-B",
+    "C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\release_011A_audit_2026-10-15\\ui_smoke.py",
+    "C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\release_012_controlled_2026-10-15\\evidence\\page_smoke.json"
+  ],
+  "cwd": "C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\release_012_controlled_2026-10-15\\tenderproof_os",
+  "exit_code": 0,
+  "log": "evidence/page_smoke.log"
+}

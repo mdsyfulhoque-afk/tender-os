@@ -1,0 +1,548 @@
+schema_id: gptx.tendly.functional_reconstruction.v1
+generated_on: '2026-10-19'
+classification: NON-PROPRIETARY BLACK-BOX FUNCTIONAL RECONSTRUCTION
+scope: Tendly observed UI + user-provided product-guide screenshots + conversational probe responses; not source code
+evidence_labels:
+  guide_documented: Feature appears in a product guide screenshot; execution not independently tested
+  ui_observed: Directly visible in user-supplied screenshots of the product UI
+  target_self_reported: Claim made by Tendly's own chat assistant during probes
+  public_notice_cross_check: Some individual notice fields were cross-checked in prior turns; do not treat as broad
+    platform verification
+  hypothetical: Proposed component or engineering design; not a discovered Tendly module
+  unknown: Not accessible or not established from available evidence
+inputs:
+  guide_screenshots:
+  - UG-01
+  - UG-02
+  - UG-03
+  - UG-04
+  - UG-05
+  - UG-06
+  - UG-07
+  - UG-08
+  - UG-09
+  - UG-10
+  - UG-11
+  - UG-12
+  - UG-13
+  - UG-14
+  previous_probe_rounds: 21+ conversational experiments (screenshots and pasted responses supplied in chat)
+  existing_gptx_uploads:
+  - GPTX_All_In_One_Deployment_Bundle.zip
+  - 04.10.2025_custom_gpt_yaml_dagstrict_v_5_reader_writer_reviewer_router.yaml
+documented_product_surface:
+  discovery:
+    chat_assistant:
+      input: natural language; search and tender-specific follow-ups
+      returns: narrative response and tender cards; overview, pipeline and Ask AI actions
+      features:
+      - tender questions
+      - buyer analytics
+      - seller analytics
+      - file attachments
+      - pinned tender context
+      search_matching: related cross-category matches observed; precise algorithm unknown
+      sources:
+      - UG-01
+      - UG-13
+      evidence: ui_observed_and_guide_documented
+    explorer:
+      inputs:
+      - keyword inclusion tags
+      - keyword exclusion tags prefixed with minus
+      - CPV code or category selector
+      - buyer/organisation
+      filters:
+        country: multi-select
+        value_bands:
+        - any
+        - <50k
+        - 50k-100k
+        - 100k-500k
+        - 500k-1M
+        - 1M-5M
+        - '>5M'
+        - undisclosed
+        deadline:
+        - within 6 months default
+        - closing <7 days
+        - closing <30 days
+        - new last 48h
+        - all
+        type:
+        - e-procurement
+        - traditional
+        - green
+        - EU-funded
+      sort:
+      - newest
+      - deadline soonest
+      - deadline latest
+      - value high to low
+      - value low to high
+      result_page_size: 24
+      result_card_fields:
+      - title
+      - country
+      - buyer
+      - reference
+      - source portal
+      - CPV
+      - value if published
+      - deadline
+      notice_clustering: near-identical framework lots may be grouped into a similar-results card
+      active_deadline_claim: guide states only notices with future submission deadlines appear; not independently
+        validated across stages
+      cpv_hierarchy_filter: target_self_reported, NOT independently tested in Explorer
+      formal_bid_stage_filter: not documented in Explorer guide's visible filter bar
+      exports: CSV/XLSX availability target_self_reported, exact columns unknown
+      sources:
+      - UG-10
+      evidence: guide_documented_with_separate_self_report
+    categories:
+      industry_count: 46
+      group_count: 13
+      basis: CPV-based mapped industries
+      country_filter: true
+      deadline_shortcuts:
+      - any
+      - +3 days
+      - +7 days
+      - +14 days
+      - +30 days
+      sources:
+      - UG-06
+      evidence: guide_documented
+    saved_alerts:
+      criteria:
+      - name
+      - comma-separated keyword terms
+      - CPV codes
+      - countries
+      - value min/max
+      frequencies:
+      - real-time
+      - daily
+      - weekly
+      scan_frequency: guide states hourly checks; email delivery capped by configured frequency
+      deduplication: guide says each tender is emailed once per alert
+      account_required: true
+      sources:
+      - UG-03
+      evidence: guide_documented
+    profile_matching:
+      profile_inputs:
+      - CPV categories
+      - keywords
+      - target countries
+      candidate_rule: open tender CPV starts with at least one company CPV category, then keyword check on title,
+        description and CPV category name
+      baseline_score: 60
+      scoring_rule: keyword hits add points, most title and least category name, capped at 100; exact weights unknown
+      max_score: 100
+      max_tenders_per_run: 500
+      llm_reads_documents_at_matching_stage: false
+      score_labels:
+        perfect: 90-100 explicitly documented
+        strong: 75-89 explicitly documented
+        possible: presumed 60-74, not fully visible in provided screenshot
+        weak: threshold not fully visible; guide says practically empty given 60-point baseline
+      reason_line: guide characterizes reasons as templates rather than LLM-written explanations
+      schedules: guide reports daily ingestion-driven refresh Tuesday-Saturday
+      match_decisions:
+      - 'yes'
+      - maybe
+      - 'no'
+      sources:
+      - UG-02
+      - UG-11
+      evidence: guide_documented
+  intelligence:
+    tender_overview:
+      fields:
+      - estimated value
+      - published
+      - submission deadline
+      - buyer
+      - country
+      - source reference
+      - CPV
+      - NUTS
+      - project timeline
+      - quality score
+      - evaluation criteria
+      - description translation
+      tabs:
+      - overview
+      - documents
+      - notes
+      document_view: official source files and uploads, may be unavailable/login-walled
+      tender_scoped_ai: pre-defined questions; can retrieve published files when summaries insufficient
+      sources:
+      - UG-13
+      evidence: guide_documented
+    buyer_insights:
+      metrics:
+      - tenders issued
+      - total procurement
+      - average contract value
+      - active tenders
+      - award patterns
+      - supplier concentration
+      - monthly procurement volume
+      - top suppliers
+      - procurement categories
+      award_data_gaps: country/buyer publication heterogeneity
+      sources:
+      - UG-04
+      evidence: guide_documented
+    company_insights:
+      metrics:
+      - contracts won
+      - contract value
+      - average win value
+      - recent activity
+      - sector focus
+      - country coverage
+      - contract wins by year
+      - similar companies
+      - shared-buyer partnerships
+      limits:
+      - award record ≠ all bids
+      - company spelling/alias duplicates possible
+      - search up to 20 companies
+      - guide says analytics cache up to 6 hours
+      sources:
+      - UG-07
+      evidence: guide_documented
+  execution:
+    pipeline:
+      stages:
+      - Saved
+      - Qualifying
+      - Drafting
+      - Review
+      - Submitted
+      - Results
+      result_states:
+      - Won
+      - Lost
+      - Appeal
+      activities:
+      - save tender
+      - move stage
+      - will-bid triage
+      - notes
+      - mentions
+      - assignments
+      - attachments
+      - team collaboration
+      scope: shared within organization/account
+      sources:
+      - UG-12
+      evidence: guide_documented
+    calendar:
+      data_source: saved pipeline tenders with deadlines
+      event_types:
+      - submission
+      - questions
+      views:
+      - year
+      - month
+      - week
+      - list
+      questions_deadline_warning: guide says estimated by Tendly, not buyer's official clarification deadline
+      filters:
+      - buyer
+      - CPV
+      - country
+      - event type
+      sources:
+      - UG-05
+      evidence: guide_documented
+    document_workspace:
+      inputs:
+      - tender context
+      - official tender files
+      - company profile
+      - uploaded user documents
+      outputs:
+      - DOCX
+      - XLSX
+      - CSV
+      pdf_export: guide states unavailable from generated-document workspace
+      routines:
+      - proposal draft
+      - technical response
+      - declaration
+      - Bid / No-bid Analysis
+      - Compliance Matrix
+      - Tender Response Skeleton
+      - translation
+      placeholders:
+      - TO BE CONFIRMED
+      - TO BE COMPLETED
+      sources:
+      - UG-08
+      evidence: guide_documented
+    bid_review:
+      editing:
+      - Accept
+      - Reject
+      - View
+      checks:
+      - requirements compliance matrix
+      - eligibility
+      - technical
+      - financial
+      - submission formalities
+      - contract terms
+      - bid/no-bid analysis
+      compliance_status:
+      - Meet
+      - Gap
+      - To confirm
+      human_signoff_required: true
+      sources:
+      - UG-09
+      evidence: guide_documented
+    expert_services:
+      workflow:
+      - assign tender
+      - share offer & company details
+      - accept service conditions
+      - grant scoped document access
+      - expert produces bid/review
+      - customer reviews and submits
+      human_in_loop: true
+      sources:
+      - UG-14
+      evidence: guide_documented
+  billing_and_access:
+    account_features:
+    - saved alerts
+    - pipeline
+    - team collaboration
+    - document workspace
+    free_or_metered_features:
+    - some chat use
+    - matching runs
+    - document assistance
+    usage_values: Guide screenshots are dated snapshots; credit counts and prices should not be treated as current
+      contract terms.
+black_box_findings:
+- id: BB-01
+  issue: CPV exact-search mismatch
+  observed: Chat query CPV 72000000 returned Lithuanian notice 9930587, primary CPV 35120000
+  confidence: ui_observed
+  interpretation: Chat can return related titles and cross-category results; not strict displayed primary-code enforcement
+- id: BB-02
+  issue: DORS+ deadline semantic conflict
+  observed: Chat card displayed Nov 23 as closing; Tendly later characterized Nov 23 as estimated future notice publication
+    and Oct 29 as engagement due
+  confidence: ui_observed_plus_target_self_reported
+  interpretation: Search card's generic deadline may mismatch event type
+- id: BB-03
+  issue: stage and bid-ready discrepancy
+  observed: UK2 market-engagement DORS+ surfaced in a query requesting live formal bidding
+  confidence: ui_observed_plus_target_self_reported
+  interpretation: Strict bid-ready constraint not enforced in sampled Chat results
+- id: BB-04
+  issue: chat cannot persist card corrections
+  observed: Tendly stated it can explain mismatch but cannot update card from chat
+  confidence: target_self_reported
+  interpretation: Conversational correction not shown to affect stored UI
+- id: BB-05
+  issue: Explorer capability claims
+  observed: Tendly says structured CPV, hierarchy and export, but guide screenshots do not demonstrate exported exact
+    columns or tested CPV negative control
+  confidence: guide_documented_and_target_self_reported
+  interpretation: Do not mark strict filtering and schema as independently validated
+- id: BB-06
+  issue: AI Matching scoring route
+  observed: Guide documents CPV-prefix candidate selection, title/description/category keyword weights, base 60 and
+    cap 100, without LLM document reading at matching time
+  confidence: guide_documented
+  interpretation: Deterministic/relevance scoring path distinct from document analysis
+- id: BB-07
+  issue: Explorer Type label
+  observed: Guide's 'Type' choices are e-procurement, traditional, green and EU-funded
+  confidence: guide_documented
+  interpretation: Does not establish a native UK2/formal-bid notice-stage filter
+- id: BB-08
+  issue: Conversation parser anomaly
+  observed: Tendly unexpectedly explained exclusion of the term 'use' after prior 'do not use ... conversations' instruction
+  confidence: ui_observed
+  interpretation: Negation-to-keyword conversion is a hypothesis, not proven
+proposed_reference_implementation:
+  disclaimer: All component names, table names and routes in this section are hypothetical and NOT Tendly source code.
+  layers:
+    source_ingestion:
+    - ConnectorRegistry
+    - OfficialNoticeFetcher
+    - AttachmentFetcher
+    - ChangeDetectionWorker
+    normalization:
+    - NoticeParser
+    - IdentifierResolver
+    - CPVTaxonomyMapper
+    - ValueAndVATNormalizer
+    - DeadlineEventResolver
+    - StageClassifier
+    - NearDuplicateDetector
+    persistence:
+    - TenderRepository
+    - OrganizationRepository
+    - DocumentStore
+    - AuditEventStore
+    - PortfolioRepository
+    - SearchIndexes
+    retrieval:
+    - StructuredExplorerQuery
+    - KeywordTextIndex
+    - RelatedMatchRetriever
+    - CPVTreeMatcher
+    - ResultComposer
+    intelligence:
+    - TenderScopedEvidenceRetriever
+    - BuyerAwardAggregator
+    - CompanyAwardAggregator
+    - CitationVerifier
+    matching:
+    - ProfileCPVPrefilter
+    - WeightedKeywordScorer
+    - TierLabeler
+    - MatchRefreshWorker
+    execution:
+    - AlertScheduler
+    - PipelineStateMachine
+    - CalendarProjector
+    - DocumentDraftEngine
+    - RevisionReviewEngine
+    - ExpertAssignmentWorkflow
+    interfaces:
+    - ChatController
+    - ExplorerController
+    - TenderDetailController
+    - MatchingController
+    - DocumentsController
+    - AnalyticsController
+  suggested_datastores:
+    relational: PostgreSQL or similar; implementation choice, not an observed vendor
+    search: optional full-text/search index; search technology unknown
+    object_store: official notices and user-uploaded documents
+    jobs: ingestion, matching, alerts, analytics refresh
+  core_entities:
+  - source_portal
+  - notice
+  - notice_version
+  - procurement
+  - notice_cpv
+  - deadline_event
+  - organization
+  - award
+  - tender_document
+  - user_profile
+  - company_profile
+  - match_run
+  - match_score
+  - saved_alert
+  - alert_delivery
+  - pipeline_item
+  - pipeline_note
+  - calendar_item
+  - generated_document
+  - revision_suggestion
+  - expert_assignment
+  - audit_event
+  validation_contracts:
+    cpv: store all official codes and enforce exact/descendant policy explicitly; label related results
+    deadlines: store event_type per date and never substitute expected publication for closing date
+    stages: evaluate bid_ready only from notice type and procedure status, not just future dates
+    amounts: store original amount, currency, VAT basis, rate source and conversion timestamp separately
+    evidence: citation per field with source URI, notice ID and retrieved_at
+    editing: LLM suggestions do not mutate official procurement records or user documents without authorization
+gptx_probe_adapter:
+  origin: User-uploaded GPT-X schema is a separate analyst tool, not evidence about Tendly.
+  declared_original_agents:
+  - CitationValidatorAgent
+  - ExportAgent
+  - SectionGeneratorAgent
+  reconstructed_probe_roles:
+  - ProbePlanner
+  - ControlledQueryRunner
+  - EvidenceLedger
+  - HypothesisTracker
+  - DifferentialComparator
+  - SchemaSynthesizer
+  - ReportExporter
+  boundary: Only operate on public/authorized observations; mark prompt-simulated reasoning; no claim of privileged
+    Tendly tool or runtime access.
+validation_tests:
+- id: T01
+  test: Explorer CPV hierarchy strictness
+  criteria: LT + 72000000 descendants only
+  negative_control: 9930587/35120000
+  pass: negative control absent; each result has at least one matching official CPV
+  requires: real Explorer results and export
+- id: T02
+  test: Explorer secondary CPV semantics
+  criteria: result qualifies only under secondary descendant
+  pass: included when secondary matching documented
+  requires: source notices + export
+- id: T03
+  test: Chat vs Explorer relevance
+  criteria: same country/period/CPV; compare exact/related labels
+  pass: differences categorized, not conflated
+  requires: both result sets
+- id: T04
+  test: UK2 stage exclusion
+  criteria: UK biddable search
+  negative_control: T-2052111748
+  pass: market engagement not labeled open for bidding
+  requires: Explorer execution
+- id: T05
+  test: Event-specific deadline mapping
+  criteria: DORS+ Oct 29 engagement vs Nov 23 publication
+  pass: distinct event labels, no generic bid countdown from publication date
+  requires: full detail and filter snapshot
+- id: T06
+  test: Score repeatability
+  criteria: same profile/country/notice snapshot
+  pass: same deterministic matching score and tier
+  requires: match run record
+- id: T07
+  test: Match ranking weights
+  criteria: title vs description vs category keyword placement
+  pass: relative scores follow guide-described order; exact weights not assumed
+  requires: controlled profile runs
+- id: T08
+  test: Saved-alert dedup
+  criteria: overlapping hourly scans
+  pass: at most one email per tender per alert
+  requires: alert notification log
+- id: T09
+  test: Calendar questions-date caveat
+  criteria: estimated Q&A deadline
+  pass: label clearly estimated, source distinction preserved
+  requires: calendar view
+- id: T10
+  test: Document review acceptance
+  criteria: reject and accept change cards
+  pass: only accepted edits persist
+  requires: user-authorized test document
+- id: T11
+  test: Company analytics award meaning
+  criteria: buyer and seller awarded notices
+  pass: no inferred win rate from wins alone
+  requires: published award sources
+- id: T12
+  test: Export schema field fidelity
+  criteria: CSV exported from same Explorer filtered view
+  pass: exact header names and values audited without invention
+  requires: actual CSV or XLSX
+- id: T13
+  test: Context exclusion parser
+  criteria: same query with/without 'do not use records from earlier conversations'
+  pass: compare returned record IDs and unexpected token exclusions
+  requires: fresh independent chats

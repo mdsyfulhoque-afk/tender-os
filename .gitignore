@@ -1,0 +1,35 @@
+# Local Python environments and generated caches
+**/.venv/
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/.streamlit/
+
+# Local databases and recovery copies can contain client/tender records
+*.db
+*.sqlite
+*.sqlite3
+
+# Uploaded and generated runtime data
+**/storage/uploads/*
+!**/storage/uploads/.gitkeep
+**/storage/extracted_text/*
+!**/storage/extracted_text/.gitkeep
+**/storage/reports/*
+!**/storage/reports/.gitkeep
+**/storage/exports/*
+!**/storage/exports/.gitkeep
+**/storage/backups/*
+!**/storage/backups/.gitkeep
+
+# Snapshots bundle local databases and uploaded tender documents
+**/project_snapshot.zip
+
+# Local credentials, even if introduced later
+.env
+.env.*
+!.env.example
+**/credentials.json
+**/*secret*.json

@@ -1,0 +1,93 @@
+{
+  "project": "Proposal Guard - Release 012 Controlled Safety Integration",
+  "review_date_client": "2026-10-15",
+  "timezone_client": "Asia/Dhaka",
+  "plan_status": "pending_approval",
+  "implementation_authorization": "pending_approval",
+  "merge_authorization": "pending_approval",
+  "task_board_locked": true,
+  "review_mode": "read-only application inspection; new planning documents only",
+  "operational_application": "C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\tenderproof_os",
+  "application_files_modified_by_this_review": [],
+  "application_tests_rerun_by_this_review": false,
+  "operational_database_open_mode": "SQLite URI mode=ro; PRAGMA query_only=ON",
+  "fresh_observations": {
+    "inventory_reference": "../release_011A_audit_2026-10-15/source_inventory_before.json",
+    "inventoried_files": 340,
+    "matched_original_sha256": 340,
+    "missing": [],
+    "changed": [],
+    "source_zip_sha256": "8a3f4b2a5c8aa8e86bd47c47906dba4c3621cbb508383290132f41a9eba6ca55",
+    "source_zip_matches_audit": true,
+    "database_integrity": "ok",
+    "database_tables": 17,
+    "database_user_version": 0,
+    "database_schema_and_all_ordered_row_values_equal_consistent_backup": true,
+    "database_schema_and_all_ordered_row_values_equal_restore_check": true,
+    "backup_manifest_members": 340,
+    "backup_members_verified_against_backup_manifest": 340,
+    "backup_archive_sha256": "f55145730ddc1b701f6b62e9553247c14a690c5754dc77a6de1fe6987b753bc0",
+    "backup_archive_hash_matches_manifest": true,
+    "backup_members_byte_identical_to_original_inventory": 339,
+    "backup_database_byte_difference_explanation": "SQLite consistent backup file differs in bytes but all original table schemas and row values match the live database and restored check.",
+    "row_counts": {
+      "audit_events": 36,
+      "bid_recommendations": 1,
+      "bid_scorecard": 10,
+      "cases": 1,
+      "clarification_questions": 1,
+      "compliance_ledger": 52,
+      "cv_matches": 2,
+      "egp_checklist_items": 19,
+      "gap_items": 11,
+      "ip_capture": 1,
+      "methodology_outline": 2,
+      "normalized_requirements": 52,
+      "output_packages": 1,
+      "proposal_skeleton": 3,
+      "risk_register": 6,
+      "sources": 5,
+      "verification_results": 0
+    }
+  },
+  "historical_audit_results_inspected_not_rerun": {
+    "current_regression": {"passed": 27, "failed": 0},
+    "current_safety": {"passed": 2, "failed": 22},
+    "release011_regression": {"passed": 34, "failed": 0},
+    "release011_safety": {"passed": 8, "failed": 16},
+    "current_page_smoke": {"passed": 16, "failed": 0},
+    "release011_page_smoke": {"passed": 16, "failed": 0},
+    "existing_isolated_release012_candidate": {
+      "path": "../release_012_safety",
+      "recorded_combined_suite_passed": 84,
+      "recorded_external_safety_passed": 24,
+      "new_execution_in_this_review": false,
+      "operational_integration_or_human_approval_implied": false
+    }
+  },
+  "frozen_reference_tests_sha256": {
+    "release_011A_audit_2026-10-15/test_safety_contract.py": "e95747e2ba52edc138e333e9a3cc3e2c41a7cb043d454e8e2eeefde00186c00a",
+    "release_011A_audit_2026-10-15/isolated/release011/tests/test_release_011.py": "886027e6f63f2f8e68b1bce330acdb3687ca47e9a4b955c4d253f20ce3bdbd7e"
+  },
+  "planning_artifact_validation": {
+    "safety_map_rows": 24,
+    "safety_test_names_and_baseline_results_exactly_match_original_matrix": true,
+    "proposed_change_manifest_rows_including_keep_groups": 45,
+    "task_board_rows": 10,
+    "all_csv_rows_match_header_width": true,
+    "all_tasks_pending_and_locked": true,
+    "final_operational_hash_recheck_matched": 340
+  },
+  "preservation_inventory_exclusions_not_deletion_permission": [".venv", ".git", "__pycache__", ".pytest_cache", "tmp"],
+  "future_gates": {
+    "G01": "pending",
+    "G02": "pending",
+    "G03": "pending",
+    "G04": "pending",
+    "G05": "pending",
+    "G06": "pending",
+    "G07": "pending",
+    "G08": "pending",
+    "G09": "pending"
+  }
+}

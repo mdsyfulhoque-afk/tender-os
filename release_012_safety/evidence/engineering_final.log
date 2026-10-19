@@ -1,0 +1,58 @@
+..................................................................F..... [ 90%]
+........                                                                 [100%]
+================================== FAILURES ===================================
+________ test_human_approval_ui_requires_confirmation_and_can_approve _________
+tests\test_release_012_workflow.py:226: in test_human_approval_ui_requires_confirmation_and_can_approve
+    next(w for w in app.button if w.label == "Approve current assessment").click().run(timeout=40)
+..\..\tenderproof_os\.venv\Lib\site-packages\streamlit\testing\v1\element_tree.py:158: in run
+    return self.root.run(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\tenderproof_os\.venv\Lib\site-packages\streamlit\testing\v1\element_tree.py:2425: in run
+    widget_states = self.get_widget_states()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\tenderproof_os\.venv\Lib\site-packages\streamlit\testing\v1\element_tree.py:2408: in get_widget_states
+    w = get_widget_state(node)
+        ^^^^^^^^^^^^^^^^^^^^^^
+..\..\tenderproof_os\.venv\Lib\site-packages\streamlit\testing\v1\element_tree.py:2352: in get_widget_state
+    return node._widget_state
+           ^^^^^^^^^^^^^^^^^^
+..\..\tenderproof_os\.venv\Lib\site-packages\streamlit\testing\v1\element_tree.py:147: in __getattr__
+    return getattr(self.proto, name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: _widget_state
+---------------------------- Captured stderr call -----------------------------
+2026-10-15 03:26:24.102 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-15 03:26:24.105 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-15 03:26:25.016 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-15 03:26:25.125 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-15 03:26:25.135 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-15 03:26:25.150 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-15 03:26:25.158 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-15 03:26:25.163 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+=========================== short test summary info ===========================
+FAILED tests/test_release_012_workflow.py::test_human_approval_ui_requires_confirmation_and_can_approve
+1 failed, 79 passed in 63.92s (0:01:03)

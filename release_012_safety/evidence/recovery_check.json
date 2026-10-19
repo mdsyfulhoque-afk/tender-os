@@ -1,0 +1,30 @@
+{
+  "original_tables": 17,
+  "migrated_tables": 21,
+  "old_table_values_preserved": {
+    "audit_events": true,
+    "bid_recommendations": true,
+    "bid_scorecard": true,
+    "cases": true,
+    "clarification_questions": true,
+    "compliance_ledger": true,
+    "cv_matches": true,
+    "egp_checklist_items": true,
+    "gap_items": true,
+    "ip_capture": true,
+    "methodology_outline": true,
+    "normalized_requirements": true,
+    "output_packages": true,
+    "proposal_skeleton": true,
+    "risk_register": true,
+    "sources": true,
+    "verification_results": true
+  },
+  "integrity_check": "ok",
+  "foreign_key_violations": 0,
+  "second_migration_byte_identical": true,
+  "rollback_matches_old_schema_and_values": true,
+  "rollback_integrity": "ok",
+  "recovery_directory": "evidence\\recovery_fd6129ea",
+  "passed": true
+}

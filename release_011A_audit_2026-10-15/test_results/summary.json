@@ -1,0 +1,540 @@
+[
+  {
+    "target": "current",
+    "suite": "regression",
+    "exit_code": 0,
+    "tests": 27,
+    "passed": 27,
+    "failed": 0,
+    "errors": 0,
+    "cases": [
+      {
+        "name": "test_total_score_calculation_works",
+        "result": "passed"
+      },
+      {
+        "name": "test_recommendation_thresholds_work",
+        "result": "passed"
+      },
+      {
+        "name": "test_methodology_fields_are_added_without_erasing_existing_data",
+        "result": "passed"
+      },
+      {
+        "name": "test_two_demo_runs_do_not_duplicate_records",
+        "result": "passed"
+      },
+      {
+        "name": "test_logical_clarification_and_risk_generation_are_idempotent",
+        "result": "passed"
+      },
+      {
+        "name": "test_egp_checklist_seeding_is_idempotent",
+        "result": "passed"
+      },
+      {
+        "name": "test_checklist_updates_persist_and_surface_in_workflow",
+        "result": "passed"
+      },
+      {
+        "name": "test_workbook_is_created",
+        "result": "passed"
+      },
+      {
+        "name": "test_all_required_sheets_exist",
+        "result": "passed"
+      },
+      {
+        "name": "test_mandatory_requirement_without_evidence_creates_gapitem",
+        "result": "passed"
+      },
+      {
+        "name": "test_pending_input_row_creates_gapitem",
+        "result": "passed"
+      },
+      {
+        "name": "test_same_input_creates_same_match_key",
+        "result": "passed"
+      },
+      {
+        "name": "test_different_requirement_creates_different_match_key",
+        "result": "passed"
+      },
+      {
+        "name": "test_whitespace_changes_do_not_change_match_key",
+        "result": "passed"
+      },
+      {
+        "name": "test_markdown_report_is_created",
+        "result": "passed"
+      },
+      {
+        "name": "test_docx_report_is_created",
+        "result": "passed"
+      },
+      {
+        "name": "test_readiness_label_appears",
+        "result": "passed"
+      },
+      {
+        "name": "test_prohibited_phrases_do_not_appear",
+        "result": "passed"
+      },
+      {
+        "name": "test_report_includes_methodology_conditions_and_analysis_approach",
+        "result": "passed"
+      },
+      {
+        "name": "test_report_includes_egp_readiness_when_activated",
+        "result": "passed"
+      },
+      {
+        "name": "test_scanned_pdf_ocr_processes_beyond_legacy_40_page_cap",
+        "result": "passed"
+      },
+      {
+        "name": "test_missing_tor_source_fails",
+        "result": "passed"
+      },
+      {
+        "name": "test_missing_requirements_fails",
+        "result": "passed"
+      },
+      {
+        "name": "test_missing_bid_recommendation_blocks_client_ready",
+        "result": "passed"
+      },
+      {
+        "name": "test_report_with_prohibited_language_fails_safe_001",
+        "result": "passed"
+      },
+      {
+        "name": "test_workflow_optimizer_starts_with_source_intake",
+        "result": "passed"
+      },
+      {
+        "name": "test_workflow_optimizer_detects_existing_source",
+        "result": "passed"
+      }
+    ],
+    "command": [
+      "C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\tenderproof_os\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "pytest",
+      "tests",
+      "-q",
+      "--tb=short",
+      "-p",
+      "no:cacheprovider",
+      "--junitxml=C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\release_011A_audit_2026-10-15\\test_results\\current_regression.xml"
+    ]
+  },
+  {
+    "target": "current",
+    "suite": "safety",
+    "exit_code": 1,
+    "tests": 24,
+    "passed": 2,
+    "failed": 22,
+    "errors": 0,
+    "cases": [
+      {
+        "name": "test_mandatory_unresolved_blocks_positive_recommendation[Gap]",
+        "result": "failed"
+      },
+      {
+        "name": "test_mandatory_unresolved_blocks_positive_recommendation[Pending Input]",
+        "result": "failed"
+      },
+      {
+        "name": "test_mandatory_unresolved_blocks_positive_recommendation[Partially Met]",
+        "result": "failed"
+      },
+      {
+        "name": "test_mandatory_unresolved_blocks_positive_recommendation[Not Applicable]",
+        "result": "failed"
+      },
+      {
+        "name": "test_unreviewed_requirement_blocks_readiness",
+        "result": "failed"
+      },
+      {
+        "name": "test_placeholder_evidence_blocks_readiness",
+        "result": "failed"
+      },
+      {
+        "name": "test_invalid_evidence_blocks_readiness[License expired on 2020-01-01]",
+        "result": "failed"
+      },
+      {
+        "name": "test_invalid_evidence_blocks_readiness[License belongs to another legal entity, not this bidder]",
+        "result": "failed"
+      },
+      {
+        "name": "test_incomplete_source_extraction_blocks_readiness[failed]",
+        "result": "failed"
+      },
+      {
+        "name": "test_incomplete_source_extraction_blocks_readiness[empty]",
+        "result": "failed"
+      },
+      {
+        "name": "test_incomplete_source_extraction_blocks_readiness[partial]",
+        "result": "failed"
+      },
+      {
+        "name": "test_new_source_invalidates_readiness",
+        "result": "failed"
+      },
+      {
+        "name": "test_unreviewed_amendment_cannot_reclear_old_assessment",
+        "result": "failed"
+      },
+      {
+        "name": "test_compliance_change_invalidates_readiness",
+        "result": "failed"
+      },
+      {
+        "name": "test_requirement_change_invalidates_readiness",
+        "result": "failed"
+      },
+      {
+        "name": "test_pending_egp_checklist_blocks_readiness",
+        "result": "failed"
+      },
+      {
+        "name": "test_warning_requires_preliminary_label",
+        "result": "failed"
+      },
+      {
+        "name": "test_failed_verification_not_counted_as_complete_workflow",
+        "result": "failed"
+      },
+      {
+        "name": "test_human_approval_required_before_client_ready",
+        "result": "failed"
+      },
+      {
+        "name": "test_stale_report_is_draft_after_evidence_removed",
+        "result": "failed"
+      },
+      {
+        "name": "test_excel_does_not_execute_untrusted_formula_text",
+        "result": "failed"
+      },
+      {
+        "name": "test_case_update_cannot_self_assign_release_clearance",
+        "result": "failed"
+      },
+      {
+        "name": "test_control_synthetic_verified_row_can_be_scored",
+        "result": "passed"
+      },
+      {
+        "name": "test_control_unknown_case_is_blocked",
+        "result": "passed"
+      }
+    ],
+    "command": [
+      "C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\tenderproof_os\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "pytest",
+      "C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\release_011A_audit_2026-10-15\\test_safety_contract.py",
+      "-q",
+      "--tb=short",
+      "-p",
+      "no:cacheprovider",
+      "--junitxml=C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\release_011A_audit_2026-10-15\\test_results\\current_safety.xml"
+    ]
+  },
+  {
+    "target": "current",
+    "suite": "ui_smoke",
+    "exit_code": 0
+  },
+  {
+    "target": "release011",
+    "suite": "regression",
+    "exit_code": 0,
+    "tests": 34,
+    "passed": 34,
+    "failed": 0,
+    "errors": 0,
+    "cases": [
+      {
+        "name": "test_total_score_calculation_works",
+        "result": "passed"
+      },
+      {
+        "name": "test_recommendation_thresholds_work",
+        "result": "passed"
+      },
+      {
+        "name": "test_methodology_fields_are_added_without_erasing_existing_data",
+        "result": "passed"
+      },
+      {
+        "name": "test_two_demo_runs_do_not_duplicate_records",
+        "result": "passed"
+      },
+      {
+        "name": "test_logical_clarification_and_risk_generation_are_idempotent",
+        "result": "passed"
+      },
+      {
+        "name": "test_egp_checklist_seeding_is_idempotent",
+        "result": "passed"
+      },
+      {
+        "name": "test_checklist_updates_persist_and_surface_in_workflow",
+        "result": "passed"
+      },
+      {
+        "name": "test_workbook_is_created",
+        "result": "passed"
+      },
+      {
+        "name": "test_all_required_sheets_exist",
+        "result": "passed"
+      },
+      {
+        "name": "test_mandatory_requirement_without_evidence_creates_gapitem",
+        "result": "passed"
+      },
+      {
+        "name": "test_pending_input_row_creates_gapitem",
+        "result": "passed"
+      },
+      {
+        "name": "test_same_input_creates_same_match_key",
+        "result": "passed"
+      },
+      {
+        "name": "test_different_requirement_creates_different_match_key",
+        "result": "passed"
+      },
+      {
+        "name": "test_whitespace_changes_do_not_change_match_key",
+        "result": "passed"
+      },
+      {
+        "name": "test_unresolved_mandatory_never_pursue[Gap]",
+        "result": "passed"
+      },
+      {
+        "name": "test_unresolved_mandatory_never_pursue[Pending Input]",
+        "result": "passed"
+      },
+      {
+        "name": "test_unreviewed_requirement_blocks_positive_rec",
+        "result": "passed"
+      },
+      {
+        "name": "test_valid_record_can_receive_positive_score",
+        "result": "passed"
+      },
+      {
+        "name": "test_mandatory_gap_blocks_verification",
+        "result": "passed"
+      },
+      {
+        "name": "test_unreviewed_requirement_blocks_verification",
+        "result": "passed"
+      },
+      {
+        "name": "test_new_source_invalidates_readiness",
+        "result": "passed"
+      },
+      {
+        "name": "test_markdown_report_is_created",
+        "result": "passed"
+      },
+      {
+        "name": "test_docx_report_is_created",
+        "result": "passed"
+      },
+      {
+        "name": "test_readiness_label_appears",
+        "result": "passed"
+      },
+      {
+        "name": "test_prohibited_phrases_do_not_appear",
+        "result": "passed"
+      },
+      {
+        "name": "test_report_includes_methodology_conditions_and_analysis_approach",
+        "result": "passed"
+      },
+      {
+        "name": "test_report_includes_egp_readiness_when_activated",
+        "result": "passed"
+      },
+      {
+        "name": "test_scanned_pdf_ocr_processes_beyond_legacy_40_page_cap",
+        "result": "passed"
+      },
+      {
+        "name": "test_missing_tor_source_fails",
+        "result": "passed"
+      },
+      {
+        "name": "test_missing_requirements_fails",
+        "result": "passed"
+      },
+      {
+        "name": "test_missing_bid_recommendation_blocks_client_ready",
+        "result": "passed"
+      },
+      {
+        "name": "test_report_with_prohibited_language_fails_safe_001",
+        "result": "passed"
+      },
+      {
+        "name": "test_workflow_optimizer_starts_with_source_intake",
+        "result": "passed"
+      },
+      {
+        "name": "test_workflow_optimizer_detects_existing_source",
+        "result": "passed"
+      }
+    ],
+    "command": [
+      "C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\tenderproof_os\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "pytest",
+      "tests",
+      "-q",
+      "--tb=short",
+      "-p",
+      "no:cacheprovider",
+      "--junitxml=C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\release_011A_audit_2026-10-15\\test_results\\release011_regression.xml"
+    ]
+  },
+  {
+    "target": "release011",
+    "suite": "safety",
+    "exit_code": 1,
+    "tests": 24,
+    "passed": 8,
+    "failed": 16,
+    "errors": 0,
+    "cases": [
+      {
+        "name": "test_mandatory_unresolved_blocks_positive_recommendation[Gap]",
+        "result": "passed"
+      },
+      {
+        "name": "test_mandatory_unresolved_blocks_positive_recommendation[Pending Input]",
+        "result": "passed"
+      },
+      {
+        "name": "test_mandatory_unresolved_blocks_positive_recommendation[Partially Met]",
+        "result": "passed"
+      },
+      {
+        "name": "test_mandatory_unresolved_blocks_positive_recommendation[Not Applicable]",
+        "result": "passed"
+      },
+      {
+        "name": "test_unreviewed_requirement_blocks_readiness",
+        "result": "passed"
+      },
+      {
+        "name": "test_placeholder_evidence_blocks_readiness",
+        "result": "failed"
+      },
+      {
+        "name": "test_invalid_evidence_blocks_readiness[License expired on 2020-01-01]",
+        "result": "failed"
+      },
+      {
+        "name": "test_invalid_evidence_blocks_readiness[License belongs to another legal entity, not this bidder]",
+        "result": "failed"
+      },
+      {
+        "name": "test_incomplete_source_extraction_blocks_readiness[failed]",
+        "result": "failed"
+      },
+      {
+        "name": "test_incomplete_source_extraction_blocks_readiness[empty]",
+        "result": "failed"
+      },
+      {
+        "name": "test_incomplete_source_extraction_blocks_readiness[partial]",
+        "result": "failed"
+      },
+      {
+        "name": "test_new_source_invalidates_readiness",
+        "result": "passed"
+      },
+      {
+        "name": "test_unreviewed_amendment_cannot_reclear_old_assessment",
+        "result": "failed"
+      },
+      {
+        "name": "test_compliance_change_invalidates_readiness",
+        "result": "failed"
+      },
+      {
+        "name": "test_requirement_change_invalidates_readiness",
+        "result": "failed"
+      },
+      {
+        "name": "test_pending_egp_checklist_blocks_readiness",
+        "result": "failed"
+      },
+      {
+        "name": "test_warning_requires_preliminary_label",
+        "result": "failed"
+      },
+      {
+        "name": "test_failed_verification_not_counted_as_complete_workflow",
+        "result": "failed"
+      },
+      {
+        "name": "test_human_approval_required_before_client_ready",
+        "result": "failed"
+      },
+      {
+        "name": "test_stale_report_is_draft_after_evidence_removed",
+        "result": "failed"
+      },
+      {
+        "name": "test_excel_does_not_execute_untrusted_formula_text",
+        "result": "failed"
+      },
+      {
+        "name": "test_case_update_cannot_self_assign_release_clearance",
+        "result": "failed"
+      },
+      {
+        "name": "test_control_synthetic_verified_row_can_be_scored",
+        "result": "passed"
+      },
+      {
+        "name": "test_control_unknown_case_is_blocked",
+        "result": "passed"
+      }
+    ],
+    "command": [
+      "C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\tenderproof_os\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "pytest",
+      "C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\release_011A_audit_2026-10-15\\test_safety_contract.py",
+      "-q",
+      "--tb=short",
+      "-p",
+      "no:cacheprovider",
+      "--junitxml=C:\\Users\\IP3 Consulting Ltd\\OneDrive\\Documents\\Proposal Guard\\release_011A_audit_2026-10-15\\test_results\\release011_safety.xml"
+    ]
+  },
+  {
+    "target": "release011",
+    "suite": "ui_smoke",
+    "exit_code": 0
+  }
+]

@@ -1,0 +1,2530 @@
+{
+  "archive": "ProposalGuard_Source_Audit.zip",
+  "archive_bytes": 69926,
+  "archive_sha256": "8a3f4b2a5c8aa8e86bd47c47906dba4c3621cbb508383290132f41a9eba6ca55",
+  "candidate_tests": [
+    "tests/conftest.py",
+    "tests/test_bid_score.py",
+    "tests/test_db_migration.py",
+    "tests/test_demo_idempotency.py",
+    "tests/test_egp_readiness.py",
+    "tests/test_excel_export.py",
+    "tests/test_gap_creation.py",
+    "tests/test_match_key.py",
+    "tests/test_report_generation.py",
+    "tests/test_source_ocr.py",
+    "tests/test_verification.py",
+    "tests/test_workflow_optimizer.py"
+  ],
+  "files": [
+    {
+      "bytes": 1792,
+      "path": "app.py",
+      "sha256": "6080aab0f3f675a8e71c28dbbfcd741e90900744672781137ec2c9e3e532d408"
+    },
+    {
+      "bytes": 1421,
+      "path": "QUICKSTART.md",
+      "sha256": "842d183f948e1b9fbc425f4de83cb97560dd411e7514ad353fd1ff10f0a5d54b"
+    },
+    {
+      "bytes": 3722,
+      "path": "README.md",
+      "sha256": "9ba2671b62257d47a43e969af0df7ff2d5a2901106000768bb766dbbd50f27c5"
+    },
+    {
+      "bytes": 165,
+      "path": "requirements.txt",
+      "sha256": "f0e532f7a5d199942b0adf0618a66ad55ad6a81270d64a306ca399e84dfc1868"
+    },
+    {
+      "bytes": 1920,
+      "path": "run_app.py",
+      "sha256": "20570c085197e91ff8814f3d36f78ed7e739cbd5725bf1c7a9d889137044a1ec"
+    },
+    {
+      "bytes": 848,
+      "path": "tenderproof/config.py",
+      "sha256": "8525d510ebe67e06234038009add406a5fa7935f7c3a0fd6d4f25ac63e689826"
+    },
+    {
+      "bytes": 1078,
+      "path": "tenderproof/constants.py",
+      "sha256": "990c15f93e4c9e9469255c2b861f76b0a5729377ef72ea04040d75734fbd2229"
+    },
+    {
+      "bytes": 2046,
+      "path": "tenderproof/db.py",
+      "sha256": "411c13ef318785a500d26c163a3ca8d8d795d222c0371181b2291df071a4f4f4"
+    },
+    {
+      "bytes": 16131,
+      "path": "tenderproof/models.py",
+      "sha256": "ee69ca250c53335e56429ef2d572118e3041cecb351e879dcad772ac4f833cf0"
+    },
+    {
+      "bytes": 472,
+      "path": "tenderproof/prompts/clarification_questions.md",
+      "sha256": "ac3a3e952e83cf1829e910735f899e7406d209003bc79876d8a8f585d27cdb92"
+    },
+    {
+      "bytes": 604,
+      "path": "tenderproof/prompts/compliance_matrix_review.md",
+      "sha256": "05f23a0e7a10985033a4a6244b406890020ab864cc73a086e25b7fec68abe60c"
+    },
+    {
+      "bytes": 648,
+      "path": "tenderproof/prompts/cv_evidence_extraction.md",
+      "sha256": "c39366ba4910c862a4d1bc180cb6c5a603c89f28f0d37d1b142c6f81544764fb"
+    },
+    {
+      "bytes": 491,
+      "path": "tenderproof/prompts/cv_rewrite_suggestions.md",
+      "sha256": "20d05a26a99f265681e51ea392ac0f484e70c2e75d9e2816ab70eef0f672ec1d"
+    },
+    {
+      "bytes": 756,
+      "path": "tenderproof/prompts/diagnostic_report_drafting.md",
+      "sha256": "63c6f5ce8a5aed8f2eb069dcf5431030c3f3633370a9ee9f6778ff3e0c33618a"
+    },
+    {
+      "bytes": 1562,
+      "path": "tenderproof/prompts/egp_document_review.md",
+      "sha256": "e110b8ef964bb4d83b99c0cef7d07374e2e68874cb3f202250fbb541553c8283"
+    },
+    {
+      "bytes": 520,
+      "path": "tenderproof/prompts/methodology_outline.md",
+      "sha256": "cc3909367a905bdcc400cace0ab0f88e1acf0e12594bbadfa214543e240f8b66"
+    },
+    {
+      "bytes": 518,
+      "path": "tenderproof/prompts/risk_flagging.md",
+      "sha256": "860a0066b04f7cf64dcb6194c3e236cafba7346f874150dd95a4fff7ba2cff74"
+    },
+    {
+      "bytes": 699,
+      "path": "tenderproof/prompts/tor_requirement_extraction.md",
+      "sha256": "7f847e3f4185e0e2e172eb18dc13d2ea5a00936dc88d7a5413617c6363605021"
+    },
+    {
+      "bytes": 3649,
+      "path": "tenderproof/reference/bangladesh_egp_operating_notes.md",
+      "sha256": "a9bd88867a2ffe8d3d09c853f865672d2d29306541dc55976b7720e050f343aa"
+    },
+    {
+      "bytes": 535,
+      "path": "tenderproof/schemas.py",
+      "sha256": "593b98d99cf0cf5ef2096d3e7a9b86f1f5401170c95923f937534f010cbe50cf"
+    },
+    {
+      "bytes": 824,
+      "path": "tenderproof/services/audit_service.py",
+      "sha256": "d688132d2dd1c43e5bca06b3f2402f78216df62afc2051a2b6fe9d5d88208b68"
+    },
+    {
+      "bytes": 3675,
+      "path": "tenderproof/services/bid_score_service.py",
+      "sha256": "53c996f99542c4da866d6c480fa306a507301965f925902915af9e577b5f2f0b"
+    },
+    {
+      "bytes": 2613,
+      "path": "tenderproof/services/case_service.py",
+      "sha256": "55be07877627b22398c3bd0eb194a318ab7b0359d4c2756895f3d8cbb6ae782f"
+    },
+    {
+      "bytes": 1488,
+      "path": "tenderproof/services/clarification_service.py",
+      "sha256": "06c1e17e4f7fdf4bc7a6680735193ce336d97379838c99478bf30c755079beea"
+    },
+    {
+      "bytes": 2879,
+      "path": "tenderproof/services/compliance_service.py",
+      "sha256": "891956c873a2bd8b9b9bc578e76109bb9a3ff4b83b25d22a4d0764c2b4b7612f"
+    },
+    {
+      "bytes": 2523,
+      "path": "tenderproof/services/cv_match_service.py",
+      "sha256": "1a9f113924bfdd66441b9fd00c9eeeb9f743cef5f8449e872d028d2516fadb91"
+    },
+    {
+      "bytes": 5558,
+      "path": "tenderproof/services/egp_service.py",
+      "sha256": "3c0fa983f4aff7478732e2e3dc5245635b187c4bd3453b5d4702e5804ea109c7"
+    },
+    {
+      "bytes": 4003,
+      "path": "tenderproof/services/export_service.py",
+      "sha256": "f17abfef5904af1cb577651033eea8ae61371fb8f41227c5654c488be10c8005"
+    },
+    {
+      "bytes": 4414,
+      "path": "tenderproof/services/extraction_service.py",
+      "sha256": "d351100bb74bcf63155355142f17a2aad356c7b37f075da229a206ebd953a8f3"
+    },
+    {
+      "bytes": 3626,
+      "path": "tenderproof/services/gap_service.py",
+      "sha256": "446cf6b0d73f98d0fda2a627096cfa880ca7bce9fc9bf8cec3fd8546c3aad439"
+    },
+    {
+      "bytes": 1703,
+      "path": "tenderproof/services/ip_capture_service.py",
+      "sha256": "22fb92a342324557d55a9c512805beacb8fd76ae64d037c2dcc00343fd16a135"
+    },
+    {
+      "bytes": 10050,
+      "path": "tenderproof/services/report_service.py",
+      "sha256": "b76627057f9ab39fde7b582d22f2f5ca37efaf44e32825808ff3ef65d0e80ba2"
+    },
+    {
+      "bytes": 2502,
+      "path": "tenderproof/services/risk_service.py",
+      "sha256": "0c4a6988afde683c3e07efeedfc1c0650da56914d7832f09351e582ab13b29cc"
+    },
+    {
+      "bytes": 8140,
+      "path": "tenderproof/services/sample_data_service.py",
+      "sha256": "d705b03af0a23e5ff98e16a364d0ae66f7b4d4f65ee73f97f91d0d9feb80ab04"
+    },
+    {
+      "bytes": 5627,
+      "path": "tenderproof/services/source_service.py",
+      "sha256": "024f1bb1edd897258efa0cc9ce8e6c72164852bd28d5da047e9cd93189395a30"
+    },
+    {
+      "bytes": 6159,
+      "path": "tenderproof/services/tor_normalizer.py",
+      "sha256": "bdc55a3f8e45ff57ad4624b887961d79ac0acd3e534812b30ac9feb0643d74cb"
+    },
+    {
+      "bytes": 9484,
+      "path": "tenderproof/services/verification_service.py",
+      "sha256": "96c03652e873906130ab63fa4ab47784a6590a9e665670efd91063ed29c8dfa9"
+    },
+    {
+      "bytes": 3198,
+      "path": "tenderproof/services/workflow_service.py",
+      "sha256": "cab6e32cb4e88f6135bc49983f8c4be9cfb6234530d8ed91a73cf4765f2c9cc9"
+    },
+    {
+      "bytes": 41,
+      "path": "tenderproof/services/__init__.py",
+      "sha256": "aa375c9af826ec8e0a7d53f36ae43c9e97c462a5fc6051694ef0285842adc4c8"
+    },
+    {
+      "bytes": 355,
+      "path": "tenderproof/templates/client_intake_template.md",
+      "sha256": "63289522a6e33a9f8e17008f8bad48752afa09677b1f89cb518fb8aa5cf5f8ef"
+    },
+    {
+      "bytes": 607,
+      "path": "tenderproof/templates/engagement_terms_template.md",
+      "sha256": "57466c8983e1150177a00af24b7dd6a36666e97eb216d4c6949b6c81c80c9465"
+    },
+    {
+      "bytes": 789,
+      "path": "tenderproof/templates/one_page_offer_template.md",
+      "sha256": "2e9d79b2e903c6503ffba3f9ab4b1ca18c972cb760b7247d487f20a8ae6b31ab"
+    },
+    {
+      "bytes": 578,
+      "path": "tenderproof/templates/report_template.md",
+      "sha256": "7335a4a54ed8cfc1c513321e0ed4f4d52173c5d2d3b285a069a4775df75453f4"
+    },
+    {
+      "bytes": 1561,
+      "path": "tenderproof/ui/bid_scorecard.py",
+      "sha256": "6ab7efb195b4911a1ccacf0798c277bbe92c156472a14b24a43856c5eaf46843"
+    },
+    {
+      "bytes": 3689,
+      "path": "tenderproof/ui/cases.py",
+      "sha256": "6c08cd442f971c7fb938f6aac427d896c51509154615fe498fd58c08501b464c"
+    },
+    {
+      "bytes": 2448,
+      "path": "tenderproof/ui/compliance.py",
+      "sha256": "03f9ced2ea432f8954047def349b0ed399b196d94e13b80befa20fdafe7bba23"
+    },
+    {
+      "bytes": 1847,
+      "path": "tenderproof/ui/cv_matcher.py",
+      "sha256": "cd1dfb926c8749950111309c5b2f9f2b782308a27e66b74e43c33832e5245c0e"
+    },
+    {
+      "bytes": 3619,
+      "path": "tenderproof/ui/egp_readiness.py",
+      "sha256": "00a1fb6274428e2c8a6fbf08a81385b32cea961c620ce3c3d3ec1312c197cb93"
+    },
+    {
+      "bytes": 782,
+      "path": "tenderproof/ui/exports.py",
+      "sha256": "0f3b61bc0f8c8aed2c6101d609aa97876c3c3694e1a621e1fdec8bf841888b38"
+    },
+    {
+      "bytes": 1826,
+      "path": "tenderproof/ui/helpers.py",
+      "sha256": "cd057041eef8929e8f9da1f4395860d7b94bb991afa6b94fa82e625926f702ca"
+    },
+    {
+      "bytes": 2010,
+      "path": "tenderproof/ui/home.py",
+      "sha256": "6fcf0488e2d51ee10b815331e41e6045ab04214c68d8b552a5c4f6f827cb321a"
+    },
+    {
+      "bytes": 2187,
+      "path": "tenderproof/ui/intake.py",
+      "sha256": "d48e96703ad92b0f4c5450268d6b66ea101f0f3a7a3b7f73f3152da447370c9a"
+    },
+    {
+      "bytes": 1631,
+      "path": "tenderproof/ui/ip_capture.py",
+      "sha256": "1333cb62165c7b33641ea2f37b3b603eb00eacf87a771e04c9f41a26694c1925"
+    },
+    {
+      "bytes": 2886,
+      "path": "tenderproof/ui/proposal_methodology.py",
+      "sha256": "5c6b8b1b78e227c21e3d31a46ff46948e997b667665866cf04cdd02301f40e8d"
+    },
+    {
+      "bytes": 1808,
+      "path": "tenderproof/ui/report_generator.py",
+      "sha256": "5965c7f2f40791ae8683c6dc991db415d2d5d30f97c2263dcff992bbb1e6398a"
+    },
+    {
+      "bytes": 2119,
+      "path": "tenderproof/ui/risks_gaps.py",
+      "sha256": "345d37511845c2789342db5193430a31bfca4edbb0bb591f93b687c5dbb12e2f"
+    },
+    {
+      "bytes": 1274,
+      "path": "tenderproof/ui/settings.py",
+      "sha256": "da528999c251ed67b665385088168ced6ec9f6c063c09d2e25fff7a53ab47007"
+    },
+    {
+      "bytes": 4101,
+      "path": "tenderproof/ui/tor_extraction.py",
+      "sha256": "cfd4fa9000bd698c2181b0e6d9bd39fff4f6ac0cff37a0a3e3e131b252279d99"
+    },
+    {
+      "bytes": 1402,
+      "path": "tenderproof/ui/verification.py",
+      "sha256": "3debfa11f6a9262187520ff7e2516845773a64fcb68208a5be4a7c6de448793a"
+    },
+    {
+      "bytes": 1134,
+      "path": "tenderproof/ui/workflow_optimizer.py",
+      "sha256": "87fc753454ee19ca83c4b08f653bf3f7b821e47ebf37c1d638a33b193279c6b3"
+    },
+    {
+      "bytes": 29,
+      "path": "tenderproof/ui/__init__.py",
+      "sha256": "0885d57f9c17c00d8b7e8c3599db0fb5832d62d2dcf26f387b6dae25a267d0f1"
+    },
+    {
+      "bytes": 83,
+      "path": "tenderproof/__init__.py",
+      "sha256": "4e0b80b0c1d9308b118440bb07886b703b640e89d18dcc31bc47408f0aa3daf5"
+    },
+    {
+      "bytes": 594,
+      "path": "tests/conftest.py",
+      "sha256": "4879d3523e2da20b1fe008eb45f65b5a66888dbcbb8f6b6aad47536d8f08cf10"
+    },
+    {
+      "bytes": 819,
+      "path": "tests/test_bid_score.py",
+      "sha256": "40d61f380d59d2302914488119345b390c9a5c060ecdd29b5204441c1873ae20"
+    },
+    {
+      "bytes": 942,
+      "path": "tests/test_db_migration.py",
+      "sha256": "7e75bf3ae84561835716861bdf80c0226dee9cdd68d300b26cda4386648bffb1"
+    },
+    {
+      "bytes": 1858,
+      "path": "tests/test_demo_idempotency.py",
+      "sha256": "23d01046e5433f6594398c2f10cd18180f6ed12cdd94a6073ce0287a3297ebea"
+    },
+    {
+      "bytes": 1439,
+      "path": "tests/test_egp_readiness.py",
+      "sha256": "de548f604867d87053c4f02734ae5217f3c90a59b5ed1a9fd0b6cdd693e71fe8"
+    },
+    {
+      "bytes": 706,
+      "path": "tests/test_excel_export.py",
+      "sha256": "1d0a2edc0139acd8814413e11390e596a23980f1a7ec69b4c6f3d6222e36e436"
+    },
+    {
+      "bytes": 1606,
+      "path": "tests/test_gap_creation.py",
+      "sha256": "529500d3be1cf1dbda748b670624ddc2ed8754d617c1974124db1bfd10309a5f"
+    },
+    {
+      "bytes": 917,
+      "path": "tests/test_match_key.py",
+      "sha256": "364d5d1a438b3ccb9d6396c0f86806eeb84d619e524d1e856c9742124ef8aa51"
+    },
+    {
+      "bytes": 2470,
+      "path": "tests/test_report_generation.py",
+      "sha256": "72638deda962e3c6b7fda2807bd0cb61f846fa0a87777a45bc212277b0001da8"
+    },
+    {
+      "bytes": 1166,
+      "path": "tests/test_source_ocr.py",
+      "sha256": "54252b9d6b56efacb7bfd594e5a9c530bc1d96fc68f6e8cad7c8065dda9bc61e"
+    },
+    {
+      "bytes": 2321,
+      "path": "tests/test_verification.py",
+      "sha256": "09021b000fa462c44455e96ad4531052c966098b4894acd2d10381c1f4191a13"
+    },
+    {
+      "bytes": 924,
+      "path": "tests/test_workflow_optimizer.py",
+      "sha256": "9fe62bd1f7e58875ca9dce17f27b6c2622e6da302780fffeb03e9cf70dd899df"
+    }
+  ],
+  "limitations": [
+    "Static inspection only",
+    "Keyword matches do not prove implemented behavior",
+    "No application code or tests executed",
+    "Large source files are hashed but not text-scanned",
+    "Nested archives are not inspected"
+  ],
+  "package_manifests": [],
+  "python_version": "3.14.5",
+  "source_indicators": {
+    "amendments": [
+      {
+        "line": 8,
+        "path": "tenderproof/prompts/egp_document_review.md"
+      },
+      {
+        "line": 14,
+        "path": "tenderproof/prompts/egp_document_review.md"
+      },
+      {
+        "line": 19,
+        "path": "tenderproof/prompts/egp_document_review.md"
+      },
+      {
+        "line": 7,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 8,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 16,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 25,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 40,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 10,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 16,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 17,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 34,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 3,
+        "path": "tenderproof/__init__.py"
+      }
+    ],
+    "authorization": [
+      {
+        "line": 7,
+        "path": "README.md"
+      },
+      {
+        "line": 19,
+        "path": "tenderproof/models.py"
+      },
+      {
+        "line": 27,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 18,
+        "path": "tenderproof/services/case_service.py"
+      },
+      {
+        "line": 56,
+        "path": "tenderproof/services/case_service.py"
+      },
+      {
+        "line": 12,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 13,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 23,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 97,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 22,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 66,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 84,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 130,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 4,
+        "path": "tenderproof/templates/client_intake_template.md"
+      },
+      {
+        "line": 21,
+        "path": "tenderproof/templates/client_intake_template.md"
+      },
+      {
+        "line": 21,
+        "path": "tenderproof/templates/one_page_offer_template.md"
+      },
+      {
+        "line": 15,
+        "path": "tenderproof/ui/cases.py"
+      },
+      {
+        "line": 32,
+        "path": "tenderproof/ui/cases.py"
+      }
+    ],
+    "data_storage": [
+      {
+        "line": 6,
+        "path": "QUICKSTART.md"
+      },
+      {
+        "line": 40,
+        "path": "QUICKSTART.md"
+      },
+      {
+        "line": 48,
+        "path": "QUICKSTART.md"
+      },
+      {
+        "line": 53,
+        "path": "QUICKSTART.md"
+      },
+      {
+        "line": 43,
+        "path": "README.md"
+      },
+      {
+        "line": 77,
+        "path": "README.md"
+      },
+      {
+        "line": 78,
+        "path": "README.md"
+      },
+      {
+        "line": 79,
+        "path": "README.md"
+      },
+      {
+        "line": 80,
+        "path": "README.md"
+      },
+      {
+        "line": 81,
+        "path": "README.md"
+      },
+      {
+        "line": 10,
+        "path": "run_app.py"
+      },
+      {
+        "line": 14,
+        "path": "run_app.py"
+      },
+      {
+        "line": 18,
+        "path": "run_app.py"
+      },
+      {
+        "line": 25,
+        "path": "run_app.py"
+      },
+      {
+        "line": 42,
+        "path": "run_app.py"
+      },
+      {
+        "line": 50,
+        "path": "run_app.py"
+      },
+      {
+        "line": 52,
+        "path": "run_app.py"
+      },
+      {
+        "line": 62,
+        "path": "run_app.py"
+      },
+      {
+        "line": 8,
+        "path": "tenderproof/config.py"
+      },
+      {
+        "line": 9,
+        "path": "tenderproof/config.py"
+      },
+      {
+        "line": 10,
+        "path": "tenderproof/config.py"
+      },
+      {
+        "line": 11,
+        "path": "tenderproof/config.py"
+      },
+      {
+        "line": 12,
+        "path": "tenderproof/config.py"
+      },
+      {
+        "line": 13,
+        "path": "tenderproof/config.py"
+      },
+      {
+        "line": 14,
+        "path": "tenderproof/config.py"
+      },
+      {
+        "line": 20,
+        "path": "tenderproof/config.py"
+      },
+      {
+        "line": 30,
+        "path": "tenderproof/db.py"
+      },
+      {
+        "line": 3,
+        "path": "tenderproof/ui/settings.py"
+      },
+      {
+        "line": 14,
+        "path": "tenderproof/ui/settings.py"
+      },
+      {
+        "line": 15,
+        "path": "tenderproof/ui/settings.py"
+      },
+      {
+        "line": 26,
+        "path": "tenderproof/ui/settings.py"
+      },
+      {
+        "line": 28,
+        "path": "tenderproof/ui/settings.py"
+      },
+      {
+        "line": 1,
+        "path": "tests/test_db_migration.py"
+      },
+      {
+        "line": 10,
+        "path": "tests/test_db_migration.py"
+      },
+      {
+        "line": 15,
+        "path": "tests/test_egp_readiness.py"
+      }
+    ],
+    "decision_logic": [
+      {
+        "line": 5,
+        "path": "README.md"
+      },
+      {
+        "line": 13,
+        "path": "tenderproof/prompts/egp_document_review.md"
+      },
+      {
+        "line": 19,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 26,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 102,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 119,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 142,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 37,
+        "path": "tenderproof/services/workflow_service.py"
+      },
+      {
+        "line": 23,
+        "path": "tenderproof/ui/cases.py"
+      },
+      {
+        "line": 17,
+        "path": "tests/test_bid_score.py"
+      }
+    ],
+    "evidence": [
+      {
+        "line": 26,
+        "path": "QUICKSTART.md"
+      },
+      {
+        "line": 27,
+        "path": "QUICKSTART.md"
+      },
+      {
+        "line": 5,
+        "path": "README.md"
+      },
+      {
+        "line": 18,
+        "path": "README.md"
+      },
+      {
+        "line": 19,
+        "path": "README.md"
+      },
+      {
+        "line": 68,
+        "path": "README.md"
+      },
+      {
+        "line": 69,
+        "path": "README.md"
+      },
+      {
+        "line": 86,
+        "path": "README.md"
+      },
+      {
+        "line": 87,
+        "path": "README.md"
+      },
+      {
+        "line": 53,
+        "path": "tenderproof/db.py"
+      },
+      {
+        "line": 67,
+        "path": "tenderproof/models.py"
+      },
+      {
+        "line": 90,
+        "path": "tenderproof/models.py"
+      },
+      {
+        "line": 91,
+        "path": "tenderproof/models.py"
+      },
+      {
+        "line": 120,
+        "path": "tenderproof/models.py"
+      },
+      {
+        "line": 139,
+        "path": "tenderproof/models.py"
+      },
+      {
+        "line": 232,
+        "path": "tenderproof/models.py"
+      },
+      {
+        "line": 309,
+        "path": "tenderproof/models.py"
+      },
+      {
+        "line": 6,
+        "path": "tenderproof/prompts/clarification_questions.md"
+      },
+      {
+        "line": 7,
+        "path": "tenderproof/prompts/clarification_questions.md"
+      },
+      {
+        "line": 3,
+        "path": "tenderproof/prompts/compliance_matrix_review.md"
+      },
+      {
+        "line": 6,
+        "path": "tenderproof/prompts/compliance_matrix_review.md"
+      },
+      {
+        "line": 7,
+        "path": "tenderproof/prompts/compliance_matrix_review.md"
+      },
+      {
+        "line": 16,
+        "path": "tenderproof/prompts/compliance_matrix_review.md"
+      },
+      {
+        "line": 17,
+        "path": "tenderproof/prompts/compliance_matrix_review.md"
+      },
+      {
+        "line": 1,
+        "path": "tenderproof/prompts/cv_evidence_extraction.md"
+      },
+      {
+        "line": 3,
+        "path": "tenderproof/prompts/cv_evidence_extraction.md"
+      },
+      {
+        "line": 6,
+        "path": "tenderproof/prompts/cv_evidence_extraction.md"
+      },
+      {
+        "line": 7,
+        "path": "tenderproof/prompts/cv_evidence_extraction.md"
+      },
+      {
+        "line": 18,
+        "path": "tenderproof/prompts/cv_evidence_extraction.md"
+      },
+      {
+        "line": 19,
+        "path": "tenderproof/prompts/cv_evidence_extraction.md"
+      },
+      {
+        "line": 20,
+        "path": "tenderproof/prompts/cv_evidence_extraction.md"
+      },
+      {
+        "line": 21,
+        "path": "tenderproof/prompts/cv_evidence_extraction.md"
+      },
+      {
+        "line": 22,
+        "path": "tenderproof/prompts/cv_evidence_extraction.md"
+      },
+      {
+        "line": 3,
+        "path": "tenderproof/prompts/cv_rewrite_suggestions.md"
+      },
+      {
+        "line": 6,
+        "path": "tenderproof/prompts/cv_rewrite_suggestions.md"
+      },
+      {
+        "line": 7,
+        "path": "tenderproof/prompts/cv_rewrite_suggestions.md"
+      },
+      {
+        "line": 15,
+        "path": "tenderproof/prompts/cv_rewrite_suggestions.md"
+      },
+      {
+        "line": 18,
+        "path": "tenderproof/prompts/cv_rewrite_suggestions.md"
+      },
+      {
+        "line": 6,
+        "path": "tenderproof/prompts/diagnostic_report_drafting.md"
+      },
+      {
+        "line": 7,
+        "path": "tenderproof/prompts/diagnostic_report_drafting.md"
+      },
+      {
+        "line": 3,
+        "path": "tenderproof/prompts/egp_document_review.md"
+      },
+      {
+        "line": 7,
+        "path": "tenderproof/prompts/egp_document_review.md"
+      },
+      {
+        "line": 8,
+        "path": "tenderproof/prompts/egp_document_review.md"
+      },
+      {
+        "line": 10,
+        "path": "tenderproof/prompts/egp_document_review.md"
+      },
+      {
+        "line": 11,
+        "path": "tenderproof/prompts/egp_document_review.md"
+      },
+      {
+        "line": 12,
+        "path": "tenderproof/prompts/egp_document_review.md"
+      },
+      {
+        "line": 22,
+        "path": "tenderproof/prompts/egp_document_review.md"
+      },
+      {
+        "line": 6,
+        "path": "tenderproof/prompts/methodology_outline.md"
+      },
+      {
+        "line": 7,
+        "path": "tenderproof/prompts/methodology_outline.md"
+      },
+      {
+        "line": 19,
+        "path": "tenderproof/prompts/methodology_outline.md"
+      },
+      {
+        "line": 6,
+        "path": "tenderproof/prompts/risk_flagging.md"
+      },
+      {
+        "line": 7,
+        "path": "tenderproof/prompts/risk_flagging.md"
+      },
+      {
+        "line": 6,
+        "path": "tenderproof/prompts/tor_requirement_extraction.md"
+      },
+      {
+        "line": 7,
+        "path": "tenderproof/prompts/tor_requirement_extraction.md"
+      },
+      {
+        "line": 20,
+        "path": "tenderproof/prompts/tor_requirement_extraction.md"
+      },
+      {
+        "line": 16,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 24,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 26,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 13,
+        "path": "tenderproof/services/bid_score_service.py"
+      },
+      {
+        "line": 50,
+        "path": "tenderproof/services/bid_score_service.py"
+      },
+      {
+        "line": 25,
+        "path": "tenderproof/services/compliance_service.py"
+      },
+      {
+        "line": 26,
+        "path": "tenderproof/services/compliance_service.py"
+      },
+      {
+        "line": 27,
+        "path": "tenderproof/services/compliance_service.py"
+      },
+      {
+        "line": 32,
+        "path": "tenderproof/services/compliance_service.py"
+      },
+      {
+        "line": 50,
+        "path": "tenderproof/services/compliance_service.py"
+      },
+      {
+        "line": 51,
+        "path": "tenderproof/services/compliance_service.py"
+      },
+      {
+        "line": 10,
+        "path": "tenderproof/services/cv_match_service.py"
+      },
+      {
+        "line": 11,
+        "path": "tenderproof/services/cv_match_service.py"
+      },
+      {
+        "line": 12,
+        "path": "tenderproof/services/cv_match_service.py"
+      },
+      {
+        "line": 13,
+        "path": "tenderproof/services/cv_match_service.py"
+      },
+      {
+        "line": 16,
+        "path": "tenderproof/services/cv_match_service.py"
+      },
+      {
+        "line": 20,
+        "path": "tenderproof/services/cv_match_service.py"
+      },
+      {
+        "line": 34,
+        "path": "tenderproof/services/cv_match_service.py"
+      },
+      {
+        "line": 36,
+        "path": "tenderproof/services/cv_match_service.py"
+      },
+      {
+        "line": 38,
+        "path": "tenderproof/services/cv_match_service.py"
+      },
+      {
+        "line": 12,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 18,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 28,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 69,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 45,
+        "path": "tenderproof/services/extraction_service.py"
+      },
+      {
+        "line": 81,
+        "path": "tenderproof/services/extraction_service.py"
+      },
+      {
+        "line": 54,
+        "path": "tenderproof/services/gap_service.py"
+      },
+      {
+        "line": 55,
+        "path": "tenderproof/services/gap_service.py"
+      },
+      {
+        "line": 61,
+        "path": "tenderproof/services/gap_service.py"
+      },
+      {
+        "line": 62,
+        "path": "tenderproof/services/gap_service.py"
+      },
+      {
+        "line": 80,
+        "path": "tenderproof/services/gap_service.py"
+      },
+      {
+        "line": 121,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 136,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 152,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 169,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 170,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 182,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 26,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 27,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 84,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 93,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 97,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 100,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 101,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 102,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 121,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 134,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 137,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 142,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 97,
+        "path": "tenderproof/services/tor_normalizer.py"
+      },
+      {
+        "line": 144,
+        "path": "tenderproof/services/tor_normalizer.py"
+      },
+      {
+        "line": 147,
+        "path": "tenderproof/services/tor_normalizer.py"
+      },
+      {
+        "line": 151,
+        "path": "tenderproof/services/tor_normalizer.py"
+      },
+      {
+        "line": 56,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 59,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 60,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 61,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 63,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 64,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 35,
+        "path": "tenderproof/services/workflow_service.py"
+      },
+      {
+        "line": 36,
+        "path": "tenderproof/services/workflow_service.py"
+      },
+      {
+        "line": 11,
+        "path": "tenderproof/templates/engagement_terms_template.md"
+      },
+      {
+        "line": 27,
+        "path": "tenderproof/templates/one_page_offer_template.md"
+      },
+      {
+        "line": 22,
+        "path": "tenderproof/templates/report_template.md"
+      },
+      {
+        "line": 21,
+        "path": "tenderproof/ui/bid_scorecard.py"
+      },
+      {
+        "line": 22,
+        "path": "tenderproof/ui/bid_scorecard.py"
+      },
+      {
+        "line": 32,
+        "path": "tenderproof/ui/compliance.py"
+      },
+      {
+        "line": 38,
+        "path": "tenderproof/ui/compliance.py"
+      },
+      {
+        "line": 24,
+        "path": "tenderproof/ui/cv_matcher.py"
+      },
+      {
+        "line": 35,
+        "path": "tenderproof/ui/cv_matcher.py"
+      },
+      {
+        "line": 41,
+        "path": "tenderproof/ui/cv_matcher.py"
+      },
+      {
+        "line": 57,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 64,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 65,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 66,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 69,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 34,
+        "path": "tenderproof/ui/proposal_methodology.py"
+      },
+      {
+        "line": 45,
+        "path": "tenderproof/ui/proposal_methodology.py"
+      },
+      {
+        "line": 33,
+        "path": "tenderproof/ui/tor_extraction.py"
+      },
+      {
+        "line": 35,
+        "path": "tenderproof/ui/tor_extraction.py"
+      },
+      {
+        "line": 54,
+        "path": "tenderproof/ui/tor_extraction.py"
+      },
+      {
+        "line": 58,
+        "path": "tenderproof/ui/tor_extraction.py"
+      },
+      {
+        "line": 22,
+        "path": "tests/test_egp_readiness.py"
+      },
+      {
+        "line": 27,
+        "path": "tests/test_egp_readiness.py"
+      },
+      {
+        "line": 7,
+        "path": "tests/test_gap_creation.py"
+      },
+      {
+        "line": 25,
+        "path": "tests/test_gap_creation.py"
+      },
+      {
+        "line": 60,
+        "path": "tests/test_report_generation.py"
+      }
+    ],
+    "integrations": [
+      {
+        "line": 12,
+        "path": "app.py"
+      },
+      {
+        "line": 29,
+        "path": "app.py"
+      },
+      {
+        "line": 26,
+        "path": "README.md"
+      },
+      {
+        "line": 93,
+        "path": "README.md"
+      },
+      {
+        "line": 297,
+        "path": "tenderproof/models.py"
+      },
+      {
+        "line": 298,
+        "path": "tenderproof/models.py"
+      },
+      {
+        "line": 299,
+        "path": "tenderproof/models.py"
+      },
+      {
+        "line": 1,
+        "path": "tenderproof/prompts/egp_document_review.md"
+      },
+      {
+        "line": 3,
+        "path": "tenderproof/prompts/egp_document_review.md"
+      },
+      {
+        "line": 9,
+        "path": "tenderproof/prompts/egp_document_review.md"
+      },
+      {
+        "line": 1,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 9,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 10,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 14,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 17,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 19,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 33,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 34,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 5,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 9,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 11,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 14,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 16,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 20,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 23,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 25,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 32,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 33,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 34,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 35,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 37,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 38,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 47,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 50,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 52,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 54,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 59,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 60,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 72,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 19,
+        "path": "tenderproof/services/export_service.py"
+      },
+      {
+        "line": 49,
+        "path": "tenderproof/services/export_service.py"
+      },
+      {
+        "line": 17,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 82,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 179,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 181,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 182,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 184,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 10,
+        "path": "tenderproof/services/workflow_service.py"
+      },
+      {
+        "line": 43,
+        "path": "tenderproof/services/workflow_service.py"
+      },
+      {
+        "line": 44,
+        "path": "tenderproof/services/workflow_service.py"
+      },
+      {
+        "line": 45,
+        "path": "tenderproof/services/workflow_service.py"
+      },
+      {
+        "line": 47,
+        "path": "tenderproof/services/workflow_service.py"
+      },
+      {
+        "line": 49,
+        "path": "tenderproof/services/workflow_service.py"
+      },
+      {
+        "line": 50,
+        "path": "tenderproof/services/workflow_service.py"
+      },
+      {
+        "line": 5,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 19,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 24,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 27,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 31,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 34,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 35,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 38,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 44,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 52,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 62,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 67,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 71,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 1,
+        "path": "tests/test_egp_readiness.py"
+      },
+      {
+        "line": 6,
+        "path": "tests/test_egp_readiness.py"
+      },
+      {
+        "line": 8,
+        "path": "tests/test_egp_readiness.py"
+      },
+      {
+        "line": 9,
+        "path": "tests/test_egp_readiness.py"
+      },
+      {
+        "line": 17,
+        "path": "tests/test_egp_readiness.py"
+      },
+      {
+        "line": 19,
+        "path": "tests/test_egp_readiness.py"
+      },
+      {
+        "line": 25,
+        "path": "tests/test_egp_readiness.py"
+      },
+      {
+        "line": 28,
+        "path": "tests/test_egp_readiness.py"
+      },
+      {
+        "line": 30,
+        "path": "tests/test_egp_readiness.py"
+      },
+      {
+        "line": 5,
+        "path": "tests/test_excel_export.py"
+      },
+      {
+        "line": 16,
+        "path": "tests/test_excel_export.py"
+      },
+      {
+        "line": 8,
+        "path": "tests/test_report_generation.py"
+      },
+      {
+        "line": 56,
+        "path": "tests/test_report_generation.py"
+      },
+      {
+        "line": 58,
+        "path": "tests/test_report_generation.py"
+      },
+      {
+        "line": 63,
+        "path": "tests/test_report_generation.py"
+      }
+    ],
+    "mandatory_rules": [
+      {
+        "line": 35,
+        "path": "app.py"
+      },
+      {
+        "line": 28,
+        "path": "QUICKSTART.md"
+      },
+      {
+        "line": 5,
+        "path": "README.md"
+      },
+      {
+        "line": 20,
+        "path": "README.md"
+      },
+      {
+        "line": 70,
+        "path": "README.md"
+      },
+      {
+        "line": 33,
+        "path": "tenderproof/constants.py"
+      },
+      {
+        "line": 39,
+        "path": "tenderproof/constants.py"
+      },
+      {
+        "line": 65,
+        "path": "tenderproof/models.py"
+      },
+      {
+        "line": 17,
+        "path": "tenderproof/prompts/diagnostic_report_drafting.md"
+      },
+      {
+        "line": 13,
+        "path": "tenderproof/prompts/egp_document_review.md"
+      },
+      {
+        "line": 19,
+        "path": "tenderproof/prompts/tor_requirement_extraction.md"
+      },
+      {
+        "line": 14,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 26,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 35,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 38,
+        "path": "tenderproof/services/bid_score_service.py"
+      },
+      {
+        "line": 76,
+        "path": "tenderproof/services/bid_score_service.py"
+      },
+      {
+        "line": 27,
+        "path": "tenderproof/services/compliance_service.py"
+      },
+      {
+        "line": 30,
+        "path": "tenderproof/services/compliance_service.py"
+      },
+      {
+        "line": 32,
+        "path": "tenderproof/services/compliance_service.py"
+      },
+      {
+        "line": 18,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 39,
+        "path": "tenderproof/services/export_service.py"
+      },
+      {
+        "line": 43,
+        "path": "tenderproof/services/extraction_service.py"
+      },
+      {
+        "line": 79,
+        "path": "tenderproof/services/extraction_service.py"
+      },
+      {
+        "line": 55,
+        "path": "tenderproof/services/gap_service.py"
+      },
+      {
+        "line": 108,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 117,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 121,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 169,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 133,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 136,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 84,
+        "path": "tenderproof/services/tor_normalizer.py"
+      },
+      {
+        "line": 95,
+        "path": "tenderproof/services/tor_normalizer.py"
+      },
+      {
+        "line": 48,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 50,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 59,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 61,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 37,
+        "path": "tenderproof/services/workflow_service.py"
+      },
+      {
+        "line": 6,
+        "path": "tenderproof/templates/engagement_terms_template.md"
+      },
+      {
+        "line": 11,
+        "path": "tenderproof/templates/one_page_offer_template.md"
+      },
+      {
+        "line": 8,
+        "path": "tenderproof/templates/report_template.md"
+      },
+      {
+        "line": 8,
+        "path": "tenderproof/ui/bid_scorecard.py"
+      },
+      {
+        "line": 24,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 32,
+        "path": "tenderproof/ui/tor_extraction.py"
+      },
+      {
+        "line": 35,
+        "path": "tenderproof/ui/tor_extraction.py"
+      },
+      {
+        "line": 52,
+        "path": "tenderproof/ui/tor_extraction.py"
+      },
+      {
+        "line": 58,
+        "path": "tenderproof/ui/tor_extraction.py"
+      },
+      {
+        "line": 21,
+        "path": "tests/test_bid_score.py"
+      },
+      {
+        "line": 7,
+        "path": "tests/test_gap_creation.py"
+      },
+      {
+        "line": 16,
+        "path": "tests/test_gap_creation.py"
+      }
+    ],
+    "reporting": [
+      {
+        "line": 5,
+        "path": "app.py"
+      },
+      {
+        "line": 11,
+        "path": "app.py"
+      },
+      {
+        "line": 17,
+        "path": "app.py"
+      },
+      {
+        "line": 38,
+        "path": "app.py"
+      },
+      {
+        "line": 39,
+        "path": "app.py"
+      },
+      {
+        "line": 50,
+        "path": "app.py"
+      },
+      {
+        "line": 24,
+        "path": "QUICKSTART.md"
+      },
+      {
+        "line": 31,
+        "path": "QUICKSTART.md"
+      },
+      {
+        "line": 32,
+        "path": "QUICKSTART.md"
+      },
+      {
+        "line": 35,
+        "path": "QUICKSTART.md"
+      },
+      {
+        "line": 37,
+        "path": "QUICKSTART.md"
+      },
+      {
+        "line": 40,
+        "path": "QUICKSTART.md"
+      },
+      {
+        "line": 45,
+        "path": "QUICKSTART.md"
+      },
+      {
+        "line": 48,
+        "path": "QUICKSTART.md"
+      },
+      {
+        "line": 53,
+        "path": "QUICKSTART.md"
+      },
+      {
+        "line": 5,
+        "path": "README.md"
+      },
+      {
+        "line": 12,
+        "path": "README.md"
+      },
+      {
+        "line": 13,
+        "path": "README.md"
+      },
+      {
+        "line": 14,
+        "path": "README.md"
+      },
+      {
+        "line": 21,
+        "path": "README.md"
+      },
+      {
+        "line": 22,
+        "path": "README.md"
+      },
+      {
+        "line": 72,
+        "path": "README.md"
+      },
+      {
+        "line": 79,
+        "path": "README.md"
+      },
+      {
+        "line": 80,
+        "path": "README.md"
+      },
+      {
+        "line": 88,
+        "path": "README.md"
+      },
+      {
+        "line": 7,
+        "path": "run_app.py"
+      },
+      {
+        "line": 13,
+        "path": "run_app.py"
+      },
+      {
+        "line": 32,
+        "path": "run_app.py"
+      },
+      {
+        "line": 11,
+        "path": "tenderproof/config.py"
+      },
+      {
+        "line": 12,
+        "path": "tenderproof/config.py"
+      },
+      {
+        "line": 23,
+        "path": "tenderproof/config.py"
+      },
+      {
+        "line": 24,
+        "path": "tenderproof/config.py"
+      },
+      {
+        "line": 17,
+        "path": "tenderproof/constants.py"
+      },
+      {
+        "line": 50,
+        "path": "tenderproof/constants.py"
+      },
+      {
+        "line": 1,
+        "path": "tenderproof/prompts/diagnostic_report_drafting.md"
+      },
+      {
+        "line": 3,
+        "path": "tenderproof/prompts/diagnostic_report_drafting.md"
+      },
+      {
+        "line": 34,
+        "path": "tenderproof/reference/bangladesh_egp_operating_notes.md"
+      },
+      {
+        "line": 16,
+        "path": "tenderproof/services/egp_service.py"
+      },
+      {
+        "line": 10,
+        "path": "tenderproof/services/export_service.py"
+      },
+      {
+        "line": 56,
+        "path": "tenderproof/services/export_service.py"
+      },
+      {
+        "line": 58,
+        "path": "tenderproof/services/export_service.py"
+      },
+      {
+        "line": 67,
+        "path": "tenderproof/services/export_service.py"
+      },
+      {
+        "line": 82,
+        "path": "tenderproof/services/export_service.py"
+      },
+      {
+        "line": 83,
+        "path": "tenderproof/services/export_service.py"
+      },
+      {
+        "line": 95,
+        "path": "tenderproof/services/export_service.py"
+      },
+      {
+        "line": 96,
+        "path": "tenderproof/services/export_service.py"
+      },
+      {
+        "line": 105,
+        "path": "tenderproof/services/export_service.py"
+      },
+      {
+        "line": 7,
+        "path": "tenderproof/services/ip_capture_service.py"
+      },
+      {
+        "line": 37,
+        "path": "tenderproof/services/ip_capture_service.py"
+      },
+      {
+        "line": 42,
+        "path": "tenderproof/services/ip_capture_service.py"
+      },
+      {
+        "line": 43,
+        "path": "tenderproof/services/ip_capture_service.py"
+      },
+      {
+        "line": 44,
+        "path": "tenderproof/services/ip_capture_service.py"
+      },
+      {
+        "line": 9,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 10,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 29,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 34,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 35,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 37,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 38,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 42,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 47,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 48,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 67,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 68,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 72,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 171,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 189,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 190,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 216,
+        "path": "tenderproof/services/report_service.py"
+      },
+      {
+        "line": 26,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 27,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 127,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 130,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 131,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 132,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 133,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 134,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 135,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 136,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 137,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 138,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 139,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 140,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 141,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 142,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 147,
+        "path": "tenderproof/services/sample_data_service.py"
+      },
+      {
+        "line": 5,
+        "path": "tenderproof/services/source_service.py"
+      },
+      {
+        "line": 73,
+        "path": "tenderproof/services/source_service.py"
+      },
+      {
+        "line": 74,
+        "path": "tenderproof/services/source_service.py"
+      },
+      {
+        "line": 78,
+        "path": "tenderproof/services/source_service.py"
+      },
+      {
+        "line": 79,
+        "path": "tenderproof/services/source_service.py"
+      },
+      {
+        "line": 89,
+        "path": "tenderproof/services/source_service.py"
+      },
+      {
+        "line": 90,
+        "path": "tenderproof/services/source_service.py"
+      },
+      {
+        "line": 93,
+        "path": "tenderproof/services/source_service.py"
+      },
+      {
+        "line": 96,
+        "path": "tenderproof/services/source_service.py"
+      },
+      {
+        "line": 100,
+        "path": "tenderproof/services/source_service.py"
+      },
+      {
+        "line": 112,
+        "path": "tenderproof/services/source_service.py"
+      },
+      {
+        "line": 113,
+        "path": "tenderproof/services/source_service.py"
+      },
+      {
+        "line": 123,
+        "path": "tenderproof/services/tor_normalizer.py"
+      },
+      {
+        "line": 139,
+        "path": "tenderproof/services/tor_normalizer.py"
+      },
+      {
+        "line": 7,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 74,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 75,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 76,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 77,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 80,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 82,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 89,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 136,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 141,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 142,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 143,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 154,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 166,
+        "path": "tenderproof/services/verification_service.py"
+      },
+      {
+        "line": 29,
+        "path": "tenderproof/services/workflow_service.py"
+      },
+      {
+        "line": 30,
+        "path": "tenderproof/services/workflow_service.py"
+      },
+      {
+        "line": 39,
+        "path": "tenderproof/services/workflow_service.py"
+      },
+      {
+        "line": 40,
+        "path": "tenderproof/services/workflow_service.py"
+      },
+      {
+        "line": 7,
+        "path": "tenderproof/templates/engagement_terms_template.md"
+      },
+      {
+        "line": 16,
+        "path": "tenderproof/templates/one_page_offer_template.md"
+      },
+      {
+        "line": 31,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 37,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 38,
+        "path": "tenderproof/ui/egp_readiness.py"
+      },
+      {
+        "line": 4,
+        "path": "tenderproof/ui/exports.py"
+      },
+      {
+        "line": 9,
+        "path": "tenderproof/ui/exports.py"
+      },
+      {
+        "line": 15,
+        "path": "tenderproof/ui/exports.py"
+      },
+      {
+        "line": 19,
+        "path": "tenderproof/ui/exports.py"
+      },
+      {
+        "line": 20,
+        "path": "tenderproof/ui/exports.py"
+      },
+      {
+        "line": 15,
+        "path": "tenderproof/ui/home.py"
+      },
+      {
+        "line": 19,
+        "path": "tenderproof/ui/home.py"
+      },
+      {
+        "line": 12,
+        "path": "tenderproof/ui/intake.py"
+      },
+      {
+        "line": 3,
+        "path": "tenderproof/ui/ip_capture.py"
+      },
+      {
+        "line": 29,
+        "path": "tenderproof/ui/ip_capture.py"
+      },
+      {
+        "line": 30,
+        "path": "tenderproof/ui/ip_capture.py"
+      },
+      {
+        "line": 32,
+        "path": "tenderproof/ui/ip_capture.py"
+      },
+      {
+        "line": 6,
+        "path": "tenderproof/ui/report_generator.py"
+      },
+      {
+        "line": 11,
+        "path": "tenderproof/ui/report_generator.py"
+      },
+      {
+        "line": 16,
+        "path": "tenderproof/ui/report_generator.py"
+      },
+      {
+        "line": 17,
+        "path": "tenderproof/ui/report_generator.py"
+      },
+      {
+        "line": 19,
+        "path": "tenderproof/ui/report_generator.py"
+      },
+      {
+        "line": 21,
+        "path": "tenderproof/ui/report_generator.py"
+      },
+      {
+        "line": 22,
+        "path": "tenderproof/ui/report_generator.py"
+      },
+      {
+        "line": 24,
+        "path": "tenderproof/ui/report_generator.py"
+      },
+      {
+        "line": 27,
+        "path": "tenderproof/ui/report_generator.py"
+      },
+      {
+        "line": 28,
+        "path": "tenderproof/ui/report_generator.py"
+      },
+      {
+        "line": 32,
+        "path": "tenderproof/ui/report_generator.py"
+      },
+      {
+        "line": 33,
+        "path": "tenderproof/ui/report_generator.py"
+      },
+      {
+        "line": 37,
+        "path": "tenderproof/ui/report_generator.py"
+      },
+      {
+        "line": 39,
+        "path": "tenderproof/ui/report_generator.py"
+      },
+      {
+        "line": 3,
+        "path": "tenderproof/ui/settings.py"
+      },
+      {
+        "line": 5,
+        "path": "tenderproof/ui/settings.py"
+      },
+      {
+        "line": 18,
+        "path": "tenderproof/ui/settings.py"
+      },
+      {
+        "line": 19,
+        "path": "tenderproof/ui/settings.py"
+      },
+      {
+        "line": 29,
+        "path": "tenderproof/ui/settings.py"
+      },
+      {
+        "line": 30,
+        "path": "tenderproof/ui/settings.py"
+      },
+      {
+        "line": 31,
+        "path": "tenderproof/ui/settings.py"
+      },
+      {
+        "line": 3,
+        "path": "tests/test_excel_export.py"
+      },
+      {
+        "line": 10,
+        "path": "tests/test_excel_export.py"
+      },
+      {
+        "line": 17,
+        "path": "tests/test_excel_export.py"
+      },
+      {
+        "line": 5,
+        "path": "tests/test_report_generation.py"
+      },
+      {
+        "line": 11,
+        "path": "tests/test_report_generation.py"
+      },
+      {
+        "line": 13,
+        "path": "tests/test_report_generation.py"
+      },
+      {
+        "line": 19,
+        "path": "tests/test_report_generation.py"
+      },
+      {
+        "line": 21,
+        "path": "tests/test_report_generation.py"
+      },
+      {
+        "line": 29,
+        "path": "tests/test_report_generation.py"
+      },
+      {
+        "line": 35,
+        "path": "tests/test_report_generation.py"
+      },
+      {
+        "line": 41,
+        "path": "tests/test_report_generation.py"
+      },
+      {
+        "line": 51,
+        "path": "tests/test_report_generation.py"
+      },
+      {
+        "line": 56,
+        "path": "tests/test_report_generation.py"
+      },
+      {
+        "line": 61,
+        "path": "tests/test_report_generation.py"
+      },
+      {
+        "line": 8,
+        "path": "tests/test_source_ocr.py"
+      },
+      {
+        "line": 27,
+        "path": "tests/test_source_ocr.py"
+      },
+      {
+        "line": 30,
+        "path": "tests/test_source_ocr.py"
+      },
+      {
+        "line": 33,
+        "path": "tests/test_source_ocr.py"
+      },
+      {
+        "line": 35,
+        "path": "tests/test_verification.py"
+      },
+      {
+        "line": 37,
+        "path": "tests/test_verification.py"
+      },
+      {
+        "line": 38,
+        "path": "tests/test_verification.py"
+      },
+      {
+        "line": 43,
+        "path": "tests/test_verification.py"
+      },
+      {
+        "line": 44,
+        "path": "tests/test_verification.py"
+      }
+    ]
+  }
+}

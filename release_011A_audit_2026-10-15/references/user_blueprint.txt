@@ -1,0 +1,197 @@
+# Proposal Guard → Tender-to-Fit OS
+
+## Revised Development Blueprint — Release 011A to 017
+
+আপনার নতুন সংযুক্ত নথি **“Project Preservation, Repair Strategy and Revised Development Plan”** পর্যালোচনা করেছি।
+
+**এই পরিকল্পনাটিকেই আমাদের পরবর্তী development-এর ভিত্তি হিসেবে নেওয়ার সুপারিশ করছি।** আগের পরিকল্পনার তুলনায় এটি বেশি বাস্তবসম্মত, কারণ এখানে বিদ্যমান Proposal Guard সফটওয়্যার অক্ষত রেখে Bangladesh e-GP-এর জন্য পূর্ণাঙ্গ Tender-to-Fit functionality যুক্ত করার কথা বলা হয়েছে। 
+
+তবে পরিকল্পনাটি এখনো `MOCK / DRAFT — pending_approval` অবস্থায় রয়েছে। তাই এটিকে অনুমোদিত implementation বা সম্পন্ন কাজ হিসেবে দেখানো যাবে না।
+
+## ১. আমাদের মূল সিদ্ধান্ত
+
+**Proposal Guard থাকবে মূল সফটওয়্যার। Tender-to-Fit হবে তার মধ্যে একটি নতুন, পূর্ণাঙ্গ e-GP Intelligence Module।**
+
+অর্থাৎ দুটি আলাদা সফটওয়্যার তৈরি করব না।
+
+| বিষয়                   | চূড়ান্ত Development Direction          |
+| ---------------------- | -------------------------------------- |
+| Existing software      | Proposal Guard                         |
+| New functionality      | Bangladesh e-GP Tender-to-Fit          |
+| Programming language   | Python                                 |
+| Current interface      | Streamlit                              |
+| Database               | Existing SQLAlchemy-based architecture |
+| AI                     | প্রয়োজন অনুযায়ী OpenAI integration     |
+| Eligibility assessment | Deterministic rule engine              |
+| Decision verification  | Evidence-based                         |
+| Human approval         | Mandatory for consequential decisions  |
+| Existing modules       | Preserve                               |
+| Existing database      | Preserve and migrate safely            |
+| Development strategy   | Incremental, tested releases           |
+
+### সবচেয়ে গুরুত্বপূর্ণ শর্ত
+
+পুরোনো সফটওয়্যারের কোনো কার্যকর মডিউল, রিপোর্ট, ডেটাবেজ টেবিল, workflow কিংবা export functionality বিনা যাচাইয়ে বাদ দেওয়া যাবে না।
+
+---
+
+## ২. Release 011 সম্পর্কে গুরুত্বপূর্ণ পর্যবেক্ষণ
+
+সংযুক্ত নথিতে উল্লেখ রয়েছে যে Release 011-এর সংশোধিত কোডে দুইবার ৩৪টি করে automated test পাস করেছে।
+
+কিন্তু সেই সংশোধিত ফাইলগুলো আপনার বর্তমানে ব্যবহৃত Proposal Guard-এর মূল কোডে যুক্ত হয়েছে কি না, তা নিশ্চিত নয়। 
+
+এখানেই আমাদের প্রথম কাজ।
+
+**৩৪টি টেস্ট পাস করা এবং মূল সফটওয়্যারে নিরাপদে সংশোধন যুক্ত হওয়া একই বিষয় নয়।**
+
+তাই নতুন features তৈরির আগে Release 011-এর changes এবং বর্তমান application-এর মধ্যে compatibility যাচাই করতে হবে।
+
+---
+
+## ৩. Development Releases
+
+সংযুক্ত পরিকল্পনার সাতটি release আমি বজায় রাখার সুপারিশ করছি।
+
+| Release  | কাজ                              | Priority | Expected Output                                   |
+| -------- | -------------------------------- | -------- | ------------------------------------------------- |
+| **011A** | Preservation & Integration Audit | P0       | Verified existing codebase                        |
+| **012**  | Safety Integration               | P0       | Correct eligibility, verification and approvals   |
+| **013**  | e-GP Foundation                  | P1       | Tender intake and company qualification profiles  |
+| **014**  | Eligibility Engine               | P1       | Evidence-based eligibility assessment             |
+| **015**  | Tender Matching & Bid Readiness  | P1       | Ranked tenders, gap analysis and bid workspace    |
+| **016**  | Reports & AI Integration         | P1       | Intelligent extraction and evidence-based reports |
+| **017**  | Source Automation                | P2       | Authorized discovery, monitoring and alerts       |
+
+Releases 012–015-এর মাধ্যমে প্রথম কার্যকর e-GP workflow পাওয়া যাবে। Release 017-তে পূর্ণাঙ্গ target functionality সম্পন্ন করার পরিকল্পনা রয়েছে। 
+
+---
+
+# ৪. এখন আমাদের প্রথম কাজ: Release 011A
+
+## Preservation and Integration Audit
+
+আমি এই পর্যায়টি **read-only inspection** দিয়ে শুরু করার পরামর্শ দিচ্ছি।
+
+প্রথমে বিদ্যমান ZIP-এর প্রতিটি গুরুত্বপূর্ণ ফাইল ও তার dependency বুঝতে হবে।
+
+### Audit Matrix
+
+| Audit Area               | কী যাচাই করতে হবে                        | Deliverable                  |
+| ------------------------ | ---------------------------------------- | ---------------------------- |
+| File inventory           | সম্পূর্ণ project structure               | File inventory               |
+| Application architecture | Entry points, modules, services          | Architecture map             |
+| Database                 | Models, relationships, migrations        | Database schema report       |
+| Existing UI              | Pages, navigation, workflows             | Functionality inventory      |
+| Business rules           | Scoring, eligibility, verification       | Decision logic analysis      |
+| Release 011              | Existing code বনাম patched code          | File-level difference report |
+| Tests                    | Original and new regression tests        | Test results                 |
+| Dependencies             | Missing, obsolete, incompatible packages | Dependency report            |
+| Data preservation        | Existing database, documents, exports    | Backup and migration plan    |
+| Security                 | API keys, permissions, unsafe operations | Security findings            |
+
+### Release 011A-এর গুরুত্বপূর্ণ Output
+
+এই পর্যায়ে আমি একটি **File-Level Implementation Manifest** তৈরি করার সুপারিশ করছি।
+
+উদাহরণ:
+
+| File                      | Decision        | Action                            | Verification       |
+| ------------------------- | --------------- | --------------------------------- | ------------------ |
+| `bid_score_service.py`    | REPAIR          | Mandatory eligibility blocker     | Negative tests     |
+| `verification_service.py` | REPAIR          | Evidence and freshness validation | Verification tests |
+| `source_service.py`       | EXTEND          | Source version tracking           | Amendment tests    |
+| `workflow_service.py`     | REPAIR          | Approval state validation         | Workflow tests     |
+| `report_service.py`       | EXTEND          | Verified vs draft reporting       | Report regression  |
+| `export_service.py`       | EXTEND          | Release controls                  | Export regression  |
+| `models.py`               | PRESERVE/EXTEND | Additive schema changes only      | Migration tests    |
+| `app.py`                  | PRESERVE/EXTEND | Retain existing UI                | UI smoke tests     |
+
+**এটি proposed manifest, completed source-code audit নয়।** বর্তমান ZIP-এর সঙ্গে সব ফাইলের প্রকৃত অবস্থা মিলিয়ে চূড়ান্ত করতে হবে।
+
+---
+
+# ৫. Tender-to-Fit-এর পূর্ণাঙ্গ Functional Scope
+
+আমাদের চূড়ান্ত product-এ আটটি প্রধান সক্ষমতা থাকবে।
+
+| Module                      | Functionality                                | Business Value                 |
+| --------------------------- | -------------------------------------------- | ------------------------------ |
+| Tender Discovery            | Official e-GP opportunities সংগ্রহ           | Tender খোঁজার সময় কমানো        |
+| Company Qualification Vault | Financial, experience ও document profiles    | পুনরায় তথ্য জমার প্রয়োজন কমানো |
+| Tender Document Analyzer    | Requirements extraction                      | গুরুত্বপূর্ণ শর্ত শনাক্ত       |
+| Eligibility Engine          | Mandatory qualification assessment           | ভুল bid decision কমানো         |
+| Tender-to-Fit Matching      | Company-specific opportunity ranking         | উপযুক্ত tender অগ্রাধিকার      |
+| Bid Readiness Workspace     | Documents, tasks, checklists                 | Bid preparation সহজ করা        |
+| Reports & Exports           | Eligibility, risks, gaps and recommendations | Decision-ready reports         |
+| Amendment Monitoring        | Corrigendum and deadline tracking            | পরিবর্তিত শর্তের ঝুঁকি কমানো   |
+
+এই আটটি functional area সংযুক্ত পরিকল্পনার মূল product scope। 
+
+---
+
+## ৬. সবচেয়ে গুরুত্বপূর্ণ Architecture Rule
+
+Tender-to-Fit-এর eligibility result এবং opportunity score আলাদা থাকবে।
+
+উদাহরণ:
+
+| Criteria                  | Result            |
+| ------------------------- | ----------------- |
+| Financial capacity        | PASS              |
+| Similar experience        | FAIL              |
+| Equipment                 | PASS              |
+| Documents                 | UNKNOWN           |
+| Strategic attractiveness  | 91/100            |
+| **Mandatory eligibility** | **NOT ELIGIBLE**  |
+| **Recommendation**        | **DO_NOT_PURSUE** |
+
+এখানে ৯১/১০০ strategic score পেলেও mandatory failure-এর কারণে positive bidding clearance দেওয়া যাবে না।
+
+এই logic সংযুক্ত পরিকল্পনার proposed acceptance test-এর সঙ্গে সামঞ্জস্যপূর্ণ। 
+
+---
+
+# ৭. বাস্তবায়নের জন্য একটি গুরুত্বপূর্ণ পরিবর্তন
+
+এখনই OpenAI API, Zapier, Google Sheets, RSS scraping এবং পাঁচটি AI agent একসঙ্গে সংযুক্ত করার প্রয়োজন নেই।
+
+আমরা প্রথমে বিদ্যমান Proposal Guard-এর মধ্যে **একটি সম্পূর্ণ কার্যকর Tender Assessment Workflow** তৈরি করব।
+
+সেই workflow হবে:
+
+**Official Tender Document → Requirement Extraction → Company Profile → Evidence Verification → Eligibility Assessment → Opportunity Ranking → Human Approval → Bid Readiness Report**
+
+এটি নির্ভরযোগ্যভাবে কাজ করার পরে automated tender discovery ও notifications যুক্ত করা হবে।
+
+এতে development complexity এবং ভুল সিদ্ধান্তের ঝুঁকি কমবে।
+
+---
+
+# ৮. বর্তমান বাস্তব অবস্থা
+
+এখানে একটি বিষয় পরিষ্কার রাখা প্রয়োজন।
+
+আপনার নতুন নথিতে উল্লেখ আছে যে পূর্ববর্তী archive inspection সম্পূর্ণ হয়নি। Release 011-এর temporary development copy এবং মূল Proposal Guard application-এর মধ্যে integration-ও নিশ্চিত করা যায়নি। 
+
+এই উত্তরে আমি নতুন করে ZIP-এর code execution বা database verification সম্পন্ন করতে পারিনি। ফলে কোনো patch integrated, কোনো migration successful কিংবা application production-ready—এমন দাবি করছি না।
+
+এখন পর্যন্ত আমাদের হাতে রয়েছে একটি বিস্তারিত development blueprint এবং পূর্ববর্তী পরীক্ষার রিপোর্ট।
+
+**পরবর্তী বাস্তব deliverable হওয়া উচিত verified code inventory, compatibility assessment এবং Release 011A audit report।**
+
+---
+
+## আমার প্রস্তাবিত পরবর্তী পদক্ষেপ
+
+আমি পরিকল্পনাটি এভাবে চূড়ান্ত করব:
+
+**প্রথমে Release 011A — Preservation & Integration Audit। তারপর Release 012 — Safety Integration।**
+
+Release 011A-তে কোনো existing functionality মুছে ফেলা হবে না, database পরিবর্তন করা হবে না এবং main branch-এ সরাসরি code modification করা হবে না।
+
+এর ফলাফল হবে একটি যাচাইকৃত implementation manifest, যেখানে প্রতিটি ফাইলের জন্য স্পষ্টভাবে উল্লেখ থাকবে:
+
+**KEEP / REPAIR / EXTEND / ADD**, পরিবর্তনের কারণ, dependency, সম্ভাব্য ঝুঁকি এবং প্রয়োজনীয় acceptance test।
+
+এটাই Proposal Guard-কে নিরাপদে একটি পূর্ণাঙ্গ **Bangladesh e-GP Tender-to-Fit OS**-এ উন্নীত করার উপযুক্ত সূচনা।

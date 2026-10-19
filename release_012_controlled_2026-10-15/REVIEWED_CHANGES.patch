@@ -1,0 +1,2965 @@
+--- a/constraints-release-012.txt
++++ b/constraints-release-012.txt
+@@ -0,0 +1,72 @@
++# Tested Windows Python 3.14 environment. Other Python versions are not certified.
++altair==6.2.1
++anyio==4.13.0
++attrs==26.1.0
++blinker==1.9.0
++cachetools==7.1.4
++certifi==2026.5.20
++cffi==2.0.0
++charset-normalizer==3.4.7
++click==8.4.1
++colorama==0.4.6
++colorlog==6.12.0
++cryptography==48.0.0
++et_xmlfile==2.0.0
++flatbuffers==25.12.19
++gitdb==4.0.12
++GitPython==3.1.50
++greenlet==3.5.1
++h11==0.16.0
++httptools==0.8.0
++idna==3.18
++iniconfig==2.3.0
++itsdangerous==2.2.0
++Jinja2==3.1.6
++jsonschema==4.26.0
++jsonschema-specifications==2025.9.1
++lxml==6.1.1
++MarkupSafe==3.0.3
++narwhals==2.22.1
++numpy==2.4.6
++omegaconf==2.4.0
++onnxruntime==1.31.0
++opencv-python-headless==5.0.0.93
++openpyxl==3.1.5
++packaging==26.2
++pandas==3.0.3
++pdfminer.six==20251230
++pdfplumber==0.11.9
++pillow==12.2.0
++pluggy==1.6.0
++protobuf==7.35.0
++pyarrow==24.0.0
++pyclipper==1.4.0
++pycparser==3.0
++pydeck==0.9.2
++Pygments==2.20.0
++pypdf==6.13.0
++pypdfium2==5.9.0
++pytest==9.0.3
++python-dateutil==2.9.0.post0
++python-docx==1.2.0
++python-multipart==0.0.32
++PyYAML==6.0.3
++rapidocr==3.10.0
++referencing==0.37.0
++requests==2.34.2
++rpds-py==2026.5.1
++shapely==2.2.0
++six==1.17.0
++smmap==5.0.3
++SQLAlchemy==2.0.50
++starlette==1.2.1
++streamlit==1.58.0
++tenacity==9.1.4
++toml==0.10.2
++tqdm==4.70.1
++typing_extensions==4.15.0
++tzdata==2026.2
++urllib3==2.7.0
++uvicorn==0.49.0
++watchdog==6.0.0
++websockets==16.0
+--- a/deploy&run.bat
++++ b/deploy&run.bat
+@@ -41,13 +41,14 @@
+ )
+ 
+ echo Installing dependencies...
++if "%TENDERPROOF_LAUNCHER_VERIFY%"=="1" goto verify_launcher
+ python -m pip install --upgrade pip
+ if errorlevel 1 (
+   echo ERROR: pip upgrade failed.
+   pause
+   exit /b 1
+ )
+-python -m pip install -r requirements.txt
++python -m pip install -r requirements.txt -c constraints-release-012.txt
+ if errorlevel 1 (
+   echo ERROR: dependency installation failed.
+   pause
+@@ -80,7 +81,7 @@
+ )
+ 
+ echo Starting TenderProof OS...
+-echo App URL: http://localhost:8501
++echo App URL: preferred http://localhost:8501 - launcher prints the actual available URL
+ python run_app.py --run
+ if errorlevel 1 (
+   echo ERROR: Streamlit exited with an error.
+@@ -89,4 +90,10 @@
+ )
+ 
+ endlocal
++exit /b 0
+ 
++:verify_launcher
++echo Running isolated launcher health check...
++python run_app.py --check
++exit /b !errorlevel!
++
+--- a/run_app.py
++++ b/run_app.py
+@@ -1,9 +1,11 @@
+ import argparse
+ import subprocess
+ import sys
++import socket
++import sqlite3
+ 
+ from tenderproof.config import PROJECT_ROOT, ensure_directories
+-from tenderproof.db import get_session, init_db
++from tenderproof.db import get_db_path, get_session, init_db
+ from tenderproof.services.sample_data_service import create_demo_case, create_seed_csvs
+ 
+ 
+@@ -22,7 +24,6 @@
+ 
+ 
+ def check() -> int:
+-    init_database()
+     imports = [
+         "streamlit",
+         "sqlalchemy",
+@@ -34,15 +35,31 @@
+     ]
+     for package in imports:
+         __import__(package)
++    path = get_db_path().resolve()
++    if path.is_file():
++        with sqlite3.connect(path.as_uri() + "?mode=ro", uri=True) as connection:
++            if connection.execute("PRAGMA integrity_check").fetchone()[0] != "ok":
++                raise RuntimeError("Database integrity check failed.")
+     print("TenderProof OS check passed.")
+     return 0
+ 
+ 
+-def run() -> int:
++def run(port: int = 8501) -> int:
++    if not 1024 <= port <= 65515:
++        raise ValueError("Choose a preferred port between 1024 and 65515.")
+     init_database()
++    for selected_port in range(port, port + 20):
++        with socket.socket() as probe:
++            try:
++                probe.bind(("127.0.0.1", selected_port))
++                break
++            except OSError:
++                continue
++    else:
++        raise RuntimeError("No available local port near the requested port.")
+     print("Starting TenderProof OS...")
+-    print("App URL: http://localhost:8501")
+-    return subprocess.call([sys.executable, "-m", "streamlit", "run", "app.py"], cwd=PROJECT_ROOT)
++    print(f"App URL: http://localhost:{selected_port}")
++    return subprocess.call([sys.executable, "-m", "streamlit", "run", "app.py", "--server.port", str(selected_port), "--server.address", "localhost"], cwd=PROJECT_ROOT)
+ 
+ 
+ def main() -> int:
+@@ -51,6 +68,7 @@
+     parser.add_argument("--seed-demo", action="store_true", help="Create a demo diagnostic case.")
+     parser.add_argument("--check", action="store_true", help="Run import and database checks.")
+     parser.add_argument("--run", action="store_true", help="Launch Streamlit app.")
++    parser.add_argument("--port", type=int, default=8501, help="Preferred local port.")
+     args = parser.parse_args()
+ 
+     if args.seed_demo:
+@@ -61,8 +79,8 @@
+     if args.init_db:
+         init_database()
+         return 0
+-    if args.run or not any(vars(args).values()):
+-        return run()
++    if args.run or not (args.seed_demo or args.check or args.init_db):
++        return run(args.port)
+     return 0
+ 
+ 
+--- a/tenderproof/config.py
++++ b/tenderproof/config.py
+@@ -1,16 +1,19 @@
++import os
+ from pathlib import Path
+ 
+ 
+ PROJECT_ROOT = Path(__file__).resolve().parents[1]
+-DATA_DIR = PROJECT_ROOT / "data"
++RUNTIME_ROOT = Path(os.environ.get("TENDERPROOF_RUNTIME_ROOT", str(PROJECT_ROOT))).resolve()
++DATA_DIR = RUNTIME_ROOT / "data"
+ SEED_DIR = DATA_DIR / "seed"
+ REFERENCE_DIR = DATA_DIR / "reference"
+-STORAGE_DIR = PROJECT_ROOT / "storage"
++STORAGE_DIR = RUNTIME_ROOT / "storage"
+ UPLOADS_DIR = STORAGE_DIR / "uploads"
+ EXTRACTED_TEXT_DIR = STORAGE_DIR / "extracted_text"
+ REPORTS_DIR = STORAGE_DIR / "reports"
+ EXPORTS_DIR = STORAGE_DIR / "exports"
+ BACKUPS_DIR = STORAGE_DIR / "backups"
++EVIDENCE_DIR = STORAGE_DIR / "evidence"
+ DB_PATH = STORAGE_DIR / "tenderproof.db"
+ 
+ REQUIRED_DIRS = [
+@@ -23,6 +26,7 @@
+     REPORTS_DIR,
+     EXPORTS_DIR,
+     BACKUPS_DIR,
++    EVIDENCE_DIR,
+ ]
+ 
+ 
+--- a/tenderproof/db.py
++++ b/tenderproof/db.py
+@@ -2,7 +2,7 @@
+ from contextlib import contextmanager
+ from pathlib import Path
+ 
+-from sqlalchemy import create_engine, inspect, text
++from sqlalchemy import create_engine, event
+ from sqlalchemy.orm import DeclarativeBase, sessionmaker
+ 
+ from .config import DB_PATH, ensure_directories
+@@ -31,21 +31,20 @@
+             connect_args={"check_same_thread": False},
+             future=True,
+         )
++        @event.listens_for(_ENGINE_CACHE[key], "connect")
++        def _foreign_keys(connection, _record):
++            connection.execute("PRAGMA foreign_keys=ON")
+     return _ENGINE_CACHE[key]
+ 
+ 
+ def init_db(db_path: str | Path | None = None) -> Path:
+     from . import models  # noqa: F401 - register SQLAlchemy models
+ 
+-    path = get_db_path(db_path)
++    from .migrations import migrate
++
++    path = get_db_path(db_path).resolve()
+     engine = get_engine(path)
+-    Base.metadata.create_all(bind=engine)
+-    columns = {column["name"] for column in inspect(engine).get_columns("methodology_outline")}
+-    with engine.begin() as connection:
+-        if "data_collection_conditions" not in columns:
+-            connection.execute(text("ALTER TABLE methodology_outline ADD COLUMN data_collection_conditions TEXT"))
+-        if "analysis_approach" not in columns:
+-            connection.execute(text("ALTER TABLE methodology_outline ADD COLUMN analysis_approach VARCHAR(120)"))
++    migrate(engine, path, Base.metadata)
+     return path
+ 
+ 
+--- a/tenderproof/migrations.py
++++ b/tenderproof/migrations.py
+@@ -0,0 +1,65 @@
++"""Transactional additive migrations; existing rows and artifacts are retained."""
++
++from datetime import UTC, datetime
++from pathlib import Path
++import sqlite3
++import hashlib
++import json
++from uuid import uuid4
++
++from sqlalchemy import inspect
++
++VERSION = "012_controlled_1"
++COLUMNS = {
++    "cases": {"assessment_revision": "INTEGER DEFAULT 0"},
++    "sources": {
++        "content_sha256": "VARCHAR(64)", "text_sha256": "VARCHAR(64)",
++        "version_number": "INTEGER DEFAULT 1", "supersedes_source_id": "VARCHAR(80)",
++        "reviewed_sha256": "VARCHAR(64)", "reviewed_text_sha256": "VARCHAR(64)",
++        "reviewed_by": "VARCHAR(255)", "reviewed_at": "DATETIME", "review_notes": "TEXT",
++        "requirements_complete": "BOOLEAN DEFAULT 0",
++        "extraction_coverage_json": "TEXT",
++    },
++    "verification_results": {"run_id": "VARCHAR(80)"},
++    "output_packages": {"snapshot_hash": "VARCHAR(64)", "approval_id": "VARCHAR(80)", "verification_run_id": "VARCHAR(80)", "content_sha256": "VARCHAR(64)"},
++    "methodology_outline": {"data_collection_conditions": "TEXT", "analysis_approach": "VARCHAR(120)"},
++    "schema_migrations": {"checksum": "VARCHAR(64)", "recovery_reference": "TEXT"},
++}
++
++
++def _apply_columns(connection):
++    for table, fields in COLUMNS.items():
++        existing = {c["name"] for c in inspect(connection).get_columns(table)}
++        for name, sql_type in fields.items():
++            if name not in existing:
++                connection.exec_driver_sql(f'ALTER TABLE "{table}" ADD COLUMN "{name}" {sql_type}')
++
++
++def migrate(engine, db_path: Path, metadata):
++    checksum = hashlib.sha256(json.dumps(COLUMNS, sort_keys=True).encode()).hexdigest()
++    with engine.connect() as connection:
++        if "schema_migrations" in inspect(connection).get_table_names():
++            row = connection.exec_driver_sql("SELECT checksum FROM schema_migrations WHERE version=?", (VERSION,)).first()
++            if row:
++                if row[0] != checksum:
++                    raise RuntimeError("Migration checksum mismatch; do not silently reuse a changed migration.")
++                return
++    backup_path = None
++    if db_path.is_file() and db_path.stat().st_size:
++        backup_dir = db_path.parent / "backups"
++        backup_dir.mkdir(parents=True, exist_ok=True)
++        backup_path = backup_dir / f"{db_path.stem}_pre_012_{uuid4().hex[:10]}.db"
++        with sqlite3.connect(db_path.as_uri() + "?mode=ro", uri=True) as source, sqlite3.connect(backup_path) as target:
++            source.backup(target)
++            if target.execute("PRAGMA integrity_check").fetchone()[0] != "ok":
++                raise RuntimeError("Pre-migration database backup failed integrity check.")
++    with engine.connect() as connection:
++        connection.exec_driver_sql("BEGIN IMMEDIATE")
++        try:
++            metadata.create_all(connection)
++            _apply_columns(connection)
++            connection.exec_driver_sql("INSERT INTO schema_migrations (version, applied_at, checksum, recovery_reference) VALUES (?, ?, ?, ?)", (VERSION, datetime.now(UTC).isoformat(), checksum, str(backup_path) if backup_path else None))
++            connection.commit()
++        except Exception:
++            connection.rollback()
++            raise
+--- a/tenderproof/models.py
++++ b/tenderproof/models.py
+@@ -31,6 +31,7 @@
+     status: Mapped[str] = mapped_column(String(80), default="draft")
+     payment_status: Mapped[str | None] = mapped_column(String(80), default="unpaid")
+     readiness_label: Mapped[str] = mapped_column(String(80), default="DRAFT_ONLY")
++    assessment_revision: Mapped[int] = mapped_column(Integer, default=0)
+     created_at: Mapped[datetime] = mapped_column(DateTime, default=now_utc)
+     updated_at: Mapped[datetime] = mapped_column(DateTime, default=now_utc, onupdate=now_utc)
+ 
+@@ -49,6 +50,17 @@
+     extraction_status: Mapped[str | None] = mapped_column(String(80))
+     notes: Mapped[str | None] = mapped_column(Text)
+     uploaded_at: Mapped[datetime] = mapped_column(DateTime, default=now_utc)
++    content_sha256: Mapped[str | None] = mapped_column(String(64))
++    text_sha256: Mapped[str | None] = mapped_column(String(64))
++    version_number: Mapped[int] = mapped_column(Integer, default=1)
++    supersedes_source_id: Mapped[str | None] = mapped_column(String(80))
++    reviewed_sha256: Mapped[str | None] = mapped_column(String(64))
++    reviewed_text_sha256: Mapped[str | None] = mapped_column(String(64))
++    reviewed_by: Mapped[str | None] = mapped_column(String(255))
++    reviewed_at: Mapped[datetime | None] = mapped_column(DateTime)
++    review_notes: Mapped[str | None] = mapped_column(Text)
++    requirements_complete: Mapped[bool] = mapped_column(Boolean, default=False)
++    extraction_coverage_json: Mapped[str | None] = mapped_column(Text)
+ 
+ 
+ class NormalizedRequirement(Base):
+@@ -260,6 +272,7 @@
+     message: Mapped[str | None] = mapped_column(Text)
+     blocker: Mapped[bool] = mapped_column(Boolean, default=False)
+     created_at: Mapped[datetime] = mapped_column(DateTime, default=now_utc)
++    run_id: Mapped[str | None] = mapped_column(String(80), index=True)
+ 
+ 
+ class IPCapture(Base):
+@@ -292,6 +305,10 @@
+     readiness_label: Mapped[str] = mapped_column(String(80), default="DRAFT_ONLY")
+     verification_status: Mapped[str | None] = mapped_column(String(80))
+     created_at: Mapped[datetime] = mapped_column(DateTime, default=now_utc)
++    snapshot_hash: Mapped[str | None] = mapped_column(String(64))
++    approval_id: Mapped[str | None] = mapped_column(String(80))
++    verification_run_id: Mapped[str | None] = mapped_column(String(80))
++    content_sha256: Mapped[str | None] = mapped_column(String(64))
+ 
+ 
+ class EGPChecklistItem(Base):
+@@ -308,3 +325,65 @@
+     status: Mapped[str] = mapped_column(String(80), default="Pending Input")
+     evidence_notes: Mapped[str | None] = mapped_column(Text)
+     updated_at: Mapped[datetime] = mapped_column(DateTime, default=now_utc, onupdate=now_utc)
++
++
++class EvidenceReview(Base):
++    __tablename__ = "evidence_reviews"
++
++    id: Mapped[int] = mapped_column(Integer, primary_key=True)
++    evidence_id: Mapped[str] = mapped_column(String(80), unique=True)
++    case_id: Mapped[str] = mapped_column(ForeignKey("cases.case_id"), index=True)
++    requirement_id: Mapped[str] = mapped_column(String(80), index=True)
++    compliance_id: Mapped[str] = mapped_column(String(80), index=True)
++    evidence_text_sha256: Mapped[str] = mapped_column(String(64))
++    source_id: Mapped[str | None] = mapped_column(String(80))
++    file_path: Mapped[str | None] = mapped_column(Text)
++    file_sha256: Mapped[str | None] = mapped_column(String(64))
++    archive_file_path: Mapped[str | None] = mapped_column(Text)
++    archive_sha256: Mapped[str | None] = mapped_column(String(64))
++    legal_entity: Mapped[str] = mapped_column(String(255))
++    valid_from: Mapped[str | None] = mapped_column(String(10))
++    valid_until: Mapped[str | None] = mapped_column(String(10))
++    validity_reason: Mapped[str | None] = mapped_column(Text)
++    review_status: Mapped[str] = mapped_column(String(40))
++    reviewed_by: Mapped[str] = mapped_column(String(255))
++    review_notes: Mapped[str] = mapped_column(Text)
++    reviewed_at: Mapped[datetime] = mapped_column(DateTime, default=now_utc)
++
++
++class VerificationRun(Base):
++    __tablename__ = "verification_runs"
++
++    id: Mapped[int] = mapped_column(Integer, primary_key=True)
++    run_id: Mapped[str] = mapped_column(String(80), unique=True)
++    case_id: Mapped[str] = mapped_column(ForeignKey("cases.case_id"), index=True)
++    snapshot_hash: Mapped[str] = mapped_column(String(64))
++    snapshot_json: Mapped[str] = mapped_column(Text)
++    technical_passed: Mapped[bool] = mapped_column(Boolean, default=False)
++    overall_status: Mapped[str] = mapped_column(String(40))
++    readiness_label: Mapped[str] = mapped_column(String(80))
++    created_at: Mapped[datetime] = mapped_column(DateTime, default=now_utc)
++
++
++class DecisionApproval(Base):
++    __tablename__ = "decision_approvals"
++
++    id: Mapped[int] = mapped_column(Integer, primary_key=True)
++    approval_id: Mapped[str] = mapped_column(String(80), unique=True)
++    case_id: Mapped[str] = mapped_column(ForeignKey("cases.case_id"), index=True)
++    snapshot_hash: Mapped[str] = mapped_column(String(64))
++    verification_run_id: Mapped[str] = mapped_column(String(80))
++    approved_by: Mapped[str] = mapped_column(String(255))
++    rationale: Mapped[str] = mapped_column(Text)
++    approved_at: Mapped[datetime] = mapped_column(DateTime, default=now_utc)
++    revoked_at: Mapped[datetime | None] = mapped_column(DateTime)
++    revocation_reason: Mapped[str | None] = mapped_column(Text)
++
++
++class SchemaMigration(Base):
++    __tablename__ = "schema_migrations"
++
++    version: Mapped[str] = mapped_column(String(80), primary_key=True)
++    applied_at: Mapped[datetime] = mapped_column(DateTime, default=now_utc)
++    checksum: Mapped[str | None] = mapped_column(String(64))
++    recovery_reference: Mapped[str | None] = mapped_column(Text)
+--- a/tenderproof/services/approval_service.py
++++ b/tenderproof/services/approval_service.py
+@@ -0,0 +1,127 @@
++"""Attributable local reviews and approvals tied to exact input snapshots."""
++
++from datetime import UTC, date, datetime
++from uuid import uuid4
++from pathlib import Path
++import shutil
++
++from ..models import Case, ComplianceLedger, DecisionApproval, EvidenceReview, NormalizedRequirement, Source
++from ..config import EVIDENCE_DIR, ensure_directories
++from .audit_service import log_event
++from .decision_service import (
++    active_sources, current_approval, evidence_problem, file_hash, invalidate_case,
++    latest_current_run, policy_assessment, release_context, snapshot_hash,
++    source_review_problem, text_hash, today,
++)
++
++
++def _attribution(reviewer, notes):
++    if not reviewer or not reviewer.strip() or not notes or not notes.strip():
++        raise ValueError("A named reviewer and review rationale are required.")
++
++
++def review_source(session, case_id, source_id, *, reviewer, notes, requirements_complete=False):
++    _attribution(reviewer, notes)
++    source = session.query(Source).filter_by(case_id=case_id, source_id=source_id).first()
++    if source is None or source not in active_sources(session, case_id):
++        raise ValueError("Select a current source belonging to this case.")
++    issue = source_review_problem(source)
++    if issue and issue[0] == "blocker":
++        raise ValueError(issue[1])
++    if not requirements_complete:
++        raise ValueError("Confirm that all applicable source requirements have been captured and reviewed.")
++    source.content_sha256 = file_hash(source.file_path) if source.file_path else file_hash(source.text_extract_path)
++    source.text_sha256 = file_hash(source.text_extract_path)
++    source.reviewed_sha256, source.reviewed_text_sha256 = source.content_sha256, source.text_sha256
++    source.reviewed_by, source.review_notes = reviewer.strip(), notes.strip()
++    source.reviewed_at = datetime.now(UTC)
++    source.requirements_complete = True
++    invalidate_case(session, case_id, f"Source review recorded for {source_id}.")
++    return source
++
++
++def record_evidence_review(session, case_id, compliance_id, *, reviewer, notes, legal_entity, source_id=None, file_path=None, valid_from=None, valid_until=None, validity_reason="", review_status="verified"):
++    _attribution(reviewer, notes)
++    case = session.query(Case).filter_by(case_id=case_id).first()
++    row = session.query(ComplianceLedger).filter_by(case_id=case_id, compliance_id=compliance_id).first()
++    if case is None or row is None:
++        raise ValueError("Evidence and case must exist and belong together.")
++    req = session.query(NormalizedRequirement).filter_by(case_id=case_id, requirement_id=row.requirement_id).first()
++    if req is None or req.needs_review:
++        raise ValueError("Review the associated requirement first.")
++    if review_status not in {"verified", "failed", "pending", "not_applicable"}:
++        raise ValueError("Unknown evidence review state.")
++    if review_status in {"verified", "not_applicable"} and (legal_entity or "").strip().casefold() != (case.organization or case.client_name or "").strip().casefold():
++        raise ValueError("Evidence legal entity must match this bidder.")
++    if not source_id and not file_path:
++        raise ValueError("Link an actual reviewed source or evidence attachment.")
++    if source_id:
++        source = next((s for s in active_sources(session, case_id) if s.source_id == source_id), None)
++        if source is None or source_review_problem(source):
++            raise ValueError("The linked evidence source needs a current review.")
++    file_digest = file_hash(file_path)
++    if file_path and not file_digest:
++        raise ValueError("Evidence attachment does not exist.")
++    start = date.fromisoformat(valid_from) if valid_from else None
++    end = date.fromisoformat(valid_until) if valid_until else None
++    if start and end and start > end:
++        raise ValueError("Evidence validity start is after its end.")
++    if review_status == "not_applicable" and row.status != "Not Applicable":
++        raise ValueError("An exclusion review requires a Not Applicable compliance row and source-based rationale.")
++    if review_status == "verified" and not end and not validity_reason.strip():
++        raise ValueError("Specify an expiry date or a reviewed reason why expiry does not apply.")
++    if review_status == "verified":
++        if row.status != "Met" or evidence_problem(row.available_evidence):
++            raise ValueError("Only resolved evidence on a Met row can be verified.")
++        current_date = today()
++        if (start and start > current_date) or (end and end < current_date):
++            raise ValueError("Evidence is expired or not yet valid.")
++    evidence_id = f"EVD-{uuid4().hex[:12].upper()}"
++    archived = None
++    if file_path:
++        ensure_directories()
++        archived = EVIDENCE_DIR / f"{evidence_id}{Path(file_path).suffix.lower()}"
++        shutil.copyfile(file_path, archived)
++        if file_hash(archived) != file_digest or file_hash(file_path) != file_digest:
++            raise ValueError("Evidence changed during archival; review the attachment again.")
++    review = EvidenceReview(
++        evidence_id=evidence_id, case_id=case_id,
++        requirement_id=req.requirement_id, compliance_id=compliance_id,
++        evidence_text_sha256=text_hash(row.available_evidence), source_id=source_id,
++        file_path=str(file_path) if file_path else None, file_sha256=file_digest,
++        archive_file_path=str(archived) if archived else None, archive_sha256=file_digest,
++        legal_entity=legal_entity.strip(), valid_from=valid_from, valid_until=valid_until,
++        validity_reason=validity_reason.strip(), review_status=review_status,
++        reviewed_by=reviewer.strip(), review_notes=notes.strip(),
++    )
++    session.add(review)
++    invalidate_case(session, case_id, f"Evidence review recorded for {compliance_id}.")
++    return review
++
++
++def approve_case(session, case_id, *, reviewer, rationale):
++    _attribution(reviewer, rationale)
++    policy = policy_assessment(session, case_id)
++    fingerprint = snapshot_hash(session, case_id)
++    run = latest_current_run(session, case_id, fingerprint)
++    if policy["eligibility"] not in {"PASS", "NOT_APPLICABLE"} or policy["blockers"] or policy["warnings"] or run is None or not run.technical_passed:
++        raise ValueError("Approval requires current, fully reviewed evidence and a successful verification run.")
++    existing = current_approval(session, case_id, fingerprint)
++    if existing:
++        return existing
++    approval = DecisionApproval(approval_id=f"APP-{uuid4().hex[:12].upper()}", case_id=case_id, snapshot_hash=fingerprint, verification_run_id=run.run_id, approved_by=reviewer.strip(), rationale=rationale.strip())
++    session.add(approval)
++    session.flush()
++    context = release_context(session, case_id)
++    case = session.query(Case).filter_by(case_id=case_id).one()
++    case.readiness_label = context["readiness_label"]
++    log_event(session, case_id, "decision.approved", f"Snapshot approved by {reviewer.strip()}.", {"approval_id": approval.approval_id, "snapshot_hash": fingerprint})
++    return approval
++
++
++def revoke_approval(session, case_id, approval_id, *, reviewer, reason):
++    _attribution(reviewer, reason)
++    approval = session.query(DecisionApproval).filter_by(case_id=case_id, approval_id=approval_id).one()
++    approval.revoked_at = datetime.now(UTC)
++    approval.revocation_reason = f"{reviewer.strip()}: {reason.strip()}"
++    invalidate_case(session, case_id, f"Approval {approval_id} revoked: {reason.strip()}")
+--- a/tenderproof/services/bid_score_service.py
++++ b/tenderproof/services/bid_score_service.py
+@@ -3,6 +3,7 @@
+ from ..constants import REQUIRED_BID_CATEGORIES
+ from ..models import BidRecommendation, BidScorecard
+ from .audit_service import log_event
++from .decision_service import invalidate_case, mandatory_state
+ 
+ 
+ def ensure_scorecard_categories(session: Session, case_id: str) -> list[BidScorecard]:
+@@ -53,6 +54,11 @@
+     total, max_score, percentage = calculate_score(rows)
+     missing_inputs = any((row.score or 0) <= 0 for row in rows)
+     rec_text = recommendation_for_percentage(percentage, missing_inputs)
++    eligibility = mandatory_state(session, case_id)
++    if eligibility == "FAIL":
++        rec_text = "Reject / No-bid"
++    elif eligibility not in {"PASS", "NOT_APPLICABLE"}:
++        rec_text = "Pending input"
+     rec = session.query(BidRecommendation).filter(BidRecommendation.case_id == case_id).order_by(BidRecommendation.id.desc()).first()
+     if not rec:
+         rec = BidRecommendation(case_id=case_id)
+@@ -61,8 +67,9 @@
+     rec.max_score = max_score
+     rec.percentage = percentage
+     rec.recommendation = rec_text
+-    rec.rationale = _rationale(rec_text, percentage)
++    rec.rationale = _rationale(rec_text, percentage) + f" Mandatory status: {eligibility}. Opportunity scoring is provisional; release requires verified evidence and human approval."
+     session.flush()
++    invalidate_case(session, case_id, "Opportunity score or recommendation regenerated.")
+     log_event(session, case_id, "bid_recommendation.generated", f"Generated recommendation: {rec.recommendation} ({percentage}%)")
+     return rec
+ 
+--- a/tenderproof/services/case_service.py
++++ b/tenderproof/services/case_service.py
+@@ -5,6 +5,7 @@
+ from ..constants import CASE_STATUSES, READINESS_LABELS
+ from ..models import Case
+ from .audit_service import log_event
++from .decision_service import invalidate_case
+ 
+ 
+ def make_case_id() -> str:
+@@ -27,9 +28,9 @@
+         submission_type=data.get("submission_type") or "",
+         bidding_role=data.get("bidding_role") or "",
+         diagnostic_type=data.get("diagnostic_type") or "Rapid Bid Diagnostic",
+-        status=data.get("status") if data.get("status") in CASE_STATUSES else "draft",
++        status="draft",
+         payment_status=data.get("payment_status") or "unpaid",
+-        readiness_label=data.get("readiness_label") if data.get("readiness_label") in READINESS_LABELS else "DRAFT_ONLY",
++        readiness_label="DRAFT_ONLY",
+     )
+     session.add(case)
+     session.flush()
+@@ -70,8 +71,11 @@
+         "readiness_label",
+     }
+     for key, value in data.items():
+-        if key in allowed and value is not None:
++        if key in allowed and value is not None and key != "readiness_label" and not (key == "status" and value in {"client_ready", "packaged"}):
+             setattr(case, key, value)
++    invalidate_case(session, case_id, "Case details or requested state changed.")
++    if data.get("status") in set(CASE_STATUSES) - {"client_ready", "packaged"}:
++        case.status = data["status"]
+     log_event(session, case.case_id, "case.updated", f"Updated case {case.case_id}")
+     session.flush()
+     return case
+--- a/tenderproof/services/compliance_service.py
++++ b/tenderproof/services/compliance_service.py
+@@ -6,6 +6,7 @@
+ from ..models import ComplianceLedger, NormalizedRequirement
+ from .audit_service import log_event
+ from .gap_service import sync_gaps_from_compliance
++from .decision_service import invalidate_case
+ 
+ 
+ def auto_create_compliance_rows(session: Session, case_id: str) -> list[ComplianceLedger]:
+@@ -38,6 +39,8 @@
+         created.append(row)
+     session.flush()
+     sync_gaps_from_compliance(session, case_id)
++    if created:
++        invalidate_case(session, case_id, "Compliance requirements added.")
+     log_event(session, case_id, "compliance.sync", f"Auto-created {len(created)} compliance rows")
+     return created
+ 
+@@ -66,6 +69,7 @@
+             setattr(row, key, value)
+     session.flush()
+     sync_gaps_from_compliance(session, row.case_id)
++    invalidate_case(session, row.case_id, f"Compliance or evidence changed: {compliance_id}")
+     log_event(session, row.case_id, "compliance.updated", f"Updated compliance row {row.compliance_id}")
+     return row
+ 
+--- a/tenderproof/services/decision_service.py
++++ b/tenderproof/services/decision_service.py
+@@ -0,0 +1,289 @@
++"""Shared eligibility, input freshness and output release policy."""
++
++from datetime import UTC, date, datetime
++import hashlib
++import json
++from pathlib import Path
++import re
++from zoneinfo import ZoneInfo
++
++from .. import models as m
++from .audit_service import log_event
++
++READY_LABELS = {"CLIENT_READY", "EXPORT_READY"}
++
++
++def today():
++    return datetime.now(ZoneInfo("Asia/Dhaka")).date()
++
++
++def file_hash(value):
++    if not value or not Path(value).is_file():
++        return None
++    digest = hashlib.sha256()
++    try:
++        with Path(value).open("rb") as stream:
++            for chunk in iter(lambda: stream.read(1024 * 1024), b""):
++                digest.update(chunk)
++    except OSError:
++        return None
++    return digest.hexdigest()
++
++
++def text_hash(value):
++    return hashlib.sha256((value or "").strip().encode("utf-8")).hexdigest()
++
++
++def evidence_problem(value):
++    value = re.sub(r"\s+", " ", (value or "").strip()).casefold()
++    if value in {"", "pending input", "pending", "unknown", "none", "n/a", "missing", "missing evidence", "not provided"}:
++        return "Required evidence is missing or unresolved."
++    if re.search(r"\bexpired on\b|\bbelongs to another\b|\bwrong legal entity\b", value):
++        return "Evidence explicitly describes an invalid date or legal entity."
++    return None
++
++
++def invalidate_case(session, case_id, reason):
++    case = session.query(m.Case).filter_by(case_id=case_id).first()
++    if case is None:
++        raise ValueError(f"Unknown case: {case_id}")
++    case.assessment_revision = (case.assessment_revision or 0) + 1
++    case.readiness_label, case.status = "DRAFT_ONLY", "draft"
++    for output in session.query(m.OutputPackage).filter_by(case_id=case_id).all():
++        output.readiness_label = "DRAFT_ONLY"
++        output.verification_status = "stale"
++    log_event(session, case_id, "decision.invalidated", reason, {"revision": case.assessment_revision})
++
++
++def snapshot_data(session, case_id):
++    session.flush()
++    data = {"policy_version": "012.controlled.1"}
++    types = (m.Case, m.Source, m.NormalizedRequirement, m.ComplianceLedger, m.CVMatch, m.BidScorecard, m.BidRecommendation, m.RiskRegister, m.GapItem, m.ClarificationQuestion, m.ProposalSkeleton, m.MethodologyOutline, m.EGPChecklistItem, m.EvidenceReview, m.IPCapture)
++    for model in types:
++        values = []
++        for row in session.query(model).filter_by(case_id=case_id).order_by(model.id).all():
++            excluded = {"created_at", "updated_at", "uploaded_at"}
++            if model is m.Case:
++                excluded |= {"status", "readiness_label"}
++            item = {}
++            for column in model.__table__.columns:
++                if column.name in excluded:
++                    continue
++                value = getattr(row, column.name)
++                if isinstance(value, datetime):
++                    value = (value.replace(tzinfo=UTC) if value.tzinfo is None else value.astimezone(UTC)).isoformat(timespec="microseconds")
++                item[column.name] = value
++            if model is m.Source:
++                item["actual_file_sha256"] = file_hash(row.file_path)
++                item["actual_text_sha256"] = file_hash(row.text_extract_path)
++            elif model is m.EvidenceReview:
++                item["actual_evidence_file_sha256"] = file_hash(row.file_path)
++                item["actual_archived_evidence_sha256"] = file_hash(row.archive_file_path)
++            values.append(item)
++        data[model.__tablename__] = values
++    return data
++
++
++def snapshot_hash(session, case_id):
++    return hashlib.sha256(json.dumps(snapshot_data(session, case_id), sort_keys=True, default=str).encode("utf-8")).hexdigest()
++
++
++def active_sources(session, case_id):
++    rows = session.query(m.Source).filter_by(case_id=case_id).all()
++    retired = {s.supersedes_source_id for s in rows if s.supersedes_source_id}
++    return [s for s in rows if s.source_id not in retired]
++
++
++def source_review_problem(source):
++    if source.extraction_coverage_json:
++        try:
++            if json.loads(source.extraction_coverage_json).get("complete") is not True:
++                return "blocker", "Recorded extraction coverage is incomplete."
++        except (ValueError, AttributeError):
++            return "blocker", "Source coverage record is invalid."
++    actual_text = file_hash(source.text_extract_path)
++    actual_file = file_hash(source.file_path) if source.file_path else actual_text
++    if source.extraction_status != "extracted" or not actual_text or not actual_file:
++        return "blocker", "Source is missing, unreadable or incompletely extracted."
++    try:
++        if not Path(source.text_extract_path).read_text(encoding="utf-8").strip():
++            return "blocker", "Source extraction is empty."
++    except (OSError, UnicodeError):
++        return "blocker", "Source extraction is unreadable."
++    if "limited to first" in (source.notes or "").casefold():
++        return "blocker", "Source was only partly processed."
++    if (source.content_sha256 and source.content_sha256 != actual_file) or (source.text_sha256 and source.text_sha256 != actual_text):
++        return "blocker", "Source bytes changed; register a new version."
++    if not source.reviewed_by or not source.reviewed_at or not source.requirements_complete:
++        return "warning", "Source and requirement coverage need human review."
++    if source.reviewed_sha256 != actual_file or source.reviewed_text_sha256 != actual_text:
++        return "blocker", "Source review is stale."
++    return None
++
++
++def latest_evidence_review(session, row):
++    return session.query(m.EvidenceReview).filter_by(case_id=row.case_id, compliance_id=row.compliance_id).order_by(m.EvidenceReview.id.desc()).first()
++
++
++def evidence_review_problem(session, case, row, review):
++    if review is None:
++        return "warning", "Evidence has no attributable verification record."
++    excluded = row.status == "Not Applicable" and review.review_status == "not_applicable"
++    if review.review_status != "verified" and not excluded:
++        return "blocker", "Evidence verification is failed or unresolved."
++    expected_entity = (case.organization or case.client_name or "").strip().casefold()
++    if review.legal_entity.strip().casefold() != expected_entity:
++        return "blocker", "Evidence belongs to a different legal entity."
++    if review.evidence_text_sha256 != text_hash(row.available_evidence):
++        return "blocker", "Evidence text changed after review."
++    current_date = today()
++    try:
++        if review.valid_from and date.fromisoformat(review.valid_from) > current_date:
++            return "blocker", "Evidence is not yet valid."
++        if review.valid_until and date.fromisoformat(review.valid_until) < current_date:
++            return "blocker", "Evidence expired."
++    except ValueError:
++        return "blocker", "Evidence validity dates are invalid."
++    if not excluded and not review.valid_until and not (review.validity_reason or "").strip():
++        return "blocker", "Evidence validity needs an explicit end date or reviewed reason."
++    if review.file_path and file_hash(review.file_path) != review.file_sha256:
++        return "blocker", "Evidence attachment changed or was removed."
++    if review.file_path and (not review.archive_file_path or file_hash(review.archive_file_path) != review.archive_sha256):
++        return "blocker", "Archived evidence is missing or altered."
++    if review.source_id:
++        source = session.query(m.Source).filter_by(case_id=case.case_id, source_id=review.source_id).first()
++        if source is None or source.source_id not in {s.source_id for s in active_sources(session, case.case_id)} or source_review_problem(source):
++            return "blocker", "Evidence source is missing or not currently reviewed."
++    if not review.reviewed_by.strip() or not review.review_notes.strip():
++        return "blocker", "Evidence review lacks attribution or rationale."
++    return None
++
++
++def mandatory_state(session, case_id, verified=False):
++    case = session.query(m.Case).filter_by(case_id=case_id).first()
++    requirements = session.query(m.NormalizedRequirement).filter_by(case_id=case_id, mandatory=True).all()
++    unresolved, failed, applicable = not requirements, False, 0
++    for req in requirements:
++        rows = session.query(m.ComplianceLedger).filter_by(case_id=case_id, requirement_id=req.requirement_id).all()
++        if req.needs_review or len(rows) != 1:
++            unresolved = True
++            continue
++        row = rows[0]
++        review = latest_evidence_review(session, row)
++        if row.status == "Not Applicable":
++            if not review or review.review_status != "not_applicable" or evidence_review_problem(session, case, row, review):
++                unresolved = True
++            continue
++        applicable += 1
++        if review and review.review_status == "failed" and review.evidence_text_sha256 == text_hash(row.available_evidence):
++            failed = True
++        if row.status != "Met" or evidence_problem(row.available_evidence):
++            unresolved = True
++        elif verified and evidence_review_problem(session, case, row, review):
++            unresolved = True
++    return "FAIL" if failed else "UNKNOWN" if unresolved else "PASS" if applicable else "NOT_APPLICABLE"
++
++
++def policy_assessment(session, case_id):
++    session.flush()
++    case = session.query(m.Case).filter_by(case_id=case_id).first()
++    blockers, warnings = [], []
++    if not case:
++        return {"eligibility": "UNKNOWN", "blockers": [("CASE-001", "Case does not exist.")], "warnings": []}
++    provisional = mandatory_state(session, case_id)
++    if provisional not in {"PASS", "NOT_APPLICABLE"}:
++        blockers.append(("ELIG-001", "Mandatory requirements are failed, unreviewed, missing or unresolved."))
++    sources = active_sources(session, case_id)
++    if not sources:
++        blockers.append(("SRC-001", "No source is registered."))
++    for source in sources:
++        issue = source_review_problem(source)
++        if issue:
++            (blockers if issue[0] == "blocker" else warnings).append(("SRC-003", f"{source.source_id}: {issue[1]}"))
++    for req in session.query(m.NormalizedRequirement).filter_by(case_id=case_id, mandatory=True).all():
++        if req.source_id not in {s.source_id for s in sources}:
++            blockers.append(("REQ-004", f"{req.requirement_id}: requirement lacks a current source in this case."))
++        rows = session.query(m.ComplianceLedger).filter_by(case_id=case_id, requirement_id=req.requirement_id).all()
++        if len(rows) == 1 and rows[0].status == "Met":
++            row = rows[0]
++            issue = evidence_problem(row.available_evidence)
++            if issue:
++                blockers.append(("EVID-001", f"{req.requirement_id}: {issue}"))
++            else:
++                problem = evidence_review_problem(session, case, row, latest_evidence_review(session, row))
++                if problem:
++                    (blockers if problem[0] == "blocker" else warnings).append(("EVID-002", f"{req.requirement_id}: {problem[1]}"))
++    for item in session.query(m.EGPChecklistItem).filter_by(case_id=case_id).all():
++        if item.status not in {"Met", "Not Applicable"} or not (item.evidence_notes or "").strip():
++            blockers.append(("EGP-001", f"{item.item_key}: pending check or missing evidence/exclusion rationale."))
++    return {"eligibility": mandatory_state(session, case_id, verified=True), "blockers": blockers, "warnings": warnings}
++
++
++def latest_current_run(session, case_id, fingerprint):
++    return session.query(m.VerificationRun).filter_by(case_id=case_id, snapshot_hash=fingerprint).order_by(m.VerificationRun.id.desc()).first()
++
++
++def current_approval(session, case_id, fingerprint):
++    run = latest_current_run(session, case_id, fingerprint)
++    if run is None or not run.technical_passed:
++        return None
++    approvals = session.query(m.DecisionApproval).filter_by(case_id=case_id, snapshot_hash=fingerprint, revoked_at=None).order_by(m.DecisionApproval.id.desc()).all()
++    for approval in approvals:
++        origin = session.query(m.VerificationRun).filter_by(case_id=case_id, run_id=approval.verification_run_id, snapshot_hash=fingerprint, technical_passed=True).first()
++        if origin:
++            return approval
++    return None
++
++
++def output_is_current(output, fingerprint, approval):
++    return bool(approval and output.snapshot_hash == fingerprint and output.approval_id == approval.approval_id and output.verification_status == "approved" and output.content_sha256 and file_hash(output.file_path) == output.content_sha256)
++
++
++def release_context(session, case_id, generating=None):
++    policy = policy_assessment(session, case_id)
++    fingerprint = snapshot_hash(session, case_id)
++    approval = current_approval(session, case_id, fingerprint)
++    run = latest_current_run(session, case_id, fingerprint)
++    approved = bool(not policy["blockers"] and not policy["warnings"] and policy["eligibility"] in {"PASS", "NOT_APPLICABLE"} and approval and run and run.technical_passed)
++    outputs = session.query(m.OutputPackage).filter_by(case_id=case_id).all()
++    current = [o for o in outputs if output_is_current(o, fingerprint, approval)]
++    report = any(o.output_type in {"markdown_report", "docx_report"} for o in current)
++    excel = any(o.output_type == "excel_export" for o in current)
++    if policy["blockers"]:
++        label = "BLOCKED"
++    elif not approved:
++        label = "PRELIMINARY"
++    elif generating == "report":
++        label = "EXPORT_READY" if report and excel else "CLIENT_READY"
++    elif report and (excel or generating == "excel"):
++        label = "EXPORT_READY"
++    elif report:
++        label = "CLIENT_READY"
++    else:
++        label = "PRELIMINARY"
++    return {**policy, "snapshot_hash": fingerprint, "approval": approval, "run": run, "approved": approved, "readiness_label": label}
++
++
++def validate_publication(session, case_id, original):
++    """Serialize DB writers and recheck approval, expiry and actual files at publication."""
++    from sqlalchemy import text
++
++    session.flush()
++    session.execute(text("UPDATE cases SET assessment_revision=assessment_revision WHERE case_id=:case_id"), {"case_id": case_id})
++    session.expire_all()
++    current = release_context(session, case_id)
++    if current["snapshot_hash"] != original["snapshot_hash"]:
++        raise ValueError("Assessment changed during generation; regenerate the artifact.")
++    if original["approved"] and (not current["approved"] or current["approval"].approval_id != original["approval"].approval_id):
++        raise ValueError("Approval or evidence validity changed during generation.")
++    if current["blockers"] != original["blockers"] or current["warnings"] != original["warnings"]:
++        raise ValueError("Release prerequisites changed during generation.")
++    return current
++
++
++def quarantine_artifact(path):
++    path = Path(path)
++    if path.is_file():
++        destination = path.parent / "quarantine"
++        destination.mkdir(exist_ok=True)
++        path.rename(destination / path.name)
+--- a/tenderproof/services/egp_service.py
++++ b/tenderproof/services/egp_service.py
+@@ -30,6 +30,7 @@
+ 
+ 
+ def ensure_egp_checklist(session: Session, case_id: str) -> list[EGPChecklistItem]:
++    from .decision_service import invalidate_case
+     existing = {item.item_key for item in session.query(EGPChecklistItem).filter_by(case_id=case_id).all()}
+     for item_key, (stage, title, guidance) in enumerate(EGP_CHECKS):
+         key = f"egp-{item_key + 1:02d}"
+@@ -44,6 +45,8 @@
+                 status="Pending Input",
+             ))
+     session.flush()
++    if len(existing) < len(EGP_CHECKS):
++        invalidate_case(session, case_id, "Bangladesh e-GP assessment checklist activated.")
+     return list_egp_checklist(session, case_id)
+ 
+ 
+@@ -57,6 +60,7 @@
+ 
+ 
+ def update_egp_checklist(session: Session, case_id: str, updates: list[dict]) -> None:
++    from .decision_service import invalidate_case
+     items = {item.item_key: item for item in list_egp_checklist(session, case_id)}
+     changed = 0
+     for update in updates:
+@@ -69,4 +73,6 @@
+         item.evidence_notes = (update.get("evidence_notes") or "").strip()
+         changed += 1
+     session.flush()
++    if changed:
++        invalidate_case(session, case_id, "Bangladesh e-GP checklist changed.")
+     log_event(session, case_id, "egp.checklist.updated", f"Updated {changed} Bangladesh e-GP readiness checks")
+--- a/tenderproof/services/export_service.py
++++ b/tenderproof/services/export_service.py
+@@ -28,6 +28,7 @@
+     VerificationResult,
+ )
+ from .audit_service import log_event
++from .decision_service import file_hash, quarantine_artifact, release_context, validate_publication
+ 
+ 
+ SHEET_MODELS = [
+@@ -55,7 +56,10 @@
+ 
+ def export_case_to_excel(session: Session, case_id: str) -> Path:
+     ensure_directories()
+-    path = EXPORTS_DIR / f"{case_id}_TenderProof_Diagnostic_Workbook.xlsx"
++    if session.query(Case).filter_by(case_id=case_id).first() is None:
++        raise ValueError("Case not found.")
++    context = release_context(session, case_id, generating="excel")
++    path = EXPORTS_DIR / f"{case_id}_TenderProof_Diagnostic_Workbook_{uuid4().hex[:10]}.pending.xlsx"
+     with pd.ExcelWriter(path, engine="openpyxl") as writer:
+         for sheet_name, model in SHEET_MODELS:
+             query = session.query(model)
+@@ -65,6 +69,21 @@
+             if sheet_name == "Case Summary":
+                 rows = rows or [{"case_id": case_id}]
+                 rows[0]["exported_at_utc"] = datetime.now(UTC).isoformat(timespec="seconds")
++                rows[0]["readiness_label"] = context["readiness_label"]
++                rows[0]["status"] = {"BLOCKED": "blocked", "CLIENT_READY": "client_ready", "EXPORT_READY": "packaged"}.get(context["readiness_label"], "preliminary")
++                rows[0]["snapshot_hash"] = context["snapshot_hash"]
++                rows[0]["eligibility"] = context["eligibility"]
++                rows[0]["approval_id"] = context["approval"].approval_id if context["approved"] else "Not approved"
++                rows[0]["approved_by"] = context["approval"].approved_by if context["approved"] else ""
++                rows[0]["release_status"] = "APPROVED" if context["approved"] and context["readiness_label"] == "EXPORT_READY" else "DRAFT"
++            if sheet_name == "Bid Recommendation":
++                for row in rows:
++                    row["provisional_opportunity_score_only"] = True
++                    row["current_eligibility"] = context["eligibility"]
++                    row["current_release_clearance"] = "Approved" if context["approved"] else "No clearance"
++            if sheet_name == "Verification Results":
++                for row in rows:
++                    row["current_snapshot_run"] = bool(context["run"] and row.get("run_id") == context["run"].run_id)
+             pd.DataFrame(rows).to_excel(writer, sheet_name=sheet_name[:31], index=False)
+         workbook = writer.book
+         for sheet in workbook.worksheets:
+@@ -74,12 +93,22 @@
+                 cell.alignment = Alignment(wrap_text=True, vertical="top")
+             for row in sheet.iter_rows(min_row=2):
+                 for cell in row:
++                    if cell.data_type == "f":
++                        cell.data_type = "s"
+                     cell.alignment = Alignment(wrap_text=True, vertical="top")
+             for idx, column_cells in enumerate(sheet.columns, start=1):
+                 values = [str(cell.value or "") for cell in column_cells]
+                 width = min(max(max((len(v) for v in values), default=8) + 2, 12), 55)
+                 sheet.column_dimensions[get_column_letter(idx)].width = width
+-    _record_export(session, case_id, path)
++    try:
++        validate_publication(session, case_id, context)
++    except Exception:
++        quarantine_artifact(path)
++        raise
++    published = path.with_name(path.name.replace(".pending.", "."))
++    path.rename(published)
++    path = published
++    _record_export(session, case_id, path, context)
+     log_event(session, case_id, "export.xlsx", f"Generated Excel workbook {path.name}")
+     return path
+ 
+@@ -92,21 +121,22 @@
+     return data
+ 
+ 
+-def _record_export(session: Session, case_id: str, path: Path) -> OutputPackage:
+-    existing = session.query(OutputPackage).filter(OutputPackage.case_id == case_id, OutputPackage.output_type == "excel_export").first()
+-    if existing:
+-        existing.file_path = str(path)
+-        existing.verification_status = "not_run"
+-        output = existing
+-    else:
+-        output = OutputPackage(
++def _record_export(session: Session, case_id: str, path: Path, context) -> OutputPackage:
++    output = OutputPackage(
+             output_id=f"OUT-{uuid4().hex[:10].upper()}",
+             case_id=case_id,
+             output_type="excel_export",
+             file_path=str(path),
+-            readiness_label="DRAFT_ONLY",
+-            verification_status="not_run",
++            readiness_label=context["readiness_label"],
++            verification_status="approved" if context["approved"] and context["readiness_label"] == "EXPORT_READY" else "draft",
++            snapshot_hash=context["snapshot_hash"],
++            approval_id=context["approval"].approval_id if context["approved"] and context["readiness_label"] == "EXPORT_READY" else None,
++            verification_run_id=context["run"].run_id if context["run"] else None,
++            content_sha256=file_hash(path),
+         )
+-        session.add(output)
++    session.add(output)
++    case = session.query(Case).filter_by(case_id=case_id).one()
++    case.readiness_label = context["readiness_label"]
++    case.status = "packaged" if context["readiness_label"] == "EXPORT_READY" else "blocked" if context["blockers"] else "preliminary"
+     session.flush()
+     return output
+--- a/tenderproof/services/extraction_service.py
++++ b/tenderproof/services/extraction_service.py
+@@ -4,6 +4,7 @@
+ from .audit_service import log_event
+ from .source_service import get_source_text
+ from .tor_normalizer import create_requirement_rows, detect_duplicate_match_key
++from .decision_service import invalidate_case
+ 
+ 
+ def create_requirements_from_source(session: Session, case_id: str, source_id: str) -> list[NormalizedRequirement]:
+@@ -20,6 +21,8 @@
+         session.add(req)
+         created.append(req)
+     session.flush()
++    if created:
++        invalidate_case(session, case_id, "Requirements extracted from source.")
+     log_event(session, case_id, "requirements.extracted", f"Created {len(created)} requirement rows from {source_id}")
+     return created
+ 
+@@ -57,6 +60,7 @@
+     )
+     session.add(req)
+     session.flush()
++    invalidate_case(session, case_id, "Manual requirement added.")
+     log_event(session, case_id, "requirement.manual", f"Added manual requirement {req.requirement_id}")
+     return req
+ 
+@@ -88,11 +92,13 @@
+         "risk_level",
+         "needs_review",
+         "notes",
++        "source_id",
+     }
+     for key, value in data.items():
+-        if key in fields and value is not None:
++        if key in fields and value is not None and key != "requirement_text":
+             setattr(req, key, value)
+     req.match_key = generate_match_key(req.case_id, req.requirement_category or "", req.tor_section_page or "", req.atomic_requirement_text or req.requirement_text)
+     session.flush()
++    invalidate_case(session, req.case_id, f"Requirement changed: {requirement_id}")
+     log_event(session, req.case_id, "requirement.updated", f"Updated requirement {req.requirement_id}")
+     return req
+--- a/tenderproof/services/ip_capture_service.py
++++ b/tenderproof/services/ip_capture_service.py
+@@ -38,7 +38,11 @@
+     ensure_directories()
+     rows = []
+     for row in list_ip(session, case_id):
+-        rows.append({c.name: getattr(row, c.name) for c in row.__table__.columns})
++        values = {c.name: getattr(row, c.name) for c in row.__table__.columns}
++        for key, value in values.items():
++            if isinstance(value, str) and value.lstrip().startswith(("=", "+", "-", "@")):
++                values[key] = "'" + value
++        rows.append(values)
+     path = EXPORTS_DIR / f"{case_id}_ip_capture.csv"
+     pd.DataFrame(rows).to_csv(path, index=False)
+     log_event(session, case_id, "ip_capture.export", f"Exported IP capture CSV {path.name}")
+--- a/tenderproof/services/report_service.py
++++ b/tenderproof/services/report_service.py
+@@ -15,6 +15,7 @@
+     ComplianceLedger,
+     CVMatch,
+     EGPChecklistItem,
++    EvidenceReview,
+     GapItem,
+     MethodologyOutline,
+     NormalizedRequirement,
+@@ -24,6 +25,7 @@
+     Source,
+ )
+ from .audit_service import log_event
++from .decision_service import file_hash, quarantine_artifact, release_context, validate_publication
+ 
+ 
+ def generate_markdown_report(session: Session, case_id: str) -> Path:
+@@ -31,12 +33,13 @@
+     case = session.query(Case).filter(Case.case_id == case_id).first()
+     if not case:
+         raise ValueError(f"Case not found: {case_id}")
+-    content = build_report_markdown(session, case)
+-    path = REPORTS_DIR / f"{case_id}_TenderProof_Rapid_Bid_Diagnostic.md"
++    context = release_context(session, case_id, generating="report")
++    content = build_report_markdown(session, case, context)
++    path = REPORTS_DIR / f"{case_id}_TenderProof_Rapid_Bid_Diagnostic_{uuid4().hex[:10]}.pending.md"
+     path.write_text(content, encoding="utf-8")
+-    _record_output(session, case_id, "markdown_report", path, case.readiness_label)
++    output = _record_output(session, case_id, "markdown_report", path, context)
+     log_event(session, case_id, "report.markdown", f"Generated Markdown report {path.name}")
+-    return path
++    return Path(output.file_path)
+ 
+ 
+ def generate_docx_report(session: Session, case_id: str) -> Path:
+@@ -44,8 +47,9 @@
+     case = session.query(Case).filter(Case.case_id == case_id).first()
+     if not case:
+         raise ValueError(f"Case not found: {case_id}")
+-    md = build_report_markdown(session, case)
+-    path = REPORTS_DIR / f"{case_id}_TenderProof_Rapid_Bid_Diagnostic.docx"
++    context = release_context(session, case_id, generating="report")
++    md = build_report_markdown(session, case, context)
++    path = REPORTS_DIR / f"{case_id}_TenderProof_Rapid_Bid_Diagnostic_{uuid4().hex[:10]}.pending.docx"
+     doc = Document()
+     normal = doc.styles["Normal"]
+     normal.font.name = "Arial"
+@@ -64,12 +68,13 @@
+         else:
+             doc.add_paragraph(line)
+     doc.save(path)
+-    _record_output(session, case_id, "docx_report", path, case.readiness_label)
++    output = _record_output(session, case_id, "docx_report", path, context)
+     log_event(session, case_id, "report.docx", f"Generated DOCX report {path.name}")
+-    return path
+-
+-
+-def build_report_markdown(session: Session, case: Case) -> str:
++    return Path(output.file_path)
++
++
++def build_report_markdown(session: Session, case: Case, context=None) -> str:
++    context = context or release_context(session, case.case_id, generating="report")
+     sources = session.query(Source).filter(Source.case_id == case.case_id).all()
+     reqs = session.query(NormalizedRequirement).filter(NormalizedRequirement.case_id == case.case_id).all()
+     compliance = session.query(ComplianceLedger).filter(ComplianceLedger.case_id == case.case_id).all()
+@@ -88,7 +93,11 @@
+         "# TenderProof Rapid Bid Diagnostic",
+         "",
+         f"Generated: {datetime.now(UTC).strftime('%Y-%m-%d %H:%M UTC')}",
+-        f"Readiness label: **{case.readiness_label}**",
++        f"Readiness label: **{context['readiness_label']}**",
++        f"Release status: {'APPROVED' if context['approved'] else 'BLOCKED' if context['blockers'] else 'DRAFT - human review or approval pending'}",
++        f"Evidence snapshot: {context['snapshot_hash']}",
++        f"Eligibility: {context['eligibility']}",
++        f"Approval: {context['approval'].approval_id + ' by ' + context['approval'].approved_by if context['approved'] else 'Not approved'}",
+         "",
+         "Prepared for internal/client review.",
+         "",
+@@ -102,14 +111,15 @@
+         "",
+         "## 2. Documents reviewed",
+     ]
+-    lines += [f"- {src.filename or src.source_id} ({src.source_category or 'source'}, status: {src.extraction_status or 'Pending Input'})" for src in sources] or ["- Pending Input: no source documents registered."]
++    lines += [f"- {src.filename or src.source_id} ({src.source_category or 'source'}, version: {src.version_number}; extraction: {src.extraction_status or 'Pending Input'}; human review: {src.reviewed_by or 'Pending Input'}; SHA-256: {src.content_sha256 or 'Legacy source - review pending'})" for src in sources] or ["- Pending Input: no source documents registered."]
+     lines += [
+         "",
+         "## 3. Executive bid/no-bid recommendation",
+     ]
+     if rec:
+         lines += [
+-            f"- Recommendation: **{rec.recommendation}**",
++            f"- Provisional opportunity recommendation: **{rec.recommendation}**",
++            f"- Release decision: {'Approved' if context['approved'] else 'Blocked' if context['blockers'] else 'Review / approval pending'}",
+             f"- Score: {rec.total_score}/{rec.max_score} ({rec.percentage}%)",
+             f"- Rationale: {rec.rationale or 'Pending Input'}",
+         ]
+@@ -128,7 +138,7 @@
+         "",
+         "## 6. Key ToR requirements",
+     ]
+-    lines += [f"- [{req.requirement_id}] {req.atomic_requirement_text} | Anchor: {req.canonical_anchor} | Risk: {req.risk_level}" for req in reqs[:30]] or ["- Pending Input: no normalized requirements."]
++    lines += [f"- [{req.requirement_id}] {req.atomic_requirement_text} | Source: {req.source_id} | Page/section: {req.tor_section_page} | Anchor: {req.canonical_anchor} | Review: {'pending' if req.needs_review else 'reviewed'} | Risk: {req.risk_level}" for req in reqs] or ["- Pending Input: no normalized requirements."]
+     lines += [
+         "",
+         "## 7. CV/expert match summary",
+@@ -184,36 +194,55 @@
+         lines.append("- Not activated for this case. For Bangladesh e-GP procurements, review the live tender and current BPPA instructions before submission.")
+     lines += [
+         "",
++        "## 16. Evidence reviews and approval record",
++    ]
++    reviews = session.query(EvidenceReview).filter_by(case_id=case.case_id).order_by(EvidenceReview.id).all()
++    lines += [f"- [{row.evidence_id}] Requirement: {row.requirement_id}; compliance: {row.compliance_id}; state: {row.review_status}; entity: {row.legal_entity}; reviewer: {row.reviewed_by}; expiry: {row.valid_until or row.validity_reason}; source: {row.source_id or 'archived attachment'}; evidence SHA-256: {row.file_sha256 or row.evidence_text_sha256}." for row in reviews] or ["- Pending Input: no attributable evidence reviews recorded."]
++    lines += [
++        "",
+         "Prepared for internal/client review.",
+     ]
+     report = "\n".join(lines)
+     return _remove_prohibited_phrases(report)
+ 
+ 
+-def _record_output(session: Session, case_id: str, output_type: str, path: Path, readiness_label: str) -> OutputPackage:
+-    existing = session.query(OutputPackage).filter(OutputPackage.case_id == case_id, OutputPackage.output_type == output_type).first()
+-    if existing:
+-        existing.file_path = str(path)
+-        existing.readiness_label = readiness_label
+-        existing.verification_status = "not_run"
+-        output = existing
+-    else:
+-        output = OutputPackage(
++def _record_output(session: Session, case_id: str, output_type: str, path: Path, context) -> OutputPackage:
++    from .verification_service import _scan_outputs_for_prohibited_phrases
++
++    try:
++        validate_publication(session, case_id, context)
++        issues = _scan_outputs_for_prohibited_phrases([OutputPackage(output_type=output_type, file_path=str(path))])
++        if issues:
++            raise ValueError("Report content could not pass safety inspection: " + "; ".join(issues))
++    except Exception:
++        quarantine_artifact(path)
++        raise
++    published = path.with_name(path.name.replace(".pending.", "."))
++    path.rename(published)
++    path = published
++    output = OutputPackage(
+             output_id=f"OUT-{uuid4().hex[:10].upper()}",
+             case_id=case_id,
+             output_type=output_type,
+             file_path=str(path),
+-            readiness_label=readiness_label,
+-            verification_status="not_run",
++            readiness_label=context["readiness_label"],
++            verification_status="approved" if context["approved"] else "draft",
++            snapshot_hash=context["snapshot_hash"],
++            approval_id=context["approval"].approval_id if context["approved"] else None,
++            verification_run_id=context["run"].run_id if context["run"] else None,
++            content_sha256=file_hash(path),
+         )
+-        session.add(output)
++    session.add(output)
++    case = session.query(Case).filter_by(case_id=case_id).one()
++    case.readiness_label = context["readiness_label"]
++    case.status = "packaged" if context["readiness_label"] == "EXPORT_READY" else "client_ready" if context["readiness_label"] == "CLIENT_READY" else "blocked" if context["blockers"] else "preliminary"
+     session.flush()
+     return output
+ 
+ 
+ def _remove_prohibited_phrases(text: str) -> str:
++    import re
+     cleaned = text
+     for phrase in PROHIBITED_REPORT_PHRASES:
+-        cleaned = cleaned.replace(phrase, "[removed prohibited claim]")
+-        cleaned = cleaned.replace(phrase.title(), "[removed prohibited claim]")
++        cleaned = re.sub(re.escape(phrase), "[removed prohibited claim]", cleaned, flags=re.IGNORECASE)
+     return cleaned
+--- a/tenderproof/services/source_service.py
++++ b/tenderproof/services/source_service.py
+@@ -1,5 +1,6 @@
+ from pathlib import Path
+ from uuid import uuid4
++import json
+ 
+ from docx import Document
+ from pypdf import PdfReader
+@@ -9,12 +10,24 @@
+ from ..models import Source
+ from .audit_service import log_event
+ from .tor_normalizer import create_gap_for_failed_extraction, normalize_text
++from .decision_service import file_hash, invalidate_case
++
++
++def _version_source(session, source):
++    previous = session.query(Source).filter_by(case_id=source.case_id, filename=source.filename).filter(Source.source_id != source.source_id).order_by(Source.id.desc()).first()
++    source.version_number = ((previous.version_number or 1) + 1) if previous else 1
++    source.supersedes_source_id = previous.source_id if previous else None
++    source.content_sha256 = file_hash(source.file_path) if source.file_path else file_hash(source.text_extract_path)
++    source.text_sha256 = file_hash(source.text_extract_path)
++    invalidate_case(session, source.case_id, f"Registered source version {source.version_number}: {source.source_id}")
+ 
+ 
+ def register_manual_text(session: Session, case_id: str, text: str, filename: str = "manual_tor.txt") -> Source:
+     ensure_directories()
+     source_id = f"SRC-{uuid4().hex[:10].upper()}"
+     extract_path = EXTRACTED_TEXT_DIR / f"{source_id}.txt"
++    raw_path = UPLOADS_DIR / f"{source_id}_raw.txt"
++    raw_path.write_bytes(text.encode("utf-8"))
+     extract_path.write_text(normalize_text(text), encoding="utf-8")
+     source = Source(
+         source_id=source_id,
+@@ -22,14 +35,18 @@
+         filename=filename,
+         file_type="txt",
+         source_category="Manual ToR Text",
+-        file_path="",
++        file_path=str(raw_path),
+         text_extract_path=str(extract_path),
+         extraction_status="extracted" if text.strip() else "empty",
+         notes="Manual ToR text pasted into app.",
++        extraction_coverage_json=json.dumps({"method": "manual", "complete": bool(text.strip()), "items": 1}),
+     )
+     session.add(source)
+     session.flush()
++    _version_source(session, source)
+     log_event(session, case_id, "source.manual_text", f"Registered manual ToR text as {source_id}")
++    if not text.strip():
++        create_gap_for_failed_extraction(session, case_id, source_id, "Manual text is empty.")
+     return source
+ 
+ 
+@@ -39,7 +56,8 @@
+     suffix = Path(uploaded_file.name).suffix.lower()
+     file_path = UPLOADS_DIR / f"{source_id}{suffix}"
+     file_path.write_bytes(uploaded_file.getbuffer())
+-    text, status, notes = extract_text(file_path, progress_callback=progress_callback)
++    coverage = {}
++    text, status, notes = extract_text(file_path, progress_callback=progress_callback, coverage=coverage)
+     extract_path = EXTRACTED_TEXT_DIR / f"{source_id}.txt"
+     extract_path.write_text(text, encoding="utf-8")
+     source = Source(
+@@ -52,42 +70,53 @@
+         text_extract_path=str(extract_path),
+         extraction_status=status,
+         notes=notes,
++        extraction_coverage_json=json.dumps(coverage, sort_keys=True),
+     )
+     session.add(source)
+     session.flush()
++    _version_source(session, source)
+     if status != "extracted":
+         create_gap_for_failed_extraction(session, case_id, source_id, notes)
+     log_event(session, case_id, "source.uploaded", f"Uploaded source {uploaded_file.name}", {"source_id": source_id})
+     return source
+ 
+ 
+-def extract_text(file_path: Path, progress_callback=None) -> tuple[str, str, str]:
++def extract_text(file_path: Path, progress_callback=None, coverage=None) -> tuple[str, str, str]:
++    coverage = coverage if coverage is not None else {}
+     suffix = file_path.suffix.lower()
+     try:
+         if suffix == ".txt":
+-            return normalize_text(file_path.read_text(encoding="utf-8", errors="ignore")), "extracted", "TXT extracted."
++            text = normalize_text(file_path.read_text(encoding="utf-8-sig"))
++            coverage.update(method="text", complete=bool(text))
++            return text, "extracted" if text else "empty", "TXT extracted." if text else "TXT is empty."
+         if suffix == ".docx":
+             doc = Document(str(file_path))
+-            text = "\n".join(p.text for p in doc.paragraphs)
++            text = "\n".join([p.text for p in doc.paragraphs] + [" | ".join(cell.text for cell in row.cells) for table in doc.tables for row in table.rows])
++            coverage.update(method="docx", complete=bool(text.strip()), tables=len(doc.tables), paragraphs=len(doc.paragraphs))
+             return normalize_text(text), "extracted" if text.strip() else "empty", "DOCX extracted."
+         if suffix == ".pdf":
+             reader = PdfReader(str(file_path))
+             pages = [page.extract_text() or "" for page in reader.pages]
+             text = "\n".join(pages)
+-            if sum(len(page.strip()) for page in pages) >= max(40, len(pages) * 20):
++            coverage.update(method="pdf", total_pages=len(pages), text_layer_pages=[i + 1 for i, page in enumerate(pages) if len(page.strip()) >= 20])
++            if pages and all(len(page.strip()) >= 20 for page in pages):
++                coverage.update(complete=True, processed_pages=len(pages), unreadable_pages=[])
+                 return normalize_text(text), "extracted", "PDF extracted with pypdf."
+-            ocr_text, ocr_note = _ocr_pdf(file_path, progress_callback=progress_callback)
++            ocr_text, ocr_note = _ocr_pdf(file_path, progress_callback=progress_callback, coverage=coverage, text_pages=pages)
+             if ocr_text.strip():
+-                status = "extracted" if len(ocr_text.strip()) >= 40 else "partial"
++                status = "extracted" if len(ocr_text.strip()) >= 40 and coverage.get("complete") else "partial"
+                 return normalize_text(ocr_text), status, ocr_note
+             return normalize_text(text), "empty", ocr_note
+         return "", "unsupported", f"Unsupported file type: {suffix}"
+     except Exception as exc:
++        coverage.update(complete=False, error=type(exc).__name__)
+         return "", "failed", str(exc)
+ 
+ 
+-def _ocr_pdf(file_path: Path, progress_callback=None, max_pages: int = 200) -> tuple[str, str]:
++def _ocr_pdf(file_path: Path, progress_callback=None, max_pages: int = 200, coverage=None, text_pages=None) -> tuple[str, str]:
+     """OCR image-only PDFs when the optional local OCR dependencies are installed."""
++    coverage = coverage if coverage is not None else {}
++    coverage.update(method="pdf_mixed_ocr", complete=False)
+     try:
+         import numpy as np
+         import pypdfium2 as pdfium
+@@ -100,19 +129,32 @@
+         document = pdfium.PdfDocument(str(file_path))
+         page_limit = min(len(document), max_pages)
+         output = []
++        unreadable = []
+         for index in range(page_limit):
+-            image = document[index].render(scale=2).to_pil()
+-            result = engine(np.asarray(image.convert("RGB")))
+-            page_text = "\n".join(text for text in (result.txts or []) if str(text).strip())
++            if text_pages and len(text_pages[index].strip()) >= 20:
++                page_text = text_pages[index]
++            else:
++                image = document[index].render(scale=2).to_pil()
++                result = engine(np.asarray(image.convert("RGB")))
++                page_text = "\n".join(text for text in (result.txts or []) if str(text).strip())
+             if page_text:
+                 output.append(f"[OCR page {index + 1}]\n{page_text}")
++            else:
++                unreadable.append(index + 1)
+             if progress_callback:
+                 progress_callback(index + 1, page_limit)
++        coverage.update(total_pages=len(document), processed_pages=page_limit, unreadable_pages=unreadable, complete=page_limit == len(document) and not unreadable and bool(output))
++        total_pages = len(document)
++        close = getattr(document, "close", None)
++        if close:
++            close()
+         if not output:
+             return "", "OCR ran but found no readable text in the scanned PDF."
+         note = "Scanned PDF processed with local RapidOCR. Review extracted text against the source."
+-        if len(document) > page_limit:
+-            note += f" OCR limited to first {page_limit} of {len(document)} pages."
++        if total_pages > page_limit:
++            note += f" OCR limited to first {page_limit} of {total_pages} pages."
++        if unreadable:
++            note += f" OCR unreadable pages: {unreadable}."
+         return "\n\n".join(output), note
+     except Exception as exc:
+         return "", f"OCR failed: {exc}"
+--- a/tenderproof/services/verification_service.py
++++ b/tenderproof/services/verification_service.py
+@@ -1,5 +1,6 @@
+ from pathlib import Path
+ from uuid import uuid4
++import json
+ 
+ from docx import Document
+ from sqlalchemy.orm import Session
+@@ -17,13 +18,15 @@
+     RiskRegister,
+     Source,
+     VerificationResult,
++    VerificationRun,
+ )
+ from ..schemas import RuleResult, VerificationSummary
+ from .audit_service import log_event
++from .decision_service import current_approval, evidence_review_problem, latest_evidence_review, mandatory_state, output_is_current, policy_assessment, snapshot_data, snapshot_hash
+ 
+ 
+ def run_verification(session: Session, case_id: str) -> VerificationSummary:
+-    session.query(VerificationResult).filter(VerificationResult.case_id == case_id).delete()
++    session.flush()
+     results: list[RuleResult] = []
+ 
+     case = session.query(Case).filter(Case.case_id == case_id).first()
+@@ -56,6 +59,10 @@
+     no_evidence_failures = []
+     for req in reqs:
+         row = comp_by_req.get(req.requirement_id)
++        if row and row.status == "Not Applicable":
++            review = latest_evidence_review(session, row)
++            if review and review.review_status == "not_applicable" and not evidence_review_problem(session, case, row, review):
++                continue
+         if req.mandatory and row and not (row.available_evidence or "").strip() and row.status not in {"Gap", "Pending Input"}:
+             no_evidence_failures.append(req.requirement_id)
+     _add(results, "COMP-002", "Mandatory requirements without evidence are gaps or pending", not no_evidence_failures, "blocker", "Mandatory missing evidence is correctly marked.")
+@@ -63,7 +70,9 @@
+     bad_cv = [cv.expert_match_id for cv in cvs if not (cv.cv_evidence or "").strip() and (cv.match_score_1_to_5 or 0) >= 4]
+     _add(results, "CV-001", "CV evidence is not invented", not bad_cv, "blocker", "No high CV scores without evidence." if not bad_cv else f"High CV score without evidence: {', '.join(bad_cv)}")
+ 
+-    high_gap_req_ids = {g.related_requirement_id for g in gaps if "high" in (g.gap_type or "").lower() or "critical" in (g.gap_type or "").lower()}
++    high_req_ids = {r.requirement_id for r in reqs if r.risk_level in {"high", "critical"}}
++    high_req_ids |= {c.requirement_id for c in comp if c.risk_level in {"high", "critical"}}
++    high_gap_req_ids = {g.related_requirement_id for g in gaps if g.status != "closed" and (g.related_requirement_id in high_req_ids or "high" in (g.gap_type or "").lower() or "critical" in (g.gap_type or "").lower())}
+     risk_req_ids = {r.source_requirement_id for r in risks if r.source_requirement_id}
+     _add(results, "RISK-001", "High or critical gaps appear in risk register", high_gap_req_ids.issubset(risk_req_ids), "warning", "High/critical gaps are reflected in risk register.")
+ 
+@@ -76,10 +85,24 @@
+     _add(results, "EXP-001", "Diagnostic report exists before export-ready", has_report or case.readiness_label not in {"CLIENT_READY", "EXPORT_READY"}, "blocker", "Diagnostic report exists." if has_report else "Diagnostic report missing.")
+     _add(results, "EXP-002", "Excel export exists before export-ready", has_excel or case.readiness_label != "EXPORT_READY", "blocker", "Excel export exists." if has_excel else "Excel export missing.")
+ 
+-    prohibited = _scan_outputs_for_prohibited_phrases(outputs)
++    fingerprint = snapshot_hash(session, case_id)
++    relevant_outputs = [o for o in outputs if o.verification_status != "stale" and o.snapshot_hash in {None, fingerprint}]
++    prohibited = _scan_outputs_for_prohibited_phrases(relevant_outputs)
+     _add(results, "SAFE-001", "Report avoids prohibited claims", not prohibited, "blocker", "No prohibited guarantee claims found." if not prohibited else f"Prohibited phrases found: {', '.join(prohibited)}")
+ 
+-    readiness = _compute_readiness(results, has_report, has_excel)
++    policy = policy_assessment(session, case_id)
++    _add(results, "ELIG-001", "Mandatory requirements reviewed and resolved", mandatory_state(session, case_id) in {"PASS", "NOT_APPLICABLE"}, "blocker", "Mandatory requirements need reviewed evidence or an attributable source-based exclusion.")
++    for code, message in policy["blockers"]:
++        if code != "ELIG-001":
++            _add(results, code, "Release policy", False, "blocker", message)
++    for code, message in policy["warnings"]:
++        _add(results, code, "Pending human review", False, "warning", message)
++    approval = current_approval(session, case_id, fingerprint)
++    _add(results, "APP-001", "Current human approval", bool(approval), "warning", "Current snapshot has an approval." if approval else "A named human approval is required before client-ready release.")
++    current_outputs = [o for o in outputs if output_is_current(o, fingerprint, approval)]
++    has_report = any(o.output_type in {"markdown_report", "docx_report"} for o in current_outputs)
++    has_excel = any(o.output_type == "excel_export" for o in current_outputs)
++    readiness = _compute_readiness(results, has_report, has_excel, approved=bool(approval))
+     _add(results, "LABEL-001", "Readiness label matches verification outcome", True, "info", f"Readiness label set to {readiness}.")
+     case.readiness_label = readiness
+     if readiness == "BLOCKED":
+@@ -88,7 +111,8 @@
+         case.status = "preliminary"
+     elif readiness in {"CLIENT_READY", "EXPORT_READY"}:
+         case.status = "client_ready" if readiness == "CLIENT_READY" else "packaged"
+-    summary = _store_and_return(session, case_id, case, results, readiness)
++    summary = _store_and_return(session, case_id, case, results, readiness, fingerprint)
++    summary.quality_metrics["eligibility"] = policy["eligibility"]
+     log_event(session, case_id, "verification.run", f"Verification {summary.overall_status}; readiness {summary.readiness_label}")
+     return summary
+ 
+@@ -105,12 +129,15 @@
+     results.append(RuleResult(code, name, status, sev, message, blocker))
+ 
+ 
+-def _store_and_return(session: Session, case_id: str, case: Case | None, results: list[RuleResult], readiness: str | None = None) -> VerificationSummary:
++def _store_and_return(session: Session, case_id: str, case: Case | None, results: list[RuleResult], readiness: str | None = None, fingerprint: str | None = None) -> VerificationSummary:
+     blockers = [r for r in results if r.blocker and r.status != "passed"]
+     warnings = [r for r in results if r.status == "warning"]
+     readiness_label = readiness or ("BLOCKED" if blockers else "PRELIMINARY" if warnings else "CLIENT_READY")
+     overall = "failed" if blockers else "warning" if warnings else "passed"
+-    for result in results:
++    run_id = f"RUN-{uuid4().hex[:12].upper()}" if case else None
++    if case:
++        session.add(VerificationRun(run_id=run_id, case_id=case_id, snapshot_hash=fingerprint or snapshot_hash(session, case_id), snapshot_json=json.dumps(snapshot_data(session, case_id), sort_keys=True, default=str), technical_passed=all(r.status == "passed" for r in results if r.rule_code not in {"APP-001", "LABEL-001"}), overall_status=overall, readiness_label=readiness_label))
++    for result in results if case else []:
+         session.add(
+             VerificationResult(
+                 verification_id=f"VER-{uuid4().hex[:10].upper()}",
+@@ -121,6 +148,7 @@
+                 severity=result.severity,
+                 message=result.message,
+                 blocker=result.blocker,
++                run_id=run_id,
+             )
+         )
+     metrics = {
+@@ -128,22 +156,24 @@
+         "blockers": len(blockers),
+         "warnings": len(warnings),
+         "case_status": case.status if case else "missing",
++        "run_id": run_id,
++        "snapshot_hash": fingerprint,
+     }
+     session.flush()
+     return VerificationSummary(overall, blockers, warnings, readiness_label, results, metrics)
+ 
+ 
+-def _compute_readiness(results: list[RuleResult], has_report: bool, has_excel: bool) -> str:
++def _compute_readiness(results: list[RuleResult], has_report: bool, has_excel: bool, approved: bool = False) -> str:
+     blockers = [r for r in results if r.blocker and r.status != "passed"]
+     warnings = [r for r in results if r.status == "warning"]
+     if blockers:
+         return "BLOCKED"
++    if warnings or not approved:
++        return "PRELIMINARY"
+     if has_report and has_excel:
+         return "EXPORT_READY"
+     if has_report:
+         return "CLIENT_READY"
+-    if warnings:
+-        return "PRELIMINARY"
+     return "PRELIMINARY"
+ 
+ 
+@@ -151,16 +181,28 @@
+     found = set()
+     for output in outputs:
+         path = Path(output.file_path)
+-        if not path.exists() or output.output_type not in {"markdown_report", "docx_report"}:
++        if output.output_type not in {"markdown_report", "docx_report"}:
++            continue
++        if not path.is_file():
++            found.add(f"Missing report: {path.name}")
+             continue
+         text = ""
+         try:
+             if path.suffix.lower() == ".md":
+-                text = path.read_text(encoding="utf-8", errors="ignore")
++                text = path.read_text(encoding="utf-8")
+             elif path.suffix.lower() == ".docx":
+                 doc = Document(str(path))
+-                text = "\n".join(p.text for p in doc.paragraphs)
++                chunks = [p.text for p in doc.paragraphs]
++                chunks += [cell.text for table in doc.tables for row in table.rows for cell in row.cells]
++                for section in doc.sections:
++                    for part in (section.header, section.footer, section.first_page_header, section.first_page_footer, section.even_page_header, section.even_page_footer):
++                        chunks += [p.text for p in part.paragraphs]
++                        chunks += [cell.text for table in part.tables for row in table.rows for cell in row.cells]
++                text = "\n".join(chunks)
++            else:
++                raise ValueError("Unsupported report format")
+         except Exception:
++            found.add(f"Unreadable report: {path.name}")
+             continue
+         lower = text.lower()
+         for phrase in PROHIBITED_REPORT_PHRASES:
+--- a/tenderproof/services/workflow_service.py
++++ b/tenderproof/services/workflow_service.py
+@@ -15,6 +15,7 @@
+     Source,
+     VerificationResult,
+ )
++from .decision_service import output_is_current, release_context
+ 
+ 
+ def build_workflow_steps(session: Session, case: Case) -> list[dict[str, str | bool]]:
+@@ -28,7 +29,10 @@
+     outputs = session.query(OutputPackage).filter_by(case_id=case.case_id).all()
+     report = any(o.output_type in {"markdown_report", "docx_report"} and Path(o.file_path).exists() for o in outputs)
+     excel = any(o.output_type == "excel_export" and Path(o.file_path).exists() for o in outputs)
+-    verified = session.query(VerificationResult).filter_by(case_id=case.case_id).count() > 0
++    context = release_context(session, case.case_id)
++    report = bool(context["approved"] and any(o.output_type in {"markdown_report", "docx_report"} and output_is_current(o, context["snapshot_hash"], context["approval"]) for o in outputs))
++    excel = bool(context["approved"] and any(o.output_type == "excel_export" and output_is_current(o, context["snapshot_hash"], context["approval"]) for o in outputs))
++    verified = bool(context["approved"] and context["run"] and context["run"].technical_passed)
+     steps = [
+         _step("Register ToR/source", bool(sources), "Upload / Register Inputs", "Add a source document or paste ToR text."),
+         _step("Extract requirements", requirements > 0, "ToR Extraction", "Normalize ToR clauses and review source anchors."),
+--- a/tenderproof/ui/bid_scorecard.py
++++ b/tenderproof/ui/bid_scorecard.py
+@@ -1,6 +1,7 @@
+ import streamlit as st
+ 
+ from ..services.bid_score_service import ensure_scorecard_categories, latest_recommendation, save_scores_and_recommendation
++from ..services.decision_service import release_context
+ from .helpers import require_case, show_table
+ 
+ 
+@@ -28,7 +29,12 @@
+ 
+     rec = latest_recommendation(session, case.case_id)
+     if rec:
+-        st.metric("Latest recommendation", rec.recommendation, f"{rec.percentage}%")
++        context = release_context(session, case.case_id)
++        a, b, c = st.columns(3)
++        a.metric("Opportunity score", f"{rec.percentage}%")
++        b.metric("Mandatory eligibility", context["eligibility"])
++        c.metric("Release clearance", "Approved" if context["approved"] else "Pending / blocked")
++        st.write(f"Provisional opportunity recommendation: {rec.recommendation}")
+     st.markdown("### Scorecard rows")
+     show_table(rows, "No score rows.")
+ 
+--- a/tenderproof/ui/cases.py
++++ b/tenderproof/ui/cases.py
+@@ -58,7 +58,8 @@
+                 country = col2.text_input("Country", case.country or "")
+                 sector = col1.text_input("Sector", case.sector or "")
+                 deadline = col2.text_input("Submission deadline", case.submission_deadline or "")
+-                status = col1.selectbox("Status", CASE_STATUSES, index=CASE_STATUSES.index(case.status) if case.status in CASE_STATUSES else 0)
++                editable_statuses = [value for value in CASE_STATUSES if value not in {"client_ready", "packaged"}]
++                status = col1.selectbox("Status", editable_statuses, index=editable_statuses.index(case.status) if case.status in editable_statuses else 0)
+                 payment = col2.text_input("Payment status", case.payment_status or "")
+                 if st.form_submit_button("Save case changes"):
+                     update_case(session, case.case_id, client_name=client_name, tender_title=tender_title, donor_client=donor_client, country=country, sector=sector, submission_deadline=deadline, status=status, payment_status=payment)
+--- a/tenderproof/ui/exports.py
++++ b/tenderproof/ui/exports.py
+@@ -1,8 +1,10 @@
+ import streamlit as st
++from pathlib import Path
+ 
+ from ..models import OutputPackage
+ from ..services.export_service import REQUIRED_SHEETS, export_case_to_excel
+-from .helpers import require_case, show_table
++from ..services.decision_service import file_hash, output_is_current, release_context
++from .helpers import require_case, rows_to_df
+ 
+ 
+ def render(session) -> None:
+@@ -10,12 +12,21 @@
+     case = require_case(session)
+     if not case:
+         return
+-    st.markdown("Workbook sheets: " + ", ".join(REQUIRED_SHEETS))
++    context = release_context(session, case.case_id)
++    st.write(f"Current release: {context['readiness_label']}")
+     if st.button("Generate Excel workbook", type="primary"):
+         path = export_case_to_excel(session, case.case_id)
+         session.commit()
+         st.success(f"Excel workbook generated: {path}")
+         st.rerun()
+     outputs = session.query(OutputPackage).filter(OutputPackage.case_id == case.case_id, OutputPackage.output_type == "excel_export").all()
+-    show_table(outputs, "No Excel exports yet.")
++    if outputs:
++        table = rows_to_df(outputs).drop(columns=["readiness_label", "verification_status"])
++        table["current_release"] = [o.readiness_label if context["approved"] and output_is_current(o, context["snapshot_hash"], context["approval"]) else "DRAFT / HISTORICAL" for o in outputs]
++        st.dataframe(table, hide_index=True)
++    for output in outputs:
++        path = Path(output.file_path)
++        if path.is_file():
++            current = context["approved"] and output_is_current(output, context["snapshot_hash"], context["approval"])
++            st.download_button(f"Download workbook / {output.output_id}", path.read_bytes(), file_name=path.name, mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", key=f"xlsx_{output.output_id}", disabled=not output.content_sha256 or file_hash(path) != output.content_sha256 or (bool(output.approval_id or output.readiness_label in {"CLIENT_READY", "EXPORT_READY"}) and not current))
+ 
+--- a/tenderproof/ui/helpers.py
++++ b/tenderproof/ui/helpers.py
+@@ -3,6 +3,7 @@
+ 
+ from ..models import Case
+ from ..services.case_service import get_case, list_cases
++from ..services.decision_service import release_context
+ 
+ 
+ def active_case_id() -> str | None:
+@@ -22,7 +23,8 @@
+     if not case:
+         st.warning("Create or open a diagnostic case first.")
+         return None
+-    st.caption(f"Active case: {case.case_id} | {case.client_name or 'Client pending'} | {case.readiness_label}")
++    context = release_context(session, case.case_id)
++    st.caption(f"Active case: {case.case_id} | {case.client_name or 'Client pending'} | {context['readiness_label']}")
+     return case
+ 
+ 
+--- a/tenderproof/ui/home.py
++++ b/tenderproof/ui/home.py
+@@ -2,6 +2,7 @@
+ 
+ from ..models import AuditEvent, Case, GapItem, Source
+ from ..services.sample_data_service import create_demo_case
++from ..services.decision_service import release_context
+ from .helpers import case_selector, rows_to_df, set_active_case
+ 
+ 
+@@ -12,7 +13,7 @@
+     total_cases = session.query(Case).count()
+     open_gaps = session.query(GapItem).filter(GapItem.status != "closed").count()
+     sources = session.query(Source).count()
+-    packaged = session.query(Case).filter(Case.readiness_label == "EXPORT_READY").count()
++    packaged = sum(release_context(session, row.case_id)["readiness_label"] == "EXPORT_READY" for row in session.query(Case).all())
+     col1.metric("Cases", total_cases)
+     col2.metric("Open gaps", open_gaps)
+     col3.metric("Sources", sources)
+@@ -33,7 +34,9 @@
+         st.markdown("### Upcoming deadlines")
+         rows = session.query(Case).filter(Case.submission_deadline != "").order_by(Case.submission_deadline.asc()).limit(10).all()
+         if rows:
+-            st.dataframe(rows_to_df(rows)[["case_id", "client_name", "tender_title", "submission_deadline", "readiness_label"]], use_container_width=True, hide_index=True)
++            table = rows_to_df(rows)[["case_id", "client_name", "tender_title", "submission_deadline", "readiness_label"]]
++            table["readiness_label"] = [release_context(session, row.case_id)["readiness_label"] for row in rows]
++            st.dataframe(table, use_container_width=True, hide_index=True)
+         else:
+             st.info("No deadlines recorded.")
+ 
+--- a/tenderproof/ui/report_generator.py
++++ b/tenderproof/ui/report_generator.py
+@@ -4,7 +4,8 @@
+ 
+ from ..models import OutputPackage
+ from ..services.report_service import generate_docx_report, generate_markdown_report
+-from .helpers import require_case, show_table
++from ..services.decision_service import file_hash, output_is_current, release_context
++from .helpers import require_case, rows_to_df
+ 
+ 
+ def render(session) -> None:
+@@ -12,6 +13,8 @@
+     case = require_case(session)
+     if not case:
+         return
++    context = release_context(session, case.case_id)
++    st.write(f"Current release: {context['readiness_label']}")
+     col1, col2 = st.columns(2)
+     if col1.button("Generate Markdown report", type="primary"):
+         path = generate_markdown_report(session, case.case_id)
+@@ -25,18 +28,22 @@
+         st.rerun()
+ 
+     outputs = session.query(OutputPackage).filter(OutputPackage.case_id == case.case_id, OutputPackage.output_type.in_(["markdown_report", "docx_report"])).order_by(OutputPackage.created_at.desc()).all()
+-    show_table(outputs, "No reports generated yet.")
++    if outputs:
++        table = rows_to_df(outputs).drop(columns=["readiness_label", "verification_status"])
++        table["current_release"] = [o.readiness_label if output_is_current(o, context["snapshot_hash"], context["approval"]) and context["approved"] else "DRAFT / HISTORICAL" for o in outputs]
++        st.dataframe(table, hide_index=True)
+     for output in outputs:
+         path = Path(output.file_path)
+         if path.exists():
+             st.download_button(
+-                f"Download {output.output_type.replace('_', ' ').title()}",
++                f"Download {output.output_type.replace('_', ' ').title()} / {output.output_id}",
+                 data=path.read_bytes(),
+                 file_name=path.name,
+                 mime="text/markdown" if path.suffix == ".md" else "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                 key=f"download_{output.output_id}",
++                disabled=not output.content_sha256 or file_hash(path) != output.content_sha256 or (bool(output.readiness_label in {"CLIENT_READY", "EXPORT_READY"} or output.approval_id) and not (context["approved"] and output_is_current(output, context["snapshot_hash"], context["approval"]))),
+             )
+-    md = next((o for o in outputs if o.output_type == "markdown_report" and Path(o.file_path).exists()), None)
++    md = next((o for o in outputs if o.output_type == "markdown_report" and o.snapshot_hash == context["snapshot_hash"] and o.verification_status != "stale" and o.content_sha256 and file_hash(o.file_path) == o.content_sha256 and (not o.approval_id or (context["approved"] and output_is_current(o, context["snapshot_hash"], context["approval"])))), None)
+     if md:
+         st.markdown("### Markdown preview")
+         st.markdown(Path(md.file_path).read_text(encoding="utf-8", errors="ignore"))
+--- a/tenderproof/ui/tor_extraction.py
++++ b/tenderproof/ui/tor_extraction.py
+@@ -25,6 +25,7 @@
+     with st.expander("Add requirement manually", expanded=False):
+         with st.form("manual_req"):
+             text = st.text_area("Atomic requirement text")
++            manual_source = st.selectbox("Requirement source", [s.source_id for s in sources] or ["MANUAL"])
+             col1, col2, col3 = st.columns(3)
+             category = col1.text_input("Category", "technical requirement")
+             section = col2.text_input("ToR section/page", "manual")
+@@ -32,7 +33,7 @@
+             mandatory = st.checkbox("Mandatory", value=True)
+             evidence = st.text_area("Evidence needed")
+             if st.form_submit_button("Add manual requirement"):
+-                add_manual_requirement(session, case.case_id, requirement_text=text, requirement_category=category, tor_section_page=section, mandatory=mandatory, evidence_needed=evidence, risk_level=risk)
++                add_manual_requirement(session, case.case_id, source_id=manual_source, requirement_text=text, requirement_category=category, tor_section_page=section, mandatory=mandatory, evidence_needed=evidence, risk_level=risk)
+                 session.commit()
+                 st.success("Requirement added.")
+                 st.rerun()
+@@ -44,7 +45,10 @@
+             requirement_id = st.selectbox("Requirement", [r.requirement_id for r in rows], format_func=lambda rid: f"{rid} - {next(r.atomic_requirement_text[:80] for r in rows if r.requirement_id == rid)}")
+             req = next(r for r in rows if r.requirement_id == requirement_id)
+             with st.form("edit_requirement"):
++                st.text_area("Original source quotation", req.requirement_text, disabled=True)
+                 text = st.text_area("Atomic requirement text", req.atomic_requirement_text or req.requirement_text)
++                source_options = list(dict.fromkeys([req.source_id or "MANUAL"] + [s.source_id for s in sources]))
++                edit_source = st.selectbox("Linked source", source_options)
+                 col1, col2, col3 = st.columns(3)
+                 category = col1.text_input("Category", req.requirement_category or "")
+                 section = col2.text_input("ToR section/page", req.tor_section_page or "")
+@@ -55,7 +59,7 @@
+                 proposal_section = st.text_input("Proposal section affected", req.proposal_section_affected or "")
+                 notes = st.text_area("Notes", req.notes or "")
+                 if st.form_submit_button("Save requirement changes"):
+-                    update_requirement(session, requirement_id, atomic_requirement_text=text, requirement_text=text, requirement_category=category, tor_section_page=section, risk_level=risk, mandatory=mandatory, needs_review=needs_review, evidence_needed=evidence, proposal_section_affected=proposal_section, notes=notes)
++                    update_requirement(session, requirement_id, source_id=edit_source, atomic_requirement_text=text, requirement_category=category, tor_section_page=section, risk_level=risk, mandatory=mandatory, needs_review=needs_review, evidence_needed=evidence, proposal_section_affected=proposal_section, notes=notes)
+                     session.commit()
+                     st.success("Requirement updated; match_key recalculated.")
+                     st.rerun()
+--- a/tenderproof/ui/verification.py
++++ b/tenderproof/ui/verification.py
+@@ -1,8 +1,10 @@
+ import streamlit as st
+ 
+-from ..models import AuditEvent, VerificationResult
++from ..models import AuditEvent, ComplianceLedger, DecisionApproval, EvidenceReview, VerificationResult, VerificationRun
++from ..services.approval_service import approve_case, record_evidence_review, review_source, revoke_approval
++from ..services.decision_service import active_sources, release_context
+ from ..services.verification_service import run_verification
+-from .helpers import require_case, rows_to_df, show_table
++from .helpers import require_case, show_table
+ 
+ 
+ def render(session) -> None:
+@@ -10,22 +12,97 @@
+     case = require_case(session)
+     if not case:
+         return
+-    if st.button("Run verification", type="primary"):
+-        summary = run_verification(session, case.case_id)
+-        session.commit()
+-        st.success(f"Verification: {summary.overall_status}; readiness: {summary.readiness_label}")
+-        st.rerun()
+-    results = session.query(VerificationResult).filter(VerificationResult.case_id == case.case_id).order_by(VerificationResult.id).all()
+-    if results:
+-        blockers = [r for r in results if r.blocker and r.status != "passed"]
+-        warnings = [r for r in results if r.status == "warning"]
+-        col1, col2, col3 = st.columns(3)
+-        col1.metric("Blockers", len(blockers))
+-        col2.metric("Warnings", len(warnings))
+-        col3.metric("Readiness", case.readiness_label)
+-    st.markdown("### Verification results")
+-    show_table(results, "No verification run yet.")
+-    st.markdown("### Audit events")
+-    events = session.query(AuditEvent).filter(AuditEvent.case_id == case.case_id).order_by(AuditEvent.created_at.desc()).limit(100).all()
+-    show_table(events, "No audit events for this case.")
++    context = release_context(session, case.case_id)
++    a, b, c = st.columns(3)
++    a.metric("Eligibility", context["eligibility"])
++    b.metric("Release", context["readiness_label"])
++    c.metric("Approval", "Current" if context["approved"] else "Pending / stale")
++    st.caption(f"Assessment {context['snapshot_hash'][:16]}")
++    checks, sources, evidence, approvals, history = st.tabs(["Current checks", "Source reviews", "Evidence reviews", "Human approval", "History"])
++    with checks:
++        if st.button("Run verification", type="primary"):
++            run_verification(session, case.case_id)
++            session.commit()
++            st.rerun()
++        latest = session.query(VerificationRun).filter_by(case_id=case.case_id).order_by(VerificationRun.id.desc()).first()
++        if latest:
++            if latest.snapshot_hash != context["snapshot_hash"]:
++                st.warning("Verification is stale.")
++            show_table(session.query(VerificationResult).filter_by(case_id=case.case_id, run_id=latest.run_id).order_by(VerificationResult.id).all())
++        else:
++            st.info("Verification pending.")
++    with sources:
++        source_items = active_sources(session, case.case_id)
++        show_table(source_items, "No source registered.")
++        if source_items:
++            with st.form("source_review"):
++                source_id = st.selectbox("Source version", [s.source_id for s in source_items], format_func=lambda sid: next(f"{s.filename} / v{s.version_number}" for s in source_items if s.source_id == sid))
++                reviewer = st.text_input("Source reviewer")
++                notes = st.text_area("Source review rationale")
++                complete = st.checkbox("All applicable clauses captured and reviewed")
++                if st.form_submit_button("Record source review"):
++                    try:
++                        review_source(session, case.case_id, source_id, reviewer=reviewer, notes=notes, requirements_complete=complete)
++                        session.commit()
++                        st.rerun()
++                    except ValueError as exc:
++                        st.error(str(exc))
++    with evidence:
++        rows = session.query(ComplianceLedger).filter_by(case_id=case.case_id).all()
++        source_rows = active_sources(session, case.case_id)
++        if rows and source_rows:
++            with st.form("evidence_review"):
++                compliance_id = st.selectbox("Compliance evidence", [r.compliance_id for r in rows], format_func=lambda cid: next(f"{r.requirement_id} / {r.status}" for r in rows if r.compliance_id == cid))
++                source_id = st.selectbox("Supporting source", [s.source_id for s in source_rows], format_func=lambda sid: next(f"{s.filename} / v{s.version_number}" for s in source_rows if s.source_id == sid))
++                legal_entity = st.text_input("Evidence legal entity", case.organization or case.client_name or "")
++                reviewer = st.text_input("Evidence reviewer")
++                status = st.selectbox("Evidence review result", ["pending", "verified", "failed", "not_applicable"])
++                c1, c2 = st.columns(2)
++                valid_from = c1.date_input("Valid from", value=None)
++                valid_until = c2.date_input("Valid until", value=None)
++                validity_reason = st.text_input("Reason expiry does not apply")
++                notes = st.text_area("Evidence review rationale")
++                if st.form_submit_button("Record evidence review"):
++                    try:
++                        record_evidence_review(session, case.case_id, compliance_id, reviewer=reviewer, notes=notes, legal_entity=legal_entity, source_id=source_id, valid_from=valid_from.isoformat() if valid_from else None, valid_until=valid_until.isoformat() if valid_until else None, validity_reason=validity_reason, review_status=status)
++                        session.commit()
++                        st.rerun()
++                    except ValueError as exc:
++                        st.error(str(exc))
++        show_table(session.query(EvidenceReview).filter_by(case_id=case.case_id).order_by(EvidenceReview.id.desc()).all(), "No evidence reviews.")
++    with approvals:
++        with st.form("human_approval"):
++            reviewer = st.text_input("Approver name")
++            rationale = st.text_area("Approval rationale")
++            confirmed = st.checkbox("I approve the current evidence snapshot")
++            if st.form_submit_button("Approve current assessment", type="primary"):
++                try:
++                    if not confirmed:
++                        raise ValueError("Confirm the current assessment before approving.")
++                    approve_case(session, case.case_id, reviewer=reviewer, rationale=rationale)
++                    session.commit()
++                    st.rerun()
++                except ValueError as exc:
++                    st.error(str(exc))
++        approvals_rows = session.query(DecisionApproval).filter_by(case_id=case.case_id).order_by(DecisionApproval.id.desc()).all()
++        show_table(approvals_rows, "No recorded approvals.")
++        active = [a for a in approvals_rows if a.revoked_at is None]
++        if active:
++            with st.expander("Revoke approval"):
++                with st.form("revoke_approval"):
++                    selected = st.selectbox("Approval", [a.approval_id for a in active])
++                    who = st.text_input("Revoking reviewer")
++                    reason = st.text_area("Revocation reason")
++                    if st.form_submit_button("Revoke selected approval"):
++                        try:
++                            revoke_approval(session, case.case_id, selected, reviewer=who, reason=reason)
++                            session.commit()
++                            st.rerun()
++                        except ValueError as exc:
++                            st.error(str(exc))
++    with history:
++        st.subheader("Verification history")
++        show_table(session.query(VerificationRun).filter_by(case_id=case.case_id).order_by(VerificationRun.id.desc()).all(), "No historical runs.")
++        st.subheader("Audit events")
++        show_table(session.query(AuditEvent).filter_by(case_id=case.case_id).order_by(AuditEvent.created_at.desc()).limit(100).all(), "No audit events.")
+ 
+--- a/tests/conftest.py
++++ b/tests/conftest.py
+@@ -1,7 +1,12 @@
+ import sys
++import os
++import tempfile
+ from pathlib import Path
+ 
+ import pytest
++
++_runtime = tempfile.TemporaryDirectory(prefix="tenderproof_test_runtime_")
++os.environ["TENDERPROOF_RUNTIME_ROOT"] = _runtime.name
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+ if str(ROOT) not in sys.path:
+@@ -23,4 +28,5 @@
+         session.commit()
+     finally:
+         session.close()
++        engine.dispose()
+ 
+--- a/tests/test_release_011.py
++++ b/tests/test_release_011.py
+@@ -0,0 +1,123 @@
++from uuid import uuid4
++
++import pytest
++
++from tenderproof.constants import REQUIRED_BID_CATEGORIES
++from tenderproof.models import (
++    Case, ComplianceLedger, NormalizedRequirement
++)
++from tenderproof.services.bid_score_service import (
++    save_scores_and_recommendation
++)
++from tenderproof.services.source_service import register_manual_text
++from tenderproof.services.verification_service import run_verification
++
++
++def case_with_requirement(session, status, evidence="", reviewed=True):
++    suffix = uuid4().hex[:10]
++    cid = "PG-011-" + suffix
++
++    case = Case(
++        case_id=cid,
++        tender_title="Synthetic Tender",
++        client_name="Synthetic Client",
++    )
++
++    req = NormalizedRequirement(
++        requirement_id="REQ-" + suffix,
++        case_id=cid,
++        source_id="SRC-TEST",
++        requirement_text="A valid license is mandatory.",
++        atomic_requirement_text="A valid license is mandatory.",
++        mandatory=True,
++        needs_review=not reviewed,
++        match_key="MATCH-" + suffix,
++        canonical_anchor="SRC-TEST:1",
++    )
++
++    row = ComplianceLedger(
++        compliance_id="COMP-" + suffix,
++        requirement_id=req.requirement_id,
++        case_id=cid,
++        status=status,
++        available_evidence=evidence,
++    )
++
++    session.add_all([case, req, row])
++    session.flush()
++    return case
++
++
++def score_all(session, case):
++    scores = {
++        category: {
++            "score": 5,
++            "rationale": "Synthetic test",
++            "evidence_or_gap_reference": "TEST",
++        }
++        for category in REQUIRED_BID_CATEGORIES
++    }
++    return save_scores_and_recommendation(
++        session, case.case_id, scores
++    )
++
++
++@pytest.mark.parametrize("status", ["Gap", "Pending Input"])
++def test_unresolved_mandatory_never_pursue(session, status):
++    case = case_with_requirement(session, status)
++    rec = score_all(session, case)
++    assert rec.recommendation not in {
++        "Pursue", "Pursue with partner",
++        "Pursue only as sub-consultant"
++    }
++
++
++def test_unreviewed_requirement_blocks_positive_rec(session):
++    case = case_with_requirement(
++        session, "Met", "Synthetic evidence", reviewed=False
++    )
++    rec = score_all(session, case)
++    assert rec.recommendation == "Pending input"
++
++
++def test_valid_record_can_receive_positive_score(session):
++    case = case_with_requirement(
++        session, "Met", "Synthetic evidence", reviewed=True
++    )
++    rec = score_all(session, case)
++    assert rec.recommendation == "Pursue"
++
++
++def test_mandatory_gap_blocks_verification(session):
++    case = case_with_requirement(session, "Gap")
++    score_all(session, case)
++    result = run_verification(session, case.case_id)
++    assert result.readiness_label == "BLOCKED"
++    assert any(
++        rule.rule_code == "ELIG-001" and rule.blocker
++        for rule in result.rule_results
++    )
++
++
++def test_unreviewed_requirement_blocks_verification(session):
++    case = case_with_requirement(
++        session, "Met", "Synthetic evidence", reviewed=False
++    )
++    score_all(session, case)
++    result = run_verification(session, case.case_id)
++    assert result.readiness_label == "BLOCKED"
++
++
++def test_new_source_invalidates_readiness(session):
++    case = case_with_requirement(session, "Met", "Evidence")
++    case.readiness_label = "CLIENT_READY"
++    session.flush()
++
++    register_manual_text(
++        session,
++        case.case_id,
++        "Amendment: new mandatory financial requirement.",
++        filename="amendment.txt",
++    )
++
++    assert case.readiness_label == "DRAFT_ONLY"
+--- a/tests/test_release_012_migration.py
++++ b/tests/test_release_012_migration.py
+@@ -0,0 +1,78 @@
++import hashlib
++import json
++from pathlib import Path
++import sqlite3
++
++import pytest
++
++import run_app
++from tenderproof.db import init_db
++from tenderproof import migrations
++
++
++def table_hashes(connection):
++    tables = [r[0] for r in connection.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name")]
++    result = {}
++    for name in tables:
++        columns = [r[1] for r in connection.execute(f'PRAGMA table_info("{name}")')]
++        rows = connection.execute(f'SELECT * FROM "{name}" ORDER BY rowid').fetchall()
++        result[name] = {"columns": columns, "count": len(rows), "digest": hashlib.sha256(json.dumps(rows, default=str).encode()).hexdigest()}
++    return result
++
++
++def test_migration_preserves_all_existing_columns_and_values(tmp_path):
++    original = Path(__file__).resolve().parents[1] / "storage" / "tenderproof.db"
++    target = tmp_path / "restored.db"
++    source_hash = hashlib.sha256(original.read_bytes()).hexdigest()
++    with sqlite3.connect(original.as_uri() + "?mode=ro", uri=True) as source, sqlite3.connect(target) as destination:
++        source.backup(destination)
++        before = table_hashes(destination)
++    init_db(target)
++    init_db(target)
++    with sqlite3.connect(target) as connection:
++        assert connection.execute("PRAGMA integrity_check").fetchone()[0] == "ok"
++        for name, info in before.items():
++            columns = ','.join('"' + c + '"' for c in info["columns"])
++            rows = connection.execute(f'SELECT {columns} FROM "{name}" ORDER BY rowid').fetchall()
++            assert len(rows) == info["count"]
++            assert hashlib.sha256(json.dumps(rows, default=str).encode()).hexdigest() == info["digest"], name
++        assert connection.execute("SELECT COUNT(*) FROM schema_migrations WHERE version=?", (migrations.VERSION,)).fetchone()[0] == 1
++    assert hashlib.sha256(original.read_bytes()).hexdigest() == source_hash
++    assert list((tmp_path / "backups").glob("*.db"))
++
++
++def test_failed_migration_rolls_back_ddl_and_data(tmp_path, monkeypatch):
++    path = tmp_path / "legacy.db"
++    with sqlite3.connect(path) as connection:
++        connection.execute("CREATE TABLE methodology_outline (id INTEGER PRIMARY KEY, case_id TEXT, module_title TEXT)")
++        connection.execute("INSERT INTO methodology_outline VALUES (1, 'UNCHANGED', 'Original')")
++    original_apply = migrations._apply_columns
++
++    def fail_after_ddl(connection):
++        original_apply(connection)
++        raise RuntimeError("Injected migration failure")
++
++    monkeypatch.setattr(migrations, "_apply_columns", fail_after_ddl)
++    with pytest.raises(RuntimeError, match="Injected"):
++        init_db(path)
++    with sqlite3.connect(path) as connection:
++        assert [r[1] for r in connection.execute("PRAGMA table_info(methodology_outline)")] == ["id", "case_id", "module_title"]
++        assert connection.execute("SELECT * FROM methodology_outline").fetchone() == (1, "UNCHANGED", "Original")
++        assert connection.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table'").fetchone()[0] == 1
++
++
++def test_check_is_read_only_for_database(tmp_path, monkeypatch):
++    path = tmp_path / "old.db"
++    with sqlite3.connect(path) as connection:
++        connection.execute("CREATE TABLE keep_me (value TEXT)")
++        connection.execute("INSERT INTO keep_me VALUES ('Original')")
++    before = path.read_bytes()
++    monkeypatch.setenv("TENDERPROOF_DB_PATH", str(path))
++    assert run_app.check() == 0
++    assert path.read_bytes() == before
++
++
++def test_default_launcher_invocation_still_runs(monkeypatch):
++    monkeypatch.setattr(run_app.sys, "argv", ["run_app.py"])
++    monkeypatch.setattr(run_app, "run", lambda port: port)
++    assert run_app.main() == 8501
+--- a/tests/test_release_012_policy.py
++++ b/tests/test_release_012_policy.py
+@@ -0,0 +1,247 @@
++"""Discriminator tests start from valid evidence, not merely missing approval."""
++
++from datetime import UTC, datetime, timedelta
++import json
++from pathlib import Path
++from types import SimpleNamespace
++
++from docx import Document
++from openpyxl import load_workbook
++from PIL import Image
++import pytest
++
++from tenderproof import models as m
++from tenderproof.constants import REQUIRED_BID_CATEGORIES
++from tenderproof.db import make_session
++from tenderproof.services import decision_service, export_service, report_service, source_service
++from tenderproof.services.approval_service import approve_case, record_evidence_review, review_source
++from tenderproof.services.bid_score_service import save_scores_and_recommendation
++from tenderproof.services.case_service import create_case
++from tenderproof.services.compliance_service import update_compliance_row
++from tenderproof.services.decision_service import mandatory_state, policy_assessment, release_context, snapshot_hash
++from tenderproof.services.extraction_service import update_requirement
++from tenderproof.services.verification_service import _scan_outputs_for_prohibited_phrases, run_verification
++from tenderproof.services.workflow_service import build_workflow_steps
++
++from test_release_012_workflow import approved_assessment, reviewed_assessment
++
++
++def test_reviewed_not_applicable_is_explicit_and_can_be_released(session, tmp_path):
++    case, source, _, row, *_ = reviewed_assessment(session, tmp_path)
++    update_compliance_row(session, row.compliance_id, status="Not Applicable", available_evidence="")
++    assert mandatory_state(session, case.case_id) == "UNKNOWN"
++    record_evidence_review(session, case.case_id, row.compliance_id, reviewer="Synthetic applicability reviewer", notes="Synthetic clause explicitly excludes this bidder category; checked original source.", legal_entity=case.organization, source_id=source.source_id, review_status="not_applicable")
++    assert mandatory_state(session, case.case_id, verified=True) == "NOT_APPLICABLE"
++    result = run_verification(session, case.case_id)
++    assert not result.blockers
++    approve_case(session, case.case_id, reviewer="Synthetic human", rationale="Reviewed documented applicability exclusion.")
++    assert release_context(session, case.case_id)["approved"]
++    assert "Eligibility: NOT_APPLICABLE" in report_service.generate_markdown_report(session, case.case_id).read_text()
++
++
++@pytest.mark.parametrize("state,expected", [("failed", "FAIL"), ("pending", "UNKNOWN"), ("verified", "PASS")])
++def test_explicit_evidence_outcomes_have_distinct_semantics(session, tmp_path, state, expected):
++    case, _, _, row, _, proof = reviewed_assessment(session, tmp_path)
++    record_evidence_review(session, case.case_id, row.compliance_id, reviewer="Synthetic reviewer", notes="Explicit controlled evidence outcome.", legal_entity=case.organization, file_path=proof, validity_reason="Synthetic timeless supporting fact.", review_status=state)
++    assert mandatory_state(session, case.case_id, verified=True) == expected
++    scores = {c: {"score": 5} for c in REQUIRED_BID_CATEGORIES}
++    rec = save_scores_and_recommendation(session, case.case_id, scores)
++    if expected == "FAIL":
++        assert rec.recommendation == "Reject / No-bid"
++
++
++@pytest.mark.parametrize("mutation,rule", [("placeholder", "EVID-001"), ("expired", "EVID-002"), ("wrong_entity", "EVID-002"), ("source_partial", "SRC-003"), ("coverage", "SRC-003"), ("requirement", "ELIG-001"), ("duplicate_compliance", "ELIG-001")])
++def test_each_mandatory_barrier_rejects_previously_approved_case(session, tmp_path, mutation, rule):
++    case, source, req, row, review, *_ = approved_assessment(session, tmp_path)
++    assert release_context(session, case.case_id)["approved"]
++    if mutation == "placeholder":
++        row.available_evidence = "Pending Input"
++    elif mutation == "expired":
++        review.valid_until = "2020-01-01"
++    elif mutation == "wrong_entity":
++        review.legal_entity = "Another bidder"
++    elif mutation == "source_partial":
++        source.extraction_status = "partial"
++    elif mutation == "coverage":
++        source.extraction_coverage_json = json.dumps({"complete": False, "processed_pages": 1, "total_pages": 2})
++    elif mutation == "requirement":
++        req.needs_review = True
++    else:
++        session.add(m.ComplianceLedger(compliance_id="DUPLICATE-SYNTHETIC", case_id=case.case_id, requirement_id=req.requirement_id, status="Met", available_evidence="Duplicated interpretation"))
++    session.flush()
++    policy = policy_assessment(session, case.case_id)
++    assert any(code == rule for code, _ in policy["blockers"])
++    assert not release_context(session, case.case_id)["approved"]
++    with pytest.raises(ValueError):
++        approve_case(session, case.case_id, reviewer="Synthetic human", rationale="Attempt to override technical blocker.")
++
++
++@pytest.mark.parametrize("entity", ["ip", "cv", "question", "method", "case", "score", "risk", "gap", "skeleton"])
++def test_report_input_changes_cannot_reuse_old_approval(session, tmp_path, entity):
++    case, *_ = approved_assessment(session, tmp_path)
++    before = snapshot_hash(session, case.case_id)
++    if entity == "ip":
++        session.add(m.IPCapture(ip_id="IP-CHANGE", case_id=case.case_id, pattern_title="New pattern", pattern_type="Synthetic", anonymized=True))
++    elif entity == "cv":
++        session.add(m.CVMatch(expert_match_id="CV-CHANGE", case_id=case.case_id, candidate_name="Synthetic person", cv_evidence="Provided history", match_score_1_to_5=3))
++    elif entity == "question":
++        session.add(m.ClarificationQuestion(question_id="Q-CHANGE", case_id=case.case_id, question="New clarification?"))
++    elif entity == "method":
++        session.add(m.MethodologyOutline(case_id=case.case_id, module_order=1, module_title="Changed method"))
++    elif entity == "case":
++        case.submission_deadline = "2099-01-01"
++    elif entity == "score":
++        session.query(m.BidScorecard).filter_by(case_id=case.case_id).first().score = 1
++    elif entity == "risk":
++        session.add(m.RiskRegister(risk_id="R-CHANGE", case_id=case.case_id, risk_description="New risk"))
++    elif entity == "gap":
++        session.add(m.GapItem(gap_id="G-CHANGE", case_id=case.case_id, gap_description="New input"))
++    else:
++        session.add(m.ProposalSkeleton(case_id=case.case_id, section_order=1, section_title="Changed structure"))
++    session.flush()
++    assert snapshot_hash(session, case.case_id) != before
++    assert not release_context(session, case.case_id)["approved"]
++
++
++def test_amendment_review_reassessment_and_reapproval_can_recover(session, tmp_path):
++    case, source, req, row, *_ = approved_assessment(session, tmp_path)
++    old_hash = snapshot_hash(session, case.case_id)
++    newer = source_service.register_manual_text(session, case.case_id, "Bidder must hold a current license. Amendment: review the new closing time.", filename=source.filename)
++    assert not release_context(session, case.case_id)["approved"]
++    update_requirement(session, req.requirement_id, source_id=newer.source_id, needs_review=False, notes="Reviewed unchanged license clause in amended source.")
++    review_source(session, case.case_id, newer.source_id, reviewer="Synthetic amendment reviewer", notes="Checked all amendment clauses; licensing requirement unchanged and closing date reconciled.", requirements_complete=True)
++    run_verification(session, case.case_id)
++    approve_case(session, case.case_id, reviewer="Synthetic human", rationale="Reviewed amended source and unchanged attached license evidence.")
++    assert release_context(session, case.case_id)["approved"]
++    assert snapshot_hash(session, case.case_id) != old_hash
++    assert session.query(m.DecisionApproval).count() == 2
++
++
++@pytest.mark.parametrize("format_name", ["markdown", "docx", "xlsx"])
++def test_revocation_during_generation_quarantines_without_publication(session, tmp_path, monkeypatch, format_name):
++    case, *_, approval = approved_assessment(session, tmp_path)
++    case_id, approval_id = case.case_id, approval.approval_id
++    session.commit()
++    original_hash = snapshot_hash(session, case_id)
++    factory = make_session(session.bind.url.database)
++
++    def revoke_from_separate_connection():
++        with factory() as other:
++            other.query(m.DecisionApproval).filter_by(approval_id=approval_id).one().revoked_at = datetime.now(UTC)
++            other.commit()
++
++    if format_name == "xlsx":
++        original = export_service.validate_publication
++
++        def hooked(*args):
++            revoke_from_separate_connection()
++            return original(*args)
++
++        monkeypatch.setattr(export_service, "validate_publication", hooked)
++        action = export_service.export_case_to_excel
++        directory = export_service.EXPORTS_DIR
++    else:
++        original = report_service.build_report_markdown
++
++        def hooked(*args):
++            content = original(*args)
++            revoke_from_separate_connection()
++            return content
++
++        monkeypatch.setattr(report_service, "build_report_markdown", hooked)
++        action = report_service.generate_markdown_report if format_name == "markdown" else report_service.generate_docx_report
++        directory = report_service.REPORTS_DIR
++    with pytest.raises(ValueError, match="Approval"):
++        action(session, case_id)
++    assert snapshot_hash(session, case_id) == original_hash, "Revocation itself is not a content mutation"
++    assert session.query(m.OutputPackage).filter_by(case_id=case_id).count() == 0
++    assert list((directory / "quarantine").glob(f"{case_id}*"))
++
++
++@pytest.mark.parametrize("where", ["table", "header", "footer", "unreadable", "missing"])
++def test_safe001_inspects_nonparagraph_content_and_fails_closed(tmp_path, where):
++    path = tmp_path / "content.docx"
++    doc = Document()
++    if where == "table":
++        doc.add_table(rows=1, cols=1).cell(0, 0).text = "GUARANTEED WIN"
++    elif where in {"header", "footer"}:
++        getattr(doc.sections[0], where).paragraphs[0].text = "guaranteed success"
++    doc.save(path)
++    if where == "unreadable":
++        path.write_bytes(b"broken document")
++    elif where == "missing":
++        path.unlink()
++    assert _scan_outputs_for_prohibited_phrases([m.OutputPackage(output_type="docx_report", file_path=str(path))])
++
++
++@pytest.mark.parametrize("value", ["=1+1", "+SUM(1,1)", "-1+2", "@SUM(1,1)"])
++def test_formula_shaped_strings_remain_literal_and_numbers_remain_numeric(session, tmp_path, value):
++    case, *_ = reviewed_assessment(session, tmp_path)
++    case.client_name = value
++    book = load_workbook(export_service.export_case_to_excel(session, case.case_id), data_only=False)
++    sheet = book["Case Summary"]
++    col = next(c.column for c in sheet[1] if c.value == "client_name")
++    assert sheet.cell(2, col).value == value
++    assert sheet.cell(2, col).data_type == "s"
++    score = book["Bid No-Bid Scorecard"]
++    index = next(c.column for c in score[1] if c.value == "score")
++    assert score.cell(2, index).data_type == "n"
++
++
++def test_source_coverage_persists_docx_tables_and_mixed_pdf(tmp_path, monkeypatch):
++    path = tmp_path / "table.docx"
++    doc = Document()
++    doc.add_table(rows=1, cols=1).cell(0, 0).text = "Bidder must provide table-only license evidence."
++    doc.save(path)
++    coverage = {}
++    text, status, _ = source_service.extract_text(path, coverage=coverage)
++    assert status == "extracted" and "table-only" in text and coverage["tables"] == 1
++
++    import pypdfium2
++    import rapidocr
++
++    class PDF:
++        def __len__(self):
++            return 2
++
++        def __getitem__(self, index):
++            return SimpleNamespace(render=lambda scale: SimpleNamespace(to_pil=lambda: Image.new("RGB", (80, 60))))
++
++    calls = []
++    monkeypatch.setattr(source_service, "PdfReader", lambda path: SimpleNamespace(pages=[SimpleNamespace(extract_text=lambda: "Native page with mandatory qualification text."), SimpleNamespace(extract_text=lambda: "")]))
++    monkeypatch.setattr(pypdfium2, "PdfDocument", lambda path: PDF())
++    monkeypatch.setattr(rapidocr, "RapidOCR", lambda: lambda image: calls.append(True) or SimpleNamespace(txts=["Scanned page with additional obligations."]))
++    coverage = {}
++    text, status, _ = source_service.extract_text(tmp_path / "mixed.pdf", coverage=coverage)
++    assert status == "extracted" and coverage["complete"]
++    assert "Native page" in text and "Scanned page" in text and len(calls) == 1
++    capped = {}
++    _, note = source_service._ocr_pdf(tmp_path / "mixed.pdf", max_pages=1, coverage=capped)
++    assert not capped["complete"] and capped["processed_pages"] == 1 and "limited to first" in note
++
++
++def test_workflow_does_not_complete_tampered_or_draft_outputs(session, tmp_path):
++    case, *_ = approved_assessment(session, tmp_path)
++    report = report_service.generate_markdown_report(session, case.case_id)
++    export_service.export_case_to_excel(session, case.case_id)
++    steps = {s["step"]: s["complete"] for s in build_workflow_steps(session, case)}
++    assert steps["Generate diagnostic report"] and steps["Export workbook"]
++    report.write_text("Altered report", encoding="utf-8")
++    steps = {s["step"]: s["complete"] for s in build_workflow_steps(session, case)}
++    assert not steps["Generate diagnostic report"]
++
++
++def test_create_cannot_assign_release_clearance(session):
++    case = create_case(session, client_name="Synthetic bypass", readiness_label="EXPORT_READY", status="packaged")
++    assert case.readiness_label == "DRAFT_ONLY" and case.status == "draft"
++
++
++def test_ip_csv_does_not_publish_formula_commands(session):
++    import csv
++    from tenderproof.services.ip_capture_service import add_ip_capture, export_ip_csv
++
++    case = create_case(session, client_name="Synthetic IP")
++    add_ip_capture(session, case.case_id, pattern_title="=1+1", pattern_description="Ordinary text")
++    with export_ip_csv(session, case.case_id).open(encoding="utf-8", newline="") as stream:
++        value = next(csv.DictReader(stream))
++    assert value["pattern_title"] == "'=1+1" and value["pattern_description"] == "Ordinary text"
+--- a/tests/test_release_012_safety_contract.py
++++ b/tests/test_release_012_safety_contract.py
+@@ -0,0 +1,178 @@
++"""Synthetic acceptance probes for the proposed safety contract, not implemented repairs."""
++
++from uuid import uuid4
++
++import pytest
++from openpyxl import load_workbook
++from sqlalchemy import create_engine
++from sqlalchemy.orm import sessionmaker
++
++from tenderproof.constants import REQUIRED_BID_CATEGORIES
++from tenderproof.db import Base
++from tenderproof.models import Case, ComplianceLedger, NormalizedRequirement, OutputPackage
++from tenderproof.services import export_service, report_service, source_service
++from tenderproof.services.bid_score_service import save_scores_and_recommendation
++from tenderproof.services.case_service import update_case
++from tenderproof.services.compliance_service import update_compliance_row
++from tenderproof.services.egp_service import ensure_egp_checklist
++from tenderproof.services.extraction_service import update_requirement
++from tenderproof.services.verification_service import run_verification
++from tenderproof.services.workflow_service import build_workflow_steps
++
++READY = {"CLIENT_READY", "EXPORT_READY"}
++POSITIVE = {"Pursue", "Pursue with partner", "Pursue only as sub-consultant"}
++
++
++@pytest.fixture
++def session(tmp_path, monkeypatch):
++    for module, field in ((source_service, "EXTRACTED_TEXT_DIR"), (source_service, "UPLOADS_DIR"), (report_service, "REPORTS_DIR"), (export_service, "EXPORTS_DIR")):
++        monkeypatch.setattr(module, field, tmp_path)
++    engine = create_engine(f"sqlite:///{tmp_path / 'audit.db'}")
++    Base.metadata.create_all(engine)
++    with sessionmaker(bind=engine, autoflush=False, expire_on_commit=False)() as value:
++        yield value
++        value.rollback()
++    engine.dispose()
++
++
++def assessment(session, tmp_path, status="Met", reviewed=True, evidence="Synthetic license evidence reviewed by operator"):
++    key = uuid4().hex[:10]
++    case = Case(case_id=f"AUD-{key}", client_name="Synthetic audit client", tender_title="Synthetic tender")
++    session.add(case)
++    session.flush()
++    source = source_service.register_manual_text(session, case.case_id, "Bidder must hold a current license.")
++    req = NormalizedRequirement(requirement_id=f"REQ-{key}", case_id=case.case_id, source_id=source.source_id, tor_section_page="1", requirement_text="Bidder must hold a current license.", atomic_requirement_text="Bidder must hold a current license.", mandatory=True, needs_review=not reviewed, match_key=f"MATCH-{key}", canonical_anchor=f"{source.source_id}:1:1")
++    row = ComplianceLedger(compliance_id=f"COMP-{key}", requirement_id=req.requirement_id, case_id=case.case_id, status=status, available_evidence=evidence)
++    session.add_all([req, row])
++    session.flush()
++    scores = {c: {"score": 5, "rationale": "Synthetic opportunity fit", "evidence_or_gap_reference": req.requirement_id} for c in REQUIRED_BID_CATEGORIES}
++    rec = save_scores_and_recommendation(session, case.case_id, scores)
++    path = tmp_path / f"{key}.md"
++    path.write_text("Synthetic diagnostic report for controlled audit.", encoding="utf-8")
++    session.add(OutputPackage(output_id=f"OUT-{key}", case_id=case.case_id, output_type="markdown_report", file_path=str(path), readiness_label="DRAFT_ONLY", verification_status="not_run"))
++    session.flush()
++    return case, source, req, row, rec
++
++
++@pytest.mark.parametrize("status", ["Gap", "Pending Input", "Partially Met", "Not Applicable"])
++def test_mandatory_unresolved_blocks_positive_recommendation(session, tmp_path, status):
++    *_, rec = assessment(session, tmp_path, status=status, evidence="")
++    assert rec.recommendation not in POSITIVE
++
++
++def test_unreviewed_requirement_blocks_readiness(session, tmp_path):
++    case, *_ = assessment(session, tmp_path, reviewed=False)
++    assert run_verification(session, case.case_id).readiness_label not in READY
++
++
++def test_placeholder_evidence_blocks_readiness(session, tmp_path):
++    case, *_ = assessment(session, tmp_path, evidence="Pending Input")
++    assert run_verification(session, case.case_id).readiness_label not in READY
++
++
++@pytest.mark.parametrize("evidence", ["License expired on 2020-01-01", "License belongs to another legal entity, not this bidder"])
++def test_invalid_evidence_blocks_readiness(session, tmp_path, evidence):
++    case, *_ = assessment(session, tmp_path, evidence=evidence)
++    assert run_verification(session, case.case_id).readiness_label not in READY
++
++
++@pytest.mark.parametrize("extraction_status", ["failed", "empty", "partial"])
++def test_incomplete_source_extraction_blocks_readiness(session, tmp_path, extraction_status):
++    case, source, *_ = assessment(session, tmp_path)
++    source.extraction_status = extraction_status
++    session.flush()
++    assert run_verification(session, case.case_id).readiness_label not in READY
++
++
++def test_new_source_invalidates_readiness(session, tmp_path):
++    case, *_ = assessment(session, tmp_path)
++    run_verification(session, case.case_id)
++    source_service.register_manual_text(session, case.case_id, "Amendment: minimum turnover is now BDT 30000000.")
++    assert case.readiness_label not in READY
++
++
++def test_unreviewed_amendment_cannot_reclear_old_assessment(session, tmp_path):
++    case, *_ = assessment(session, tmp_path)
++    run_verification(session, case.case_id)
++    source_service.register_manual_text(session, case.case_id, "Amendment: minimum turnover is now BDT 30000000.")
++    assert run_verification(session, case.case_id).readiness_label not in READY
++
++
++def test_compliance_change_invalidates_readiness(session, tmp_path):
++    case, _, _, row, _ = assessment(session, tmp_path)
++    run_verification(session, case.case_id)
++    update_compliance_row(session, row.compliance_id, status="Gap", available_evidence="")
++    assert case.readiness_label not in READY
++
++
++def test_requirement_change_invalidates_readiness(session, tmp_path):
++    case, _, req, *_ = assessment(session, tmp_path)
++    run_verification(session, case.case_id)
++    update_requirement(session, req.requirement_id, requirement_text="Minimum turnover is BDT 30000000.", atomic_requirement_text="Minimum turnover is BDT 30000000.", needs_review=True)
++    assert case.readiness_label not in READY
++
++
++def test_pending_egp_checklist_blocks_readiness(session, tmp_path):
++    case, *_ = assessment(session, tmp_path)
++    ensure_egp_checklist(session, case.case_id)
++    assert run_verification(session, case.case_id).readiness_label not in READY
++
++
++def test_warning_requires_preliminary_label(session, tmp_path):
++    case, source, *_ = assessment(session, tmp_path)
++    key = uuid4().hex[:10]
++    req = NormalizedRequirement(requirement_id=f"REQ-{key}", case_id=case.case_id, source_id=source.source_id, requirement_text="Optional supporting material", atomic_requirement_text="Optional supporting material", mandatory=False, needs_review=False, match_key=key, canonical_anchor=key)
++    session.add_all([req, ComplianceLedger(compliance_id=f"COMP-{key}", requirement_id=req.requirement_id, case_id=case.case_id, status="Gap", available_evidence="")])
++    session.flush()
++    summary = run_verification(session, case.case_id)
++    assert summary.warnings, "Fixture must exercise a warning"
++    assert summary.readiness_label == "PRELIMINARY"
++
++
++def test_failed_verification_not_counted_as_complete_workflow(session, tmp_path):
++    case, *_ = assessment(session, tmp_path, status="Met", evidence="")
++    summary = run_verification(session, case.case_id)
++    assert summary.overall_status == "failed"
++    steps = build_workflow_steps(session, case)
++    assert not next(s for s in steps if s["step"] == "Run verification")["complete"]
++
++
++def test_human_approval_required_before_client_ready(session, tmp_path):
++    case, *_ = assessment(session, tmp_path)
++    assert run_verification(session, case.case_id).readiness_label not in READY
++
++
++def test_stale_report_is_draft_after_evidence_removed(session, tmp_path):
++    case, _, _, row, _ = assessment(session, tmp_path)
++    run_verification(session, case.case_id)
++    update_compliance_row(session, row.compliance_id, status="Gap", available_evidence="")
++    text = report_service.generate_markdown_report(session, case.case_id).read_text(encoding="utf-8")
++    assert "Readiness label: **CLIENT_READY**" not in text
++
++
++def test_excel_does_not_execute_untrusted_formula_text(session, tmp_path):
++    case, *_ = assessment(session, tmp_path)
++    case.client_name = "=1+1"
++    session.flush()
++    path = export_service.export_case_to_excel(session, case.case_id)
++    workbook = load_workbook(path, data_only=False)
++    sheet = workbook["Case Summary"]
++    col = next(c.column for c in sheet[1] if c.value == "client_name")
++    assert sheet.cell(2, col).data_type != "f"
++
++
++def test_case_update_cannot_self_assign_release_clearance(session, tmp_path):
++    case, *_ = assessment(session, tmp_path, status="Gap", evidence="")
++    update_case(session, case.case_id, readiness_label="EXPORT_READY", status="packaged")
++    assert case.readiness_label not in READY
++
++
++def test_control_synthetic_verified_row_can_be_scored(session, tmp_path):
++    *_, rec = assessment(session, tmp_path)
++    assert rec.recommendation == "Pursue"
++
++
++def test_control_unknown_case_is_blocked(session):
++    summary = run_verification(session, "NONEXISTENT-SYNTHETIC")
++    assert summary.overall_status == "failed"
++    assert summary.readiness_label == "BLOCKED"
+--- a/tests/test_release_012_workflow.py
++++ b/tests/test_release_012_workflow.py
+@@ -0,0 +1,276 @@
++from datetime import UTC, datetime, timedelta
++from pathlib import Path
++import json
++
++import pytest
++from openpyxl import load_workbook
++
++from tenderproof.constants import REQUIRED_BID_CATEGORIES
++from tenderproof.models import DecisionApproval, EvidenceReview, OutputPackage, Source, VerificationResult, VerificationRun
++from tenderproof.services.approval_service import approve_case, record_evidence_review, review_source, revoke_approval
++from tenderproof.services.bid_score_service import save_scores_and_recommendation
++from tenderproof.services.case_service import create_case
++from tenderproof.services.compliance_service import auto_create_compliance_rows, update_compliance_row
++from tenderproof.services.decision_service import release_context
++from tenderproof.services.export_service import export_case_to_excel
++from tenderproof.services.extraction_service import add_manual_requirement, update_requirement
++from tenderproof.services.report_service import generate_docx_report, generate_markdown_report
++from tenderproof.services.source_service import register_manual_text
++from tenderproof.services.verification_service import run_verification
++
++
++def reviewed_assessment(session, tmp_path):
++    case = create_case(session, client_name="Synthetic Verified Company", organization="Synthetic Verified Company")
++    source = register_manual_text(session, case.case_id, "Bidder must hold a current license.", filename="tender.txt")
++    requirement = add_manual_requirement(session, case.case_id, source_id=source.source_id, requirement_text="Bidder must hold a current license.", mandatory=True, needs_review=False, tor_section_page="Clause 1")
++    row = auto_create_compliance_rows(session, case.case_id)[0]
++    update_compliance_row(session, row.compliance_id, status="Met", available_evidence="License ABC issued to Synthetic Verified Company.")
++    review_source(session, case.case_id, source.source_id, reviewer="Synthetic QA reviewer", notes="Checked source and all applicable clause coverage.", requirements_complete=True)
++    proof = tmp_path / "license.txt"
++    proof.write_text("Synthetic license ABC for Synthetic Verified Company.", encoding="utf-8")
++    evidence = record_evidence_review(session, case.case_id, row.compliance_id, reviewer="Synthetic QA reviewer", notes="Checked original license, bidder identity and validity.", legal_entity=case.organization, file_path=proof, valid_until=(datetime.now(UTC).date() + timedelta(days=30)).isoformat())
++    scores = {c: {"score": 5, "rationale": "Synthetic fit", "evidence_or_gap_reference": evidence.evidence_id} for c in REQUIRED_BID_CATEGORIES}
++    save_scores_and_recommendation(session, case.case_id, scores)
++    return case, source, requirement, row, evidence, proof
++
++
++def approved_assessment(session, tmp_path):
++    values = reviewed_assessment(session, tmp_path)
++    case = values[0]
++    result = run_verification(session, case.case_id)
++    assert result.overall_status == "warning"
++    assert all(r.rule_code == "APP-001" for r in result.warnings)
++    approval = approve_case(session, case.case_id, reviewer="Synthetic founder", rationale="Reviewed this exact synthetic assessment for release.")
++    return (*values, approval)
++
++
++def test_positive_review_approve_report_and_workbook_workflow(session, tmp_path):
++    case, *_, approval = approved_assessment(session, tmp_path)
++    report = generate_markdown_report(session, case.case_id)
++    assert "Readiness label: **CLIENT_READY**" in report.read_text(encoding="utf-8")
++    assert approval.approval_id in report.read_text(encoding="utf-8")
++    assert generate_docx_report(session, case.case_id).is_file()
++    workbook = load_workbook(export_case_to_excel(session, case.case_id))
++    summary = workbook["Case Summary"]
++    values = dict(zip([c.value for c in summary[1]], [c.value for c in summary[2]]))
++    assert values["readiness_label"] == "EXPORT_READY"
++    assert values["approval_id"] == approval.approval_id
++    assert len(workbook.sheetnames) == 16
++    verified = run_verification(session, case.case_id)
++    assert verified.overall_status == "passed"
++    assert verified.readiness_label == "EXPORT_READY"
++
++
++def test_approval_requires_current_verification_and_named_human(session, tmp_path):
++    case, *_ = reviewed_assessment(session, tmp_path)
++    with pytest.raises(ValueError):
++        approve_case(session, case.case_id, reviewer="Reviewer", rationale="No verification yet.")
++    run_verification(session, case.case_id)
++    with pytest.raises(ValueError):
++        approve_case(session, case.case_id, reviewer="", rationale="No attribution.")
++
++
++def test_approval_and_verification_history_survive_amendment(session, tmp_path):
++    case, source, *_, approval = approved_assessment(session, tmp_path)
++    generated = generate_markdown_report(session, case.case_id)
++    previous_bytes = generated.read_bytes()
++    run_count = session.query(VerificationRun).count()
++    rule_count = session.query(VerificationResult).count()
++    amended = register_manual_text(session, case.case_id, "Bidder must also hold a new certificate.", filename="tender.txt")
++    assert amended.version_number == 2
++    assert amended.supersedes_source_id == source.source_id
++    assert session.query(DecisionApproval).count() == 1
++    assert approval.approved_by == "Synthetic founder"
++    assert run_verification(session, case.case_id).readiness_label == "BLOCKED"
++    assert session.query(VerificationRun).count() == run_count + 1
++    assert session.query(VerificationResult).count() > rule_count
++    assert generated.read_bytes() == previous_bytes
++    assert not release_context(session, case.case_id)["approved"]
++
++
++@pytest.mark.parametrize("mutation", ["file_removed", "file_changed", "expired", "wrong_entity", "text_changed"])
++def test_evidence_mutations_prevent_approved_exports(session, tmp_path, mutation):
++    case, _, _, row, evidence, proof, _ = approved_assessment(session, tmp_path)
++    generate_markdown_report(session, case.case_id)
++    if mutation == "file_removed":
++        proof.unlink()
++    elif mutation == "file_changed":
++        proof.write_text("Different evidence", encoding="utf-8")
++    elif mutation == "expired":
++        evidence.valid_until = (datetime.now(UTC).date() - timedelta(days=1)).isoformat()
++    elif mutation == "wrong_entity":
++        evidence.legal_entity = "Different Bidder"
++    else:
++        row.available_evidence = "A different claim."
++    session.flush()
++    context = release_context(session, case.case_id)
++    assert not context["approved"]
++    assert context["readiness_label"] not in {"CLIENT_READY", "EXPORT_READY"}
++    export_case_to_excel(session, case.case_id)
++    output = session.query(OutputPackage).filter_by(output_type="excel_export").order_by(OutputPackage.id.desc()).first()
++    assert output.readiness_label not in {"CLIENT_READY", "EXPORT_READY"}
++    assert output.approval_id is None
++    with pytest.raises(ValueError):
++        approve_case(session, case.case_id, reviewer="Reviewer", rationale="Attempt to reuse stale verification.")
++
++
++def test_new_report_never_overwrites_historical_artifact(session, tmp_path):
++    case, *_ = approved_assessment(session, tmp_path)
++    first = generate_markdown_report(session, case.case_id)
++    content = first.read_bytes()
++    second = generate_markdown_report(session, case.case_id)
++    assert first != second
++    assert first.read_bytes() == content
++    assert session.query(OutputPackage).filter_by(output_type="markdown_report").count() == 2
++
++
++def test_requirement_original_quotation_is_preserved(session, tmp_path):
++    case, _, requirement, *_ = approved_assessment(session, tmp_path)
++    original = requirement.requirement_text
++    update_requirement(session, requirement.requirement_id, requirement_text="Edited interpretation", atomic_requirement_text="New threshold", needs_review=True)
++    assert requirement.requirement_text == original
++    assert case.readiness_label == "DRAFT_ONLY"
++    assert not release_context(session, case.case_id)["approved"]
++
++
++def test_revoked_approval_cannot_release_new_artifact(session, tmp_path):
++    case, *_, approval = approved_assessment(session, tmp_path)
++    generate_markdown_report(session, case.case_id)
++    revoke_approval(session, case.case_id, approval.approval_id, reviewer="Synthetic founder", reason="Re-review required.")
++    assert not release_context(session, case.case_id)["approved"]
++    assert "Readiness label: **CLIENT_READY**" not in generate_markdown_report(session, case.case_id).read_text(encoding="utf-8")
++
++
++def test_evidence_review_rejects_wrong_entity_and_expired_records(session, tmp_path):
++    case, _, _, row, _, proof = reviewed_assessment(session, tmp_path)
++    for entity, expiry in (("Other company", "2099-01-01"), (case.organization, "2020-01-01")):
++        with pytest.raises(ValueError):
++            record_evidence_review(session, case.case_id, row.compliance_id, reviewer="Reviewer", notes="Controlled negative check", legal_entity=entity, file_path=proof, valid_until=expiry)
++
++
++def test_source_bytes_changed_after_review_require_new_version(session, tmp_path):
++    case, source, *_ = approved_assessment(session, tmp_path)
++    Path(source.text_extract_path).write_text("Unregistered amendment", encoding="utf-8")
++    assert not release_context(session, case.case_id)["approved"]
++    with pytest.raises(ValueError):
++        review_source(session, case.case_id, source.source_id, reviewer="Reviewer", notes="Attempt to review changed bytes in place.", requirements_complete=True)
++
++
++def test_snapshot_and_archived_evidence_preserve_original_review(session, tmp_path):
++    case, _, _, row, evidence, proof, approval = approved_assessment(session, tmp_path)
++    original = proof.read_bytes()
++    run = session.query(VerificationRun).filter_by(run_id=approval.verification_run_id).one()
++    snapshot = json.loads(run.snapshot_json)
++    assert snapshot["compliance_ledger"][0]["available_evidence"] == row.available_evidence
++    proof.write_text("Later replacement", encoding="utf-8")
++    row.available_evidence = "Later modified claim"
++    session.flush()
++    assert Path(evidence.archive_file_path).read_bytes() == original
++    assert json.loads(run.snapshot_json) == snapshot
++    assert not release_context(session, case.case_id)["approved"]
++
++
++def test_natural_evidence_expiry_prevents_release_without_input_edit(session, tmp_path, monkeypatch):
++    from tenderproof.services import decision_service
++
++    case, _, _, _, evidence, *_ = approved_assessment(session, tmp_path)
++    end = datetime.fromisoformat(evidence.valid_until).date()
++    monkeypatch.setattr(decision_service, "today", lambda: end + timedelta(days=1))
++    assert not release_context(session, case.case_id)["approved"]
++
++
++def test_workbook_before_report_is_downloadable_draft(session, tmp_path):
++    case, *_ = approved_assessment(session, tmp_path)
++    export_case_to_excel(session, case.case_id)
++    output = session.query(OutputPackage).filter_by(output_type="excel_export").one()
++    assert output.readiness_label == "PRELIMINARY"
++    assert output.approval_id is None
++
++
++def test_approval_snapshot_survives_separate_sessions(session, tmp_path):
++    from tenderproof.db import make_session
++
++    case, *_ = reviewed_assessment(session, tmp_path)
++    case_id = case.case_id
++    session.commit()
++    factory = make_session(session.bind.url.database)
++    with factory() as check_session:
++        run_verification(check_session, case_id)
++        check_session.commit()
++    with factory() as approval_session:
++        approval = approve_case(approval_session, case_id, reviewer="Synthetic human", rationale="Separate-session review")
++        approval_id = approval.approval_id
++        approval_session.commit()
++    with factory() as output_session:
++        assert release_context(output_session, case_id)["approval"].approval_id == approval_id
++        assert "Readiness label: **CLIENT_READY**" in generate_markdown_report(output_session, case_id).read_text(encoding="utf-8")
++        output_session.commit()
++
++
++def test_human_approval_ui_requires_confirmation_and_can_approve(session, tmp_path, monkeypatch):
++    from streamlit.testing.v1 import AppTest
++    from tenderproof.db import init_db, make_session
++
++    case, *_ = reviewed_assessment(session, tmp_path)
++    run_verification(session, case.case_id)
++    case_id = case.case_id
++    session.commit()
++    monkeypatch.setenv("TENDERPROOF_DB_PATH", session.bind.url.database)
++    init_db(session.bind.url.database)
++    app = AppTest.from_file(str(Path(__file__).resolve().parents[1] / "app.py"))
++    app.session_state["active_case_id"] = case_id
++    app.run(timeout=40)
++    app.sidebar.radio[0].set_value("Verification / Audit Log").run(timeout=40)
++    next(w for w in app.text_input if w.label == "Approver name").set_value("Synthetic UI reviewer")
++    next(w for w in app.text_area if w.label == "Approval rationale").set_value("Human reviewed this synthetic snapshot.")
++    next(w for w in app.button if w.label == "Approve current assessment").click().run(timeout=40)
++    assert not app.exception
++    assert any("Confirm" in e.value for e in app.error)
++    factory = make_session(session.bind.url.database)
++    with factory() as checked:
++        assert checked.query(DecisionApproval).count() == 0
++    next(w for w in app.checkbox if w.label == "I approve the current evidence snapshot").set_value(True)
++    next(w for w in app.button if w.label == "Approve current assessment").click().run(timeout=40)
++    assert not app.exception
++    assert not app.error
++    with factory() as checked:
++        assert checked.query(DecisionApproval).count() == 1
++
++
++@pytest.mark.parametrize("content,expected", [(b"   ", "empty"), (b"valid prefix\xff\xff", "failed")])
++def test_text_source_failures_are_explicit(tmp_path, content, expected):
++    from tenderproof.services.source_service import extract_text
++
++    path = tmp_path / "source.txt"
++    path.write_bytes(content)
++    _, status, _ = extract_text(path)
++    assert status == expected
++
++
++def test_manual_source_preserves_verbatim_original_bytes(session):
++    text = "  Original clause\r\n with   spacing.\n"
++    case = create_case(session, client_name="Synthetic source review")
++    source = register_manual_text(session, case.case_id, text)
++    assert Path(source.file_path).read_bytes() == text.encode("utf-8")
++
++
++def test_modified_report_is_not_previewed_or_downloaded_as_approved(session, tmp_path, monkeypatch):
++    from streamlit.testing.v1 import AppTest
++    from tenderproof.db import init_db
++
++    case, *_ = approved_assessment(session, tmp_path)
++    report = generate_markdown_report(session, case.case_id)
++    report.write_text("TAMPERED CLIENT_READY CONTENT", encoding="utf-8")
++    case_id = case.case_id
++    session.commit()
++    monkeypatch.setenv("TENDERPROOF_DB_PATH", session.bind.url.database)
++    init_db(session.bind.url.database)
++    app = AppTest.from_file(str(Path(__file__).resolve().parents[1] / "app.py"))
++    app.session_state["active_case_id"] = case_id
++    app.run(timeout=40)
++    app.sidebar.radio[0].set_value("Diagnostic Report Generator").run(timeout=40)
++    assert not app.exception
++    assert not any("TAMPERED CLIENT_READY" in item.value for item in app.markdown)
++    downloads = app.get("download_button")
++    assert downloads
++    assert all(item.proto.disabled for item in downloads)

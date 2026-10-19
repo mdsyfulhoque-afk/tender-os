@@ -1,0 +1,454 @@
+
+===== FILE: tests/conftest.py =====
+L0001: import sys
+L0002: from pathlib import Path
+L0003: 
+L0004: import pytest
+L0005: 
+L0006: ROOT = Path(__file__).resolve().parents[1]
+L0007: if str(ROOT) not in sys.path:
+L0008:     sys.path.insert(0, str(ROOT))
+L0009: 
+L0010: from tenderproof.db import Base, get_engine, make_session  # noqa: E402
+L0011: from tenderproof import models  # noqa: F401,E402
+L0012: 
+L0013: 
+L0014: @pytest.fixture()
+L0015: def session(tmp_path):
+L0016:     db_path = tmp_path / "test.db"
+L0017:     engine = get_engine(db_path)
+L0018:     Base.metadata.create_all(engine)
+L0019:     SessionLocal = make_session(db_path)
+L0020:     session = SessionLocal()
+L0021:     try:
+L0022:         yield session
+L0023:         session.commit()
+L0024:     finally:
+L0025:         session.close()
+L0026: 
+L0027: 
+===== END FILE =====
+
+===== FILE: tests/test_bid_score.py =====
+L0001: from tenderproof.services.bid_score_service import calculate_score, recommendation_for_percentage
+L0002: 
+L0003: 
+L0004: class Row:
+L0005:     def __init__(self, score, max_score=5):
+L0006:         self.score = score
+L0007:         self.max_score = max_score
+L0008: 
+L0009: 
+L0010: def test_total_score_calculation_works():
+L0011:     total, max_score, pct = calculate_score([Row(4), Row(5), Row(1)])
+L0012:     assert total == 10
+L0013:     assert max_score == 15
+L0014:     assert round(pct, 2) == 66.67
+L0015: 
+L0016: 
+L0017: def test_recommendation_thresholds_work():
+L0018:     assert recommendation_for_percentage(85) == "Pursue"
+L0019:     assert recommendation_for_percentage(70) == "Pursue with partner"
+L0020:     assert recommendation_for_percentage(55) == "Pursue only as sub-consultant"
+L0021:     assert recommendation_for_percentage(40) == "Reject / No-bid"
+L0022:     assert recommendation_for_percentage(90, missing_inputs=True) == "Pending input"
+L0023: 
+L0024: 
+===== END FILE =====
+
+===== FILE: tests/test_db_migration.py =====
+L0001: import sqlite3
+L0002: 
+L0003: from sqlalchemy import inspect
+L0004: 
+L0005: from tenderproof.db import get_engine, init_db
+L0006: 
+L0007: 
+L0008: def test_methodology_fields_are_added_without_erasing_existing_data(tmp_path):
+L0009:     path = tmp_path / "legacy.db"
+L0010:     with sqlite3.connect(path) as connection:
+L0011:         connection.execute("CREATE TABLE methodology_outline (id INTEGER PRIMARY KEY, case_id VARCHAR(80), module_title VARCHAR(255))")
+L0012:         connection.execute("INSERT INTO methodology_outline (case_id, module_title) VALUES ('CASE-1', 'Existing module')")
+L0013: 
+L0014:     init_db(path)
+L0015:     engine = get_engine(path)
+L0016:     columns = {column["name"] for column in inspect(engine).get_columns("methodology_outline")}
+L0017:     with engine.connect() as connection:
+L0018:         row = connection.exec_driver_sql("SELECT case_id, module_title FROM methodology_outline").one()
+L0019: 
+L0020:     assert {"data_collection_conditions", "analysis_approach"}.issubset(columns)
+L0021:     assert tuple(row) == ("CASE-1", "Existing module")
+L0022: 
+===== END FILE =====
+
+===== FILE: tests/test_demo_idempotency.py =====
+L0001: from sqlalchemy import func, select
+L0002: 
+L0003: from tenderproof.db import Base
+L0004: from tenderproof.models import ClarificationQuestion, RiskRegister
+L0005: from tenderproof.services.clarification_service import add_clarification_question
+L0006: from tenderproof.services.risk_service import auto_generate_risks_from_gaps
+L0007: from tenderproof.services.sample_data_service import create_demo_case
+L0008: 
+L0009: 
+L0010: def _row_counts(session) -> dict[str, int]:
+L0011:     return {
+L0012:         table.name: session.scalar(select(func.count()).select_from(table))
+L0013:         for table in Base.metadata.sorted_tables
+L0014:     }
+L0015: 
+L0016: 
+L0017: def test_two_demo_runs_do_not_duplicate_records(session):
+L0018:     first = create_demo_case(session)
+L0019:     session.flush()
+L0020:     before = _row_counts(session)
+L0021: 
+L0022:     second = create_demo_case(session)
+L0023:     session.flush()
+L0024:     after = _row_counts(session)
+L0025: 
+L0026:     assert second.case_id == first.case_id
+L0027:     assert after == before
+L0028: 
+L0029: 
+L0030: def test_logical_clarification_and_risk_generation_are_idempotent(session):
+L0031:     case = create_demo_case(session)
+L0032:     original_question_count = session.query(ClarificationQuestion).filter_by(case_id=case.case_id).count()
+L0033:     duplicate = add_clarification_question(
+L0034:         session,
+L0035:         case.case_id,
+L0036:         related_requirement_id="different-reference",
+L0037:         question="  WILL the donor accept equivalent regional experience for the Team Leader? ",
+L0038:     )
+L0039:     assert duplicate.case_id == case.case_id
+L0040:     assert session.query(ClarificationQuestion).filter_by(case_id=case.case_id).count() == original_question_count
+L0041: 
+L0042:     original_risk_count = session.query(RiskRegister).filter_by(case_id=case.case_id).count()
+L0043:     auto_generate_risks_from_gaps(session, case.case_id)
+L0044:     second_generation = auto_generate_risks_from_gaps(session, case.case_id)
+L0045:     assert second_generation == []
+L0046:     assert session.query(RiskRegister).filter_by(case_id=case.case_id).count() == original_risk_count
+L0047: 
+===== END FILE =====
+
+===== FILE: tests/test_egp_readiness.py =====
+L0001: from tenderproof.services.egp_service import ensure_egp_checklist, update_egp_checklist
+L0002: from tenderproof.services.workflow_service import build_workflow_steps
+L0003: from tenderproof.services.case_service import create_case
+L0004: 
+L0005: 
+L0006: def test_egp_checklist_seeding_is_idempotent(session):
+L0007:     case = create_case(session, client_name="Bangladesh Bidder", country="Bangladesh")
+L0008:     first = ensure_egp_checklist(session, case.case_id)
+L0009:     second = ensure_egp_checklist(session, case.case_id)
+L0010:     assert len(first) == 19
+L0011:     assert len(second) == len(first)
+L0012:     assert len({item.item_key for item in second}) == len(second)
+L0013: 
+L0014: 
+L0015: def test_checklist_updates_persist_and_surface_in_workflow(session):
+L0016:     case = create_case(session, client_name="Bangladesh Bidder", country="Bangladesh")
+L0017:     items = ensure_egp_checklist(session, case.case_id)
+L0018:     target = items[0]
+L0019:     update_egp_checklist(session, case.case_id, [{
+L0020:         "item_key": target.item_key,
+L0021:         "status": "Met",
+L0022:         "evidence_notes": "Confirmed against current notice.",
+L0023:     }])
+L0024:     session.flush()
+L0025:     refreshed = ensure_egp_checklist(session, case.case_id)
+L0026:     assert refreshed[0].status == "Met"
+L0027:     assert refreshed[0].evidence_notes == "Confirmed against current notice."
+L0028:     step = next(step for step in build_workflow_steps(session, case) if step["step"] == "Review Bangladesh e-GP readiness")
+L0029:     assert step["complete"] is False
+L0030:     assert step["page"] == "Bangladesh e-GP Readiness"
+L0031: 
+===== END FILE =====
+
+===== FILE: tests/test_excel_export.py =====
+L0001: from openpyxl import load_workbook
+L0002: 
+L0003: from tenderproof.services.export_service import REQUIRED_SHEETS, export_case_to_excel
+L0004: from tenderproof.services.sample_data_service import create_demo_case
+L0005: from tenderproof.services.egp_service import ensure_egp_checklist
+L0006: 
+L0007: 
+L0008: def test_workbook_is_created(session):
+L0009:     case = create_demo_case(session)
+L0010:     path = export_case_to_excel(session, case.case_id)
+L0011:     assert path.exists()
+L0012: 
+L0013: 
+L0014: def test_all_required_sheets_exist(session):
+L0015:     case = create_demo_case(session)
+L0016:     ensure_egp_checklist(session, case.case_id)
+L0017:     path = export_case_to_excel(session, case.case_id)
+L0018:     workbook = load_workbook(path)
+L0019:     assert set(REQUIRED_SHEETS).issubset(set(workbook.sheetnames))
+L0020: 
+L0021: 
+===== END FILE =====
+
+===== FILE: tests/test_gap_creation.py =====
+L0001: from tenderproof.models import ComplianceLedger, NormalizedRequirement
+L0002: from tenderproof.services.compliance_service import update_compliance_row
+L0003: from tenderproof.services.gap_service import sync_gaps_from_compliance
+L0004: from tenderproof.services.tor_normalizer import generate_canonical_anchor, generate_match_key
+L0005: 
+L0006: 
+L0007: def test_mandatory_requirement_without_evidence_creates_gapitem(session):
+L0008:     req = NormalizedRequirement(
+L0009:         requirement_id="REQ-GAP-1",
+L0010:         case_id="TP-GAP",
+L0011:         source_id="SRC",
+L0012:         tor_section_page="1",
+L0013:         requirement_category="methodology",
+L0014:         requirement_text="Submit methodology.",
+L0015:         atomic_requirement_text="Submit methodology.",
+L0016:         mandatory=True,
+L0017:         match_key=generate_match_key("TP-GAP", "methodology", "1", "Submit methodology."),
+L0018:         canonical_anchor=generate_canonical_anchor("SRC", "1", 1),
+L0019:     )
+L0020:     row = ComplianceLedger(
+L0021:         compliance_id="COMP-GAP-1",
+L0022:         requirement_id=req.requirement_id,
+L0023:         case_id="TP-GAP",
+L0024:         status="Met",
+L0025:         available_evidence="",
+L0026:         gap="",
+L0027:     )
+L0028:     session.add_all([req, row])
+L0029:     session.flush()
+L0030:     created = sync_gaps_from_compliance(session, "TP-GAP")
+L0031:     assert created
+L0032: 
+L0033: 
+L0034: def test_pending_input_row_creates_gapitem(session):
+L0035:     row = ComplianceLedger(
+L0036:         compliance_id="COMP-GAP-2",
+L0037:         requirement_id="REQ-GAP-2",
+L0038:         case_id="TP-GAP",
+L0039:         status="Pending Input",
+L0040:         gap="Missing annex.",
+L0041:     )
+L0042:     session.add(row)
+L0043:     session.flush()
+L0044:     created = sync_gaps_from_compliance(session, "TP-GAP")
+L0045:     assert created[0].gap_type == "compliance"
+L0046: 
+L0047: 
+===== END FILE =====
+
+===== FILE: tests/test_match_key.py =====
+L0001: from tenderproof.services.tor_normalizer import generate_match_key
+L0002: 
+L0003: 
+L0004: def test_same_input_creates_same_match_key():
+L0005:     a = generate_match_key("TP-1", "methodology", "section 1", "The bidder shall submit a methodology.")
+L0006:     b = generate_match_key("TP-1", "methodology", "section 1", "The bidder shall submit a methodology.")
+L0007:     assert a == b
+L0008: 
+L0009: 
+L0010: def test_different_requirement_creates_different_match_key():
+L0011:     a = generate_match_key("TP-1", "methodology", "section 1", "The bidder shall submit a methodology.")
+L0012:     b = generate_match_key("TP-1", "methodology", "section 1", "The bidder shall submit CVs.")
+L0013:     assert a != b
+L0014: 
+L0015: 
+L0016: def test_whitespace_changes_do_not_change_match_key():
+L0017:     a = generate_match_key("TP-1", "methodology", "section 1", "The bidder shall submit a methodology.")
+L0018:     b = generate_match_key("TP-1", "methodology", "section 1", "  The bidder   shall submit a methodology.  ")
+L0019:     assert a == b
+L0020: 
+L0021: 
+===== END FILE =====
+
+===== FILE: tests/test_report_generation.py =====
+L0001: from pathlib import Path
+L0002: 
+L0003: from docx import Document
+L0004: 
+L0005: from tenderproof.services.report_service import generate_docx_report, generate_markdown_report
+L0006: from tenderproof.services.sample_data_service import create_demo_case
+L0007: from tenderproof.models import MethodologyOutline
+L0008: from tenderproof.services.egp_service import ensure_egp_checklist
+L0009: 
+L0010: 
+L0011: def test_markdown_report_is_created(session):
+L0012:     case = create_demo_case(session)
+L0013:     path = generate_markdown_report(session, case.case_id)
+L0014:     assert path.exists()
+L0015:     text = path.read_text(encoding="utf-8")
+L0016:     assert "TenderProof Rapid Bid Diagnostic" in text
+L0017: 
+L0018: 
+L0019: def test_docx_report_is_created(session):
+L0020:     case = create_demo_case(session)
+L0021:     path = generate_docx_report(session, case.case_id)
+L0022:     assert path.exists()
+L0023:     doc = Document(str(path))
+L0024:     assert any("TenderProof Rapid Bid Diagnostic" in p.text for p in doc.paragraphs)
+L0025: 
+L0026: 
+L0027: def test_readiness_label_appears(session):
+L0028:     case = create_demo_case(session)
+L0029:     path = generate_markdown_report(session, case.case_id)
+L0030:     assert case.readiness_label in path.read_text(encoding="utf-8")
+L0031: 
+L0032: 
+L0033: def test_prohibited_phrases_do_not_appear(session):
+L0034:     case = create_demo_case(session)
+L0035:     path = generate_markdown_report(session, case.case_id)
+L0036:     text = path.read_text(encoding="utf-8").lower()
+L0037:     assert "guaranteed win" not in text
+L0038:     assert "guaranteed success" not in text
+L0039: 
+L0040: 
+L0041: def test_report_includes_methodology_conditions_and_analysis_approach(session):
+L0042:     case = create_demo_case(session)
+L0043:     session.add(MethodologyOutline(
+L0044:         case_id=case.case_id,
+L0045:         module_order=3,
+L0046:         module_title="Field interviews",
+L0047:         data_collection_conditions="Obtain informed consent; conduct interviews in Bangla.",
+L0048:         analysis_approach="Rules-based NLP (local)",
+L0049:     ))
+L0050:     session.flush()
+L0051:     text = generate_markdown_report(session, case.case_id).read_text(encoding="utf-8")
+L0052:     assert "Obtain informed consent; conduct interviews in Bangla." in text
+L0053:     assert "Rules-based NLP (local)" in text
+L0054: 
+L0055: 
+L0056: def test_report_includes_egp_readiness_when_activated(session):
+L0057:     case = create_demo_case(session)
+L0058:     items = ensure_egp_checklist(session, case.case_id)
+L0059:     items[0].status = "Met"
+L0060:     items[0].evidence_notes = "Reviewed against current BPPA notice."
+L0061:     path = generate_markdown_report(session, case.case_id)
+L0062:     text = path.read_text(encoding="utf-8")
+L0063:     assert "Bangladesh e-GP readiness" in text
+L0064:     assert "Reviewed against current BPPA notice." in text
+L0065: 
+L0066: 
+===== END FILE =====
+
+===== FILE: tests/test_source_ocr.py =====
+L0001: from types import SimpleNamespace
+L0002: 
+L0003: from PIL import Image
+L0004: 
+L0005: from tenderproof.services import source_service
+L0006: 
+L0007: 
+L0008: def test_scanned_pdf_ocr_processes_beyond_legacy_40_page_cap(tmp_path, monkeypatch):
+L0009:     class Page:
+L0010:         def render(self, scale):
+L0011:             return SimpleNamespace(to_pil=lambda: Image.new("RGB", (100, 60), "white"))
+L0012: 
+L0013:     class Document:
+L0014:         def __init__(self, _path):
+L0015:             self.pages = [Page() for _ in range(144)]
+L0016: 
+L0017:         def __len__(self):
+L0018:             return len(self.pages)
+L0019: 
+L0020:         def __getitem__(self, index):
+L0021:             return self.pages[index]
+L0022: 
+L0023:     class Engine:
+L0024:         def __call__(self, _image):
+L0025:             return SimpleNamespace(txts=["recognized tender text"])
+L0026: 
+L0027:     import pypdfium2
+L0028:     import rapidocr
+L0029: 
+L0030:     monkeypatch.setattr(pypdfium2, "PdfDocument", Document)
+L0031:     monkeypatch.setattr(rapidocr, "RapidOCR", Engine)
+L0032:     progress = []
+L0033:     text, note = source_service._ocr_pdf(tmp_path / "scan.pdf", lambda current, total: progress.append((current, total)))
+L0034: 
+L0035:     assert text.count("[OCR page") == 144
+L0036:     assert progress[0] == (1, 144)
+L0037:     assert progress[-1] == (144, 144)
+L0038:     assert "processed with local RapidOCR" in note
+L0039: 
+===== END FILE =====
+
+===== FILE: tests/test_verification.py =====
+L0001: from pathlib import Path
+L0002: 
+L0003: from tenderproof.models import Case, OutputPackage
+L0004: from tenderproof.services.compliance_service import auto_create_compliance_rows
+L0005: from tenderproof.services.extraction_service import create_requirements_from_source
+L0006: from tenderproof.services.source_service import register_manual_text
+L0007: from tenderproof.services.verification_service import run_verification
+L0008: 
+L0009: 
+L0010: def test_missing_tor_source_fails(session):
+L0011:     session.add(Case(case_id="TP-NOSRC", client_name="Client", tender_title="Tender"))
+L0012:     session.flush()
+L0013:     summary = run_verification(session, "TP-NOSRC")
+L0014:     assert any(r.rule_code == "SRC-001" and r.status == "failed" for r in summary.rule_results)
+L0015: 
+L0016: 
+L0017: def test_missing_requirements_fails(session):
+L0018:     session.add(Case(case_id="TP-NOREQ", client_name="Client", tender_title="Tender"))
+L0019:     register_manual_text(session, "TP-NOREQ", "The bidder shall submit a methodology.")
+L0020:     session.flush()
+L0021:     summary = run_verification(session, "TP-NOREQ")
+L0022:     assert any(r.rule_code == "REQ-001" and r.status == "failed" for r in summary.rule_results)
+L0023: 
+L0024: 
+L0025: def test_missing_bid_recommendation_blocks_client_ready(session):
+L0026:     session.add(Case(case_id="TP-NOREC", client_name="Client", tender_title="Tender"))
+L0027:     source = register_manual_text(session, "TP-NOREC", "The bidder shall submit a methodology.")
+L0028:     create_requirements_from_source(session, "TP-NOREC", source.source_id)
+L0029:     auto_create_compliance_rows(session, "TP-NOREC")
+L0030:     session.flush()
+L0031:     summary = run_verification(session, "TP-NOREC")
+L0032:     assert any(r.rule_code == "BID-002" and r.status == "failed" for r in summary.rule_results)
+L0033: 
+L0034: 
+L0035: def test_report_with_prohibited_language_fails_safe_001(session, tmp_path):
+L0036:     session.add(Case(case_id="TP-BADSAFE", client_name="Client", tender_title="Tender"))
+L0037:     bad_report = tmp_path / "bad.md"
+L0038:     bad_report.write_text("This is a guaranteed win.", encoding="utf-8")
+L0039:     session.add(
+L0040:         OutputPackage(
+L0041:             output_id="OUT-BADSAFE",
+L0042:             case_id="TP-BADSAFE",
+L0043:             output_type="markdown_report",
+L0044:             file_path=str(bad_report),
+L0045:             readiness_label="DRAFT_ONLY",
+L0046:         )
+L0047:     )
+L0048:     session.flush()
+L0049:     summary = run_verification(session, "TP-BADSAFE")
+L0050:     assert any(r.rule_code == "SAFE-001" and r.status == "failed" for r in summary.rule_results)
+L0051: 
+L0052: 
+===== END FILE =====
+
+===== FILE: tests/test_workflow_optimizer.py =====
+L0001: from tenderproof.services.case_service import create_case
+L0002: from tenderproof.services.workflow_service import build_workflow_steps
+L0003: 
+L0004: 
+L0005: def test_workflow_optimizer_starts_with_source_intake(session):
+L0006:     case = create_case(session, client_name="Workflow Test", tender_title="Test ToR")
+L0007:     steps = build_workflow_steps(session, case)
+L0008:     assert steps[0]["step"] == "Register ToR/source"
+L0009:     assert steps[0]["complete"] is False
+L0010:     assert steps[0]["page"] == "Upload / Register Inputs"
+L0011: 
+L0012: 
+L0013: def test_workflow_optimizer_detects_existing_source(session):
+L0014:     from tenderproof.services.source_service import register_manual_text
+L0015: 
+L0016:     case = create_case(session, client_name="Workflow Test", tender_title="Test ToR")
+L0017:     register_manual_text(session, case.case_id, "The bidder shall submit a methodology.")
+L0018:     steps = build_workflow_steps(session, case)
+L0019:     assert steps[0]["complete"] is True
+L0020:     assert steps[1]["complete"] is False
+L0021: 
+===== END FILE =====

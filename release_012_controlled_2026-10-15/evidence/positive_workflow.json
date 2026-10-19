@@ -1,0 +1,49 @@
+{
+  "synthetic_only": true,
+  "real_human_or_bid_approval_claimed": false,
+  "case_id": "TP-C6FA152F",
+  "blocked_case_id": "TP-BE9CAA75",
+  "approval_id": "APP-01EC2F489FC5",
+  "persisted_separate_sessions": true,
+  "readiness": "EXPORT_READY",
+  "all_14_sections_plus_egp": true,
+  "workbook_sheets": [
+    "Case Summary",
+    "Source Files",
+    "ToR Extraction",
+    "Compliance Matrix",
+    "CV Matcher",
+    "Bid No-Bid Scorecard",
+    "Bid Recommendation",
+    "Risk Register",
+    "Gap Items",
+    "Clarification Questions",
+    "Proposal Skeleton",
+    "Methodology Outline",
+    "IP Capture",
+    "Verification Results",
+    "Audit Log",
+    "e-GP Readiness"
+  ],
+  "artifacts": [
+    {
+      "path": "runtime\\final_workflow\\storage\\reports\\TP-C6FA152F_TenderProof_Rapid_Bid_Diagnostic_42988b28a3.md",
+      "sha256": "c1417847c7a95783a8458174cec549022c1116bfd036fecb4f1b3b0d8475e7b1",
+      "bytes": 3668
+    },
+    {
+      "path": "runtime\\final_workflow\\storage\\reports\\TP-C6FA152F_TenderProof_Rapid_Bid_Diagnostic_fbef199d60.docx",
+      "sha256": "f7b51b4c5e13b8c020e7131d9d2c41ff0aa417b5e09e11a0118178fe3d029d37",
+      "bytes": 37232
+    },
+    {
+      "path": "runtime\\final_workflow\\storage\\exports\\TP-C6FA152F_TenderProof_Diagnostic_Workbook_920cce072e.xlsx",
+      "sha256": "5290412bafa8ec9cad20b628eee458afa8304b0c9487a2808a367920697d7bae",
+      "bytes": 22879
+    }
+  ],
+  "blocked_report": "runtime\\final_workflow\\storage\\reports\\TP-BE9CAA75_TenderProof_Rapid_Bid_Diagnostic_0e6e51cb8a.md",
+  "historical_report_unchanged": true,
+  "technical_observation_passed": true,
+  "human_merge_approval": "pending_approval"
+}

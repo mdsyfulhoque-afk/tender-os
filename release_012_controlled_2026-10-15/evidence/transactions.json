@@ -1,0 +1,7 @@
+{
+  "synthetic_only": true,
+  "unique_conflict_observed": true,
+  "partial_transaction_rolled_back": true,
+  "baseline_record_preserved": true,
+  "subsequent_session_commit_passed": true
+}

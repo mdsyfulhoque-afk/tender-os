@@ -1,0 +1,129 @@
+.....FFFFFF.FFFFFFFFFF..                                                 [100%]
+================================== FAILURES ===================================
+_________________ test_placeholder_evidence_blocks_readiness __________________
+..\..\test_safety_contract.py:70: in test_placeholder_evidence_blocks_readiness
+    assert run_verification(session, case.case_id).readiness_label not in READY
+E   AssertionError: assert 'CLIENT_READY' not in {'CLIENT_READY', 'EXPORT_READY'}
+E    +  where 'CLIENT_READY' = VerificationSummary(overall_status='passed', blockers=[], warnings=[], readiness_label='CLIENT_READY', rule_results=[R...T_READY.', blocker=False)], quality_metrics={'rules': 17, 'blockers': 0, 'warnings': 0, 'case_status': 'client_ready'}).readiness_label
+E    +    where VerificationSummary(overall_status='passed', blockers=[], warnings=[], readiness_label='CLIENT_READY', rule_results=[R...T_READY.', blocker=False)], quality_metrics={'rules': 17, 'blockers': 0, 'warnings': 0, 'case_status': 'client_ready'}) = run_verification(<sqlalchemy.orm.session.Session object at 0x000001706F2D2120>, 'AUD-d229db343b')
+E    +      where 'AUD-d229db343b' = <tenderproof.models.Case object at 0x000001706F836210>.case_id
+____ test_invalid_evidence_blocks_readiness[License expired on 2020-01-01] ____
+..\..\test_safety_contract.py:76: in test_invalid_evidence_blocks_readiness
+    assert run_verification(session, case.case_id).readiness_label not in READY
+E   AssertionError: assert 'CLIENT_READY' not in {'CLIENT_READY', 'EXPORT_READY'}
+E    +  where 'CLIENT_READY' = VerificationSummary(overall_status='passed', blockers=[], warnings=[], readiness_label='CLIENT_READY', rule_results=[R...T_READY.', blocker=False)], quality_metrics={'rules': 17, 'blockers': 0, 'warnings': 0, 'case_status': 'client_ready'}).readiness_label
+E    +    where VerificationSummary(overall_status='passed', blockers=[], warnings=[], readiness_label='CLIENT_READY', rule_results=[R...T_READY.', blocker=False)], quality_metrics={'rules': 17, 'blockers': 0, 'warnings': 0, 'case_status': 'client_ready'}) = run_verification(<sqlalchemy.orm.session.Session object at 0x000001706F2D0590>, 'AUD-2a8acd81b7')
+E    +      where 'AUD-2a8acd81b7' = <tenderproof.models.Case object at 0x000001706F31E470>.case_id
+_ test_invalid_evidence_blocks_readiness[License belongs to another legal entity, not this bidder] _
+..\..\test_safety_contract.py:76: in test_invalid_evidence_blocks_readiness
+    assert run_verification(session, case.case_id).readiness_label not in READY
+E   AssertionError: assert 'CLIENT_READY' not in {'CLIENT_READY', 'EXPORT_READY'}
+E    +  where 'CLIENT_READY' = VerificationSummary(overall_status='passed', blockers=[], warnings=[], readiness_label='CLIENT_READY', rule_results=[R...T_READY.', blocker=False)], quality_metrics={'rules': 17, 'blockers': 0, 'warnings': 0, 'case_status': 'client_ready'}).readiness_label
+E    +    where VerificationSummary(overall_status='passed', blockers=[], warnings=[], readiness_label='CLIENT_READY', rule_results=[R...T_READY.', blocker=False)], quality_metrics={'rules': 17, 'blockers': 0, 'warnings': 0, 'case_status': 'client_ready'}) = run_verification(<sqlalchemy.orm.session.Session object at 0x000001706F2D0AD0>, 'AUD-79313ef5a6')
+E    +      where 'AUD-79313ef5a6' = <tenderproof.models.Case object at 0x000001706F31F460>.case_id
+_________ test_incomplete_source_extraction_blocks_readiness[failed] __________
+..\..\test_safety_contract.py:84: in test_incomplete_source_extraction_blocks_readiness
+    assert run_verification(session, case.case_id).readiness_label not in READY
+E   AssertionError: assert 'CLIENT_READY' not in {'CLIENT_READY', 'EXPORT_READY'}
+E    +  where 'CLIENT_READY' = VerificationSummary(overall_status='passed', blockers=[], warnings=[], readiness_label='CLIENT_READY', rule_results=[R...T_READY.', blocker=False)], quality_metrics={'rules': 17, 'blockers': 0, 'warnings': 0, 'case_status': 'client_ready'}).readiness_label
+E    +    where VerificationSummary(overall_status='passed', blockers=[], warnings=[], readiness_label='CLIENT_READY', rule_results=[R...T_READY.', blocker=False)], quality_metrics={'rules': 17, 'blockers': 0, 'warnings': 0, 'case_status': 'client_ready'}) = run_verification(<sqlalchemy.orm.session.Session object at 0x000001706F2D30E0>, 'AUD-fd3ff17a1b')
+E    +      where 'AUD-fd3ff17a1b' = <tenderproof.models.Case object at 0x000001706FA7C950>.case_id
+__________ test_incomplete_source_extraction_blocks_readiness[empty] __________
+..\..\test_safety_contract.py:84: in test_incomplete_source_extraction_blocks_readiness
+    assert run_verification(session, case.case_id).readiness_label not in READY
+E   AssertionError: assert 'CLIENT_READY' not in {'CLIENT_READY', 'EXPORT_READY'}
+E    +  where 'CLIENT_READY' = VerificationSummary(overall_status='passed', blockers=[], warnings=[], readiness_label='CLIENT_READY', rule_results=[R...T_READY.', blocker=False)], quality_metrics={'rules': 17, 'blockers': 0, 'warnings': 0, 'case_status': 'client_ready'}).readiness_label
+E    +    where VerificationSummary(overall_status='passed', blockers=[], warnings=[], readiness_label='CLIENT_READY', rule_results=[R...T_READY.', blocker=False)], quality_metrics={'rules': 17, 'blockers': 0, 'warnings': 0, 'case_status': 'client_ready'}) = run_verification(<sqlalchemy.orm.session.Session object at 0x000001706F2D3380>, 'AUD-98dcd5d68b')
+E    +      where 'AUD-98dcd5d68b' = <tenderproof.models.Case object at 0x000001706FA7F250>.case_id
+_________ test_incomplete_source_extraction_blocks_readiness[partial] _________
+..\..\test_safety_contract.py:84: in test_incomplete_source_extraction_blocks_readiness
+    assert run_verification(session, case.case_id).readiness_label not in READY
+E   AssertionError: assert 'CLIENT_READY' not in {'CLIENT_READY', 'EXPORT_READY'}
+E    +  where 'CLIENT_READY' = VerificationSummary(overall_status='passed', blockers=[], warnings=[], readiness_label='CLIENT_READY', rule_results=[R...T_READY.', blocker=False)], quality_metrics={'rules': 17, 'blockers': 0, 'warnings': 0, 'case_status': 'client_ready'}).readiness_label
+E    +    where VerificationSummary(overall_status='passed', blockers=[], warnings=[], readiness_label='CLIENT_READY', rule_results=[R...T_READY.', blocker=False)], quality_metrics={'rules': 17, 'blockers': 0, 'warnings': 0, 'case_status': 'client_ready'}) = run_verification(<sqlalchemy.orm.session.Session object at 0x000001706F167E00>, 'AUD-4a43e2881f')
+E    +      where 'AUD-4a43e2881f' = <tenderproof.models.Case object at 0x000001706F864950>.case_id
+___________ test_unreviewed_amendment_cannot_reclear_old_assessment ___________
+..\..\test_safety_contract.py:98: in test_unreviewed_amendment_cannot_reclear_old_assessment
+    assert run_verification(session, case.case_id).readiness_label not in READY
+E   AssertionError: assert 'CLIENT_READY' not in {'CLIENT_READY', 'EXPORT_READY'}
+E    +  where 'CLIENT_READY' = VerificationSummary(overall_status='passed', blockers=[], warnings=[], readiness_label='CLIENT_READY', rule_results=[R...T_READY.', blocker=False)], quality_metrics={'rules': 17, 'blockers': 0, 'warnings': 0, 'case_status': 'client_ready'}).readiness_label
+E    +    where VerificationSummary(overall_status='passed', blockers=[], warnings=[], readiness_label='CLIENT_READY', rule_results=[R...T_READY.', blocker=False)], quality_metrics={'rules': 17, 'blockers': 0, 'warnings': 0, 'case_status': 'client_ready'}) = run_verification(<sqlalchemy.orm.session.Session object at 0x000001706F2D0AD0>, 'AUD-f7eeadf18e')
+E    +      where 'AUD-f7eeadf18e' = <tenderproof.models.Case object at 0x000001706FB56650>.case_id
+________________ test_compliance_change_invalidates_readiness _________________
+..\..\test_safety_contract.py:105: in test_compliance_change_invalidates_readiness
+    assert case.readiness_label not in READY
+E   AssertionError: assert 'CLIENT_READY' not in {'CLIENT_READY', 'EXPORT_READY'}
+E    +  where 'CLIENT_READY' = <tenderproof.models.Case object at 0x000001706FA7F050>.readiness_label
+________________ test_requirement_change_invalidates_readiness ________________
+..\..\test_safety_contract.py:112: in test_requirement_change_invalidates_readiness
+    assert case.readiness_label not in READY
+E   AssertionError: assert 'CLIENT_READY' not in {'CLIENT_READY', 'EXPORT_READY'}
+E    +  where 'CLIENT_READY' = <tenderproof.models.Case object at 0x000001706FD12850>.readiness_label
+_________________ test_pending_egp_checklist_blocks_readiness _________________
+..\..\test_safety_contract.py:118: in test_pending_egp_checklist_blocks_readiness
+    assert run_verification(session, case.case_id).readiness_label not in READY
+E   AssertionError: assert 'CLIENT_READY' not in {'CLIENT_READY', 'EXPORT_READY'}
+E    +  where 'CLIENT_READY' = VerificationSummary(overall_status='passed', blockers=[], warnings=[], readiness_label='CLIENT_READY', rule_results=[R...T_READY.', blocker=False)], quality_metrics={'rules': 17, 'blockers': 0, 'warnings': 0, 'case_status': 'client_ready'}).readiness_label
+E    +    where VerificationSummary(overall_status='passed', blockers=[], warnings=[], readiness_label='CLIENT_READY', rule_results=[R...T_READY.', blocker=False)], quality_metrics={'rules': 17, 'blockers': 0, 'warnings': 0, 'case_status': 'client_ready'}) = run_verification(<sqlalchemy.orm.session.Session object at 0x000001706F2D3620>, 'AUD-880f91e295')
+E    +      where 'AUD-880f91e295' = <tenderproof.models.Case object at 0x000001706FE98D50>.case_id
+___________________ test_warning_requires_preliminary_label ___________________
+..\..\test_safety_contract.py:129: in test_warning_requires_preliminary_label
+    assert summary.readiness_label == "PRELIMINARY"
+E   AssertionError: assert 'CLIENT_READY' == 'PRELIMINARY'
+E     
+E     - PRELIMINARY
+E     + CLIENT_READY
+__________ test_failed_verification_not_counted_as_complete_workflow __________
+..\..\test_safety_contract.py:137: in test_failed_verification_not_counted_as_complete_workflow
+    assert not next(s for s in steps if s["step"] == "Run verification")["complete"]
+E   assert not True
+______________ test_human_approval_required_before_client_ready _______________
+..\..\test_safety_contract.py:142: in test_human_approval_required_before_client_ready
+    assert run_verification(session, case.case_id).readiness_label not in READY
+E   AssertionError: assert 'CLIENT_READY' not in {'CLIENT_READY', 'EXPORT_READY'}
+E    +  where 'CLIENT_READY' = VerificationSummary(overall_status='passed', blockers=[], warnings=[], readiness_label='CLIENT_READY', rule_results=[R...T_READY.', blocker=False)], quality_metrics={'rules': 17, 'blockers': 0, 'warnings': 0, 'case_status': 'client_ready'}).readiness_label
+E    +    where VerificationSummary(overall_status='passed', blockers=[], warnings=[], readiness_label='CLIENT_READY', rule_results=[R...T_READY.', blocker=False)], quality_metrics={'rules': 17, 'blockers': 0, 'warnings': 0, 'case_status': 'client_ready'}) = run_verification(<sqlalchemy.orm.session.Session object at 0x0000017070150440>, 'AUD-54200603ea')
+E    +      where 'AUD-54200603ea' = <tenderproof.models.Case object at 0x0000017070191150>.case_id
+______________ test_stale_report_is_draft_after_evidence_removed ______________
+..\..\test_safety_contract.py:150: in test_stale_report_is_draft_after_evidence_removed
+    assert "Readiness label: **CLIENT_READY**" not in text
+E   AssertionError: assert 'Readiness l...IENT_READY**' not in '# TenderPro...ient review.'
+E     
+E     'Readiness label: **CLIENT_READY**' is contained here:
+E       21:01 UTC
+E       Readiness label: **CLIENT_READY**
+E       
+E       Prepared for internal/client review.
+E       ...
+E     
+E     ...Full output truncated (62 lines hidden), use '-vv' to show
+_____________ test_excel_does_not_execute_untrusted_formula_text ______________
+..\..\test_safety_contract.py:161: in test_excel_does_not_execute_untrusted_formula_text
+    assert sheet.cell(2, col).data_type != "f"
+E   assert 'f' != 'f'
+E    +  where 'f' = <Cell 'Case Summary'.C2>.data_type
+E    +    where <Cell 'Case Summary'.C2> = cell(2, 3)
+E    +      where cell = <Worksheet "Case Summary">.cell
+____________ test_case_update_cannot_self_assign_release_clearance ____________
+..\..\test_safety_contract.py:167: in test_case_update_cannot_self_assign_release_clearance
+    assert case.readiness_label not in READY
+E   AssertionError: assert 'EXPORT_READY' not in {'CLIENT_READY', 'EXPORT_READY'}
+E    +  where 'EXPORT_READY' = <tenderproof.models.Case object at 0x0000017070524750>.readiness_label
+=========================== short test summary info ===========================
+FAILED ..\..\test_safety_contract.py::test_placeholder_evidence_blocks_readiness
+FAILED ..\..\test_safety_contract.py::test_invalid_evidence_blocks_readiness[License expired on 2020-01-01]
+FAILED ..\..\test_safety_contract.py::test_invalid_evidence_blocks_readiness[License belongs to another legal entity, not this bidder]
+FAILED ..\..\test_safety_contract.py::test_incomplete_source_extraction_blocks_readiness[failed]
+FAILED ..\..\test_safety_contract.py::test_incomplete_source_extraction_blocks_readiness[empty]
+FAILED ..\..\test_safety_contract.py::test_incomplete_source_extraction_blocks_readiness[partial]
+FAILED ..\..\test_safety_contract.py::test_unreviewed_amendment_cannot_reclear_old_assessment
+FAILED ..\..\test_safety_contract.py::test_compliance_change_invalidates_readiness
+FAILED ..\..\test_safety_contract.py::test_requirement_change_invalidates_readiness
+FAILED ..\..\test_safety_contract.py::test_pending_egp_checklist_blocks_readiness
+FAILED ..\..\test_safety_contract.py::test_warning_requires_preliminary_label
+FAILED ..\..\test_safety_contract.py::test_failed_verification_not_counted_as_complete_workflow
+FAILED ..\..\test_safety_contract.py::test_human_approval_required_before_client_ready
+FAILED ..\..\test_safety_contract.py::test_stale_report_is_draft_after_evidence_removed
+FAILED ..\..\test_safety_contract.py::test_excel_does_not_execute_untrusted_formula_text
+FAILED ..\..\test_safety_contract.py::test_case_update_cannot_self_assign_release_clearance
+16 failed, 8 passed in 17.02s

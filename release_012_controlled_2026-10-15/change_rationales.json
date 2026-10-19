@@ -1,0 +1,16 @@
+{
+  "constraints-release-012.txt": "Record the installed Windows Python 3.14 dependency versions; clean candidate environment installation succeeds without altering operational dependencies.",
+  "deploy&run.bat": "Retain exact launcher name and normal stages; install with tested constraints; add an explicitly selected health-only verification mode without launching a server.",
+  "tenderproof/services/ip_capture_service.py": "Guard formula-shaped IP CSV strings while leaving stored IP values and ordinary CSV text unchanged; final added CSV regression is pending at the stop.",
+  "tenderproof/ui/cases.py": "Retain case CRUD but remove client_ready and packaged from editable status choices; central policy owns clearance.",
+  "tests/test_release_012_policy.py": "Add approved-case discriminator tests for exclusion/eligibility semantics, mutation coverage, concurrent revocation, fail-closed DOCX inspection, literal spreadsheets, mixed PDF/DOCX extraction and guarded IP CSV; 36 executed before final added CSV case.",
+  "tenderproof/models.py": "Preserve old tables/columns and add review/version/approval/snapshot provenance; extend selected candidate with structured extraction coverage and migration checksum/recovery reference fields.",
+  "tenderproof/migrations.py": "Transactional backed-up additive controlled migration with source checksum and recovery reference; no operational migration was run.",
+  "tenderproof/services/decision_service.py": "Centralize freshness and approval; include IP in approved workbook snapshots, implement reviewed NOT_APPLICABLE, and serialize final publication checks with quarantine support.",
+  "tenderproof/services/approval_service.py": "Selectively integrate attributable source/evidence review and approvals; add explicit source-supported NOT_APPLICABLE outcome rather than allowing dropdown-only exclusions.",
+  "tenderproof/services/source_service.py": "Retain verbatim raw sources and versions; record structured coverage; preserve native PDF text while OCR processes missing pages; flag cap/unreadable/empty input explicitly.",
+  "tenderproof/services/verification_service.py": "Append assessment runs without deleting history; enforce source/evidence/review/approval controls and warning precedence; scan report tables/headers/footers and fail closed on unreadable or missing current reports.",
+  "tenderproof/services/report_service.py": "Retain original sections and produce versioned draft/blocked/approved MD/DOCX; publish only after current approval/snapshot checks and safety inspection; quarantine failed artifacts.",
+  "tenderproof/services/export_service.py": "Retain all 16 sheets, numeric cells and formatting; serialize formula-shaped text literally and recheck current approval/freshness before publishing versioned XLSX.",
+  "tenderproof/services/workflow_service.py": "Require current authorized and untampered artifacts for completed output workflow steps rather than file existence alone."
+}

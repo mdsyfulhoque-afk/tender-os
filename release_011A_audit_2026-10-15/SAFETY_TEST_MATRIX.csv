@@ -1,0 +1,25 @@
+﻿test,current,release011,scope
+test_mandatory_unresolved_blocks_positive_recommendation[Gap],failed,passed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_mandatory_unresolved_blocks_positive_recommendation[Pending Input],failed,passed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_mandatory_unresolved_blocks_positive_recommendation[Partially Met],failed,passed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_mandatory_unresolved_blocks_positive_recommendation[Not Applicable],failed,passed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_unreviewed_requirement_blocks_readiness,failed,passed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_placeholder_evidence_blocks_readiness,failed,failed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_invalid_evidence_blocks_readiness[License expired on 2020-01-01],failed,failed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+"test_invalid_evidence_blocks_readiness[License belongs to another legal entity, not this bidder]",failed,failed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_incomplete_source_extraction_blocks_readiness[failed],failed,failed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_incomplete_source_extraction_blocks_readiness[empty],failed,failed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_incomplete_source_extraction_blocks_readiness[partial],failed,failed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_new_source_invalidates_readiness,failed,passed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_unreviewed_amendment_cannot_reclear_old_assessment,failed,failed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_compliance_change_invalidates_readiness,failed,failed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_requirement_change_invalidates_readiness,failed,failed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_pending_egp_checklist_blocks_readiness,failed,failed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_warning_requires_preliminary_label,failed,failed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_failed_verification_not_counted_as_complete_workflow,failed,failed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_human_approval_required_before_client_ready,failed,failed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_stale_report_is_draft_after_evidence_removed,failed,failed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_excel_does_not_execute_untrusted_formula_text,failed,failed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_case_update_cannot_self_assign_release_clearance,failed,failed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_control_synthetic_verified_row_can_be_scored,passed,passed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance
+test_control_unknown_case_is_blocked,passed,passed,Proposed synthetic acceptance probe; passing controls do not prove complete procurement compliance

@@ -1,0 +1,27 @@
+{
+  "method": "Live Codex in-app browser controlled through cua_repl; sidebar navigation and visible page headings checked after a final worker restart",
+  "url": "http://localhost:8512/",
+  "data": "Isolated synthetic preview database only",
+  "pages": [
+    {"page": "Home / Command Center", "passed": true},
+    {"page": "Workflow Optimizer", "passed": true},
+    {"page": "Bangladesh e-GP Readiness", "passed": true},
+    {"page": "Create or Open Case", "passed": true},
+    {"page": "Upload / Register Inputs", "passed": true},
+    {"page": "ToR Extraction", "passed": true},
+    {"page": "Compliance Matrix", "passed": true},
+    {"page": "CV Matcher", "passed": true},
+    {"page": "Bid/No-Bid Scorecard", "passed": true},
+    {"page": "Risk Register and Gaps", "passed": true},
+    {"page": "Proposal Skeleton and Methodology", "passed": true},
+    {"page": "Diagnostic Report Generator", "passed": true},
+    {"page": "Excel Export", "passed": true},
+    {"page": "IP Capture", "passed": true},
+    {"page": "Verification / Audit Log", "passed": true},
+    {"page": "Settings", "passed": true}
+  ],
+  "console_errors": [],
+  "observed_safety_state": {"eligibility": "UNKNOWN", "release": "BLOCKED", "approval": "Pending / stale"},
+  "screenshot": "Captured and inspected in tool output. Saving through a data-URL browser export was rejected by browser security policy; no screenshot file is claimed.",
+  "limitations": "Navigation/render checks are supplemented by service-level positive and negative tests and AppTest approval and altered-report interaction tests; not an exhaustive manual click-through of every business input."
+}

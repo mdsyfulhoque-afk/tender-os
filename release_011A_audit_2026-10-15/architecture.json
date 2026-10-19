@@ -1,0 +1,3020 @@
+{
+  "app.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "streamlit"
+      },
+      {
+        "line": 3,
+        "module": "tenderproof.config",
+        "names": [
+          "DB_PATH",
+          "ensure_directories"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "tenderproof.db",
+        "names": [
+          "get_session",
+          "init_db"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "tenderproof.services.sample_data_service",
+        "names": [
+          "create_seed_csvs"
+        ]
+      },
+      {
+        "line": 6,
+        "module": "tenderproof.ui",
+        "names": [
+          "bid_scorecard",
+          "cases",
+          "compliance",
+          "cv_matcher",
+          "exports",
+          "egp_readiness",
+          "home",
+          "intake",
+          "ip_capture",
+          "proposal_methodology",
+          "report_generator",
+          "risks_gaps",
+          "settings",
+          "tor_extraction",
+          "verification",
+          "workflow_optimizer"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "main",
+        "line": 46,
+        "signature": ""
+      }
+    ]
+  },
+  "run_app.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "argparse"
+      },
+      {
+        "line": 2,
+        "module": "subprocess"
+      },
+      {
+        "line": 3,
+        "module": "sys"
+      },
+      {
+        "line": 5,
+        "module": "tenderproof.config",
+        "names": [
+          "PROJECT_ROOT",
+          "ensure_directories"
+        ]
+      },
+      {
+        "line": 6,
+        "module": "tenderproof.db",
+        "names": [
+          "get_session",
+          "init_db"
+        ]
+      },
+      {
+        "line": 7,
+        "module": "tenderproof.services.sample_data_service",
+        "names": [
+          "create_demo_case",
+          "create_seed_csvs"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "init_database",
+        "line": 10,
+        "signature": ""
+      },
+      {
+        "name": "seed_demo",
+        "line": 17,
+        "signature": ""
+      },
+      {
+        "name": "check",
+        "line": 24,
+        "signature": ""
+      },
+      {
+        "name": "run",
+        "line": 41,
+        "signature": ""
+      },
+      {
+        "name": "main",
+        "line": 48,
+        "signature": ""
+      }
+    ]
+  },
+  "tenderproof/__init__.py": {
+    "imports": [],
+    "definitions": []
+  },
+  "tenderproof/config.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "pathlib",
+        "names": [
+          "Path"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "ensure_directories",
+        "line": 29,
+        "signature": ""
+      },
+      {
+        "name": "project_path",
+        "line": 34,
+        "signature": "*parts: str"
+      }
+    ]
+  },
+  "tenderproof/constants.py": {
+    "imports": [],
+    "definitions": []
+  },
+  "tenderproof/db.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "os"
+      },
+      {
+        "line": 2,
+        "module": "contextlib",
+        "names": [
+          "contextmanager"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "pathlib",
+        "names": [
+          "Path"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "sqlalchemy",
+        "names": [
+          "create_engine",
+          "inspect",
+          "text"
+        ]
+      },
+      {
+        "line": 6,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "DeclarativeBase",
+          "sessionmaker"
+        ]
+      },
+      {
+        "line": 8,
+        "module": ".config",
+        "names": [
+          "DB_PATH",
+          "ensure_directories"
+        ]
+      },
+      {
+        "line": 38,
+        "module": ".",
+        "names": [
+          "models"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "Base",
+        "line": 11,
+        "class": true
+      },
+      {
+        "name": "get_db_path",
+        "line": 18,
+        "signature": "db_path: str | Path | None=None"
+      },
+      {
+        "name": "get_engine",
+        "line": 23,
+        "signature": "db_path: str | Path | None=None"
+      },
+      {
+        "name": "init_db",
+        "line": 37,
+        "signature": "db_path: str | Path | None=None"
+      },
+      {
+        "name": "make_session",
+        "line": 52,
+        "signature": "db_path: str | Path | None=None"
+      },
+      {
+        "name": "get_session",
+        "line": 57,
+        "signature": "db_path: str | Path | None=None"
+      }
+    ]
+  },
+  "tenderproof/models.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "datetime",
+        "names": [
+          "UTC",
+          "datetime"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "sqlalchemy",
+        "names": [
+          "Boolean",
+          "DateTime",
+          "Float",
+          "ForeignKey",
+          "Integer",
+          "String",
+          "Text",
+          "UniqueConstraint"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "Mapped",
+          "mapped_column"
+        ]
+      },
+      {
+        "line": 6,
+        "module": ".db",
+        "names": [
+          "Base"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "now_utc",
+        "line": 9,
+        "signature": ""
+      },
+      {
+        "name": "Case",
+        "line": 13,
+        "class": true
+      },
+      {
+        "name": "Source",
+        "line": 38,
+        "class": true
+      },
+      {
+        "name": "NormalizedRequirement",
+        "line": 54,
+        "class": true
+      },
+      {
+        "name": "ComplianceLedger",
+        "line": 83,
+        "class": true
+      },
+      {
+        "name": "CVMatch",
+        "line": 105,
+        "class": true
+      },
+      {
+        "name": "BidScorecard",
+        "line": 130,
+        "class": true
+      },
+      {
+        "name": "BidRecommendation",
+        "line": 144,
+        "class": true
+      },
+      {
+        "name": "RiskRegister",
+        "line": 158,
+        "class": true
+      },
+      {
+        "name": "GapItem",
+        "line": 177,
+        "class": true
+      },
+      {
+        "name": "ClarificationQuestion",
+        "line": 196,
+        "class": true
+      },
+      {
+        "name": "ProposalSkeleton",
+        "line": 210,
+        "class": true
+      },
+      {
+        "name": "MethodologyOutline",
+        "line": 223,
+        "class": true
+      },
+      {
+        "name": "AuditEvent",
+        "line": 238,
+        "class": true
+      },
+      {
+        "name": "VerificationResult",
+        "line": 250,
+        "class": true
+      },
+      {
+        "name": "IPCapture",
+        "line": 265,
+        "class": true
+      },
+      {
+        "name": "OutputPackage",
+        "line": 284,
+        "class": true
+      },
+      {
+        "name": "EGPChecklistItem",
+        "line": 297,
+        "class": true
+      }
+    ]
+  },
+  "tenderproof/schemas.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "dataclasses",
+        "names": [
+          "dataclass",
+          "field"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "RuleResult",
+        "line": 5,
+        "class": true
+      },
+      {
+        "name": "VerificationSummary",
+        "line": 15,
+        "class": true
+      }
+    ]
+  },
+  "tenderproof/services/__init__.py": {
+    "imports": [],
+    "definitions": []
+  },
+  "tenderproof/services/audit_service.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "json"
+      },
+      {
+        "line": 2,
+        "module": "uuid",
+        "names": [
+          "uuid4"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "Session"
+        ]
+      },
+      {
+        "line": 6,
+        "module": "..models",
+        "names": [
+          "AuditEvent"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "log_event",
+        "line": 9,
+        "signature": "session: Session, case_id: str | None, event_type: str, message: str, payload: dict | None=None"
+      },
+      {
+        "name": "latest_events",
+        "line": 22,
+        "signature": "session: Session, limit: int=20, case_id: str | None=None"
+      }
+    ]
+  },
+  "tenderproof/services/bid_score_service.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "Session"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "..constants",
+        "names": [
+          "REQUIRED_BID_CATEGORIES"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "..models",
+        "names": [
+          "BidRecommendation",
+          "BidScorecard"
+        ]
+      },
+      {
+        "line": 5,
+        "module": ".audit_service",
+        "names": [
+          "log_event"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "ensure_scorecard_categories",
+        "line": 8,
+        "signature": "session: Session, case_id: str"
+      },
+      {
+        "name": "calculate_score",
+        "line": 22,
+        "signature": "rows: list[BidScorecard]"
+      },
+      {
+        "name": "recommendation_for_percentage",
+        "line": 29,
+        "signature": "percentage: float, missing_inputs: bool=False"
+      },
+      {
+        "name": "save_scores_and_recommendation",
+        "line": 41,
+        "signature": "session: Session, case_id: str, scores: dict[str, dict]"
+      },
+      {
+        "name": "latest_recommendation",
+        "line": 70,
+        "signature": "session: Session, case_id: str"
+      },
+      {
+        "name": "_rationale",
+        "line": 74,
+        "signature": "rec: str, percentage: float"
+      }
+    ]
+  },
+  "tenderproof/services/case_service.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "uuid",
+        "names": [
+          "uuid4"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "Session"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "..constants",
+        "names": [
+          "CASE_STATUSES",
+          "READINESS_LABELS"
+        ]
+      },
+      {
+        "line": 6,
+        "module": "..models",
+        "names": [
+          "Case"
+        ]
+      },
+      {
+        "line": 7,
+        "module": ".audit_service",
+        "names": [
+          "log_event"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "make_case_id",
+        "line": 10,
+        "signature": ""
+      },
+      {
+        "name": "create_case",
+        "line": 14,
+        "signature": "session: Session, **data"
+      },
+      {
+        "name": "list_cases",
+        "line": 40,
+        "signature": "session: Session"
+      },
+      {
+        "name": "get_case",
+        "line": 44,
+        "signature": "session: Session, case_id: str | None"
+      },
+      {
+        "name": "update_case",
+        "line": 50,
+        "signature": "session: Session, case_id: str, **data"
+      }
+    ]
+  },
+  "tenderproof/services/clarification_service.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "re"
+      },
+      {
+        "line": 2,
+        "module": "uuid",
+        "names": [
+          "uuid4"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "sqlalchemy.exc",
+        "names": [
+          "IntegrityError"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "Session"
+        ]
+      },
+      {
+        "line": 7,
+        "module": "..models",
+        "names": [
+          "ClarificationQuestion"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "_logical_text",
+        "line": 10,
+        "signature": "value: str | None"
+      },
+      {
+        "name": "add_clarification_question",
+        "line": 14,
+        "signature": "session: Session, case_id: str, *, question: str, related_requirement_id: str | None=None, why_it_matters: str='', priority: str='medium', status: str='open'"
+      }
+    ]
+  },
+  "tenderproof/services/compliance_service.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "uuid",
+        "names": [
+          "uuid4"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "Session"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "..constants",
+        "names": [
+          "COMPLIANCE_STATUSES"
+        ]
+      },
+      {
+        "line": 6,
+        "module": "..models",
+        "names": [
+          "ComplianceLedger",
+          "NormalizedRequirement"
+        ]
+      },
+      {
+        "line": 7,
+        "module": ".audit_service",
+        "names": [
+          "log_event"
+        ]
+      },
+      {
+        "line": 8,
+        "module": ".gap_service",
+        "names": [
+          "sync_gaps_from_compliance"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "auto_create_compliance_rows",
+        "line": 11,
+        "signature": "session: Session, case_id: str"
+      },
+      {
+        "name": "update_compliance_row",
+        "line": 45,
+        "signature": "session: Session, compliance_id: str, **data"
+      },
+      {
+        "name": "list_compliance",
+        "line": 73,
+        "signature": "session: Session, case_id: str"
+      }
+    ]
+  },
+  "tenderproof/services/cv_match_service.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "uuid",
+        "names": [
+          "uuid4"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "Session"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "..models",
+        "names": [
+          "CVMatch"
+        ]
+      },
+      {
+        "line": 6,
+        "module": ".audit_service",
+        "names": [
+          "log_event"
+        ]
+      },
+      {
+        "line": 7,
+        "module": ".gap_service",
+        "names": [
+          "sync_gaps_from_cv"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "safe_cv_suggestion",
+        "line": 10,
+        "signature": "cv_evidence: str, expert_role: str, requirement: str=''"
+      },
+      {
+        "name": "add_cv_match",
+        "line": 19,
+        "signature": "session: Session, case_id: str, **data"
+      },
+      {
+        "name": "list_cv_matches",
+        "line": 50,
+        "signature": "session: Session, case_id: str"
+      }
+    ]
+  },
+  "tenderproof/services/egp_service.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "uuid",
+        "names": [
+          "uuid4"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "Session"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "..models",
+        "names": [
+          "EGPChecklistItem"
+        ]
+      },
+      {
+        "line": 6,
+        "module": ".audit_service",
+        "names": [
+          "log_event"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "ensure_egp_checklist",
+        "line": 32,
+        "signature": "session: Session, case_id: str"
+      },
+      {
+        "name": "list_egp_checklist",
+        "line": 50,
+        "signature": "session: Session, case_id: str"
+      },
+      {
+        "name": "update_egp_checklist",
+        "line": 59,
+        "signature": "session: Session, case_id: str, updates: list[dict]"
+      }
+    ]
+  },
+  "tenderproof/services/export_service.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "datetime",
+        "names": [
+          "UTC",
+          "datetime"
+        ]
+      },
+      {
+        "line": 2,
+        "module": "pathlib",
+        "names": [
+          "Path"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "uuid",
+        "names": [
+          "uuid4"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "pandas"
+      },
+      {
+        "line": 6,
+        "module": "openpyxl.styles",
+        "names": [
+          "Font",
+          "Alignment"
+        ]
+      },
+      {
+        "line": 7,
+        "module": "openpyxl.utils",
+        "names": [
+          "get_column_letter"
+        ]
+      },
+      {
+        "line": 8,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "Session"
+        ]
+      },
+      {
+        "line": 10,
+        "module": "..config",
+        "names": [
+          "EXPORTS_DIR",
+          "ensure_directories"
+        ]
+      },
+      {
+        "line": 11,
+        "module": "..models",
+        "names": [
+          "AuditEvent",
+          "BidRecommendation",
+          "BidScorecard",
+          "Case",
+          "ClarificationQuestion",
+          "ComplianceLedger",
+          "CVMatch",
+          "EGPChecklistItem",
+          "GapItem",
+          "IPCapture",
+          "MethodologyOutline",
+          "NormalizedRequirement",
+          "OutputPackage",
+          "ProposalSkeleton",
+          "RiskRegister",
+          "Source",
+          "VerificationResult"
+        ]
+      },
+      {
+        "line": 30,
+        "module": ".audit_service",
+        "names": [
+          "log_event"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "export_case_to_excel",
+        "line": 56,
+        "signature": "session: Session, case_id: str"
+      },
+      {
+        "name": "_model_to_dict",
+        "line": 87,
+        "signature": "row"
+      },
+      {
+        "name": "_record_export",
+        "line": 95,
+        "signature": "session: Session, case_id: str, path: Path"
+      }
+    ]
+  },
+  "tenderproof/services/extraction_service.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "Session"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "..models",
+        "names": [
+          "NormalizedRequirement",
+          "Source"
+        ]
+      },
+      {
+        "line": 4,
+        "module": ".audit_service",
+        "names": [
+          "log_event"
+        ]
+      },
+      {
+        "line": 5,
+        "module": ".source_service",
+        "names": [
+          "get_source_text"
+        ]
+      },
+      {
+        "line": 6,
+        "module": ".tor_normalizer",
+        "names": [
+          "create_requirement_rows",
+          "detect_duplicate_match_key"
+        ]
+      },
+      {
+        "line": 28,
+        "module": ".tor_normalizer",
+        "names": [
+          "generate_canonical_anchor",
+          "generate_match_key",
+          "normalize_text"
+        ]
+      },
+      {
+        "line": 29,
+        "module": "uuid",
+        "names": [
+          "uuid4"
+        ]
+      },
+      {
+        "line": 69,
+        "module": ".tor_normalizer",
+        "names": [
+          "generate_match_key"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "create_requirements_from_source",
+        "line": 9,
+        "signature": "session: Session, case_id: str, source_id: str"
+      },
+      {
+        "name": "add_manual_requirement",
+        "line": 27,
+        "signature": "session: Session, case_id: str, **data"
+      },
+      {
+        "name": "list_requirements",
+        "line": 64,
+        "signature": "session: Session, case_id: str"
+      },
+      {
+        "name": "update_requirement",
+        "line": 68,
+        "signature": "session: Session, requirement_id: str, **data"
+      }
+    ]
+  },
+  "tenderproof/services/gap_service.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "uuid",
+        "names": [
+          "uuid4"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "Session"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "..models",
+        "names": [
+          "ComplianceLedger",
+          "CVMatch",
+          "GapItem",
+          "NormalizedRequirement"
+        ]
+      },
+      {
+        "line": 6,
+        "module": ".audit_service",
+        "names": [
+          "log_event"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "create_gap",
+        "line": 9,
+        "signature": "session: Session, case_id: str, gap_type: str, gap_description: str, required_action: str, related_requirement_id: str | None=None, related_compliance_id: str | None=None, related_cv_match_id: str | None=None, owner: str | None='', due_date: str | None=''"
+      },
+      {
+        "name": "sync_gaps_from_compliance",
+        "line": 49,
+        "signature": "session: Session, case_id: str"
+      },
+      {
+        "name": "sync_gaps_from_cv",
+        "line": 70,
+        "signature": "session: Session, case_id: str"
+      },
+      {
+        "name": "list_gaps",
+        "line": 88,
+        "signature": "session: Session, case_id: str"
+      }
+    ]
+  },
+  "tenderproof/services/ip_capture_service.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "pathlib",
+        "names": [
+          "Path"
+        ]
+      },
+      {
+        "line": 2,
+        "module": "uuid",
+        "names": [
+          "uuid4"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "pandas"
+      },
+      {
+        "line": 5,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "Session"
+        ]
+      },
+      {
+        "line": 7,
+        "module": "..config",
+        "names": [
+          "EXPORTS_DIR",
+          "ensure_directories"
+        ]
+      },
+      {
+        "line": 8,
+        "module": "..models",
+        "names": [
+          "IPCapture"
+        ]
+      },
+      {
+        "line": 9,
+        "module": ".audit_service",
+        "names": [
+          "log_event"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "add_ip_capture",
+        "line": 12,
+        "signature": "session: Session, case_id: str, **data"
+      },
+      {
+        "name": "list_ip",
+        "line": 33,
+        "signature": "session: Session, case_id: str"
+      },
+      {
+        "name": "export_ip_csv",
+        "line": 37,
+        "signature": "session: Session, case_id: str"
+      }
+    ]
+  },
+  "tenderproof/services/report_service.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "datetime",
+        "names": [
+          "UTC",
+          "datetime"
+        ]
+      },
+      {
+        "line": 2,
+        "module": "pathlib",
+        "names": [
+          "Path"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "uuid",
+        "names": [
+          "uuid4"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "docx",
+        "names": [
+          "Document"
+        ]
+      },
+      {
+        "line": 6,
+        "module": "docx.shared",
+        "names": [
+          "Pt"
+        ]
+      },
+      {
+        "line": 7,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "Session"
+        ]
+      },
+      {
+        "line": 9,
+        "module": "..config",
+        "names": [
+          "REPORTS_DIR",
+          "ensure_directories"
+        ]
+      },
+      {
+        "line": 10,
+        "module": "..constants",
+        "names": [
+          "PROHIBITED_REPORT_PHRASES"
+        ]
+      },
+      {
+        "line": 11,
+        "module": "..models",
+        "names": [
+          "BidRecommendation",
+          "Case",
+          "ClarificationQuestion",
+          "ComplianceLedger",
+          "CVMatch",
+          "EGPChecklistItem",
+          "GapItem",
+          "MethodologyOutline",
+          "NormalizedRequirement",
+          "OutputPackage",
+          "ProposalSkeleton",
+          "RiskRegister",
+          "Source"
+        ]
+      },
+      {
+        "line": 26,
+        "module": ".audit_service",
+        "names": [
+          "log_event"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "generate_markdown_report",
+        "line": 29,
+        "signature": "session: Session, case_id: str"
+      },
+      {
+        "name": "generate_docx_report",
+        "line": 42,
+        "signature": "session: Session, case_id: str"
+      },
+      {
+        "name": "build_report_markdown",
+        "line": 72,
+        "signature": "session: Session, case: Case"
+      },
+      {
+        "name": "_record_output",
+        "line": 193,
+        "signature": "session: Session, case_id: str, output_type: str, path: Path, readiness_label: str"
+      },
+      {
+        "name": "_remove_prohibited_phrases",
+        "line": 214,
+        "signature": "text: str"
+      }
+    ]
+  },
+  "tenderproof/services/risk_service.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "uuid",
+        "names": [
+          "uuid4"
+        ]
+      },
+      {
+        "line": 2,
+        "module": "re"
+      },
+      {
+        "line": 4,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "Session"
+        ]
+      },
+      {
+        "line": 6,
+        "module": "..models",
+        "names": [
+          "GapItem",
+          "RiskRegister"
+        ]
+      },
+      {
+        "line": 7,
+        "module": ".audit_service",
+        "names": [
+          "log_event"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "add_risk",
+        "line": 10,
+        "signature": "session: Session, case_id: str, **data"
+      },
+      {
+        "name": "auto_generate_risks_from_gaps",
+        "line": 30,
+        "signature": "session: Session, case_id: str"
+      },
+      {
+        "name": "list_risks",
+        "line": 61,
+        "signature": "session: Session, case_id: str"
+      }
+    ]
+  },
+  "tenderproof/services/sample_data_service.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "pathlib",
+        "names": [
+          "Path"
+        ]
+      },
+      {
+        "line": 2,
+        "module": "sqlalchemy.exc",
+        "names": [
+          "IntegrityError"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "pandas"
+      },
+      {
+        "line": 5,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "Session"
+        ]
+      },
+      {
+        "line": 7,
+        "module": "..config",
+        "names": [
+          "SEED_DIR",
+          "ensure_directories"
+        ]
+      },
+      {
+        "line": 8,
+        "module": "..constants",
+        "names": [
+          "REQUIRED_BID_CATEGORIES"
+        ]
+      },
+      {
+        "line": 9,
+        "module": "..models",
+        "names": [
+          "Case",
+          "ComplianceLedger",
+          "MethodologyOutline",
+          "ProposalSkeleton"
+        ]
+      },
+      {
+        "line": 10,
+        "module": ".bid_score_service",
+        "names": [
+          "save_scores_and_recommendation"
+        ]
+      },
+      {
+        "line": 11,
+        "module": ".case_service",
+        "names": [
+          "create_case"
+        ]
+      },
+      {
+        "line": 12,
+        "module": ".clarification_service",
+        "names": [
+          "add_clarification_question"
+        ]
+      },
+      {
+        "line": 13,
+        "module": ".compliance_service",
+        "names": [
+          "auto_create_compliance_rows",
+          "update_compliance_row"
+        ]
+      },
+      {
+        "line": 14,
+        "module": ".cv_match_service",
+        "names": [
+          "add_cv_match"
+        ]
+      },
+      {
+        "line": 15,
+        "module": ".extraction_service",
+        "names": [
+          "create_requirements_from_source"
+        ]
+      },
+      {
+        "line": 16,
+        "module": ".ip_capture_service",
+        "names": [
+          "add_ip_capture"
+        ]
+      },
+      {
+        "line": 17,
+        "module": ".risk_service",
+        "names": [
+          "auto_generate_risks_from_gaps"
+        ]
+      },
+      {
+        "line": 18,
+        "module": ".source_service",
+        "names": [
+          "register_manual_text"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "create_demo_case",
+        "line": 36,
+        "signature": "session: Session"
+      },
+      {
+        "name": "_build_demo_case",
+        "line": 62,
+        "signature": "session: Session"
+      },
+      {
+        "name": "create_seed_csvs",
+        "line": 127,
+        "signature": ""
+      }
+    ]
+  },
+  "tenderproof/services/source_service.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "pathlib",
+        "names": [
+          "Path"
+        ]
+      },
+      {
+        "line": 2,
+        "module": "uuid",
+        "names": [
+          "uuid4"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "docx",
+        "names": [
+          "Document"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "pypdf",
+        "names": [
+          "PdfReader"
+        ]
+      },
+      {
+        "line": 6,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "Session"
+        ]
+      },
+      {
+        "line": 8,
+        "module": "..config",
+        "names": [
+          "EXTRACTED_TEXT_DIR",
+          "UPLOADS_DIR",
+          "ensure_directories"
+        ]
+      },
+      {
+        "line": 9,
+        "module": "..models",
+        "names": [
+          "Source"
+        ]
+      },
+      {
+        "line": 10,
+        "module": ".audit_service",
+        "names": [
+          "log_event"
+        ]
+      },
+      {
+        "line": 11,
+        "module": ".tor_normalizer",
+        "names": [
+          "create_gap_for_failed_extraction",
+          "normalize_text"
+        ]
+      },
+      {
+        "line": 92,
+        "module": "numpy"
+      },
+      {
+        "line": 93,
+        "module": "pypdfium2"
+      },
+      {
+        "line": 94,
+        "module": "rapidocr",
+        "names": [
+          "RapidOCR"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "register_manual_text",
+        "line": 14,
+        "signature": "session: Session, case_id: str, text: str, filename: str='manual_tor.txt'"
+      },
+      {
+        "name": "save_uploaded_file",
+        "line": 36,
+        "signature": "session: Session, case_id: str, uploaded_file, source_category: str='ToR', progress_callback=None"
+      },
+      {
+        "name": "extract_text",
+        "line": 64,
+        "signature": "file_path: Path, progress_callback=None"
+      },
+      {
+        "name": "_ocr_pdf",
+        "line": 89,
+        "signature": "file_path: Path, progress_callback=None, max_pages: int=200"
+      },
+      {
+        "name": "get_source_text",
+        "line": 121,
+        "signature": "source: Source"
+      },
+      {
+        "name": "list_sources",
+        "line": 127,
+        "signature": "session: Session, case_id: str"
+      }
+    ]
+  },
+  "tenderproof/services/tor_normalizer.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "hashlib"
+      },
+      {
+        "line": 2,
+        "module": "re"
+      },
+      {
+        "line": 3,
+        "module": "uuid",
+        "names": [
+          "uuid4"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "Session"
+        ]
+      },
+      {
+        "line": 7,
+        "module": "..models",
+        "names": [
+          "GapItem",
+          "NormalizedRequirement"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "normalize_text",
+        "line": 10,
+        "signature": "text: str"
+      },
+      {
+        "name": "_hashable",
+        "line": 21,
+        "signature": "text: str"
+      },
+      {
+        "name": "split_atomic_requirements",
+        "line": 28,
+        "signature": "text: str"
+      },
+      {
+        "name": "generate_match_key",
+        "line": 50,
+        "signature": "case_id: str, category: str, section_ref: str, requirement_text: str"
+      },
+      {
+        "name": "generate_canonical_anchor",
+        "line": 62,
+        "signature": "source_id: str, section_ref: str, row_number: int"
+      },
+      {
+        "name": "detect_duplicate_match_key",
+        "line": 68,
+        "signature": "session: Session, case_id: str, match_key: str"
+      },
+      {
+        "name": "create_requirement_rows",
+        "line": 77,
+        "signature": "case_id: str, source_id: str, extracted_text: str"
+      },
+      {
+        "name": "create_gap_for_failed_extraction",
+        "line": 114,
+        "signature": "session: Session, case_id: str, source_id: str, reason: str"
+      },
+      {
+        "name": "_guess_category",
+        "line": 131,
+        "signature": "text: str"
+      },
+      {
+        "name": "_guess_evidence_needed",
+        "line": 144,
+        "signature": "text: str"
+      },
+      {
+        "name": "_guess_proposal_section",
+        "line": 155,
+        "signature": "text: str"
+      }
+    ]
+  },
+  "tenderproof/services/verification_service.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "pathlib",
+        "names": [
+          "Path"
+        ]
+      },
+      {
+        "line": 2,
+        "module": "uuid",
+        "names": [
+          "uuid4"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "docx",
+        "names": [
+          "Document"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "Session"
+        ]
+      },
+      {
+        "line": 7,
+        "module": "..constants",
+        "names": [
+          "PROHIBITED_REPORT_PHRASES",
+          "REQUIRED_BID_CATEGORIES"
+        ]
+      },
+      {
+        "line": 8,
+        "module": "..models",
+        "names": [
+          "BidRecommendation",
+          "BidScorecard",
+          "Case",
+          "ComplianceLedger",
+          "CVMatch",
+          "GapItem",
+          "NormalizedRequirement",
+          "OutputPackage",
+          "RiskRegister",
+          "Source",
+          "VerificationResult"
+        ]
+      },
+      {
+        "line": 21,
+        "module": "..schemas",
+        "names": [
+          "RuleResult",
+          "VerificationSummary"
+        ]
+      },
+      {
+        "line": 22,
+        "module": ".audit_service",
+        "names": [
+          "log_event"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "run_verification",
+        "line": 25,
+        "signature": "session: Session, case_id: str"
+      },
+      {
+        "name": "_add",
+        "line": 96,
+        "signature": "results: list[RuleResult], code: str, name: str, passed: bool, severity: str, message: str"
+      },
+      {
+        "name": "_store_and_return",
+        "line": 108,
+        "signature": "session: Session, case_id: str, case: Case | None, results: list[RuleResult], readiness: str | None=None"
+      },
+      {
+        "name": "_compute_readiness",
+        "line": 136,
+        "signature": "results: list[RuleResult], has_report: bool, has_excel: bool"
+      },
+      {
+        "name": "_scan_outputs_for_prohibited_phrases",
+        "line": 150,
+        "signature": "outputs: list[OutputPackage]"
+      }
+    ]
+  },
+  "tenderproof/services/workflow_service.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "pathlib",
+        "names": [
+          "Path"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "sqlalchemy.orm",
+        "names": [
+          "Session"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "..models",
+        "names": [
+          "BidRecommendation",
+          "Case",
+          "ComplianceLedger",
+          "CVMatch",
+          "EGPChecklistItem",
+          "MethodologyOutline",
+          "NormalizedRequirement",
+          "OutputPackage",
+          "RiskRegister",
+          "Source",
+          "VerificationResult"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "build_workflow_steps",
+        "line": 20,
+        "signature": "session: Session, case: Case"
+      },
+      {
+        "name": "_step",
+        "line": 55,
+        "signature": "title: str, complete: bool, page: str, action: str"
+      }
+    ]
+  },
+  "tenderproof/ui/__init__.py": {
+    "imports": [],
+    "definitions": []
+  },
+  "tenderproof/ui/bid_scorecard.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "streamlit"
+      },
+      {
+        "line": 3,
+        "module": "..services.bid_score_service",
+        "names": [
+          "ensure_scorecard_categories",
+          "latest_recommendation",
+          "save_scores_and_recommendation"
+        ]
+      },
+      {
+        "line": 4,
+        "module": ".helpers",
+        "names": [
+          "require_case",
+          "show_table"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "render",
+        "line": 7,
+        "signature": "session"
+      }
+    ]
+  },
+  "tenderproof/ui/cases.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "streamlit"
+      },
+      {
+        "line": 3,
+        "module": "..constants",
+        "names": [
+          "CASE_STATUSES"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "..services.case_service",
+        "names": [
+          "create_case",
+          "update_case"
+        ]
+      },
+      {
+        "line": 5,
+        "module": ".helpers",
+        "names": [
+          "case_selector",
+          "current_case",
+          "rows_to_df",
+          "set_active_case"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "render",
+        "line": 8,
+        "signature": "session"
+      }
+    ]
+  },
+  "tenderproof/ui/compliance.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "streamlit"
+      },
+      {
+        "line": 3,
+        "module": "..constants",
+        "names": [
+          "COMPLIANCE_STATUSES"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "..services.compliance_service",
+        "names": [
+          "auto_create_compliance_rows",
+          "list_compliance",
+          "update_compliance_row"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "..services.gap_service",
+        "names": [
+          "sync_gaps_from_compliance"
+        ]
+      },
+      {
+        "line": 6,
+        "module": ".helpers",
+        "names": [
+          "require_case",
+          "show_table"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "render",
+        "line": 9,
+        "signature": "session"
+      }
+    ]
+  },
+  "tenderproof/ui/cv_matcher.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "streamlit"
+      },
+      {
+        "line": 3,
+        "module": "..services.cv_match_service",
+        "names": [
+          "add_cv_match",
+          "list_cv_matches"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "..services.extraction_service",
+        "names": [
+          "list_requirements"
+        ]
+      },
+      {
+        "line": 5,
+        "module": ".helpers",
+        "names": [
+          "require_case",
+          "show_table"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "render",
+        "line": 8,
+        "signature": "session"
+      }
+    ]
+  },
+  "tenderproof/ui/egp_readiness.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "streamlit"
+      },
+      {
+        "line": 2,
+        "module": "pathlib",
+        "names": [
+          "Path"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "..config",
+        "names": [
+          "REFERENCE_DIR"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "..services.egp_service",
+        "names": [
+          "ensure_egp_checklist",
+          "update_egp_checklist"
+        ]
+      },
+      {
+        "line": 6,
+        "module": ".helpers",
+        "names": [
+          "require_case"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "render",
+        "line": 18,
+        "signature": "session"
+      }
+    ]
+  },
+  "tenderproof/ui/exports.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "streamlit"
+      },
+      {
+        "line": 3,
+        "module": "..models",
+        "names": [
+          "OutputPackage"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "..services.export_service",
+        "names": [
+          "REQUIRED_SHEETS",
+          "export_case_to_excel"
+        ]
+      },
+      {
+        "line": 5,
+        "module": ".helpers",
+        "names": [
+          "require_case",
+          "show_table"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "render",
+        "line": 8,
+        "signature": "session"
+      }
+    ]
+  },
+  "tenderproof/ui/helpers.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "pandas"
+      },
+      {
+        "line": 2,
+        "module": "streamlit"
+      },
+      {
+        "line": 4,
+        "module": "..models",
+        "names": [
+          "Case"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "..services.case_service",
+        "names": [
+          "get_case",
+          "list_cases"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "active_case_id",
+        "line": 8,
+        "signature": ""
+      },
+      {
+        "name": "set_active_case",
+        "line": 12,
+        "signature": "case_id: str"
+      },
+      {
+        "name": "current_case",
+        "line": 16,
+        "signature": "session"
+      },
+      {
+        "name": "require_case",
+        "line": 20,
+        "signature": "session"
+      },
+      {
+        "name": "case_selector",
+        "line": 29,
+        "signature": "session"
+      },
+      {
+        "name": "_case_label",
+        "line": 42,
+        "signature": "cases, case_id: str"
+      },
+      {
+        "name": "rows_to_df",
+        "line": 49,
+        "signature": "rows"
+      },
+      {
+        "name": "show_table",
+        "line": 56,
+        "signature": "rows, empty_message: str='No rows yet.'"
+      }
+    ]
+  },
+  "tenderproof/ui/home.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "streamlit"
+      },
+      {
+        "line": 3,
+        "module": "..models",
+        "names": [
+          "AuditEvent",
+          "Case",
+          "GapItem",
+          "Source"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "..services.sample_data_service",
+        "names": [
+          "create_demo_case"
+        ]
+      },
+      {
+        "line": 5,
+        "module": ".helpers",
+        "names": [
+          "case_selector",
+          "rows_to_df",
+          "set_active_case"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "render",
+        "line": 8,
+        "signature": "session"
+      }
+    ]
+  },
+  "tenderproof/ui/intake.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "streamlit"
+      },
+      {
+        "line": 3,
+        "module": "..services.source_service",
+        "names": [
+          "get_source_text",
+          "list_sources",
+          "register_manual_text",
+          "save_uploaded_file"
+        ]
+      },
+      {
+        "line": 4,
+        "module": ".helpers",
+        "names": [
+          "require_case",
+          "show_table"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "render",
+        "line": 7,
+        "signature": "session"
+      }
+    ]
+  },
+  "tenderproof/ui/ip_capture.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "streamlit"
+      },
+      {
+        "line": 3,
+        "module": "..services.ip_capture_service",
+        "names": [
+          "add_ip_capture",
+          "export_ip_csv",
+          "list_ip"
+        ]
+      },
+      {
+        "line": 4,
+        "module": ".helpers",
+        "names": [
+          "require_case",
+          "show_table"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "render",
+        "line": 7,
+        "signature": "session"
+      }
+    ]
+  },
+  "tenderproof/ui/proposal_methodology.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "streamlit"
+      },
+      {
+        "line": 3,
+        "module": "..models",
+        "names": [
+          "MethodologyOutline",
+          "ProposalSkeleton"
+        ]
+      },
+      {
+        "line": 4,
+        "module": ".helpers",
+        "names": [
+          "require_case",
+          "show_table"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "render",
+        "line": 7,
+        "signature": "session"
+      }
+    ]
+  },
+  "tenderproof/ui/report_generator.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "pathlib",
+        "names": [
+          "Path"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "streamlit"
+      },
+      {
+        "line": 5,
+        "module": "..models",
+        "names": [
+          "OutputPackage"
+        ]
+      },
+      {
+        "line": 6,
+        "module": "..services.report_service",
+        "names": [
+          "generate_docx_report",
+          "generate_markdown_report"
+        ]
+      },
+      {
+        "line": 7,
+        "module": ".helpers",
+        "names": [
+          "require_case",
+          "show_table"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "render",
+        "line": 10,
+        "signature": "session"
+      }
+    ]
+  },
+  "tenderproof/ui/risks_gaps.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "streamlit"
+      },
+      {
+        "line": 3,
+        "module": "..services.gap_service",
+        "names": [
+          "list_gaps",
+          "sync_gaps_from_compliance",
+          "sync_gaps_from_cv"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "..services.risk_service",
+        "names": [
+          "add_risk",
+          "auto_generate_risks_from_gaps",
+          "list_risks"
+        ]
+      },
+      {
+        "line": 5,
+        "module": ".helpers",
+        "names": [
+          "require_case",
+          "show_table"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "render",
+        "line": 8,
+        "signature": "session"
+      }
+    ]
+  },
+  "tenderproof/ui/settings.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "streamlit"
+      },
+      {
+        "line": 3,
+        "module": "..config",
+        "names": [
+          "DB_PATH",
+          "EXTRACTED_TEXT_DIR",
+          "EXPORTS_DIR",
+          "REPORTS_DIR",
+          "STORAGE_DIR",
+          "UPLOADS_DIR",
+          "ensure_directories"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "..db",
+        "names": [
+          "init_db"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "..services.sample_data_service",
+        "names": [
+          "create_demo_case",
+          "create_seed_csvs"
+        ]
+      },
+      {
+        "line": 6,
+        "module": ".helpers",
+        "names": [
+          "set_active_case"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "render",
+        "line": 9,
+        "signature": "session"
+      }
+    ]
+  },
+  "tenderproof/ui/tor_extraction.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "streamlit"
+      },
+      {
+        "line": 3,
+        "module": "..models",
+        "names": [
+          "NormalizedRequirement"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "..services.extraction_service",
+        "names": [
+          "add_manual_requirement",
+          "create_requirements_from_source",
+          "list_requirements",
+          "update_requirement"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "..services.source_service",
+        "names": [
+          "list_sources"
+        ]
+      },
+      {
+        "line": 6,
+        "module": ".helpers",
+        "names": [
+          "require_case",
+          "show_table"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "render",
+        "line": 9,
+        "signature": "session"
+      }
+    ]
+  },
+  "tenderproof/ui/verification.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "streamlit"
+      },
+      {
+        "line": 3,
+        "module": "..models",
+        "names": [
+          "AuditEvent",
+          "VerificationResult"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "..services.verification_service",
+        "names": [
+          "run_verification"
+        ]
+      },
+      {
+        "line": 5,
+        "module": ".helpers",
+        "names": [
+          "require_case",
+          "rows_to_df",
+          "show_table"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "render",
+        "line": 8,
+        "signature": "session"
+      }
+    ]
+  },
+  "tenderproof/ui/workflow_optimizer.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "streamlit"
+      },
+      {
+        "line": 3,
+        "module": "..services.workflow_service",
+        "names": [
+          "build_workflow_steps"
+        ]
+      },
+      {
+        "line": 4,
+        "module": ".helpers",
+        "names": [
+          "require_case"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "render",
+        "line": 7,
+        "signature": "session"
+      }
+    ]
+  },
+  "tests/conftest.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "sys"
+      },
+      {
+        "line": 2,
+        "module": "pathlib",
+        "names": [
+          "Path"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "pytest"
+      },
+      {
+        "line": 10,
+        "module": "tenderproof.db",
+        "names": [
+          "Base",
+          "get_engine",
+          "make_session"
+        ]
+      },
+      {
+        "line": 11,
+        "module": "tenderproof",
+        "names": [
+          "models"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "session",
+        "line": 15,
+        "signature": "tmp_path"
+      }
+    ]
+  },
+  "tests/test_bid_score.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "tenderproof.services.bid_score_service",
+        "names": [
+          "calculate_score",
+          "recommendation_for_percentage"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "Row",
+        "line": 4,
+        "class": true
+      },
+      {
+        "name": "test_total_score_calculation_works",
+        "line": 10,
+        "signature": ""
+      },
+      {
+        "name": "test_recommendation_thresholds_work",
+        "line": 17,
+        "signature": ""
+      }
+    ]
+  },
+  "tests/test_db_migration.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "sqlite3"
+      },
+      {
+        "line": 3,
+        "module": "sqlalchemy",
+        "names": [
+          "inspect"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "tenderproof.db",
+        "names": [
+          "get_engine",
+          "init_db"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "test_methodology_fields_are_added_without_erasing_existing_data",
+        "line": 8,
+        "signature": "tmp_path"
+      }
+    ]
+  },
+  "tests/test_demo_idempotency.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "sqlalchemy",
+        "names": [
+          "func",
+          "select"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "tenderproof.db",
+        "names": [
+          "Base"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "tenderproof.models",
+        "names": [
+          "ClarificationQuestion",
+          "RiskRegister"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "tenderproof.services.clarification_service",
+        "names": [
+          "add_clarification_question"
+        ]
+      },
+      {
+        "line": 6,
+        "module": "tenderproof.services.risk_service",
+        "names": [
+          "auto_generate_risks_from_gaps"
+        ]
+      },
+      {
+        "line": 7,
+        "module": "tenderproof.services.sample_data_service",
+        "names": [
+          "create_demo_case"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "_row_counts",
+        "line": 10,
+        "signature": "session"
+      },
+      {
+        "name": "test_two_demo_runs_do_not_duplicate_records",
+        "line": 17,
+        "signature": "session"
+      },
+      {
+        "name": "test_logical_clarification_and_risk_generation_are_idempotent",
+        "line": 30,
+        "signature": "session"
+      }
+    ]
+  },
+  "tests/test_egp_readiness.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "tenderproof.services.egp_service",
+        "names": [
+          "ensure_egp_checklist",
+          "update_egp_checklist"
+        ]
+      },
+      {
+        "line": 2,
+        "module": "tenderproof.services.workflow_service",
+        "names": [
+          "build_workflow_steps"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "tenderproof.services.case_service",
+        "names": [
+          "create_case"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "test_egp_checklist_seeding_is_idempotent",
+        "line": 6,
+        "signature": "session"
+      },
+      {
+        "name": "test_checklist_updates_persist_and_surface_in_workflow",
+        "line": 15,
+        "signature": "session"
+      }
+    ]
+  },
+  "tests/test_excel_export.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "openpyxl",
+        "names": [
+          "load_workbook"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "tenderproof.services.export_service",
+        "names": [
+          "REQUIRED_SHEETS",
+          "export_case_to_excel"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "tenderproof.services.sample_data_service",
+        "names": [
+          "create_demo_case"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "tenderproof.services.egp_service",
+        "names": [
+          "ensure_egp_checklist"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "test_workbook_is_created",
+        "line": 8,
+        "signature": "session"
+      },
+      {
+        "name": "test_all_required_sheets_exist",
+        "line": 14,
+        "signature": "session"
+      }
+    ]
+  },
+  "tests/test_gap_creation.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "tenderproof.models",
+        "names": [
+          "ComplianceLedger",
+          "NormalizedRequirement"
+        ]
+      },
+      {
+        "line": 2,
+        "module": "tenderproof.services.compliance_service",
+        "names": [
+          "update_compliance_row"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "tenderproof.services.gap_service",
+        "names": [
+          "sync_gaps_from_compliance"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "tenderproof.services.tor_normalizer",
+        "names": [
+          "generate_canonical_anchor",
+          "generate_match_key"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "test_mandatory_requirement_without_evidence_creates_gapitem",
+        "line": 7,
+        "signature": "session"
+      },
+      {
+        "name": "test_pending_input_row_creates_gapitem",
+        "line": 34,
+        "signature": "session"
+      }
+    ]
+  },
+  "tests/test_match_key.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "tenderproof.services.tor_normalizer",
+        "names": [
+          "generate_match_key"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "test_same_input_creates_same_match_key",
+        "line": 4,
+        "signature": ""
+      },
+      {
+        "name": "test_different_requirement_creates_different_match_key",
+        "line": 10,
+        "signature": ""
+      },
+      {
+        "name": "test_whitespace_changes_do_not_change_match_key",
+        "line": 16,
+        "signature": ""
+      }
+    ]
+  },
+  "tests/test_report_generation.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "pathlib",
+        "names": [
+          "Path"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "docx",
+        "names": [
+          "Document"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "tenderproof.services.report_service",
+        "names": [
+          "generate_docx_report",
+          "generate_markdown_report"
+        ]
+      },
+      {
+        "line": 6,
+        "module": "tenderproof.services.sample_data_service",
+        "names": [
+          "create_demo_case"
+        ]
+      },
+      {
+        "line": 7,
+        "module": "tenderproof.models",
+        "names": [
+          "MethodologyOutline"
+        ]
+      },
+      {
+        "line": 8,
+        "module": "tenderproof.services.egp_service",
+        "names": [
+          "ensure_egp_checklist"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "test_markdown_report_is_created",
+        "line": 11,
+        "signature": "session"
+      },
+      {
+        "name": "test_docx_report_is_created",
+        "line": 19,
+        "signature": "session"
+      },
+      {
+        "name": "test_readiness_label_appears",
+        "line": 27,
+        "signature": "session"
+      },
+      {
+        "name": "test_prohibited_phrases_do_not_appear",
+        "line": 33,
+        "signature": "session"
+      },
+      {
+        "name": "test_report_includes_methodology_conditions_and_analysis_approach",
+        "line": 41,
+        "signature": "session"
+      },
+      {
+        "name": "test_report_includes_egp_readiness_when_activated",
+        "line": 56,
+        "signature": "session"
+      }
+    ]
+  },
+  "tests/test_source_ocr.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "types",
+        "names": [
+          "SimpleNamespace"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "PIL",
+        "names": [
+          "Image"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "tenderproof.services",
+        "names": [
+          "source_service"
+        ]
+      },
+      {
+        "line": 27,
+        "module": "pypdfium2"
+      },
+      {
+        "line": 28,
+        "module": "rapidocr"
+      }
+    ],
+    "definitions": [
+      {
+        "name": "test_scanned_pdf_ocr_processes_beyond_legacy_40_page_cap",
+        "line": 8,
+        "signature": "tmp_path, monkeypatch"
+      }
+    ]
+  },
+  "tests/test_verification.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "pathlib",
+        "names": [
+          "Path"
+        ]
+      },
+      {
+        "line": 3,
+        "module": "tenderproof.models",
+        "names": [
+          "Case",
+          "OutputPackage"
+        ]
+      },
+      {
+        "line": 4,
+        "module": "tenderproof.services.compliance_service",
+        "names": [
+          "auto_create_compliance_rows"
+        ]
+      },
+      {
+        "line": 5,
+        "module": "tenderproof.services.extraction_service",
+        "names": [
+          "create_requirements_from_source"
+        ]
+      },
+      {
+        "line": 6,
+        "module": "tenderproof.services.source_service",
+        "names": [
+          "register_manual_text"
+        ]
+      },
+      {
+        "line": 7,
+        "module": "tenderproof.services.verification_service",
+        "names": [
+          "run_verification"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "test_missing_tor_source_fails",
+        "line": 10,
+        "signature": "session"
+      },
+      {
+        "name": "test_missing_requirements_fails",
+        "line": 17,
+        "signature": "session"
+      },
+      {
+        "name": "test_missing_bid_recommendation_blocks_client_ready",
+        "line": 25,
+        "signature": "session"
+      },
+      {
+        "name": "test_report_with_prohibited_language_fails_safe_001",
+        "line": 35,
+        "signature": "session, tmp_path"
+      }
+    ]
+  },
+  "tests/test_workflow_optimizer.py": {
+    "imports": [
+      {
+        "line": 1,
+        "module": "tenderproof.services.case_service",
+        "names": [
+          "create_case"
+        ]
+      },
+      {
+        "line": 2,
+        "module": "tenderproof.services.workflow_service",
+        "names": [
+          "build_workflow_steps"
+        ]
+      },
+      {
+        "line": 14,
+        "module": "tenderproof.services.source_service",
+        "names": [
+          "register_manual_text"
+        ]
+      }
+    ],
+    "definitions": [
+      {
+        "name": "test_workflow_optimizer_starts_with_source_intake",
+        "line": 5,
+        "signature": "session"
+      },
+      {
+        "name": "test_workflow_optimizer_detects_existing_source",
+        "line": 13,
+        "signature": "session"
+      }
+    ]
+  }
+}
