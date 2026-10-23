@@ -33,3 +33,19 @@
 !.env.example
 **/credentials.json
 **/*secret*.json
+
+# TenderOS v1.4 private source specifications stay on the owner's computer
+/HNSK_*.docx
+/TenderOS_*.docx
+/TenderOS_*.zip
+/TenderOS_v1.4_PRD_TRD_Documentation_Pack/
+/extracted_bangla.txt
+**/private-engine/
+**/knowledge-engine/
+**/model-weights/
+**/embeddings/
+**/node_modules/
+**/.next/
+**/tsconfig.tsbuildinfo
+**/*.log
+/.tenderos-local/

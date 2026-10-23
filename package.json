@@ -1,0 +1,15 @@
+{
+  "name": "tenderos-platform",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": ["apps/web"],
+  "scripts": {
+    "dev": "npm run dev --workspace apps/web",
+    "build": "npm run build --workspace apps/web",
+    "start": "npm run start --workspace apps/web",
+    "typecheck": "npm run typecheck --workspace apps/web",
+    "setup:local": "node tools/setup-local.mjs",
+    "publish:check": "node tools/check-public-boundary.mjs"
+  },
+  "engines": { "node": ">=24.16.0" }
+}

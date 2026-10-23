@@ -1,0 +1,12 @@
+SYNTHETIC CV — FICTIONAL PERSON AND EXPERIENCE
+Candidate: Example Candidate
+Role considered: Team Leader, Community Services Review
+
+The candidate states a postgraduate degree in Development Studies. No degree certificate is supplied.
+Assignment A: January 2022 to December 2023, research coordinator.
+Assignment B: July 2023 to June 2024, programme coordinator.
+Assignment C: January 2025 to December 2025, deputy team leader.
+Assignments A and B overlap. Adding their durations without resolving overlap would double count experience.
+No employer confirmation, work completion certificate or independent verification is supplied.
+
+This fictional CV is a demonstration input only. No actual person has been assessed, ranked or selected.

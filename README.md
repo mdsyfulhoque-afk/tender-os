@@ -2,6 +2,29 @@
 
 A local Python/Streamlit workspace for evidence-based tender and proposal diagnostics. Each tender is a case connecting source documents, requirements, compliance, expert evidence, bid decisions, risks, methodology, verification and outputs.
 
+## New TenderOS portal — owner workstation development
+
+The additive v1.4 development platform is in `apps/web/`. It connects customer and internal workflows to a private Knowledge Engine that stays **outside this Git repository and outside OneDrive** on the owner's computer. The public repository contains the portal, durable broker and public transport contracts. No private engine implementation, rules, prompts, model weights, keys or new customer runtime data are published.
+
+This edition is **PILOT_PC**, with preliminary diagnostics and draft managed work. Payments, public hosting and formal final release are disabled. It is not a paid production service. [Implementation status and remaining gates](docs/TenderOS_v14_Development_Status.md).
+
+Requirements: Node 24.16 or later; the private node is separately provisioned by its owner. On Windows:
+
+```powershell
+npm install
+npm run setup:local
+npm run build
+.\Start-TenderOS.ps1
+```
+
+Open **http://127.0.0.1:3414**. Owner login details are generated locally in `%LOCALAPPDATA%\TenderOS\public-platform\OWNER_LOGIN.txt`; the password is never committed. Customer registration grants no internal staff rights. The original Streamlit app remains separate.
+
+For source editing, use `.\Start-TenderOS.ps1 -Development`. Stop this checkout's web/node processes using `.\Stop-TenderOS.ps1`. Startup binds to loopback only. The private engine source/runtime is under `%USERPROFILE%\TenderOS-Private\private-engine`, never downloaded from this repository. If it is not provisioned, the public portal reports it offline. Public API/crypto interoperability is described in [the development contract](packages/contracts/README.md).
+
+Create a case, verify the local node fingerprint, confirm processing permission, add encrypted documents and request a private analysis. The fictional example documents are for learning the workflow; they are not approved benchmarks or real credentials. Keep the initiating browser profile: it holds non-extractable recipient keys for encrypted reports.
+
+Before publishing changes, stage public files explicitly and run `npm run publish:check`. Uploaded engineering source documents, private material, runtime databases, dependencies and generated build output are excluded by `.gitignore`.
+
 ## Start here
 
 - [Architecture explained in Bangla-English](docs/TenderOS_Architecture_Bangla_English_2026-10-22.md)
